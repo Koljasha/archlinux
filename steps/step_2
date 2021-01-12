@@ -49,7 +49,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 echo "####################"
 echo "Please do this:"
 echo ">exit"
-echo ">umount -R /mnt"
 echo ">reboot"
 echo "####################"
 
