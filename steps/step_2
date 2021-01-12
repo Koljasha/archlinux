@@ -39,8 +39,8 @@ echo "#### Install GRUB this ####"
 
 echo "####################"
 echo "Please do this:"
-echo "exit"
-echo "umount -R /mnt"
-echo "reboot"
+echo ">exit"
+echo ">umount -R /mnt"
+echo ">reboot"
 echo "####################"
 
