@@ -12,7 +12,7 @@ timedatectl status
 echo "####################"
 echo "All ok? Every key is ok; ctrl-c is abort"
 echo "####################"
-read -n1 -p>; echo
+read -n1 -p">"; echo
 
 lsblk; echo
 
@@ -24,7 +24,7 @@ echo "3) manual mount"
 echo "other key - exit"
 echo "####################"
 
-read -n1 -p> $table; echo
+read -n1 -p">" table; echo
 if [[ $table == "1" ]]; then
     echo "111111"
 elif [[ $table == "2" ]]; then
