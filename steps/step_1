@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 loadkeys ru
 
@@ -65,7 +65,7 @@ elif [[ $table == "3" ]]; then
     echo "Please mount root in /mnt"
     echo "after in shell do: # exit"
     echo "####################"
-    /urs/bin/env zsh
+    bash
 
     table="NO"
 
