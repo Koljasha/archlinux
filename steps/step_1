@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+loadkeys ru
+
+ls /sys/firmware/efi/efivars
+ip link
+ping -c3 archlinux.org
+timedatectl set-ntp true
+timedatectl status
+
+echo "All ok? ctrl-c to abort"
+read -n1
+echo '\n'
+
+lsblk
+
+

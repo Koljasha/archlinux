@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./steps/step_1
+
