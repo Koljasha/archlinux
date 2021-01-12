@@ -6,12 +6,32 @@ ls /sys/firmware/efi/efivars
 ip link
 ping -c3 archlinux.org
 timedatectl set-ntp true
-sleep 3; echo " "
+sleep 3; echo
 timedatectl status
 
-echo "All ok? ctrl-c to abort"
-read -n1
-echo '\n'
+echo "####################"
+echo "All ok? (ctrl-c to abort)"
+echo "####################"
+read -n1; echo
 
-lsblk
+lsblk; echo
+
+echo "####################"
+echo "Create table /dev/sda and mount it"
+echo "1) new GPT table: /dev/sda1 - efi; /dev/sda2 - swap; /dev/sda3 - root"
+echo "2) new MBR table: /dev/sda1 - swap; /dev/sda3 - root"
+echo "3) manual mount"
+echo "other key - exit"
+echo "####################"
+
+read -n1 $table; echo
+if [[ $table == 1 ]]; then
+    echo "111111"
+elif [[ $table == 2 ]]; then
+    echo "22222"
+elif [[ $table == 3 ]]; then
+    echo "33333"
+else
+    exit 1
+fi
 
