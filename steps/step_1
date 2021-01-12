@@ -101,7 +101,15 @@ else
     exit 1
 fi
 
-packages="base-devel linux linux-firmware vim networkmanager $packages_table $packages_microcode"
-echo $packages
+packages="base base-devel linux linux-firmware vim networkmanager $packages_table $packages_microcode"
+pacstrap /mnt $packages
+
+genfstab -U /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+
+echo "####################"
+echo "All ok? Every key is ok; ctrl-c is abort"
+echo "####################"
+read -n1 -p">"; echo
 
 
