@@ -61,9 +61,11 @@ elif [[ $table == "2" ]]; then
     table="MBR"
 
 elif [[ $table == "3" ]]; then
+    echo "####################"
     echo "Please mount root in /mnt"
     echo "after in shell do: # exit"
-    /urs/bin/zsh
+    echo "####################"
+    /urs/bin/env zsh
 
     table="NO"
 
