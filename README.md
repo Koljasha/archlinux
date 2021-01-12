@@ -1,4 +1,4 @@
-# archlinux_installer
+# Arch Linux Installer
 
 ## Only for Arch linux understanding users
 
