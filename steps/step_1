@@ -18,21 +18,56 @@ lsblk; echo
 
 echo "####################"
 echo "Create table /dev/sda and mount it"
-echo "1) new GPT table: /dev/sda1 - efi; /dev/sda2 - swap; /dev/sda3 - root"
-echo "2) new MBR table: /dev/sda1 - swap; /dev/sda3 - root"
+echo "1) new GPT table - do this: /dev/sda1 - efi; /dev/sda2 - swap; /dev/sda3 - root"
+echo "2) new MBR table - do this: /dev/sda1 - swap; /dev/sda2 - root"
 echo "3) manual mount"
 echo "other key - exit"
 echo "####################"
 
 read -n1 -p">" table; echo
 if [[ $table == "1" ]]; then
-    echo "111111"
+    cfdisk -z
+    lsblk
+    echo "####################"
+    echo "All ok? Every key is ok; ctrl-c is abort"
+    echo "####################"
+    read -n1 -p">"; echo
+
+    mkfs.fat -F32 /dev/sda1
+    mkswap /dev/sda2
+    mkfs.ext4 /dev/sda3
+
+    mount /dev/sda3 /mnt
+    swapon /dev/sda2
+    mkdir -p /mnt/boot/efi
+    mount /dev/sda1 /mnt/boot/efi
+
+    table="GPT"
+
 elif [[ $table == "2" ]]; then
-    echo "22222"
+    cfdisk -z
+    lsblk
+    echo "####################"
+    echo "All ok? Every key is ok; ctrl-c is abort"
+    echo "####################"
+    read -n1 -p">"; echo
+
+    mkswap /dev/sda1
+    mkfs.ext4 /dev/sda2
+
+    mount /dev/sda2 /mnt
+    swapon /dev/sda1
+
+    table="MBR"
+
 elif [[ $table == "3" ]]; then
-    echo "33333"
+    echo "Please mount root in /mnt"
+    echo "after in shell do: # exit"
+    /urs/bin/zsh
+
+    table="NO"
+
 else
-    echo ELSE
     exit 1
 fi
 
