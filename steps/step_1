@@ -17,10 +17,10 @@ read -n1 -p">"; echo
 lsblk; echo
 
 echo "####################"
-echo "Create table /dev/sda and mount it"
+echo "Create table /dev/sda, format and mount it"
 echo "1) new GPT table - do this: /dev/sda1 - efi; /dev/sda2 - swap; /dev/sda3 - root"
 echo "2) new MBR table - do this: /dev/sda1 - swap; /dev/sda2 - root"
-echo "3) manual mount"
+echo "3) manual format and mount"
 echo "other key - exit"
 echo "####################"
 
