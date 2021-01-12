@@ -6,6 +6,7 @@ ls /sys/firmware/efi/efivars
 ip link
 ping -c3 archlinux.org
 timedatectl set-ntp true
+sleep 3; echo " "
 timedatectl status
 
 echo "All ok? ctrl-c to abort"
@@ -13,5 +14,4 @@ read -n1
 echo '\n'
 
 lsblk
-
 

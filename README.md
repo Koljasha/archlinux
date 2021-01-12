@@ -1,2 +1,4 @@
 # archlinux_installer
-Arch Linux Installer
+pacman -Sy && pacman -S git && cd archlinux_installer
+./run_installer
+
