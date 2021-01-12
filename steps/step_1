@@ -62,7 +62,7 @@ elif [[ $table == "2" ]]; then
 
 elif [[ $table == "3" ]]; then
     echo "####################"
-    echo "Please mount root in /mnt"
+    echo "Please format and mount root in /mnt"
     echo "after in shell do: # exit"
     echo "####################"
     bash
@@ -72,4 +72,7 @@ elif [[ $table == "3" ]]; then
 else
     exit 1
 fi
+
+echo $table
+
 
