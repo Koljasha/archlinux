@@ -3,6 +3,7 @@
 loadkeys ru
 
 ls /sys/firmware/efi/efivars
+echo; echo
 ip link
 ping -c3 archlinux.org
 timedatectl set-ntp true
@@ -21,7 +22,7 @@ echo "Create table /dev/sda, format and mount it"
 echo "1) new GPT table - do this: /dev/sda1 - efi; /dev/sda2 - swap; /dev/sda3 - root"
 echo "2) new MBR table - do this: /dev/sda1 - swap; /dev/sda2 - root"
 echo "3) manual format and mount"
-echo "other key - exit"
+echo "other key -> exit"
 echo "####################"
 
 read -n1 -p">" table; echo
@@ -43,6 +44,7 @@ if [[ $table == "1" ]]; then
     mount /dev/sda1 /mnt/boot/efi
 
     table="GPT"
+    packages_table="grub os-prober efibootmgr"
 
 elif [[ $table == "2" ]]; then
     cfdisk -z
@@ -59,10 +61,12 @@ elif [[ $table == "2" ]]; then
     swapon /dev/sda1
 
     table="MBR"
+    packages_table="grub os-prober"
 
 elif [[ $table == "3" ]]; then
     echo "####################"
     echo "Please format and mount root in /mnt"
+    echo "In this mode GRUB NOT be install"
     echo "after in shell do: # exit"
     echo "####################"
     bash
@@ -73,6 +77,31 @@ else
     exit 1
 fi
 
-echo $table
+echo "####################"
+echo "All ok? Every key is ok; ctrl-c is abort"
+echo "####################"
+read -n1 -p">"; echo
+
+echo "####################"
+echo "Use microcode ?"
+echo "1) Microcode Intel : intel-ucode"
+echo "2) Microcode AMD: amd-ucode"
+echo "3) No microcode"
+echo "other key -> exit"
+echo "####################"
+
+read -n1 -p">" microcode; echo
+if [[ $microcode == "1" ]]; then
+    packages_microcode="intel-ucode"
+elif [[ $microcode == "2" ]]; then
+    packages_microcode="amd-ucode"
+elif [[ $microcode == "3" ]]; then
+    :
+else
+    exit 1
+fi
+
+packages="base-devel linux linux-firmware vim networkmanager $packages_table $packages_microcode"
+echo $packages
 
 
