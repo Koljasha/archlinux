@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 
+echo "####################"
+echo "Chech EFI mode: if errors -> not EFI"
+echo "Check network"
+echo "Run create table, format and mount disk"
+echo "####################"
+
 ./steps/step_1
 
