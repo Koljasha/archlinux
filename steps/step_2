@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if (( $# != 1 )); then
+    echo "No args: GPT, MBR, NO"
+    exit 1
+fi
+
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 hwclock --systohc
 
@@ -33,9 +38,13 @@ passwd $username
 
 sed -i 's/# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/' /etc/sudoers
 
+if [[ $1 == "GPT" ]]; then
+    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+elif [[ $1 == "MBR" ]]; then
+    grub-install --target=i386-pc /dev/sda
+fi
 
-echo "#### Install GRUB this ####"
-
+grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "####################"
 echo "Please do this:"

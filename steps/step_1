@@ -115,7 +115,7 @@ read -n1 -p">"; echo
 cp -r /root/archlinux_installer/steps/step_2 /mnt/root/install
 echo "####################"
 echo "In chroot mode do:"
-echo ">/root/install"
+echo ">/root/install $table"
 echo "####################"
 arch-chroot /mnt
 
