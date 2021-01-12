@@ -112,7 +112,7 @@ echo "All ok? Every key is ok; ctrl-c is abort"
 echo "####################"
 read -n1 -p">"; echo
 
-cp -r /root/archlinux_installer/step/step_2 /mnt/root/install
+cp -r /root/archlinux_installer/steps/step_2 /mnt/root/install
 echo "####################"
 echo "In chroot mode do:"
 echo "/root/install"
