@@ -10,9 +10,9 @@ sleep 3; echo
 timedatectl status
 
 echo "####################"
-echo "All ok? (ctrl-c to abort)"
+echo "All ok? Every key is ok; ctrl-c is abort"
 echo "####################"
-read -n1; echo
+read -n1 -p>; echo
 
 lsblk; echo
 
@@ -24,14 +24,15 @@ echo "3) manual mount"
 echo "other key - exit"
 echo "####################"
 
-read -n1 $table; echo
-if [[ $table == 1 ]]; then
+read -n1 -p> $table; echo
+if [[ $table == "1" ]]; then
     echo "111111"
-elif [[ $table == 2 ]]; then
+elif [[ $table == "2" ]]; then
     echo "22222"
-elif [[ $table == 3 ]]; then
+elif [[ $table == "3" ]]; then
     echo "33333"
 else
+    echo ELSE
     exit 1
 fi
 
