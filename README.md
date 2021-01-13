@@ -2,12 +2,13 @@
 
 ## Only for Arch linux understanding users
 #### auto install for Virtual Box and my laptops
-##### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 
 * `pacman -Sy && pacman -S git`
 * `git clone https://github.com/koljasha/archlinux_installer`
 * `cd archlinux_installer && ./installer`
 
+***
+##### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 
 * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
     * create GPT partions, foramat it, install Grub package :
