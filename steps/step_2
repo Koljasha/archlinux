@@ -50,9 +50,9 @@ if (( $# != 1 )) || [[ $table != "GPT" ]] || [[ $table != "MBR" ]] || [[ $table 
     while [[ $table != "GPT" ]] || [[ $table != "MBR" ]] || [[ $table != "NO"]]; do
         echo "####################"
         echo "Install GRUB for:"
-        echo "1) GPT Table - write >GPT"
-        echo "2) MBR Table - write >MBR"
-        echo "3) not install GRUB - write >NO"
+        echo "GPT Table - write >GPT"
+        echo "MBR Table - write >MBR"
+        echo "not install GRUB - write >NO"
         echo "####################"
         read -p">" table
     done
