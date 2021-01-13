@@ -32,5 +32,10 @@ arc-gtk-theme arc-icon-theme
 gnome-terminal xdg-user-dirs
 "
 
-echo $packages
+# Install packages from repo
+
+sudo pacman -Sy
+sudo pacman -S $packages
+
+sudo systemctl enable lightdm
 
