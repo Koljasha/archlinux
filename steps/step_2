@@ -46,25 +46,23 @@ elif [[ $1 == "NO" ]]; then
     table="NO"
 fi
 
-if (( $# != 1 )) || [[ $table != "GPT" ]] || [[ $table != "MBR" ]] || [[ $table != "NO"]]; then
-    while [[ $table != "GPT" ]] || [[ $table != "MBR" ]] || [[ $table != "NO"]]; do
-        echo "####################"
-        echo "Install GRUB for:"
-        echo "GPT Table - write >GPT"
-        echo "MBR Table - write >MBR"
-        echo "not install GRUB - write >NO"
-        echo "####################"
-        read -p">" table
-    done
-fi
+while [[ $table != "GPT" ]] && [[ $table != "MBR" ]] && [[ $table != "NO" ]]; do
+    echo "####################"
+    echo "Install GRUB for:"
+    echo "GPT Table - write >GPT"
+    echo "MBR Table - write >MBR"
+    echo "not install GRUB - write >NO"
+    echo "####################"
+    read -p">" table
+done
 
-if [[ $1 == "GPT" ]]; then
+if [[ $table == "GPT" ]]; then
     grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
     grub-mkconfig -o /boot/grub/grub.cfg
     echo "####################"
     echo "GRUB for EFI install"
     echo "####################"
-elif [[ $1 == "MBR" ]]; then
+elif [[ $table == "MBR" ]]; then
     grub-install --target=i386-pc /dev/sda
     grub-mkconfig -o /boot/grub/grub.cfg
     echo "####################"
