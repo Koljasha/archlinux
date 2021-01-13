@@ -31,7 +31,7 @@ linux-headers xorg $drivers
 lightdm lightdm-gtk-greeter
 openbox lxappearance
 arc-gtk-theme arc-icon-theme
-gnome-terminal xdg-user-dirs
+gnome-terminal xdg-user-dirs accountsservice
 "
 
 # Install packages from repo
