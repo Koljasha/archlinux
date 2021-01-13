@@ -1,7 +1,7 @@
 # Arch Linux Installer
 
 ## Only for Arch linux understanding users
-#### auto install for Virtual Box and my laptops
+#### auto install for VirtualBox and my laptops
 
 * `pacman -Sy && pacman -S git`
 * `git clone https://github.com/koljasha/archlinux_installer`
