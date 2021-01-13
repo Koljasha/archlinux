@@ -151,7 +151,8 @@ umount -R /mnt
 
 echo "####################"
 echo "Please do this:"
-echo ">reboot"
+echo ">poweroff"
+echo "Disable flash or disk"
 echo "####################"
 echo "After reboot run your user and"
 echo "Please do this:"
