@@ -5,16 +5,13 @@ echo "Install packages"
 echo "####################"
 echo; echo
 
-
+# Add multilib repo
 line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
 sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
-echo $line
 line=$((line+1))
-echo $line
 sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
 
-exit 0
-
+# Select video drivers
 echo "####################"
 echo "What video drivers install?"
 echo "1) xf86-video-intel    -> for Intel"
@@ -34,6 +31,7 @@ else
     drivers=""
 fi
 
+# Packages
 packages="
 linux-headers xorg $drivers
 lightdm lightdm-gtk-greeter
@@ -43,8 +41,11 @@ gnome-terminal xdg-user-dirs
 "
 
 # Install packages from repo
-
 sudo pacman -Sy
+
+
+exit 0
+
 sudo pacman -S $packages
 
 sudo systemctl enable lightdm
