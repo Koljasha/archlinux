@@ -19,7 +19,7 @@
         * /dev/sda1 - swap
         * /dev/sda2 - root
     * manual create partions and mount it, **not install Grub package**
-* `./chroot (GPT|MBR|NO)` - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#chroot)
+* `./chroot (GPT|MBR|NO)` - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
     * GPT - install Grub for EFI
     * MBR - install Grub for MBR
     * NO - not install Grub
