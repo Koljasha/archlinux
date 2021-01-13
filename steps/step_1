@@ -136,7 +136,9 @@ arch-chroot /mnt
 
 # After arch-chroot copy and clean
 
-cp -r /root/archlinux_installer /mnt/home/$(ls /home)/
+dir=`ls /mnt/home`
+dir=`echo "/mnt/home/$dir/"`
+cp -r /root/archlinux_installer $dir
 rm /mnt/root/install
 umount -R /mnt
 
