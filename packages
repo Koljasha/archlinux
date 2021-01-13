@@ -13,7 +13,6 @@ line=$((line+1))
 echo $line
 # sudo sed -e "${line}s/^#//" /etc/pacman.conf
 
-cat /etc/pacman.conf
 exit 0
 
 echo "####################"
