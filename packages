@@ -48,3 +48,8 @@ sudo pacman -S $packages
 # Enable display manager
 sudo systemctl enable lightdm
 
+echo "####################"
+echo "Please do this:"
+echo ">reboot"
+echo "####################"
+
