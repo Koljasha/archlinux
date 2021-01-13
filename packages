@@ -36,7 +36,7 @@ gnome-terminal xdg-user-dirs accountsservice
 
 # Install packages from repo
 sudo pacman -Sy
-sudo pacman -S $packages
+sudo pacman -S -needed $packages
 
 # Enable display manager
 sudo systemctl enable lightdm
