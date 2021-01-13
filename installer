@@ -151,7 +151,10 @@ umount -R /mnt
 echo "####################"
 echo "Please do this:"
 echo ">reboot"
-echo "After reboot in your user please do this:"
-echo "~/archlinux_installer/packages"
 echo "####################"
+echo "After reboot in your user please do this:"
+echo ">~/archlinux_installer/packages"
+echo "####################"
+echo "####################"
+
 
