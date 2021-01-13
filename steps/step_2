@@ -1,13 +1,10 @@
 #!/bin/bash
 
-if (( $# != 1 )); then
-    echo "No args: GPT, MBR, NO"
-    exit 1
-fi
-
+# Set the time zone
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 hwclock --systohc
 
+# Localization
 sed -i 's/^#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
 sed -i 's/^#ru_RU.UTF-8/ru_RU.UTF-8/' /etc/locale.gen
 locale-gen
@@ -16,6 +13,7 @@ echo "LANG=ru_RU.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=ru" >> /etc/vconsole.conf
 echo "FONT=cyr-sun16" >> /etc/vconsole.conf
 
+# Network configuration
 echo "archlinux" >> /etc/hostname
 
 echo "127.0.0.1    localhost" >> /etc/hosts
@@ -24,6 +22,7 @@ echo "127.0.0.1    archlinux.localdomain  archlinux" >> /etc/hosts
 
 systemctl enable NetworkManager
 
+# Passwords and create user
 echo "####################"
 echo "Password for root"
 echo "####################"
@@ -36,19 +35,50 @@ read  -p"Username >" username
 useradd -m -G wheel -s /bin/bash $username
 passwd $username
 
-sed -i 's/# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/' /etc/sudoers
+sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+
+# Install GRUB
+if [[ $1 == "GPT" ]]; then
+    table="GPT"
+elif [[ $1 == "MBR" ]]; then
+    table="MBR"
+elif [[ $1 == "NO" ]]; then
+    table="NO"
+fi
+
+if (( $# != 1 )) || [[ $table != "GPT" ]] || [[ $table != "MBR" ]] || [[ $table != "NO"]]; then
+    while [[ $table != "GPT" ]] || [[ $table != "MBR" ]] || [[ $table != "NO"]]; do
+        echo "####################"
+        echo "Install GRUB for:"
+        echo "1) GPT Table - write >GPT"
+        echo "2) MBR Table - write >MBR"
+        echo "3) not install GRUB - write >NO"
+        echo "####################"
+        read -p">" table
+    done
+fi
 
 if [[ $1 == "GPT" ]]; then
     grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+    grub-mkconfig -o /boot/grub/grub.cfg
+    echo "####################"
+    echo "GRUB for EFI install"
+    echo "####################"
 elif [[ $1 == "MBR" ]]; then
     grub-install --target=i386-pc /dev/sda
+    grub-mkconfig -o /boot/grub/grub.cfg
+    echo "####################"
+    echo "GRUB for MBR install"
+    echo "####################"
+else
+    echo "####################"
+    echo "GRUB not install"
+    echo "####################"
 fi
 
-grub-mkconfig -o /boot/grub/grub.cfg
-
+# Exit
 echo "####################"
 echo "Please do this:"
 echo ">exit"
-echo ">reboot"
 echo "####################"
 
