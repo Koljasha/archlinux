@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "####################"
+echo "Install packages"
+echo "####################"
+echo; echo
+
+
+line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
+echo $line
+line=$((line+1))
+echo $line
+
+
+exit 0
+
+echo "####################"
+echo "What video drivers install?"
+echo "1) xf86-video-intel    -> for Intel"
+echo "2) xf86-video-nouveau  -> for nVidea"
+echo "3) xf86-video-fbdev    -> for virtual"
+echo "other key              -> no driver"
+echo "####################"
+
+read -n1 -p">" drivers; echo
+if [[ $drivers == "1" ]]; then
+    drivers="xf86-video-intel"
+elif [[ $drivers == "2" ]]; then
+    drivers="xf86-video-nouveau"
+elif [[ $drivers == "3" ]]; then
+    drivers="xf86-video-fbdev"
+else
+    drivers=""
+fi
+
+packages="
+linux-headers xorg $drivers
+lightdm lightdm-gtk-greeter
+openbox lxappearance
+arc-gtk-theme arc-icon-theme
+gnome-terminal xdg-user-dirs
+"
+
+# Install packages from repo
+
+sudo pacman -Sy
+sudo pacman -S $packages
+
+sudo systemctl enable lightdm
+
