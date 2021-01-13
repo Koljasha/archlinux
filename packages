@@ -7,7 +7,7 @@ echo; echo
 
 
 line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
-echo $line
+sed "$line,s/^#//" /etc/pacman.conf
 line=$((line+1))
 echo $line
 
