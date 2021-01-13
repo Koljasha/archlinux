@@ -35,6 +35,12 @@ read  -p"Username >" username
 useradd -m -G wheel -s /bin/bash $username
 passwd $username
 
+# Copy scripts
+chmod -R 755 /home/$username
+cp -r /root/archlinux_installer /home/$username
+chown -R $username:$username /home/$username/archlinux_installer
+
+# Add sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Install GRUB

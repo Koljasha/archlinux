@@ -130,24 +130,18 @@ echo "####################"
 read -n1 -p">"; echo
 
 # Copy script for chroot mode
-cp /root/archlinux_installer/chroot /mnt/root/install
+cp -r /root/archlinux_installer /mnt/root
 echo "####################"
 echo "In chroot mode do:"
-echo ">/root/install $table"
+echo ">/root/archlinux_installer/chroot $table"
 echo "####################"
 
 # Run arch-chroot
 
 arch-chroot /mnt
 
-# After arch-chroot copy and clean
-
-user=`ls /mnt/home`
-dir=`echo "/mnt/home/$user"`
-chmod -R 755 $dir
-cp -r /root/archlinux_installer $dir
-chown -R $user:$user $dir/archlinux_installer
-rm /mnt/root/install
+# After clean
+rm -rf /mnt/root/archlinux_installer
 umount -R /mnt
 
 echo "####################"
