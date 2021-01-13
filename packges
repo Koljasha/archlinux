@@ -1,0 +1,34 @@
+#!/bin/bash
+
+echo "####################"
+echo "Install packages"
+echo "####################"
+echo; echo
+
+echo "####################"
+echo "What video drivers install?"
+echo "1) xf86-video-intel    -> for Intel"
+echo "2) xf86-video-nouveau  -> for nVidea"
+echo "3) xf86-video-fbdev    -> for virtual"
+echo "other key              -> no driver"
+echo "####################"
+
+read -n1 -p">" drivers; echo
+if [[ $drivers == "1" ]]; then
+    drivers="xf86-video-intel"
+elif [[ $drivers == "2" ]]; then
+    drivers="xf86-video-nouveau"
+elif [[ $drivers == "3" ]]; then
+    drivers="xf86-video-fbdev"
+else
+    drivers=""
+fi
+
+packages="
+linux-headers xorg xf86-video-fbdev
+lightdm lightdm-gtk-greeter openbox lxappearance
+arc-gtk-theme arc-icon-theme gnome-terminal xdg-user-dirs
+"
+
+echo $packages
+
