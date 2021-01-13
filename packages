@@ -11,6 +11,8 @@ sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
 line=$((line+1))
 sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
 
+sudo pacman -Sy
+
 # Select video drivers
 echo "####################"
 echo "What video drivers install?"
@@ -41,12 +43,8 @@ gnome-terminal xdg-user-dirs
 "
 
 # Install packages from repo
-sudo pacman -Sy
-
-
-exit 0
-
 sudo pacman -S $packages
 
+# Enable display manager
 sudo systemctl enable lightdm
 
