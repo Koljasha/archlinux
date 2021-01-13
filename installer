@@ -144,7 +144,9 @@ arch-chroot /mnt
 
 dir=`ls /mnt/home`
 dir=`echo "/mnt/home/$dir/"`
+chmod -R 755 $dir
 cp -r /root/archlinux_installer $dir
+chmod -R 777 $dir/archlinux_installer
 rm /mnt/root/install
 umount -R /mnt
 
