@@ -11,7 +11,7 @@ sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
 echo $line
 line=$((line+1))
 echo $line
-# sudo sed -e "${line}s/^#//" /etc/pacman.conf
+sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
 
 exit 0
 
