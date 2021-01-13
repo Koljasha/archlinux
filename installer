@@ -140,7 +140,7 @@ echo "####################"
 
 arch-chroot /mnt
 
-# After clean
+# Clean
 rm -rf /mnt/root/archlinux_installer
 umount -R /mnt
 
