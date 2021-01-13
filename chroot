@@ -22,6 +22,12 @@ echo "127.0.0.1    archlinux.localdomain  archlinux" >> /etc/hosts
 
 systemctl enable NetworkManager
 
+# Add multilib repo
+line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
+sed -i -e "${line}s/^#//" /etc/pacman.conf
+line=$((line+1))
+sed -i -e "${line}s/^#//" /etc/pacman.conf
+
 # Passwords and create user
 echo "####################"
 echo "Password for root"
