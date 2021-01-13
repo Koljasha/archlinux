@@ -8,8 +8,10 @@ echo; echo
 
 line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
 sudo sed -i -e "${line}s/^#//" /etc/pacman.conf
+echo $line
 line=$((line+1))
-sudo sed -e "${line}s/^#//" /etc/pacman.conf
+echo $line
+# sudo sed -e "${line}s/^#//" /etc/pacman.conf
 
 cat /etc/pacman.conf
 exit 0
