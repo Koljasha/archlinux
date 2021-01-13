@@ -6,7 +6,10 @@ echo "####################"
 echo; echo
 
 
-grep -n "#\[miltilib\]" /etc/pacman.conf | cut -d':' -f1
+line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
+echo $line
+line=($line+1)
+echo $line
 
 
 exit 0
