@@ -25,9 +25,11 @@ else
 fi
 
 packages="
-linux-headers xorg xf86-video-fbdev
-lightdm lightdm-gtk-greeter openbox lxappearance
-arc-gtk-theme arc-icon-theme gnome-terminal xdg-user-dirs
+linux-headers xorg $drivers
+lightdm lightdm-gtk-greeter
+openbox lxappearance
+arc-gtk-theme arc-icon-theme
+gnome-terminal xdg-user-dirs
 "
 
 echo $packages
