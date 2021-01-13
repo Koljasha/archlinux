@@ -5,6 +5,12 @@ echo "Install packages"
 echo "####################"
 echo; echo
 
+
+grep -n "#\[miltilib\]" /etc/pacman.conf | cut -d':' -f1
+
+
+exit 0
+
 echo "####################"
 echo "What video drivers install?"
 echo "1) xf86-video-intel    -> for Intel"
