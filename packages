@@ -35,33 +35,39 @@ vim fish tmux ranger
 noto-fonts ttf-droid ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
+feh picom
 openbox i3 obconf lxappearance
 terminator gnome-terminal
-feh picom
+"
+packages_aur="
+xkb-switch
+arc-dark-osx-openbox-theme-git
 "
 
 # ----------
-# pulseaudio pulseaudio-alsa
-# polkit-gnome network-manager-applet
+# pulseaudio pulseaudio-alsa polkit-gnome network-manager-applet
 # menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 # gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 # sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina
 # openssh samba x11vnc
 # openvpn networkmanager-openvpn
 # -----------
-# https://aur.archlinux.org/yay.git
-# 
 # https://aur.archlinux.org/polybar.git
-# https://aur.archlinux.org/xkb-switch.git
-# 
-# https://aur.archlinux.org/arc-dark-osx-openbox-theme-git.git
-# https://aur.archlinux.org/mint-x-icons.git
 # -----------
 
 
 # Install packages from repo
 sudo pacman -Sy
 sudo pacman -S --needed --noconfirm $packages
+
+# build yay
+git clone https://aur.archlinux.org/yay.git
+cd yay && makepkg -si
+cd .. && rm -rf yay
+
+sudo yay -S --noconfirm $packages_aur
+
+###############
 
 username=`whoami`
 
@@ -101,6 +107,13 @@ rm -rf ~/archlinux_installer/oh-my-fish
 
 # ranger icons
 git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+
+# picom settings
+mkdir ~/.config/picom
+cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+##### for Virtual Box ### Check for real PC #####
+sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
+sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
 
 ###############
 
