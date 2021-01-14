@@ -30,7 +30,7 @@ packages="
 $drivers linux-headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion
 atool p7zip unrar unzip zip
-git htop lm_sensors lesspipe numlockx zenity wget curl cmake neofetch highlight
+git htop lm_sensors lesspipe numlockx wget curl cmake neofetch highlight
 "
 
 # ----------
@@ -40,8 +40,9 @@ git htop lm_sensors lesspipe numlockx zenity wget curl cmake neofetch highlight
 # xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 # openbox i3 obconf lxappearance
 # pulseaudio pulseaudio-alsa
-# polkit-gnome network-manager-applet networkmanager-openvpn feh picom
-# menumaker dmenu rofi jgmenu plank xfce4-appfinder
+# polkit-gnome network-manager-applet networkmanager-openvpn
+# feh picom
+# menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 # terminator gnome-terminal 
 # gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 # sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina
