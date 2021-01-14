@@ -1,0 +1,15 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anuthing
+[[ $- != *i* ]] && return
+
+PS1='[\u@\h \W]\$ '
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# linux ll command
+alias ll="ls -lah"
+
