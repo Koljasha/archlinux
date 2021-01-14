@@ -86,7 +86,7 @@ curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime
 # install vim pluggins
 vim -c PlugInstall
 # enable vim colorscheme
-sed -n 's/desert/PaperColor/p' files/vimrc
+sed -i 's/desert/PaperColor/' files/vimrc
 
 # install oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish
