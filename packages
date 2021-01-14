@@ -31,6 +31,7 @@ $drivers linux-headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion
 atool p7zip unrar unzip zip
 "
+
 # ----------
 # git vim htop lm_sensors lesspipe numlockx zenity wget curl cmake neofetch highlight
 # fish tmux ranger
@@ -46,7 +47,6 @@ atool p7zip unrar unzip zip
 # sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina
 # openssh samba openvpn x11vnc
 # -----------
-# 
 # https://aur.archlinux.org/yay.git
 # 
 # https://aur.archlinux.org/polybar.git
