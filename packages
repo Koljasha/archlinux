@@ -36,7 +36,7 @@ noto-fonts ttf-droid ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 feh picom
-openbox i3 obconf lxappearance
+openbox i3 obconf lxappearance polkit-gnome
 terminator gnome-terminal
 "
 packages_aur="
@@ -45,12 +45,13 @@ arc-dark-osx-openbox-theme-git
 "
 
 # ----------
-# pulseaudio pulseaudio-alsa polkit-gnome network-manager-applet
 # menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 # gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
+# pulseaudio pulseaudio-alsa
+# network-manager-applet networkmanager-openvpn
 # sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina
 # openssh samba x11vnc
-# openvpn networkmanager-openvpn
+# openvpn
 # -----------
 # https://aur.archlinux.org/polybar.git
 # -----------
