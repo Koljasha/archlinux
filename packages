@@ -73,6 +73,7 @@ sudo pacman -S --needed $packages
 # Copy configs
 cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
+cp files/tmux.conf ~/.tmux.conf
 cp -r config/* ~/.config
 
 ###############
