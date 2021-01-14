@@ -782,7 +782,7 @@ Plug 'lyokha/vim-xkbswitch'
 let g:XkbSwitchEnabled = 1 
 let g:XkbSwitchIMappings = ['ru']
 " путь к библиотеке
-	let g:XkbSwitchLib = /usr/lib/libxkbswitch.so
+	let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
 " ----------------------------------------
 
 " Vim-Devicons - иконки Nerd
