@@ -75,8 +75,7 @@ cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
 cp files/tmux.conf ~/.tmux.conf
 
-mkdir ~/.config
-cp -r config ~/.config
+cp -r config/ ~/.config
 
 ###############
 
