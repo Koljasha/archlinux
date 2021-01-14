@@ -93,12 +93,13 @@ sed -n 's/desert/PaperColor/p' files/vimrc
 # install oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish
 cd oh-my-fish
-bin/install --offline
+bin/install --offline --yes
 # install theme for fosh
 # omf install agnoster
 # clean oh-my-fish
 # exit
 # rm -rf ~/archlinux_installer/oh-my-fish
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
 ###############
 
