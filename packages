@@ -86,6 +86,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 curl -fLo ~/.vim/spell/ru.utf-8.sug --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
 curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
 # install vim pluggins
+echo "####################"
+echo "Exit from vim when pluggins install."
+echo "####################"
 vim -c PlugInstall
 # enable vim colorscheme
 sed -n 's/desert/PaperColor/p' files/vimrc
