@@ -90,8 +90,6 @@ vim -c PlugInstall
 # enable vim colorscheme
 sed -n 's/desert/PaperColor/p' files/vimrc
 
-# fish is main shell
-sudo chsh -s /usr/bin/fish $username
 # install oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish
 cd oh-my-fish
@@ -99,11 +97,13 @@ bin/install --offline
 # install theme for fosh
 # omf install agnoster
 # clean oh-my-fish
-exit
-rm -rf ~/archlinux_installer/oh-my-fish
+# exit
+# rm -rf ~/archlinux_installer/oh-my-fish
 
 ###############
 
+# fish is main shell
+# sudo chsh -s /usr/bin/fish $username
 # end update settings
 # fish_update_completions
 
