@@ -113,6 +113,7 @@ git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/dev
 
 ###############
 
+echo; echo
 echo "####################"
 echo "Please do this:"
 echo ">reboot"
