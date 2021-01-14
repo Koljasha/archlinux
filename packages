@@ -93,7 +93,9 @@ sed -n 's/desert/PaperColor/p' files/vimrc
 # fish is main shell
 sudo chsh -s /usr/bin/fish $username
 # install oh-my-fish
-curl -L https://get.oh-my.fish | fish
+git clone https://github.com/oh-my-fish/oh-my-fish
+cd oh-my-fish
+bin/install --offline
 # install theme for fosh
 omf install agnoster
 
