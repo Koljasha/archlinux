@@ -63,14 +63,22 @@ vim fish
 sudo pacman -Sy
 sudo pacman -S --needed $packages
 
+###############
+
 # Enable services
 # sudo systemctl enable lightdm
+
+###############
 
 # Copy configs
 cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
+cp -r config/* ~/.config
+
+###############
 
 # Packages settings
+username=`whoami`
 
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -82,6 +90,21 @@ vim -c PlugInstall
 # enable vim colorscheme
 sed -n 's/desert/PaperColor/p' files/vimrc
 
+# fish is main shell
+sudo chsh -s /usr/bin/fish $username
+# install oh-my-fish
+curl -L https://get.oh-my.fish | fish
+# install theme for fosh
+omf install agnoster
+
+
+
+###############
+
+# end update settings
+# fish_update_completions
+
+###############
 
 echo "####################"
 echo "Please do this:"
