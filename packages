@@ -109,7 +109,7 @@ sudo systemctl enable lightdm
 # end update settings
 
 # fish is main shell
-# sudo chsh -s /usr/bin/fish $username
+sudo chsh -s /usr/bin/fish $username
 # update fish
 # fish -c 'fish_update_completions'
 
