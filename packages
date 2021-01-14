@@ -30,11 +30,11 @@ packages="
 $drivers linux-headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion
 atool p7zip unrar unzip zip
+git htop lm_sensors lesspipe numlockx zenity wget curl cmake neofetch highlight
 "
 
 # ----------
-# git vim htop lm_sensors lesspipe numlockx zenity wget curl cmake neofetch highlight
-# fish tmux ranger
+# vim fish tmux ranger
 # noto-fonts ttf-droid ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols
 # arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 # xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
