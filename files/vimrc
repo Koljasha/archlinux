@@ -253,7 +253,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 " отключен - Livedown - автопросмотр MarkDown файлов в браузере (для Linux для markdown)
 " Matchit - перемещение по тегам HTML (%) (для HTML)
 " Matchtag - подсветка тегов HTML (для HTML)
-" Move - перемещение текущей строки или выделенных строк вверх или вниз
+" отключен - Move - перемещение текущей строки или выделенных строк вверх или вниз
 " MRU - последние открытые файлы
 " отключен - Multiple Cursors - многокурсорное редактирование
 " NERD Commenter - комментирование для различных языков
@@ -271,7 +271,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 	" отключен - EasyTags - генерация файла тегов
 " Xkbswitch - смена на En при переходе в командный режим
 " Vim-Devicons - иконки Nerd
-" Jedi-vim - IDE для Python (для Python)
+" отключен - Jedi-vim - IDE для Python (для Python)
 " отключен - Snippets - набор сниппетов
 " отключен - (UltiSnips - движок для сниппетов)
 " отключен - Syntastic - синтаксические ошибки кода
@@ -563,9 +563,9 @@ Plug 'itchyny/lightline.vim'
 " https://github.com/tmhedberg/matchit
 " https://github.com/gregsexton/MatchTag
 " !!! - 2 строк ниже:
-" " ---------------
-" Plug 'tmhedberg/matchit', { 'for': 'html' }
-" Plug 'gregsexton/MatchTag', { 'for': 'html' }
+" ---------------
+Plug 'tmhedberg/matchit', { 'for': 'html' }
+Plug 'gregsexton/MatchTag', { 'for': 'html' }
 " ----------------------------------------
 
 " Move - перемещение текущей строки или выделенных строк вверх или вниз
