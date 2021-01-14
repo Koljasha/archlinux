@@ -98,8 +98,9 @@ cd oh-my-fish
 bin/install --offline
 # install theme for fosh
 omf install agnoster
-
-
+# clean oh-my-fish
+exit
+rm -rf ~/archlinux_installer/oh-my-fish
 
 ###############
 
