@@ -62,7 +62,7 @@ sudo pacman -Sy
 sudo pacman -S --needed $packages
 
 # Enable services
-sudo systemctl enable lightdm
+# sudo systemctl enable lightdm
 
 # Settings
 
