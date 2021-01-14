@@ -37,7 +37,6 @@ filetype plugin indent on
 syntax on
 
 " цветовая схема - (через плагин)
-" colorscheme desert
 set background=dark
 
 " нумерация строк
@@ -885,8 +884,7 @@ call plug#end()
 " set rtp+=/home/koljasha/soft/conda/lib/python3.8/site-packages/powerline/bindings/vim
 
 " настройка цветовой схемы
-" для PaperColor:
-colorscheme PaperColor
+colorscheme desert
 " прозрачность
 highlight Normal guibg=NONE ctermbg=NONE
 
