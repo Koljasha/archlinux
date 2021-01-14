@@ -73,6 +73,8 @@ cp files/face ~/.face
 
 cp -r config/ ~/.config
 
+# sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+
 ###############
 
 # Packages settings
@@ -111,7 +113,7 @@ sudo systemctl enable lightdm
 # fish is main shell
 sudo chsh -s /usr/bin/fish $username
 # update fish
-# fish -c 'fish_update_completions'
+fish -c 'fish_update_completions'
 
 ###############
 
