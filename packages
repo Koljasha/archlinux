@@ -65,11 +65,6 @@ sudo pacman -S --needed $packages
 
 ###############
 
-# Enable services
-# sudo systemctl enable lightdm
-
-###############
-
 # Copy configs
 cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
@@ -103,6 +98,11 @@ rm -rf ~/archlinux_installer/oh-my-fish
 
 # ranger icons
 git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+
+###############
+
+# Enable services
+sudo systemctl enable lightdm
 
 ###############
 
