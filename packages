@@ -30,12 +30,11 @@ packages="
 $drivers linux-headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion
 atool p7zip unrar unzip zip
-git htop lm_sensors lesspipe numlockx wget curl cmake neofetch highlight ctags
-vim fish tmux
+git htop lm_sensors lesspipe numlockx wget curl cmake ctags neofetch highlight
+vim fish tmux ranger
 "
 
 # ----------
-# ranger
 # noto-fonts ttf-droid ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols
 # arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 # xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
@@ -88,9 +87,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 curl -fLo ~/.vim/spell/ru.utf-8.sug --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
 curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
 # install vim pluggins
-echo "####################"
-echo "Exit from vim when pluggins install."
-echo "####################"
 vim -c PlugInstall
 # enable vim colorscheme
 sed -n 's/desert/PaperColor/p' files/vimrc
@@ -102,6 +98,9 @@ oh-my-fish/bin/install --noninteractive --offline
 fish -c 'omf install agnoster'
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
+
+# ranger icons
+git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
 ###############
 
