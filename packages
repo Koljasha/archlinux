@@ -31,11 +31,11 @@ $drivers linux-headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion
 atool p7zip unrar unzip zip
 git htop lm_sensors lesspipe numlockx wget curl cmake neofetch highlight ctags
-vim fish
+vim fish tmux
 "
 
 # ----------
-# fish tmux ranger
+# ranger
 # noto-fonts ttf-droid ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols
 # arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 # xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
@@ -96,7 +96,7 @@ sed -n 's/desert/PaperColor/p' files/vimrc
 # install oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish
 oh-my-fish/bin/install --noninteractive --offline
-# install theme for fosh
+# install theme for fish
 fish -c 'omf install agnoster'
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
