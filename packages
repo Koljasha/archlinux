@@ -41,7 +41,7 @@ viewnior evince
 "
 packages_aur="
 xkb-switch
-arc-dark-osx-openbox-theme-git
+arc-dark-osx-openbox-theme-git mintstick
 "
 
 # ----------
