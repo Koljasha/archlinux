@@ -5,6 +5,13 @@ echo "Install packages"
 echo "####################"
 echo; echo
 
+echo "####################"
+echo "After install Vim pluggins"
+echo "for exit Vim do:"
+echo "ZZ and ZZ"
+echo "####################"
+echo; echo
+
 # Select video drivers
 echo "####################"
 echo "What video drivers install?"
@@ -27,7 +34,7 @@ packages="
 $drivers linux-headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion ntfs-3g gvfs
 atool p7zip unrar unzip zip
-git htop lm_sensors lesspipe numlockx wget curl cmake ctags neofetch highlight
+git htop lm_sensors lesspipe openssh numlockx wget curl cmake ctags neofetch highlight
 vim fish tmux ranger
 ttf-droid ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
@@ -40,9 +47,6 @@ menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 viewnior evince vlc firefox remmina transmission-gtk
 "
-# ----------
-# openssh samba x11vnc
-# -----------
 
 packages_aur="
 xkb-switch
@@ -113,6 +117,22 @@ sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
 
 # gnome-screenshot settings
 gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
+
+# xrandr to set screen resolution for Virtual Box
+while [[ $vbox != "1" ]] && [[ $vbox != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "Set screen resolution 1360x768 for Virtual Box:"
+    echo "1) yes"
+    echo "2) no"
+    echo "####################"
+    read -n1 -p">" vbox
+done
+
+if [[ $vbox == "1" ]]; then
+    sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
+    sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
+fi
 
 ###############
 

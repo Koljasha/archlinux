@@ -393,7 +393,7 @@ bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endle
 #
 
 # set screen resolution for Virtual Box
-exec --no-startup-id xrandr -s 1360x768
+# exec --no-startup-id xrandr -s 1360x768
 
 # Change lang:
 # exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
