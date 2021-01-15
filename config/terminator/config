@@ -1,0 +1,28 @@
+[global_config]
+  title_transmit_bg_color = "#0087af"
+  enabled_plugins = ,
+  suppress_multiple_term_dialog = True
+  title_use_system_font = False
+  title_font = Sans 10
+[keybindings]
+  close_term = <Primary><Shift>q
+  close_window = None
+  help = None
+[profiles]
+  [[default]]
+    background_darkness = 0.85
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Monospace 10
+    scrollback_lines = 5000
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+      profile = default
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
