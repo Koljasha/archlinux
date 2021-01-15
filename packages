@@ -25,7 +25,7 @@ fi
 # Packages
 packages="
 $drivers linux-headers
-dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion
+dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion ntfs-3g gvfs
 atool p7zip unrar unzip zip
 git htop lm_sensors lesspipe numlockx wget curl cmake ctags neofetch highlight
 vim fish tmux ranger
