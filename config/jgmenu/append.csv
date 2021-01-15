@@ -1,5 +1,5 @@
 ^sep()
-Lock,i3lock -c 000000 -i ~/Изображения/.Wolf.png,system-lock-screen
+Lock,i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.jpg,system-lock-screen
 Exit,^checkout(exit),system-shutdown
 ^tag(exit)
 Exit Openbox,openbox --exit,system-log-out
