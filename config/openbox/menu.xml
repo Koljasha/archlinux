@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu>
+    <menu id="root-menu" label="OpenBox 3">
+        <item label="Terminator"> <action name="Execute">
+            <execute>terminator -m</execute>
+        </action> </item>
+        <item label="FireFox"> <action name="Execute">
+            <execute>firefox</execute>
+        </action> </item>
+        <item label="PCManFM"> <action name="Execute">
+            <execute>pcmanfm</execute>
+        </action> </item>
+        <separator />
+        <menu id="1" label="Development">
+            <item label="GDB"> <action name="Execute">
+                <execute>gnome-terminal -e gdb</execute>
+            </action> </item>
+            <item label="Sublime Text"> <action name="Execute">
+                <execute>/opt/sublime_text/sublime_text</execute>
+            </action> </item>
+            <item label="Tclsh8.6"> <action name="Execute">
+                <execute>gnome-terminal -e /usr/bin/tclsh8.6</execute>
+            </action> </item>
+            <item label="TkWish8.6"> <action name="Execute">
+                <execute>x-terminal-emulator -e /usr/bin/wish8.6</execute>
+            </action> </item>
+        </menu>
+        <menu id="2" label="Editors">
+            <item label="Mousepad"> <action name="Execute">
+                <execute>mousepad</execute>
+            </action> </item>
+            <item label="Nano"> <action name="Execute">
+                <execute>gnome-terminal -e nano</execute>
+            </action> </item>
+            <item label="Pico"> <action name="Execute">
+                <execute>gnome-terminal -e pico</execute>
+            </action> </item>
+            <item label="Text Editor"> <action name="Execute">
+                <execute>xed</execute>
+            </action> </item>
+            <item label="Vi"> <action name="Execute">
+                <execute>gnome-terminal -e vi</execute>
+            </action> </item>
+            <item label="Vim"> <action name="Execute">
+                <execute>gnome-terminal -e vim</execute>
+            </action> </item>
+            <item label="Xedit"> <action name="Execute">
+                <execute>xedit</execute>
+            </action> </item>
+        </menu>
+        <menu id="18" label="Games">
+            <menu id="17" label="Amusement">
+                <item label="Oclock"> <action name="Execute">
+                    <execute>oclock</execute>
+                </action> </item>
+                <item label="Xclock (analog)"> <action name="Execute">
+                    <execute>xclock -analog</execute>
+                </action> </item>
+                <item label="Xclock (digital)"> <action name="Execute">
+                    <execute>xclock -digital -update 1</execute>
+                </action> </item>
+                <item label="Xeyes"> <action name="Execute">
+                    <execute>xeyes</execute>
+                </action> </item>
+                <item label="Xlogo"> <action name="Execute">
+                    <execute>xlogo</execute>
+                </action> </item>
+            </menu>
+            <item label="Lutris"> <action name="Execute">
+                <execute>lutris</execute>
+            </action> </item>
+        </menu>
+        <menu id="6" label="Graphics">
+            <item label="Color selection dialog"> <action name="Execute">
+                <execute>mate-color-select</execute>
+            </action> </item>
+            <item label="Document Scanner"> <action name="Execute">
+                <execute>simple-scan</execute>
+            </action> </item>
+            <item label="Document Viewer"> <action name="Execute">
+                <execute>xreader</execute>
+            </action> </item>
+            <item label="Drawing"> <action name="Execute">
+                <execute>drawing</execute>
+            </action> </item>
+            <item label="GNU Image Manipulation Program"> <action name="Execute">
+                <execute>gimp-2.10</execute>
+            </action> </item>
+            <item label="Image Viewer"> <action name="Execute">
+                <execute>xviewer</execute>
+            </action> </item>
+            <item label="Pix"> <action name="Execute">
+                <execute>pix</execute>
+            </action> </item>
+            <item label="Ristretto Image Viewer"> <action name="Execute">
+                <execute>ristretto</execute>
+            </action> </item>
+            <item label="xcb"> <action name="Execute">
+                <execute>xcb</execute>
+            </action> </item>
+            <item label="Xditview"> <action name="Execute">
+                <execute>xditview</execute>
+            </action> </item>
+        </menu>
+        <menu id="7" label="Multimedia">
+            <item label="ALSA mixer"> <action name="Execute">
+                <execute>gnome-terminal -e alsamixer</execute>
+            </action> </item>
+            <item label="Celluloid"> <action name="Execute">
+                <execute>celluloid</execute>
+            </action> </item>
+            <item label="mpv Media Player"> <action name="Execute">
+                <execute>mpv --player-operation-mode=pseudo-gui</execute>
+            </action> </item>
+            <item label="PulseAudio Volume Control"> <action name="Execute">
+                <execute>pavucontrol</execute>
+            </action> </item>
+            <item label="Rhythmbox"> <action name="Execute">
+                <execute>rhythmbox</execute>
+            </action> </item>
+            <item label="VLC media player"> <action name="Execute">
+                <execute>vlc</execute>
+            </action> </item>
+            <item label="Xfburn"> <action name="Execute">
+                <execute>xfburn</execute>
+            </action> </item>
+        </menu>
+        <menu id="5" label="Network">
+            <item label="Chromium Web Browser"> <action name="Execute">
+                <execute>chromium</execute>
+            </action> </item>
+            <item label="FireFox"> <action name="Execute">
+                <execute>firefox</execute>
+            </action> </item>
+            <item label="FTP"> <action name="Execute">
+                <execute>gnome-terminal -e ftp</execute>
+            </action> </item>
+            <item label="HexChat"> <action name="Execute">
+                <execute>hexchat</execute>
+            </action> </item>
+            <item label="Mail Reader"> <action name="Execute">
+                <execute>exo-open --launch MailReader</execute>
+            </action> </item>
+            <item label="Remmina"> <action name="Execute">
+                <execute>remmina-file-wrapper</execute>
+            </action> </item>
+            <item label="Telnet"> <action name="Execute">
+                <execute>gnome-terminal -e telnet</execute>
+            </action> </item>
+            <item label="Thunderbird"> <action name="Execute">
+                <execute>thunderbird</execute>
+            </action> </item>
+            <item label="Transmission"> <action name="Execute">
+                <execute>transmission-gtk</execute>
+            </action> </item>
+            <item label="Web Browser"> <action name="Execute">
+                <execute>exo-open --launch WebBrowser</execute>
+            </action> </item>
+            <item label="X11VNC Server"> <action name="Execute">
+                <execute>x11vnc -gui tray=setpass -rfbport PROMPT -bg</execute>
+            </action> </item>
+        </menu>
+        <menu id="3" label="Office">
+            <item label="Calendar"> <action name="Execute">
+                <execute>gnome-calendar</execute>
+            </action> </item>
+            <item label="Dictionary"> <action name="Execute">
+                <execute>xfce4-dict</execute>
+            </action> </item>
+            <item label="LibreOffice Impress"> <action name="Execute">
+                <execute>libreoffice</execute>
+            </action> </item>
+            <item label="Xbiff"> <action name="Execute">
+                <execute>xbiff</execute>
+            </action> </item>
+        </menu>
+        <menu id="39" label="Other">
+            <item label="Telnet"> <action name="Execute">
+                <execute>gnome-terminal -e telnet.netkit</execute>
+            </action> </item>
+        </menu>
+        <menu id="19" label="Shells">
+            <item label="Bash"> <action name="Execute">
+                <execute>gnome-terminal -e bash --login</execute>
+            </action> </item>
+            <item label="Dash"> <action name="Execute">
+                <execute>gnome-terminal -e dash -i</execute>
+            </action> </item>
+            <item label="File Manager PCManFM"> <action name="Execute">
+                <execute>pcmanfm</execute>
+            </action> </item>
+            <item label="fish"> <action name="Execute">
+                <execute>gnome-terminal -e fish</execute>
+            </action> </item>
+            <item label="GIT"> <action name="Execute">
+                <execute>gnome-terminal -e git</execute>
+            </action> </item>
+            <item label="ranger"> <action name="Execute">
+                <execute>gnome-terminal -e ranger</execute>
+            </action> </item>
+            <item label="Sh"> <action name="Execute">
+                <execute>gnome-terminal -e sh --login</execute>
+            </action> </item>
+            <item label="Terminal"> <action name="Execute">
+                <execute>gnome-terminal</execute>
+            </action> </item>
+            <item label="Terminator"> <action name="Execute">
+                <execute>terminator</execute>
+            </action> </item>
+            <item label="Terminator"> <action name="Execute">
+                <execute>terminator -m</execute>
+            </action> </item>
+            <item label="Terminology"> <action name="Execute">
+                <execute>terminology</execute>
+            </action> </item>
+            <item label="Thunar File Manager"> <action name="Execute">
+                <execute>thunar</execute>
+            </action> </item>
+            <item label="VirtualBox"> <action name="Execute">
+                <execute>VirtualBox</execute>
+            </action> </item>
+            <item label="Xfce Terminal"> <action name="Execute">
+                <execute>xfce4-terminal</execute>
+            </action> </item>
+        </menu>
+        <menu id="37" label="System">
+            <menu id="36" label="Settings">
+                <menu id="21" label="GNOME">
+                    <item label="About Me"> <action name="Execute">
+                        <execute>mugshot</execute>
+                    </action> </item>
+                    <item label="Advanced Network Configuration"> <action name="Execute">
+                        <execute>nm-connection-editor</execute>
+                    </action> </item>
+                    <item label="Bluetooth"> <action name="Execute">
+                        <execute>blueberry</execute>
+                    </action> </item>
+                    <item label="Desktop Settings"> <action name="Execute">
+                        <execute>mintdesktop</execute>
+                    </action> </item>
+                    <item label="Disks"> <action name="Execute">
+                        <execute>gnome-disks</execute>
+                    </action> </item>
+                    <item label="Driver Manager"> <action name="Execute">
+                        <execute>driver-manager</execute>
+                    </action> </item>
+                    <item label="Firewall Configuration"> <action name="Execute">
+                        <execute>gufw</execute>
+                    </action> </item>
+                    <item label="Graphics Tablet"> <action name="Execute">
+                        <execute>cinnamon-settings wacom</execute>
+                    </action> </item>
+                    <item label="Input method"> <action name="Execute">
+                        <execute>mintlocale-im</execute>
+                    </action> </item>
+                    <item label="Languages"> <action name="Execute">
+                        <execute>mintlocale</execute>
+                    </action> </item>
+                    <item label="Login Window"> <action name="Execute">
+                        <execute>pkexec lightdm-settings</execute>
+                    </action> </item>
+                    <item label="Printers"> <action name="Execute">
+                        <execute>system-config-printer</execute>
+                    </action> </item>
+                    <item label="Software Sources"> <action name="Execute">
+                        <execute>pkexec mintsources</execute>
+                    </action> </item>
+                    <item label="Welcome Screen"> <action name="Execute">
+                        <execute>mintwelcome</execute>
+                    </action> </item>
+                </menu>
+                <menu id="35" label="Xfce">
+                    <item label="Settings Manager"> <action name="Execute">
+                        <execute>xfce4-settings-manager</execute>
+                    </action> </item>
+                </menu>
+                <item label="Accessibility"> <action name="Execute">
+                    <execute>cinnamon-settings universal-access</execute>
+                </action> </item>
+                <item label="Accessibility"> <action name="Execute">
+                    <execute>xfce4-accessibility-settings</execute>
+                </action> </item>
+                <item label="Account details"> <action name="Execute">
+                    <execute>cinnamon-settings user</execute>
+                </action> </item>
+                <item label="Appearance"> <action name="Execute">
+                    <execute>xfce4-appearance-settings</execute>
+                </action> </item>
+                <item label="Applets"> <action name="Execute">
+                    <execute>cinnamon-settings applets</execute>
+                </action> </item>
+                <item label="Backgrounds"> <action name="Execute">
+                    <execute>cinnamon-settings backgrounds</execute>
+                </action> </item>
+                <item label="Backup Tool"> <action name="Execute">
+                    <execute>mintbackup</execute>
+                </action> </item>
+                <item label="Color"> <action name="Execute">
+                    <execute>cinnamon-settings color</execute>
+                </action> </item>
+                <item label="Color Profiles"> <action name="Execute">
+                    <execute>xfce4-color-settings</execute>
+                </action> </item>
+                <item label="Customize Look and Feel"> <action name="Execute">
+                    <execute>lxappearance</execute>
+                </action> </item>
+                <item label="Date &amp; Time"> <action name="Execute">
+                    <execute>cinnamon-settings calendar</execute>
+                </action> </item>
+                <item label="Desklets"> <action name="Execute">
+                    <execute>cinnamon-settings desklets</execute>
+                </action> </item>
+                <item label="Desktop"> <action name="Execute">
+                    <execute>xfdesktop-settings</execute>
+                </action> </item>
+                <item label="Desktop"> <action name="Execute">
+                    <execute>cinnamon-settings desktop</execute>
+                </action> </item>
+                <item label="Desktop Preferences"> <action name="Execute">
+                    <execute>pcmanfm --desktop-pref</execute>
+                </action> </item>
+                <item label="Display"> <action name="Execute">
+                    <execute>xfce4-display-settings</execute>
+                </action> </item>
+                <item label="Display"> <action name="Execute">
+                    <execute>cinnamon-settings display</execute>
+                </action> </item>
+                <item label="Effects"> <action name="Execute">
+                    <execute>cinnamon-settings effects</execute>
+                </action> </item>
+                <item label="Extensions"> <action name="Execute">
+                    <execute>cinnamon-settings extensions</execute>
+                </action> </item>
+                <item label="File Manager Settings"> <action name="Execute">
+                    <execute>thunar-settings</execute>
+                </action> </item>
+                <item label="Font Selection"> <action name="Execute">
+                    <execute>cinnamon-settings fonts</execute>
+                </action> </item>
+                <item label="General"> <action name="Execute">
+                    <execute>cinnamon-settings general</execute>
+                </action> </item>
+                <item label="Hot Corners"> <action name="Execute">
+                    <execute>cinnamon-settings hotcorner</execute>
+                </action> </item>
+                <item label="Keyboard"> <action name="Execute">
+                    <execute>xfce4-keyboard-settings</execute>
+                </action> </item>
+                <item label="Keyboard"> <action name="Execute">
+                    <execute>cinnamon-settings keyboard</execute>
+                </action> </item>
+                <item label="Main Menu"> <action name="Execute">
+                    <execute>mozo</execute>
+                </action> </item>
+                <item label="MIME Type Editor"> <action name="Execute">
+                    <execute>xfce4-mime-settings</execute>
+                </action> </item>
+                <item label="Mouse and Touchpad"> <action name="Execute">
+                    <execute>xfce4-mouse-settings</execute>
+                </action> </item>
+                <item label="Mouse and Touchpad"> <action name="Execute">
+                    <execute>cinnamon-settings mouse</execute>
+                </action> </item>
+                <item label="Network"> <action name="Execute">
+                    <execute>cinnamon-settings network</execute>
+                </action> </item>
+                <item label="Notifications"> <action name="Execute">
+                    <execute>cinnamon-settings notifications</execute>
+                </action> </item>
+                <item label="Online Accounts"> <action name="Execute">
+                    <execute>cinnamon-settings online-accounts</execute>
+                </action> </item>
+                <item label="Openbox Configuration Manager"> <action name="Execute">
+                    <execute>obconf</execute>
+                </action> </item>
+                <item label="Panel"> <action name="Execute">
+                    <execute>xfce4-panel --preferences</execute>
+                </action> </item>
+                <item label="Panel"> <action name="Execute">
+                    <execute>cinnamon-settings panel</execute>
+                </action> </item>
+                <item label="Passwords and Keys"> <action name="Execute">
+                    <execute>seahorse</execute>
+                </action> </item>
+                <item label="Power Management"> <action name="Execute">
+                    <execute>cinnamon-settings power</execute>
+                </action> </item>
+                <item label="Power Manager"> <action name="Execute">
+                    <execute>xfce4-power-manager-settings</execute>
+                </action> </item>
+                <item label="Preferred Applications"> <action name="Execute">
+                    <execute>cinnamon-settings default</execute>
+                </action> </item>
+                <item label="Preferred Applications"> <action name="Execute">
+                    <execute>exo-preferred-applications</execute>
+                </action> </item>
+                <item label="Privacy"> <action name="Execute">
+                    <execute>cinnamon-settings privacy</execute>
+                </action> </item>
+                <item label="Qt5 Settings"> <action name="Execute">
+                    <execute>qt5ct</execute>
+                </action> </item>
+                <item label="Removable Drives and Media"> <action name="Execute">
+                    <execute>thunar-volman-settings</execute>
+                </action> </item>
+                <item label="Screensaver"> <action name="Execute">
+                    <execute>cinnamon-settings screensaver</execute>
+                </action> </item>
+                <item label="Screensaver"> <action name="Execute">
+                    <execute>xfce4-screensaver-preferences</execute>
+                </action> </item>
+                <item label="Session and Startup"> <action name="Execute">
+                    <execute>xfce4-session-settings</execute>
+                </action> </item>
+                <item label="Settings Editor"> <action name="Execute">
+                    <execute>xfce4-settings-editor</execute>
+                </action> </item>
+                <item label="Software Manager"> <action name="Execute">
+                    <execute>mintinstall</execute>
+                </action> </item>
+                <item label="Sound"> <action name="Execute">
+                    <execute>cinnamon-settings sound</execute>
+                </action> </item>
+                <item label="Startup Applications"> <action name="Execute">
+                    <execute>cinnamon-settings startup</execute>
+                </action> </item>
+                <item label="Synaptic Package Manager"> <action name="Execute">
+                    <execute>synaptic-pkexec</execute>
+                </action> </item>
+                <item label="System Info"> <action name="Execute">
+                    <execute>cinnamon-settings info</execute>
+                </action> </item>
+                <item label="System Reports"> <action name="Execute">
+                    <execute>mintreport</execute>
+                </action> </item>
+                <item label="System Settings"> <action name="Execute">
+                    <execute>cinnamon-settings</execute>
+                </action> </item>
+                <item label="Themes"> <action name="Execute">
+                    <execute>cinnamon-settings themes</execute>
+                </action> </item>
+                <item label="Users and Groups"> <action name="Execute">
+                    <execute>cinnamon-settings-users</execute>
+                </action> </item>
+                <item label="Window Manager"> <action name="Execute">
+                    <execute>xfwm4-settings</execute>
+                </action> </item>
+                <item label="Window Manager Tweaks"> <action name="Execute">
+                    <execute>xfwm4-tweaks-settings</execute>
+                </action> </item>
+                <item label="Window Tiling"> <action name="Execute">
+                    <execute>cinnamon-settings tiling</execute>
+                </action> </item>
+                <item label="Windows"> <action name="Execute">
+                    <execute>cinnamon-settings windows</execute>
+                </action> </item>
+                <item label="Workspaces"> <action name="Execute">
+                    <execute>xfwm4-workspace-settings</execute>
+                </action> </item>
+                <item label="Workspaces"> <action name="Execute">
+                    <execute>cinnamon-settings workspaces</execute>
+                </action> </item>
+                <item label="Xfce Terminal"> <action name="Execute">
+                    <execute>xfce4-terminal --preferences</execute>
+                </action> </item>
+                <item label="Xfontsel"> <action name="Execute">
+                    <execute>xfontsel</execute>
+                </action> </item>
+                <item label="Xvidtune"> <action name="Execute">
+                    <execute>xvidtune</execute>
+                </action> </item>
+            </menu>
+            <item label="Aptitude Package Manager (text)"> <action name="Execute">
+                <execute>gnome-terminal -e aptitude-curses</execute>
+            </action> </item>
+            <item label="Backup Tool"> <action name="Execute">
+                <execute>mintBackup</execute>
+            </action> </item>
+            <item label="Bulk Rename"> <action name="Execute">
+                <execute>/usr/lib/x86_64-linux-gnu/Thunar/ThunarBulkRename</execute>
+            </action> </item>
+            <item label="dconf Editor"> <action name="Execute">
+                <execute>dconf-editor</execute>
+            </action> </item>
+            <item label="Disk Usage Analyzer"> <action name="Execute">
+                <execute>baobab</execute>
+            </action> </item>
+            <item label="DSL/PPPoE configuration tool"> <action name="Execute">
+                <execute>gnome-terminal -e pppoeconf</execute>
+            </action> </item>
+            <item label="Editres"> <action name="Execute">
+                <execute>editres</execute>
+            </action> </item>
+            <item label="GNOME System Monitor"> <action name="Execute">
+                <execute>gnome-system-monitor</execute>
+            </action> </item>
+            <item label="GParted"> <action name="Execute">
+                <execute>gparted</execute>
+            </action> </item>
+            <item label="Htop"> <action name="Execute">
+                <execute>gnome-terminal -e htop</execute>
+            </action> </item>
+            <item label="jgmenu"> <action name="Execute">
+                <execute>jgmenu_run</execute>
+            </action> </item>
+            <item label="Log Out"> <action name="Execute">
+                <execute>xfce4-session-logout</execute>
+            </action> </item>
+            <item label="Logs"> <action name="Execute">
+                <execute>gnome-logs</execute>
+            </action> </item>
+            <item label="Power Statistics"> <action name="Execute">
+                <execute>gnome-power-statistics</execute>
+            </action> </item>
+            <item label="pppconfig"> <action name="Execute">
+                <execute>gnome-terminal -e su-to-root -p root -c /usr/sbin/pppconfig</execute>
+            </action> </item>
+            <item label="Pstree"> <action name="Execute">
+                <execute>gnome-terminal -e pstree.x11</execute>
+            </action> </item>
+            <item label="Sensor Viewer"> <action name="Execute">
+                <execute>xfce4-sensors</execute>
+            </action> </item>
+            <item label="Synaptic Package Manager"> <action name="Execute">
+                <execute>x-terminal-emulator -e synaptic-pkexec</execute>
+            </action> </item>
+            <item label="Task Manager"> <action name="Execute">
+                <execute>xfce4-taskmanager</execute>
+            </action> </item>
+            <item label="Timeshift"> <action name="Execute">
+                <execute>pkexec timeshift-gtk</execute>
+            </action> </item>
+            <item label="Top"> <action name="Execute">
+                <execute>gnome-terminal -e top</execute>
+            </action> </item>
+            <item label="Update Manager"> <action name="Execute">
+                <execute>mintupdate</execute>
+            </action> </item>
+            <item label="USB Image Writer"> <action name="Execute">
+                <execute>mintstick -m iso</execute>
+            </action> </item>
+            <item label="Xclipboard"> <action name="Execute">
+                <execute>xclipboard</execute>
+            </action> </item>
+            <item label="Xev"> <action name="Execute">
+                <execute>x-terminal-emulator -e xev</execute>
+            </action> </item>
+            <item label="Xkill"> <action name="Execute">
+                <execute>xkill</execute>
+            </action> </item>
+            <item label="Xload"> <action name="Execute">
+                <execute>xload</execute>
+            </action> </item>
+            <item label="Xrefresh"> <action name="Execute">
+                <execute>xrefresh</execute>
+            </action> </item>
+        </menu>
+        <menu id="38" label="Utilities">
+            <item label="Application Finder"> <action name="Execute">
+                <execute>xfce4-appfinder</execute>
+            </action> </item>
+            <item label="Archive Manager"> <action name="Execute">
+                <execute>file-roller</execute>
+            </action> </item>
+            <item label="Bc"> <action name="Execute">
+                <execute>gnome-terminal -e bc</execute>
+            </action> </item>
+            <item label="Calculator"> <action name="Execute">
+                <execute>gnome-calculator</execute>
+            </action> </item>
+            <item label="Character Map"> <action name="Execute">
+                <execute>gucharmap</execute>
+            </action> </item>
+            <item label="Clipman"> <action name="Execute">
+                <execute>xfce4-clipman</execute>
+            </action> </item>
+            <item label="Dc"> <action name="Execute">
+                <execute>gnome-terminal -e dc</execute>
+            </action> </item>
+            <item label="File Manager"> <action name="Execute">
+                <execute>exo-open --launch FileManager</execute>
+            </action> </item>
+            <item label="Files"> <action name="Execute">
+                <execute>nemo</execute>
+            </action> </item>
+            <item label="Fonts"> <action name="Execute">
+                <execute>gnome-font-viewer</execute>
+            </action> </item>
+            <item label="Gnote"> <action name="Execute">
+                <execute>gnote</execute>
+            </action> </item>
+            <item label="Notes"> <action name="Execute">
+                <execute>xfce4-notes</execute>
+            </action> </item>
+            <item label="Onboard"> <action name="Execute">
+                <execute>onboard</execute>
+            </action> </item>
+            <item label="Plank"> <action name="Execute">
+                <execute>plank</execute>
+            </action> </item>
+            <item label="Redshift"> <action name="Execute">
+                <execute>redshift-gtk</execute>
+            </action> </item>
+            <item label="Run Program..."> <action name="Execute">
+                <execute>xfce4-appfinder --collapsed</execute>
+            </action> </item>
+            <item label="Screenshot"> <action name="Execute">
+                <execute>gnome-screenshot --interactive</execute>
+            </action> </item>
+            <item label="Screenshot"> <action name="Execute">
+                <execute>xfce4-screenshooter</execute>
+            </action> </item>
+            <item label="USB Stick Formatter"> <action name="Execute">
+                <execute>mintstick -m format</execute>
+            </action> </item>
+            <item label="Virtual keyboard"> <action name="Execute">
+                <execute>dbus-send --print-reply --dest=org.Cinnamon /org/Cinnamon org.Cinnamon.ToggleKeyboard</execute>
+            </action> </item>
+            <item label="Warpinator"> <action name="Execute">
+                <execute>warpinator</execute>
+            </action> </item>
+            <item label="Xcalc"> <action name="Execute">
+                <execute>xcalc</execute>
+            </action> </item>
+            <item label="Xman"> <action name="Execute">
+                <execute>xman</execute>
+            </action> </item>
+        </menu>
+        <separator/>
+        <menu id="40" label="OpenBox">
+            <menu id="client-list-menu"/>
+            <item label="Reconfigure"> <action name="Reconfigure"/> </item>
+            <item label="Restart"> <action name="Restart"/> </item>
+            <separator/>
+            <item label="Exit"> <action name="Exit"/> </item>
+            <item label="Reboot"> <action name="Execute">
+                <execute>~/.config/openbox/menu_exit_openbox reboot</execute>
+            </action> </item>
+            <item label="Power Off"> <action name="Execute">
+                <execute>~/.config/openbox/menu_exit_openbox poweroff</execute>
+            </action> </item>
+        </menu>
+    </menu>
+</openbox_menu>
