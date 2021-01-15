@@ -242,7 +242,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 " отключен - Easy Align - выравнивание текста по параметрам
 " отключен - EasyMotion - простые перемещения
 " отключен - Emmet - автонаписание html, css (для html и css)
-" Fixkey - корректная работа Alt-key or Meta-key в терминале
+" отключен - Fixkey - корректная работа Alt-key or Meta-key в терминале
 " Git - дополнение для git:
 	" отключен - GitGutter - git состояние
 	" отключен - Fugitive - расширение git для Vim
@@ -261,7 +261,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 " Repeat - расширенный повтор по "."
 " отключен - Session - расширенные сессии для Vim, требует:
 " отключен - (Misc - различные автонастройки скриптов Vim)
-" отключен - Startify - стартовый экран
+" Startify - стартовый экран
 " Supertab - дополнение по <Tab>
 " отключен - Surround - обернуть текст
 " Tags - теги (для Linux):
@@ -470,7 +470,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 " Fixkey - корректная работа Alt-key or Meta-key в терминале
 " ---------------
 " https://github.com/drmikehenry/vim-fixkey
-Plug 'drmikehenry/vim-fixkey'
+" Plug 'drmikehenry/vim-fixkey'
 " ---------------
 " ----------------------------------------
 
@@ -693,7 +693,7 @@ Plug 'tpope/vim-repeat'
 " Startify - стартовый экран
 " ---------------
 " https://github.com/mhinz/vim-startify
-" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 " ---------------
 " ----------------------------------------
 
