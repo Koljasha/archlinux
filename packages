@@ -37,7 +37,7 @@ openbox i3 obconf lxappearance polkit-gnome
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
-sublime-text-3 viewnior evince
+viewnior evince
 "
 packages_aur="
 xkb-switch
@@ -51,6 +51,7 @@ arc-dark-osx-openbox-theme-git
 # vlc firefox remmina transmission-gtk
 # -----------
 # https://aur.archlinux.org/polybar.git
+# https://aur.archlinux.org/sublime-text-3.git
 # -----------
 
 
