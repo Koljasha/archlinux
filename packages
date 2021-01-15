@@ -35,6 +35,9 @@ xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 feh picom
 openbox i3 obconf lxappearance polkit-gnome
 terminator gnome-terminal
+menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
+gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
+sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina transmission-gtk
 "
 packages_aur="
 xkb-switch
@@ -42,13 +45,9 @@ arc-dark-osx-openbox-theme-git
 "
 
 # ----------
-# menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
-# gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 # pulseaudio pulseaudio-alsa
-# network-manager-applet networkmanager-openvpn
-# sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina transmission-gtk
+# network-manager-applet openvpn networkmanager-openvpn
 # openssh samba x11vnc
-# openvpn
 # -----------
 # https://aur.archlinux.org/polybar.git
 # -----------
@@ -60,7 +59,7 @@ sudo pacman -S --needed --noconfirm $packages
 
 # build yay
 git clone https://aur.archlinux.org/yay.git
-cd yay && makepkg -si
+cd yay && makepkg -sirc --noconfirm
 cd .. && rm -rf yay
 
 yay -S --noconfirm $packages_aur
@@ -126,6 +125,9 @@ sudo systemctl enable lightdm
 sudo chsh -s /usr/bin/fish $username
 # update fish
 fish -c 'fish_update_completions'
+
+# menumaker for Openbox
+mmaker -f -t GNOME-terminal OpenBox3
 
 ###############
 

@@ -1,0 +1,4 @@
+Terminator,terminator -m,terminator
+Browser,firefox,firefox
+File manager,pcmanfm,system-file-manager
+^sep()
