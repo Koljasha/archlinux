@@ -152,6 +152,9 @@ sudo chsh -s /usr/bin/fish $username
 # update fish
 fish -c 'fish_update_completions'
 
+# clean yay
+yay -Yc --noconfirm
+
 # menumaker for Openbox
 # mmaker -f -t GNOME-terminal OpenBox3
 
