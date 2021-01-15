@@ -138,10 +138,14 @@ if [[ $vbox == "1" ]]; then
     sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
 fi
 
-# change ethernet interface in polybar config
+# polybar - change ethernet interface
 eth=`ip a | grep "^2:" | awk -F": " '{ print $2 }'`
 sed -i "s/enp1s0/$eth/" ~/.config/polybar/openbox.conf
 sed -i "s/enp1s0/$eth/" ~/.config/polybar/i3.conf
+
+# polybar - change display output
+disp=`xrandr | grep "connected primary" | cut -d" " -f1`
+sed -i "s/eDP-1/$disp/" ~/.config/polybar/change_brightness.sh
 ###############
 
 # Enable services
