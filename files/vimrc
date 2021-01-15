@@ -261,7 +261,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 " Repeat - расширенный повтор по "."
 " отключен - Session - расширенные сессии для Vim, требует:
 " отключен - (Misc - различные автонастройки скриптов Vim)
-" Startify - стартовый экран
+" отключен - Startify - стартовый экран
 " Supertab - дополнение по <Tab>
 " отключен - Surround - обернуть текст
 " Tags - теги (для Linux):
@@ -692,8 +692,8 @@ Plug 'tpope/vim-repeat'
 
 " Startify - стартовый экран
 " ---------------
-"  https://github.com/mhinz/vim-startify
-Plug 'mhinz/vim-startify'
+" https://github.com/mhinz/vim-startify
+" Plug 'mhinz/vim-startify'
 " ---------------
 " ----------------------------------------
 
