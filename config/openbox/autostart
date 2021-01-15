@@ -30,7 +30,7 @@ env DISPLAY=:0.0 feh --randomize --bg-scale /usr/share/backgrounds/gnome/ &
 ~/.config/polybar/openbox.sh &
 
 # NetworkManager applet
-# nm-applet &
+nm-applet &
 
 # Plank
 plank &

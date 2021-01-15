@@ -418,5 +418,5 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec --no-startup-id ~/.config/polybar/i3.sh
 
 # NetworkManager applet
-# exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
