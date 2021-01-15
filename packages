@@ -108,6 +108,9 @@ rm -rf ~/archlinux_installer/oh-my-fish
 # ranger icons
 git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
+# create dir for Trash
+mkdir -p ~/.local/share/Trash/files
+
 # picom settings
 mkdir ~/.config/picom
 cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
@@ -157,6 +160,10 @@ yay -Yc --noconfirm
 
 # menumaker for Openbox
 # mmaker -f -t GNOME-terminal OpenBox3
+
+# rm installer folder
+cd ~
+# rm -rf ~/archlinux_installer
 
 ###############
 
