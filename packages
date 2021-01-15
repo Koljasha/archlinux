@@ -128,6 +128,7 @@ while [[ $vbox != "1" ]] && [[ $vbox != "2" ]]; do
     echo "####################"
     read -n1 -p">" vbox
 done
+echo; echo
 
 if [[ $vbox == "1" ]]; then
     sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
