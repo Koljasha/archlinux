@@ -7,11 +7,17 @@
 
 PS1='[\u@\h \W]\$ '
 
+# linux command aliases
 alias ls='ls --color=auto'
+alias ll="ls -lah"
 alias grep='grep --color=auto'
 
-# linux ll command
-alias ll="ls -lah"
+# alias for conda
+alias condaupdate="conda update --all --yes"
+
+# alias for python virtual envorenment
+alias venvactivate="source venv/bin/activate"
+alias venvcreate="python -m venv venv && venvactivate && pip install wheel"
 
 # ranger auto cd
 rcd() {
