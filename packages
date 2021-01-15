@@ -40,17 +40,17 @@ menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 viewnior evince vlc firefox remmina transmission-gtk
 "
-packages_aur="
-xkb-switch
-arc-dark-osx-openbox-theme-git
-mintstick sublime-text-3
-"
-
 # ----------
 # openssh samba x11vnc
 # -----------
-# https://aur.archlinux.org/polybar.git
-# -----------
+
+packages_aur="
+xkb-switch
+arc-dark-osx-openbox-theme-git
+mintstick
+sublime-text-3
+polybar
+"
 
 # Install packages from repo
 sudo pacman -Sy
@@ -122,6 +122,9 @@ sudo systemctl enable lightdm
 ###############
 
 # end update settings
+
+# enable change locale
+localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
 
 # fish is main shell
 sudo chsh -s /usr/bin/fish $username

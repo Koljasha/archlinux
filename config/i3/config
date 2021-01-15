@@ -18,7 +18,7 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 9
+font pango:Sans 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -229,9 +229,6 @@ hide_edge_borders both
         # position top
 # }
 
-# Polybar
-exec_always --no-startup-id ~/.config/polybar/i3.sh
-
 #####################
 #Gaps
 #####################
@@ -372,15 +369,6 @@ mode "$mode_gaps_left" {
 bindsym $mod+b exec firefox
 bindsym $mod+n exec pcmanfm
 
-# Plank
-# bindsym $mod+grave exec plank
-# bindsym $mod+Shift+grave exec i3-msg "workspace $workspace2"; exec xprop -name "plank" -remove _NET_WM_WINDOW_TYPE
-# bindsym $mod+Shift+p exec killall plank
-# change Workspace
-# xprop -name "plank" -remove _NET_WM_WINDOW_TYPE
-# Change back Workspace
-# restart -> $mod+Shift+r
-
 # Workspace for app:
 # (name of class - command: xprop)
 # assign [class="Terminator"] $workspace1
@@ -397,43 +385,38 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
-# Volume control (type 2):
-# bindsym $mod+F12 exec amixer -q set Master 2+
-# bindsym $mod+F11 exec amixer -q set Master 2-
-
 # Image for i3lock:
-bindsym $mod+Shift+l exec i3lock -c 000000 -i ~/Изображения/.Wolf.png
+bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.jpg
 
 #
 # Execute
 #
 
+# set screen resolution for Virtual Box
+exec --no-startup-id xrandr -s 1360x768
+
 # Change lang:
 # exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
 
 # Numlock on:
-exec_always --no-startup-id numlockx on
+exec --no-startup-id numlockx on
 
 # Disable Xorg screensaver
-exec_always --no-startup-id xset s off
-exec_always --no-startup-id xset -dpms
-
-# Brightness:
-exec --no-startup-id xrandr --output eDP-1 --brightness 0.8
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
 
 # Transparency:
-exec --no-startup-id compton -f --vsync drm --backend glx
+exec --no-startup-id picom
 
 # Backgroung image:
-# exec --no-startup-id feh --bg-scale ~/Изображения/.Wolf.jpg
-exec --no-startup-id env DISPLAY=:0.0 feh --randomize --bg-scale ~/Изображения/
-
-# NetworkManager applet
-exec --no-startup-id nm-applet
+exec --no-startup-id env DISPLAY=:0.0 feh --randomize --bg-scale /usr/share/backgrounds/gnome/
 
 # PolicyKit Authentication Agent - Gnome
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-# Mint Update launcher
-exec --no-startup-id mintupdate-launcher
+# Polybar
+exec --no-startup-id ~/.config/polybar/i3.sh
+
+# NetworkManager applet
+# exec --no-startup-id nm-applet
 
