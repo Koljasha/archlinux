@@ -34,10 +34,10 @@ arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 feh picom
 openbox i3 obconf lxappearance polkit-gnome
-terminator gnome-terminal
+terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
-sublime-text-3 pcmanfm-gtk3 viewnior evince vlc firefox remmina transmission-gtk
+sublime-text-3 viewnior evince
 "
 packages_aur="
 xkb-switch
@@ -48,6 +48,7 @@ arc-dark-osx-openbox-theme-git
 # pulseaudio pulseaudio-alsa
 # network-manager-applet openvpn networkmanager-openvpn
 # openssh samba x11vnc
+# vlc firefox remmina transmission-gtk
 # -----------
 # https://aur.archlinux.org/polybar.git
 # -----------
