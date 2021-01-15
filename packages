@@ -170,24 +170,6 @@ yay -Yc --noconfirm
 # menumaker for Openbox
 # mmaker -f -t GNOME-terminal OpenBox3
 
-# install grub sleek theme
-while [[ $tgr != "1" ]] && [[ $tgr != "2" ]]; do
-    echo; echo
-    echo "####################"
-    echo "Install Grub Sleek Theme"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" tgr
-done
-echo; echo
-
-if [[ $tgr == "1" ]]; then
-    sudo cp -r files/sleek /boot/grub/themes/
-    sudo sed -i '$ a GRUB_THEME="/boot/grub/themes/sleek/theme.txt"\n' /etc/default/grub
-    sudo grub-mkconfig -o /boot/grub/grub.cfg
-fi
-
 # rm installer folder
 cd ~
 # rm -rf ~/archlinux_installer
