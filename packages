@@ -47,7 +47,7 @@ arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 openbox i3 obconf lxappearance polkit-gnome feh picom
 pulseaudio pulseaudio-alsa
-network-manager-applet openvpn networkmanager-openvpn
+network-manager-applet openvpn networkmanager-openvpn samba
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gparted gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
