@@ -16,7 +16,9 @@ echo; echo
 echo "####################"
 echo "What video drivers install?"
 echo "1) xf86-video-intel      -> for Intel"
-echo "2) xf86-video-nouveau    -> for nVidea"
+echo "2) xf86-video-amdgpu     -> for AMD"
+echo "3) xf86-video-nouveau    -> for nVidea"
+echo "4) xf86-video-ati        -> for ATI"
 echo "other) xf86-video-fbdev  -> other driver"
 echo "####################"
 
@@ -24,7 +26,11 @@ read -n1 -p">" drivers; echo
 if [[ $drivers == "1" ]]; then
     drivers="xf86-video-intel"
 elif [[ $drivers == "2" ]]; then
+    drivers="xf86-video-amdgpu"
+elif [[ $drivers == "3" ]]; then
     drivers="xf86-video-nouveau"
+elif [[ $drivers == "4" ]]; then
+    drivers="xf86-video-ati"
 else
     drivers="xf86-video-fbdev"
 fi
@@ -44,7 +50,7 @@ pulseaudio pulseaudio-alsa
 network-manager-applet openvpn networkmanager-openvpn
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
-gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
+gparted gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 viewnior evince vlc firefox remmina freerdp libvncserver transmission-gtk
 "
 
@@ -90,8 +96,8 @@ sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # install vim spell RU UTF-8
-curl -fLo ~/.vim/spell/ru.utf-8.sug --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
-curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
+# curl -fLo ~/.vim/spell/ru.utf-8.sug --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
+# curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
 # install vim pluggins
 vim -c PlugInstall
 # enable vim colorscheme
