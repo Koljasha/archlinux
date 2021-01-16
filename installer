@@ -117,7 +117,7 @@ else
     exit 1
 fi
 
-packages="base base-devel linux linux-firmware reflector vi networkmanager $packages_table $packages_microcode"
+packages="base base-devel linux linux-firmware vi networkmanager $packages_table $packages_microcode"
 pacstrap /mnt $packages
 
 # Generate /etc/fstab
