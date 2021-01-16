@@ -49,7 +49,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 # Packages
 packages="
 $drivers $headers
-dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion ntfs-3g gvfs wmctrl
+dosfstools mtools man-db man-pages xdg-user-dirs bash-completion ntfs-3g gvfs wmctrl
 git htop lm_sensors lesspipe openssh numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 vim fish tmux ranger
@@ -76,8 +76,12 @@ polybar
 # change|check folder
 cd ~/archlinux_installer
 
+# run reflector
+sudo cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+sudo reflector --verbose -l 50 -p https --sort rate --save /etc/pacman.d/mirrorlist
+
 # Install packages from repo
-sudo pacman -Sy
+sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
 
 # build yay
