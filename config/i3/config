@@ -412,7 +412,7 @@ exec --no-startup-id picom
 exec --no-startup-id env DISPLAY=:0.0 feh --randomize --bg-scale /usr/share/backgrounds/gnome/
 
 # PolicyKit Authentication Agent - Gnome
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Polybar
 exec --no-startup-id ~/.config/polybar/i3.sh
