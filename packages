@@ -171,6 +171,9 @@ sed -i "s/enp1s0/$eth/" ~/.config/polybar/i3.conf
 # disp=`xrandr | grep "connected primary" | cut -d" " -f1`
 # sed -i "s/eDP-1/$disp/" ~/.config/polybar/change_brightness.sh
 
+# terminator max window
+sudo sed -i "s/Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
+
 # install miniconda
 curl -o miniconda https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash miniconda -p ~/.local/conda -b
