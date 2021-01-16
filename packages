@@ -191,7 +191,7 @@ rm miniconda
 
 # Enable services
 sudo systemctl enable lightdm
-systemctl enable reflector.timer
+sudo systemctl enable reflector.timer
 
 ###############
 
