@@ -6,7 +6,7 @@ echo "####################"
 echo; echo
 
 echo "####################"
-echo "After install Vim pluggins"
+echo "After install Vim plugins"
 echo "for exit Vim do:"
 echo "ZZ and ZZ"
 echo "####################"
@@ -109,7 +109,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # install vim spell RU UTF-8
 # curl -fLo ~/.vim/spell/ru.utf-8.sug --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
 # curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
-# install vim pluggins
+# install vim plugins
 vim -c PlugInstall
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
