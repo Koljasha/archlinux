@@ -73,6 +73,9 @@ sublime-text-3
 polybar
 "
 
+# change|check folder
+cd ~/archlinux_installer
+
 # Install packages from repo
 sudo pacman -Sy
 sudo pacman -S --needed --noconfirm $packages
