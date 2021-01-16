@@ -35,9 +35,20 @@ else
     drivers="xf86-video-fbdev"
 fi
 
+# check kernel for install headers
+kernel=`pacman -Qe linux 2>/dev/null | grep -o "^linux"`
+kernel=`echo $kernel | sed -E 's/([a-z\-]+)/\1-headers/'`
+kernel_lts=`pacman -Qe linux-lts 2>/dev/null | grep -o "^linux-lts"`
+kernel_lts=`echo $kernel_lts | sed -E 's/([a-z\-]+)/\1-headers/'`
+kernel_zen=`pacman -Qe linux-zen 2>/dev/null | grep -o "^linux-zen"`
+kernel_zen=`echo $kernel_zen | sed -E 's/([a-z\-]+)/\1-headers/'`
+kernel_hardened=`pacman -Qe linux-hardened 2>/dev/null | grep -o "^linux-hardened"`
+kernel_hardened=`echo $kernel_hardened | sed -E 's/([a-z\-]+)/\1-headers/'`
+headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
+
 # Packages
 packages="
-$drivers linux-headers
+$drivers $headers
 dosfstools mtools man-db man-pages reflector xdg-user-dirs bash-completion ntfs-3g gvfs wmctrl
 git htop lm_sensors lesspipe openssh numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
