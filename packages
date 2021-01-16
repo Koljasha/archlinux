@@ -181,12 +181,12 @@ fish -c 'fish_update_completions'
 # clean yay
 yay -Yc --noconfirm
 
-# menumaker for Openbox
-# mmaker -f -t GNOME-terminal OpenBox3
+# menu_maker for Openbox
+~/.config/openbox/menu_maker
 
 # rm installer folder
 cd ~
-# rm -rf ~/archlinux_installer
+rm -rf ~/archlinux_installer
 
 ###############
 
