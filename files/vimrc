@@ -229,7 +229,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 " ---------------
 " Vim-plug - менеджер плагинов
 
-" отключен - Ack - для The Silver Searcher (для Linux)
+" отключен - Ack - для The Silver Searcher
 " отключен - Anyfold - автоматическое свертывание кода
 " отключен - ArgWrap - схлопывание и захлопывание содержимого скобок
 " отключен - Auto Pairs - парные скобки и ковычки
@@ -238,7 +238,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 	" PaperColor
 	" отключен - Solarized 8: True Colors
 " отключен - Ctrlp - нечеткий поиск
-" отключен - Ctrlsf - изменение в нескольких файлах (для Linux)
+" отключен - Ctrlsf - изменение в нескольких файлах
 " отключен - Easy Align - выравнивание текста по параметрам
 " отключен - EasyMotion - простые перемещения
 " отключен - Emmet - автонаписание html, css (для html и css)
@@ -247,9 +247,9 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 	" отключен - GitGutter - git состояние
 	" отключен - Fugitive - расширение git для Vim
 	" отключен - GV - просмотр коммитов
-" Lightline - строка статуса (для Windows, для Linux внешний PowerLine)
+" Lightline - строка статуса
 " отключен - ListToggle - вкл/выкл quickfix и location окон
-" отключен - Livedown - автопросмотр MarkDown файлов в браузере (для Linux для markdown)
+" отключен - Livedown - автопросмотр MarkDown файлов в браузере
 " Matchit - перемещение по тегам HTML (%) (для HTML)
 " Matchtag - подсветка тегов HTML (для HTML)
 " отключен - Move - перемещение текущей строки или выделенных строк вверх или вниз
@@ -274,7 +274,7 @@ imap <S-F12> <Esc>:set keymap=<CR>i
 " отключен - Snippets - набор сниппетов
 " отключен - (UltiSnips - движок для сниппетов)
 " отключен - Syntastic - синтаксические ошибки кода
-" отключен - YCM (для Linux):
+" отключен - YCM:
 	" отключен - YCM-Generator - генератор .ycm_extra_conf.py
 	" YouCompleteMe - автодополнение кода
 " ----------------------------------------
@@ -879,9 +879,6 @@ call plug#end()
 
 " Цветовая схема
 " ---------------
-
-" используем PowerLine
-" set rtp+=/home/koljasha/soft/conda/lib/python3.8/site-packages/powerline/bindings/vim
 
 " настройка цветовой схемы
 colorscheme desert
