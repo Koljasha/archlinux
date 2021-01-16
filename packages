@@ -168,8 +168,8 @@ sed -i "s/enp1s0/$eth/" ~/.config/polybar/openbox.conf
 sed -i "s/enp1s0/$eth/" ~/.config/polybar/i3.conf
 
 # polybar - change display output
-disp=`xrandr | grep "connected primary" | cut -d" " -f1`
-sed -i "s/eDP-1/$disp/" ~/.config/polybar/change_brightness.sh
+# disp=`xrandr | grep "connected primary" | cut -d" " -f1`
+# sed -i "s/eDP-1/$disp/" ~/.config/polybar/change_brightness.sh
 
 # install miniconda
 curl -o miniconda https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
