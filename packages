@@ -78,7 +78,7 @@ cd ~/archlinux_installer
 
 # run reflector
 # sudo cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-# sudo reflector --verbose -l 50 -p https --sort rate --save /etc/pacman.d/mirrorlist
+# sudo reflector --verbose -l 100 -p https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Install packages from repo
 sudo pacman -Syu --noconfirm
