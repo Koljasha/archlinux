@@ -203,7 +203,6 @@ yay -Yc --noconfirm
 ~/.config/openbox/menu_maker
 
 # rm installer folder
-cd ~
 rm -rf ~/archlinux_installer
 
 ###############
