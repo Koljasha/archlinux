@@ -386,7 +386,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Image for i3lock:
-bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.jpg
+bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
 
 #
 # Execute

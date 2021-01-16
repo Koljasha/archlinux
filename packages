@@ -174,8 +174,10 @@ sed -i "s/enp1s0/$eth/" ~/.config/polybar/i3.conf
 # terminator max window
 sudo sed -i "s/Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
 
-# delete file from backgrounds
+# backgrounds
 sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
+sudo chmod 755 /usr/share/backgrounds/gnome/*
+sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
 
 # install miniconda
 curl -o miniconda https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
