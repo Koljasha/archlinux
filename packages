@@ -103,6 +103,7 @@ cp files/face ~/.face
 cp -r config/ ~/.config
 
 sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+sudo cp files/smb.conf /etc/samba/smb.conf
 
 ###############
 
@@ -184,7 +185,7 @@ rm miniconda
 ###############
 
 # Enable services
-sudo systemctl enable lightdm
+sudo systemctl enable lightdm.service
 sudo systemctl enable reflector.timer
 
 # enable change backgrounds
@@ -201,6 +202,24 @@ echo; echo
 
 if [[ $chbg == "1" ]]; then
     systemctl --user enable setbg.timer
+fi
+
+# enable samba share for user
+while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "Enable Samba share \"Home directory\" for $username"
+    echo "1) yes"
+    echo "2) no"
+    echo "####################"
+    read -n1 -p">" smb
+done
+echo; echo
+
+if [[ $smb == "1" ]]; then
+    echo "Enter password for Samba share"
+    sudo smbpasswd -a $username
+    sudo systemctl enable smb.service
 fi
 ###############
 
