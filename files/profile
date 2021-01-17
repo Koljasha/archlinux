@@ -1,5 +1,8 @@
+#
+# other configs
+#
 
-# for QT
+# environment for QT applications
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME="qt5ct"
 

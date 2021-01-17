@@ -50,7 +50,7 @@ vim fish tmux ranger
 ttf-droid ttf-dejavu awesome-terminal-fonts ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
-openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom
+openbox i3 obconf lxappearance-gtk3 qt5ct polkit-gnome feh picom
 pulseaudio pulseaudio-alsa
 network-manager-applet openvpn networkmanager-openvpn samba
 terminator gnome-terminal pcmanfm-gtk3
@@ -61,6 +61,7 @@ viewnior evince vlc firefox remmina freerdp libvncserver transmission-gtk
 
 packages_aur="
 xkb-switch
+qt5-styleplugins
 arc-dark-osx-openbox-theme-git
 mintstick
 sublime-text-3
@@ -88,6 +89,7 @@ username=`whoami`
 ###############
 
 # Copy configs
+cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
 cp files/tmux.conf ~/.tmux.conf
