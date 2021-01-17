@@ -1,0 +1,12 @@
+# Set backgrond
+#
+
+[Unit]
+Description=Set backgrond
+
+[Service]
+ExecStart=/usr/bin/free
+
+[Install]
+WantedBy=default.target
+
