@@ -166,7 +166,7 @@ sed -i "s/enp1s0/$eth/" ~/.config/polybar/openbox.conf
 sed -i "s/enp1s0/$eth/" ~/.config/polybar/i3.conf
 
 # terminator max window
-sudo sed -i "s/Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
+sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
 
 # backgrounds
 sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
