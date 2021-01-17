@@ -131,6 +131,7 @@ read -n1 -p">"; echo
 
 # Copy script for chroot mode
 cp -r /root/archlinux_installer /mnt/root
+echo
 echo "####################"
 echo "In chroot mode do:"
 echo ">/root/archlinux_installer/chroot"
