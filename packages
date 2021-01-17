@@ -250,7 +250,7 @@ echo "System installed"
 echo "Reboot in 3 seconds"
 echo "####################"
 
-sleep 3 && sudo reboot
+sleep 3 && sudo systemctl -i reboot
 
 ###############
 
