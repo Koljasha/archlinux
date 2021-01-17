@@ -50,36 +50,23 @@ chown -R $username:$username /home/$username/archlinux_installer
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # Install GRUB
-if [[ $1 == "GPT" ]]; then
-    table="GPT"
-elif [[ $1 == "MBR" ]]; then
-    table="MBR"
-elif [[ $1 == "NO" ]]; then
-    table="NO"
-fi
+grub=`pacman -Qe grub 2>/dev/null | grep -o "^grub"`
+efibootmgr=`pacman -Qe efibootmgr 2>/dev/null | grep -o "^efibootmgr"`
 
-while [[ $table != "GPT" ]] && [[ $table != "MBR" ]] && [[ $table != "NO" ]]; do
-    echo "####################"
-    echo "Install GRUB for:"
-    echo "GPT Table - write >GPT"
-    echo "MBR Table - write >MBR"
-    echo "not install GRUB - write >NO"
-    echo "####################"
-    read -p">" table
-done
-
-if [[ $table == "GPT" ]]; then
-    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-    grub-mkconfig -o /boot/grub/grub.cfg
-    echo "####################"
-    echo "GRUB for EFI install"
-    echo "####################"
-elif [[ $table == "MBR" ]]; then
-    grub-install --target=i386-pc /dev/sda
-    grub-mkconfig -o /boot/grub/grub.cfg
-    echo "####################"
-    echo "GRUB for MBR install"
-    echo "####################"
+if [[ $grub == "grub" ]]; then
+    if [[ $efibootmgr == "efibootmgr" ]]; then
+        grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+        grub-mkconfig -o /boot/grub/grub.cfg
+        echo "####################"
+        echo "GRUB for EFI install"
+        echo "####################"
+    else
+        grub-install --target=i386-pc /dev/sda
+        grub-mkconfig -o /boot/grub/grub.cfg
+        echo "####################"
+        echo "GRUB for MBR install"
+        echo "####################"
+    fi
 else
     echo "####################"
     echo "GRUB not install"
