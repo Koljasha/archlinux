@@ -24,4 +24,6 @@
     * MBR - install Grub for MBR
     * NO - not install Grub
 * `./packages` - install packages for desktop environments (Openbox, i3wm) and settings for it
+***
+* after install run `lxappearance` and `qt5ct`
 
