@@ -113,6 +113,7 @@ echo; echo
 echo "####################"
 echo "After install Vim plugins"
 echo "for exit Vim do: ZZ and ZZ"
+echo "####################"
 echo "now click any key"
 echo "####################"
 read -n1 -p">"; echo
@@ -250,10 +251,13 @@ rm -rf ~/archlinux_installer
 echo; echo
 echo "####################"
 echo "System installed"
-echo "Reboot in 3 seconds"
+echo "Will be reboot"
 echo "####################"
+echo "now click any key"
+echo "####################"
+read -n1 -p">"; echo
 
-sleep 3 && sudo systemctl -i reboot
+sudo systemctl -i reboot
 
 ###############
 
