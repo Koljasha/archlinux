@@ -1,11 +1,12 @@
+#
 # Set backgrond
 #
 
 [Unit]
-Description=Set backgrond
+Description=Set backgrounds
 
 [Service]
-ExecStart=/usr/bin/free
+ExecStart=/usr/bin/feh --randomize --bg-scale /usr/share/backgrounds/gnome/
 
 [Install]
 WantedBy=default.target
