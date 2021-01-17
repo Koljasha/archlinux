@@ -76,6 +76,7 @@ else
 fi
 
 # Exit
+echo; echo
 echo "####################"
 echo "Please do this:"
 echo ">exit"
