@@ -29,11 +29,13 @@ line=$((line+1))
 sed -i -e "${line}s/^#//" /etc/pacman.conf
 
 # Passwords and create user
+echo; echo
 echo "####################"
 echo "Password for root"
 echo "####################"
 passwd
 
+echo; echo
 echo "####################"
 echo "Add user"
 echo "####################"
