@@ -1,0 +1,13 @@
+#
+# Timer for set backgronds
+#
+
+[Unit]
+Description=Set backgrounds timer
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+
+[Install]
+WantedBy=timers.target
+

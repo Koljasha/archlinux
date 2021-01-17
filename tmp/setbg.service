@@ -1,9 +1,9 @@
 #
-# Set backgrond
+# Service for set backgronds
 #
 
 [Unit]
-Description=Set backgrounds
+Description=Set backgrounds service
 
 [Service]
 ExecStart=/usr/bin/feh --randomize --bg-scale /usr/share/backgrounds/gnome/
