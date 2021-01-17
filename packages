@@ -219,7 +219,7 @@ done
 echo; echo
 
 if [[ $smb == "1" ]]; then
-    echo "Enter password Samba share for $username"
+    echo "Password Samba share for $username"
     sudo smbpasswd -a $username
     sudo systemctl enable smb.service
 fi
