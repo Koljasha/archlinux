@@ -251,7 +251,7 @@ rm -rf ~/archlinux_installer
 echo; echo
 echo "####################"
 echo "System installed"
-echo "Will be reboot"
+echo "will be reboot"
 echo "####################"
 echo "now click any key"
 echo "####################"
