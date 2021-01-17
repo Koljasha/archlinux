@@ -51,6 +51,7 @@ chown -R $username:$username /home/$username/archlinux_installer
 # Add sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
+echo; echo
 # Install GRUB
 grub=`pacman -Qe grub 2>/dev/null | grep -o "^grub"`
 efibootmgr=`pacman -Qe efibootmgr 2>/dev/null | grep -o "^efibootmgr"`

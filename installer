@@ -133,7 +133,7 @@ read -n1 -p">"; echo
 cp -r /root/archlinux_installer /mnt/root
 echo "####################"
 echo "In chroot mode do:"
-echo ">/root/archlinux_installer/chroot $table"
+echo ">/root/archlinux_installer/chroot"
 echo "####################"
 
 # Run arch-chroot
