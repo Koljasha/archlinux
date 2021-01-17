@@ -76,10 +76,6 @@ polybar
 # change|check folder
 cd ~/archlinux_installer
 
-# run reflector
-# sudo cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-# sudo reflector --verbose -l 70 -p https --sort rate --save /etc/pacman.d/mirrorlist
-
 # Install packages from repo
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
@@ -212,7 +208,7 @@ yay -Yc --noconfirm
 ~/.config/openbox/menu_maker
 
 # rm installer folder
-# rm -rf ~/archlinux_installer
+rm -rf ~/archlinux_installer
 
 ###############
 
