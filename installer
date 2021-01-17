@@ -144,6 +144,7 @@ arch-chroot /mnt
 rm -rf /mnt/root/archlinux_installer
 umount -R /mnt
 
+echo; echo
 echo "####################"
 echo "Please do this:"
 echo ">poweroff"
