@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo; echo
 echo "####################"
 echo "Install packages"
 echo "####################"
@@ -114,6 +115,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
 # install vim plugins
 vim -c PlugInstall
+echo; echo
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
 
@@ -185,6 +187,21 @@ rm miniconda
 sudo systemctl enable lightdm
 sudo systemctl enable reflector.timer
 
+# enable change backgrounds
+while [[ $chbg != "1" ]] && [[ $chbg != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "Enable change backgrounds:"
+    echo "1) yes"
+    echo "2) no"
+    echo "####################"
+    read -n1 -p">" chbg
+done
+echo; echo
+
+if [[ $chbg == "1" ]]; then
+    systemctl --user enable setbg.timer
+fi
 ###############
 
 # end update settings
