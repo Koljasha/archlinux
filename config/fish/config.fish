@@ -1,5 +1,5 @@
 #
-# Koljasha settings
+# Fish settings
 #
 
 set fish_greeting
