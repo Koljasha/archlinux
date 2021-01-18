@@ -160,6 +160,7 @@ if [[ $grub == "1" ]]; then
         grub="grub os-prober efibootmgr"
     else
         grub="grub os-prober"
+    fi
 else
     grub=""
 fi
