@@ -64,7 +64,11 @@ if [[ $grub == "grub" ]]; then
         echo "GRUB for EFI install"
         echo "####################"
     else
-        grub-install --target=i386-pc /dev/sda
+        if [[ $1 != "" ]]; then
+            grub-install --target=i386-pc $1
+        else
+            grub-install --target=i386-pc /dev/sda
+        fi
         grub-mkconfig -o /boot/grub/grub.cfg
         echo "####################"
         echo "GRUB for MBR install"
