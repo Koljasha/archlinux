@@ -1,17 +1,21 @@
 #!/bin/bash
 
+echo
 echo "####################"
-echo "Chech EFI mode: if errors -> not EFI"
-echo "Check network"
-echo "Run create table, format and mount disk"
+echo "Arch Linix Installer"
 echo "####################"
+echo
 
 # Set the keyboard layout
 loadkeys ru
 
 # Check EFI boot mode
-ls /sys/firmware/efi/efivars
-echo; echo
+table=`/sys/firmware/efi/efivars 2>&1 | grep -o "cannot access"`
+if [[ "$table" == "cannot access" ]]; then
+    table="BIOS"
+else
+    table="UEFI"
+fi
 
 # Check network
 ip link
@@ -22,14 +26,23 @@ timedatectl set-ntp true
 sleep 3; echo
 timedatectl status
 
+echo
 echo "####################"
-echo "All ok? Every key is ok; ctrl-c is abort"
+echo "If ok - click any key; ctrl-c is abort"
 echo "####################"
 read -n1 -p">"; echo
 
 # Create disk table; format and mount it
 
 lsblk; echo
+
+echo "Boot mode is $table"
+exit
+if [[ $table == "UEFI" ]]; then
+    :
+else
+    :
+fi
 
 echo "####################"
 echo "Create table /dev/sda, format and mount it"
