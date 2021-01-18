@@ -51,6 +51,7 @@ echo
 
 if [[ $table == "UEFI" ]]; then
     if [[ $am == "1" ]]; then
+        echo
         echo "####################"
         echo "Create the following new partions:"
         echo "/dev/sda1 - for efi"
@@ -78,6 +79,7 @@ if [[ $table == "UEFI" ]]; then
         mkdir -p /mnt/boot/efi
         mount /dev/sda1 /mnt/boot/efi
     else
+        echo
         echo "####################"
         echo "Important:"
         echo "/mnt          - for root"
@@ -94,6 +96,7 @@ if [[ $table == "UEFI" ]]; then
     fi
 else
     if [[ $am == "1" ]]; then
+        echo
         echo "####################"
         echo "Create the following new partions:"
         echo "/dev/sda1 - for swap"
@@ -117,6 +120,7 @@ else
         mount /dev/sda2 /mnt
         swapon /dev/sda1
     else
+        echo
         echo "####################"
         echo "Important:"
         echo "/mnt          - for root"
