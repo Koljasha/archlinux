@@ -42,7 +42,7 @@ echo "Boot mode is $table"
 echo "####################"
 while [[ $am != "1" ]] && [[ $am != "2" ]]; do
     echo "Please, choose:"
-    echo "1) auto mount mode - only fot /dev/sda"
+    echo "1) auto mount mode - only for /dev/sda"
     echo "2) manual mount mode"
     echo "####################"
     read -n1 -p">" am
