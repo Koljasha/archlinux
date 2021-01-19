@@ -1,7 +1,7 @@
 # Arch Linux Installer (Arch repo and Aur)
 
-## Only for Arch linux understanding users [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-### auto install for VirtualBox and my laptops with my settings
+## Only for Arch linux understanding users -> [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
+### auto install for VirtualBox (/dev/sda) and laptops with settings by Koljasha :-)
 
 ***
 ##### default *Ru localization* for change:
