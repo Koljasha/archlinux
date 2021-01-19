@@ -259,7 +259,7 @@ umount -R /mnt
 echo; echo
 echo "####################"
 echo "Please do this:"
-echo ">poweroff"
+echo ">poweroff   or   >reboot"
 echo "Disable flash or disk"
 echo "####################"
 echo
