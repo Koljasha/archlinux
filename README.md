@@ -3,7 +3,8 @@
 ## Only for Arch linux understanding users
 ### auto install for VirtualBox and my laptops
 
-#####default *Ru localization* for change:
+***
+##### default *Ru localization* for change:
 * `./installer` string : 11 - 12
 * `./chroot`    string : 3 - 14
 
