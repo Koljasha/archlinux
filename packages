@@ -97,6 +97,9 @@ cp files/face ~/.face
 
 cp -r config/ ~/.config
 
+mkdir ~/.config/picom
+cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+
 sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo cp files/smb.conf /etc/samba/smb.conf
 sudo mkdir /etc/systemd/system/x11vnc.service.d
@@ -139,15 +142,13 @@ git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/dev
 # create dir for Trash
 mkdir -p ~/.local/share/Trash/files
 
+# gnome-screenshot settings
+gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
+
 # picom settings
-mkdir ~/.config/picom
-cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
 ##### for Virtual Box ### Check for real PC #####
 sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
 sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
-
-# gnome-screenshot settings
-gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
 
 # xrandr to set screen resolution for Virtual Box
 while [[ $vbox != "1" ]] && [[ $vbox != "2" ]]; do
