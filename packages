@@ -52,7 +52,7 @@ arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 openbox i3 obconf lxappearance-gtk3 qt5ct polkit-gnome feh picom
 pulseaudio pulseaudio-alsa
-network-manager-applet openvpn networkmanager-openvpn samba
+network-manager-applet openvpn networkmanager-openvpn samba x11vnc
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gparted gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
@@ -99,6 +99,8 @@ cp -r config/ ~/.config
 
 sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo cp files/smb.conf /etc/samba/smb.conf
+sudo mkdir /etc/systemd/system/x11vnc.service.d
+sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 
 ###############
 
@@ -225,6 +227,23 @@ if [[ $smb == "1" ]]; then
     sudo smbpasswd -a $username
     sudo systemctl enable smb.service
 fi
+
+# enable x11vnc server
+while [[ $vnc != "1" ]] && [[ $vnc != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "Enable X11VNC Server"
+    echo "1) yes"
+    echo "2) no"
+    echo "####################"
+    read -n1 -p">" vnc
+done
+echo; echo
+
+if [[ $vnc == "1" ]]; then
+    sudo systemctl enable x11vnc.service
+fi
+
 ###############
 
 # end update settings
