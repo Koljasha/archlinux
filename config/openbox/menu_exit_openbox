@@ -6,9 +6,9 @@ if (( $# != 1 )); then
 fi
 
 if [[ $1 == 'reboot' ]]; then
-    zenity --question --no-wrap --title "Перезагрузить ПК" --text "Вы действительно хотите перезагрузить Компьютер?" && systemctl -i reboot
+    zenity --question --no-wrap --title "Reboot PC" --text "Do you want to REBOOT your PC?" && systemctl -i reboot
 elif [[ $1 == 'poweroff' ]]; then
-    zenity --question --no-wrap --title "Выключить ПК" --text "Вы действительно хотите выключить Компьютер?" && systemctl -i poweroff
+    zenity --question --no-wrap --title "Power Off PC" --text "Do you want to POWER OFF your PC?" && systemctl -i poweroff
 else
     echo "./menu_exit_openbox reboot  or  ./menu_exit_openbox poweroff  !!!"
 fi
