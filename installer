@@ -1,9 +1,11 @@
 #!/bin/bash
 
 echo
-echo "####################"
-echo "Arch Linux Installer"
-echo "####################"
+echo "############################################"
+echo "########### Arch Linux Installer ###########"
+echo "############################################"
+echo "Check out the Arch Linux Installation Guide"
+echo "############################################"
 echo
 
 # Set the keyboard layout
@@ -53,6 +55,8 @@ if [[ $table == "UEFI" ]]; then
     if [[ $am == "1" ]]; then
         echo
         echo "####################"
+        echo "Important:"
+        echo "Select label type: gpt"
         echo "Create the following new partions:"
         echo "/dev/sda1 - for efi"
         echo "/dev/sda2 - for swap"
@@ -82,6 +86,7 @@ if [[ $table == "UEFI" ]]; then
         echo
         echo "####################"
         echo "Important:"
+        echo "Select label type: gpt"
         echo "/mnt          - for root"
         echo "/mnt/boot/efi - for efi"
         echo "####################"
@@ -98,6 +103,8 @@ else
     if [[ $am == "1" ]]; then
         echo
         echo "####################"
+        echo "Important:"
+        echo "Select label type: dos"
         echo "Create the following new partions:"
         echo "/dev/sda1 - for swap"
         echo "/dev/sda2 - for root"
@@ -123,6 +130,7 @@ else
         echo
         echo "####################"
         echo "Important:"
+        echo "Select label type: dos"
         echo "/mnt          - for root"
         echo "####################"
         echo "cfdisk, disk                       - partitions manager"
@@ -253,6 +261,8 @@ echo "####################"
 echo "Please do this:"
 echo ">poweroff"
 echo "Disable flash or disk"
+echo "####################"
+echo
 echo "####################"
 echo "After reboot run your user and"
 echo "Please do this:"
