@@ -4,7 +4,7 @@
 ### auto install for VirtualBox (/dev/sda) and laptops with settings by Koljasha :-)
 
 ***
-##### default *Ru localization* for change:
+#### default **Ru localization** for change:
 * `./installer` string : 11 - 12
 * `./chroot`    string : 3 - 14
 
