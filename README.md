@@ -1,9 +1,13 @@
 # Arch Linux Installer
 
 ## Only for Arch linux understanding users
+### auto install for VirtualBox and my laptops
 
-#### auto install for VirtualBox and my laptops | *Ru localization*
+#####default *Ru localization* for change:
+* `./installer` string : 11 - 12
+* `./chroot`    string : 3 - 14
 
+Start from archlinux.iso then:
 * `pacman -Sy git`
 * `git clone https://github.com/koljasha/archlinux_installer`
 * `cd archlinux_installer && ./installer`
@@ -19,4 +23,3 @@
 ##### after install run:
 * `lxappearance` - reselect theme (for qt apps theme)
 * `condaupdate` - update python conda environments
-
