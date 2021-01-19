@@ -17,6 +17,5 @@
 
 ***
 ##### after install run:
-* `lxappearance`
-* `condaupdate`
-
+* `lxappearance` - reselect theme (for qt apps theme)
+* `condaupdate` - update python conda environments
