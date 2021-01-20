@@ -18,7 +18,10 @@
 
 * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
-* `./packages` - install desktop environments (Openbox, i3wm), packages and settings it
+* `./packages` - install window manager (Openbox, i3wm), packages and settings it
+    * key bindings and settings are mostly standard with minor changes and scripts
+    * in **polybar** set brightness not work in VirtualBox
+    * in **polybar** maybe you will be must change Wifi Interface from `wlp2s0`
 
 ***
 #### After install run:
