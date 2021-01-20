@@ -23,5 +23,5 @@
     * key bindings and settings are mostly standard with minor changes and scripts
     * after install run `lxappearance` and reselect theme (needed to apply the theme for QT apps, like VLC)
     * in **polybar** set brightness not work in VirtualBox
-    * in **polybar** maybe you will be must change Wifi Interface from `wlp2s0`
+    * in **polybar** maybe you will be must change Wifi Interface from `wlp2s0` to your (`openbox.conf`, `i3.conf`)
 
