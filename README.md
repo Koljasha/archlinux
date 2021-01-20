@@ -22,5 +22,5 @@
 
 ***
 #### After install run:
-* `lxappearance` - reselect theme (for qt apps theme)
-* `condaupdate` - update python conda environments
+* `lxappearance` - reselect theme (Needed to apply the theme for QT apps, like VLC)
+
