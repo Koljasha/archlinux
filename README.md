@@ -19,6 +19,7 @@
 * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 * `./packages` - install window manager (Openbox, i3wm), packages and settings it
+    * installing (building) packages from AUR takes some time
     * key bindings and settings are mostly standard with minor changes and scripts
     * after install run `lxappearance` and reselect theme (needed to apply the theme for QT apps, like VLC)
     * in **polybar** set brightness not work in VirtualBox
