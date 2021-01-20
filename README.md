@@ -5,8 +5,8 @@
 
 ***
 #### Ru localization is default; for change:
-* `./installer` string : 11 - 12
-* `./chroot`    string : 3 - 14
+* `./installer` lines : 11 - 12
+* `./chroot`    lines : 3 - 14
 
 #### Start from [archlinux.iso](https://archlinux.org/download/) then:
 * `pacman -Sy git`
