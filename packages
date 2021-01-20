@@ -136,6 +136,11 @@ fish -c 'omf install agnoster'
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
 
+# fish is main shell
+sudo chsh -s /usr/bin/fish $username
+# update fish
+fish -c 'fish_update_completions'
+
 # ranger icons
 git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
@@ -189,6 +194,7 @@ echo "" >> ~/.bashrc
 echo "set PATH /home/$username/.local/conda/bin \$PATH" >> ~/.config/fish/config.fish
 echo "" >> ~/.config/fish/config.fish
 rm miniconda
+
 ###############
 
 # Enable services
@@ -251,11 +257,6 @@ fi
 
 # enable change locale
 localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
-
-# fish is main shell
-sudo chsh -s /usr/bin/fish $username
-# update fish
-fish -c 'fish_update_completions'
 
 # clean yay
 yay -Yc --noconfirm
