@@ -56,7 +56,9 @@ network-manager-applet openvpn networkmanager-openvpn samba x11vnc
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gparted gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
-viewnior evince vlc firefox remmina freerdp libvncserver transmission-gtk
+vlc transmission-gtk firefox
+remmina freerdp libvncserver
+viewnior evince
 "
 
 packages_aur="
