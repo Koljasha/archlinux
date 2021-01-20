@@ -60,6 +60,7 @@ if [[ $grub == "grub" ]]; then
     if [[ $efibootmgr == "efibootmgr" ]]; then
         grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
         grub-mkconfig -o /boot/grub/grub.cfg
+        echo; echo
         echo "####################"
         echo "GRUB for EFI install"
         echo "####################"
@@ -70,11 +71,13 @@ if [[ $grub == "grub" ]]; then
             grub-install --target=i386-pc /dev/sda
         fi
         grub-mkconfig -o /boot/grub/grub.cfg
+        echo; echo
         echo "####################"
         echo "GRUB for MBR install"
         echo "####################"
     fi
 else
+    echo; echo
     echo "####################"
     echo "GRUB not install"
     echo "####################"
