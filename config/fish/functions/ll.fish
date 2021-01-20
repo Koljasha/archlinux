@@ -1,4 +1,4 @@
-# Define ls -lah function
+# define ls -lah function
 #
 function ll --description 'List contents of directory using long format'
      ls -lah $argv
