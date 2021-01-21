@@ -58,8 +58,9 @@ menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
 gparted gsimplecal gnome-calendar gnome-screenshot gnome-calculator file-roller
 vlc transmission-gtk firefox
 remmina freerdp libvncserver
-viewnior evince
 "
+# viewnior - image viewer
+# evince - document viewer
 
 packages_aur="
 xkb-switch
@@ -173,11 +174,6 @@ if [[ $vbox == "1" ]]; then
     sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
     sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
 fi
-
-# polybar - change ethernet interface
-eth=`ip a | grep "^2:" | awk -F": " '{ print $2 }'`
-sed -i "s/enp1s0/$eth/" ~/.config/polybar/openbox.conf
-sed -i "s/enp1s0/$eth/" ~/.config/polybar/i3.conf
 
 # terminator max window
 sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
