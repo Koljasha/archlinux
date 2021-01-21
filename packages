@@ -154,23 +154,35 @@ mkdir -p ~/.local/share/Trash/files
 gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
 
 # picom settings
-##### for Virtual Box ### Check for real PC #####
-sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
-sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
+while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "Disable Vsync for Virtual Box"
+    echo "1) yes"
+    echo "2) no"
+    echo "####################"
+    read -n1 -p">" vvsync
+done
+echo; echo
+
+if [[ $vvsync == "1" ]]; then
+    sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
+    sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
+fi
 
 # xrandr to set screen resolution for Virtual Box
-while [[ $vbox != "1" ]] && [[ $vbox != "2" ]]; do
+while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
     echo; echo
     echo "####################"
     echo "Set screen resolution 1360x768 for Virtual Box"
     echo "1) yes"
     echo "2) no"
     echo "####################"
-    read -n1 -p">" vbox
+    read -n1 -p">" vscrres
 done
 echo; echo
 
-if [[ $vbox == "1" ]]; then
+if [[ $vscrres == "1" ]]; then
     sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
     sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
 fi
