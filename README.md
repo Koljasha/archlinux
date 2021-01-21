@@ -26,5 +26,4 @@
     * installing (building) packages from AUR takes some time
     * after install run `lxappearance` and reselect theme (needed to apply the theme for QT apps, like VLC)
     * in **polybar** set brightness not work in VirtualBox
-    * in **polybar** maybe you will be must change Wifi Interface from `wlp2s0` to your (`openbox.conf`, `i3.conf`)
 
