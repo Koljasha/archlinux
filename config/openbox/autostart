@@ -7,20 +7,17 @@
 # set screen resolution for Virtual Box
 # xrandr -s 1360x768 &
 
-# Change lang:
-# setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle" &
-
-# Numlock on:
+# Numlock on
 numlockx on &
 
 # Disable Xorg screensaver
 xset -dpms &
 xset s off &
 
-# Transparency:
+# Transparency
 picom &
 
-# Backgroung image:
+# Backgroung image
 env DISPLAY=:0.0 feh --randomize --bg-scale /usr/share/backgrounds/gnome/ &
 
 # PolicyKit Authentication Agent - Gnome

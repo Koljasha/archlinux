@@ -395,20 +395,17 @@ bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endle
 # set screen resolution for Virtual Box
 # exec --no-startup-id xrandr -s 1360x768
 
-# Change lang:
-# exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
-
-# Numlock on:
+# Numlock on
 exec --no-startup-id numlockx on
 
 # Disable Xorg screensaver
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
-# Transparency:
+# Transparency
 exec --no-startup-id picom
 
-# Backgroung image:
+# Backgroung image
 exec --no-startup-id env DISPLAY=:0.0 feh --randomize --bg-scale /usr/share/backgrounds/gnome/
 
 # PolicyKit Authentication Agent - Gnome
