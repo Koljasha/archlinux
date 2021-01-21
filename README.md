@@ -25,6 +25,6 @@
     * these are the minimal apps that I use without embellishments and frills
     * key bindings and settings are mostly standard with minor changes and scripts
     * installing (building) packages from AUR takes some time
-    * after install run `lxappearance` and reselect theme (needed to apply the theme for QT apps, like `vlc`)
+    * after install run `lxappearance`: reselect theme and confirm (needed to apply the theme for QT apps, like `vlc`)
     * in `polybar` set brightness not work in VirtualBox
 
