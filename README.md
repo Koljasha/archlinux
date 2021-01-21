@@ -22,7 +22,7 @@
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 * `./packages` - install window manager (Openbox, i3wm), packages and settings it
-    * these are the minimal apps that i use without embellishments and frills
+    * these are the minimal apps that I use without embellishments and frills
     * key bindings and settings are mostly standard with minor changes and scripts
     * installing (building) packages from AUR takes some time
     * after install run `lxappearance` and reselect theme (needed to apply the theme for QT apps, like VLC)
