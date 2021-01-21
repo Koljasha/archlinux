@@ -18,8 +18,8 @@
 #### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 
 * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-    * auto mount in `/dev/sda`
-    * other manual mount
+    * `/dev/sda` - auto mount
+    * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 * `./packages` - install window manager (Openbox, i3wm), packages and settings it
     * these are the minimal apps that i use without embellishments and frills
