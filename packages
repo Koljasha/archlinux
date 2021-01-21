@@ -157,7 +157,7 @@ gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$user
 while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
     echo; echo
     echo "####################"
-    echo "Disable Vsync for Virtual Box"
+    echo "Disable Vsync (enable transparency) for Virtual Box"
     echo "1) yes"
     echo "2) no"
     echo "####################"
