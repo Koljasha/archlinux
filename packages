@@ -47,7 +47,7 @@ dosfstools mtools man-db man-pages xdg-user-dirs bash-completion ntfs-3g gvfs wm
 git htop lm_sensors lesspipe openssh numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 vim fish tmux ranger
-ttf-droid ttf-dejavu awesome-terminal-fonts ttf-nerd-fonts-symbols
+gsfonts ttf-droid ttf-dejavu awesome-terminal-fonts ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 openbox i3 obconf lxappearance-gtk3 qt5ct polkit-gnome feh picom
