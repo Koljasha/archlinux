@@ -373,7 +373,7 @@ bindsym $mod+n exec pcmanfm
 # (name of class - command: xprop)
 # assign [class="Terminator"] $workspace1
 assign [class="Pcmanfm"] $workspace4
-assign [class="Firefox"] $workspace5
+assign [class="firefox"] $workspace5
 assign [class="vlc"] $workspace9
 assign [class="Remmina"] $workspace10
 
