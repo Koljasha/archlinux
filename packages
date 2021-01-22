@@ -199,6 +199,9 @@ sudo rm /usr/share/backgrounds/gnome/VNC.png
 sudo chmod 755 /usr/share/backgrounds/gnome/*
 sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
 
+# correct feh.desktop
+sudo -i 's/Exec=feh --start-at %u/Exec=feh --start-at %f/' /usr/share/applications/feh.desktop
+
 # install miniconda
 while [[ $mconda != "1" ]] && [[ $mconda != "2" ]]; do
     echo; echo
