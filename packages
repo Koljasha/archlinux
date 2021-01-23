@@ -44,7 +44,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 packages="
 $drivers $headers reflector
 dosfstools mtools man-db man-pages xdg-user-dirs bash-completion ntfs-3g gvfs wmctrl
-git htop lm_sensors lesspipe openssh numlockx wget curl cmake ctags neofetch highlight
+git htop lm_sensors lesspipe numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 vim fish tmux ranger
 gsfonts ttf-droid ttf-dejavu awesome-terminal-fonts ttf-nerd-fonts-symbols
@@ -52,7 +52,7 @@ arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 openbox i3 obconf lxappearance-gtk3 qt5ct polkit-gnome feh picom
 pulseaudio pulseaudio-alsa pavucontrol
-network-manager-applet openvpn networkmanager-openvpn samba x11vnc
+openssh openvpn network-manager-applet networkmanager-openvpn samba x11vnc
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank
 gparted gsimplecal
