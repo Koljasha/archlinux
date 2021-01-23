@@ -51,7 +51,7 @@ gsfonts ttf-droid ttf-dejavu awesome-terminal-fonts ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz gnome-backgrounds
 xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 openbox i3 obconf lxappearance-gtk3 qt5ct polkit-gnome feh picom
-pulseaudio pulseaudio-alsa
+pulseaudio pulseaudio-alsa pavucontrol
 network-manager-applet openvpn networkmanager-openvpn samba x11vnc
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank xfce4-appfinder
