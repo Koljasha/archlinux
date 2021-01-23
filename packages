@@ -172,6 +172,7 @@ if [[ $vvsync == "1" ]]; then
     sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
     sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
 fi
+echo "Ok"
 
 # xrandr to set screen resolution for Virtual Box
 while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
@@ -189,6 +190,7 @@ if [[ $vscrres == "1" ]]; then
     sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
     sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
 fi
+echo "Ok"
 
 # terminator max window
 sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
@@ -229,6 +231,7 @@ if [[ $mconda == "1" ]]; then
 
     rm miniconda
 fi
+echo "Ok"
 
 ###############
 
@@ -251,6 +254,7 @@ echo; echo
 if [[ $chbg == "1" ]]; then
     systemctl --user enable setbg.timer
 fi
+echo "Ok"
 
 # enable samba share for user
 while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
@@ -269,6 +273,7 @@ if [[ $smb == "1" ]]; then
     sudo smbpasswd -a $username
     sudo systemctl enable smb.service
 fi
+echo "Ok"
 
 # enable x11vnc server
 while [[ $vnc != "1" ]] && [[ $vnc != "2" ]]; do
@@ -285,6 +290,7 @@ echo; echo
 if [[ $vnc == "1" ]]; then
     sudo systemctl enable x11vnc.service
 fi
+echo "Ok"
 
 ###############
 
