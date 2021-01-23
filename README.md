@@ -21,7 +21,7 @@
     * `/dev/sda` - auto mount
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
-* `./packages` - install window manager (Openbox, i3wm), packages and settings it
+* `./packages` - install window managers (Openbox, i3wm), packages and settings it
     * these are the minimal apps that I use without embellishments and frills
     * key bindings and settings are mostly standard with minor changes and scripts
     * installing (building) packages from AUR takes some time
