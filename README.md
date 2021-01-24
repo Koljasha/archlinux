@@ -9,7 +9,7 @@
 * `./chroot`    lines : 3 - 14
 * `./packages`  lines : 287 - 288
 
-#### Boot from [archlinux.iso](https://archlinux.org/download/) then:
+#### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
 * `git clone https://github.com/koljasha/archlinux_installer`
 * `cd archlinux_installer && ./installer`
