@@ -117,6 +117,9 @@ sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 # enable numlockx in lightdm
 sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 
+# enable color in pacman
+sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # install vim spell RU UTF-8
