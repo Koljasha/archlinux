@@ -177,22 +177,6 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings Koljasha -->
-    <keybind key="A-F1">
-      <action name="Execute">
-        <command>jgmenu_run</command>
-      </action>
-    </keybind>
-    <keybind key="A-F2">
-      <action name="Execute">
-        <command>xfce4-appfinder --collapsed</command>
-      </action>
-    </keybind>
-    <keybind key="A-F3">
-      <action name="Execute">
-        <command>xfce4-appfinder</command>
-      </action>
-    </keybind>
-    <!--   -->
     <keybind key="W-S-r">
       <action name="Restart"/>
     </keybind>

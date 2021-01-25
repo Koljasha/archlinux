@@ -56,11 +56,14 @@ openssh openvpn network-manager-applet networkmanager-openvpn samba x11vnc
 terminator gnome-terminal pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank
 gparted gsimplecal
-xfce4-appfinder xfce4-power-manager
 gnome-calendar gnome-screenshot gnome-calculator file-roller
 vlc transmission-gtk firefox
 remmina freerdp libvncserver
 "
+
+# Other packages:
+# xfce4-appfinder - applications menu from Xfce
+# xfce4-power-manager - show the charge of the keyboard and mouse
 # viewnior - image viewer
 # evince - document viewer
 
