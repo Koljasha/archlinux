@@ -40,7 +40,10 @@ kernel_hardened=`pacman -Qe linux-hardened 2>/dev/null | grep -o "^linux-hardene
 kernel_hardened=`echo $kernel_hardened | sed -E 's/([a-z\-]+)/\1-headers/'`
 headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
+###############
+
 # Packages
+
 packages="
 $drivers $headers reflector
 dosfstools mtools man-db man-pages xdg-user-dirs bash-completion ntfs-3g gvfs wmctrl
