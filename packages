@@ -71,10 +71,14 @@ packages_aur="
 xkb-switch
 qt5-styleplugins
 arc-dark-osx-openbox-theme-git
-mintstick
 sublime-text-3
 polybar
 "
+
+# Other packages:
+# mintstick - write .img or .iso files to a USB Key
+
+###############
 
 # change|check folder
 cd ~/archlinux_installer
