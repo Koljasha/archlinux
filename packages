@@ -130,6 +130,9 @@ sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx 
 # enable color in pacman
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
+# stop timeout in systemd
+sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
+
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # install vim spell RU UTF-8
