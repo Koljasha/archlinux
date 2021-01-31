@@ -1,5 +1,5 @@
-# defined smb.service stop
+# defined smb.service start
 #
-function smb.stop --wraps='sudo systemctl stop smb.service' --description 'alias smb.stop sudo systemctl stop smb.service'
-     sudo systemctl stop smb.service $argv;
+function smb.stop --description 'stop smb service'
+     sudo systemctl stop smb.service
 end

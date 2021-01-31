@@ -1,6 +1,6 @@
 # defined fish auto cd function
 #
-function rcd
+function rcd --description 'ranger-fm change directory'
      set dir (mktemp -t ranger_cd.XXX)
      ranger --choosedir=$dir
      cd (cat $dir) $argv

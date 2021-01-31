@@ -1,5 +1,5 @@
 # defined smb.service start
 #
-function smb.start --wraps='sudo systemctl start smb.service' --description 'alias smb.start sudo systemctl start smb.service'
-     sudo systemctl start smb.service $argv;
+function smb.start --description 'start smb service'
+     sudo systemctl start smb.service
 end
