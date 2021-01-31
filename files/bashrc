@@ -13,7 +13,7 @@ alias ll="ls -lah"
 alias grep='grep --color=auto'
 
 # alias for conda
-# alias condaupdate="conda update --all --yes"
+# alias conda.update="conda update --all --yes"
 
 # alias for python virtual envorenment
 alias venv.activate="source venv/bin/activate"

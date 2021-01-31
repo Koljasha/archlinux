@@ -239,8 +239,8 @@ if [[ $mconda == "1" ]]; then
     bash miniconda -p ~/.local/conda -b 2>/dev/null
     ~/.local/conda/bin/conda update --all --yes
 
-    sed -i "s/# alias condaupdate/alias condaupdate/" ~/.bashrc
-    cp files/condaupdate.fish ~/.config/fish/functions/condaupdate.fish
+    sed -i "s/# alias conda.update/alias conda.update/" ~/.bashrc
+    cp files/conda.update.fish ~/.config/fish/functions/conda.update.fish
 
     echo "export PATH=\"/home/$username/.local/conda/bin:\$PATH\"" >> ~/.bashrc
     echo "" >> ~/.bashrc
