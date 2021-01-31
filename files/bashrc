@@ -16,8 +16,8 @@ alias grep='grep --color=auto'
 # alias condaupdate="conda update --all --yes"
 
 # alias for python virtual envorenment
-alias venvactivate="source venv/bin/activate"
-alias venvcreate="python -m venv venv && venvactivate && pip install wheel"
+alias venv.activate="source venv/bin/activate"
+alias venv.create="python -m venv venv && venv.activate && pip install wheel"
 
 # ranger auto cd
 rcd() {
