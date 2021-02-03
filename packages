@@ -65,10 +65,10 @@ remmina freerdp libvncserver
 "
 
 # Other packages:
-# xfce4-appfinder - applications menu from Xfce
 # xfce4-power-manager - show the charge of the keyboard and mouse
 # viewnior - image viewer
 # evince - document viewer
+# wine winetricks lutris - for windows applications and games
 
 packages_aur="
 xkb-switch
