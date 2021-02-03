@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -p App: -nb '#2f343f' -nf white -sb '#3C4049' -sf green"
 
 # Rofi
-bindsym $mod+d exec --no-startup-id "rofi -show window"
+bindsym $mod+d exec --no-startup-id "rofi -show run"
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
 
@@ -416,4 +416,7 @@ exec --no-startup-id ~/.config/polybar/i3.sh
 
 # NetworkManager applet
 exec --no-startup-id nm-applet
+
+# Brightness:
+exec --no-startup-id xrandr --output eDP1 --brightness 0.8
 
