@@ -159,7 +159,8 @@ oh-my-fish/bin/install --noninteractive --offline
 fish -c 'omf install agnoster'
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
-
+# exit status in fish agnoster theme
+sed -i 's/✘/✘ $RETVAL'/ ~/.local/share/omf/themes/agnoster/fish_prompt.fish
 # fish is main shell
 sudo chsh -s /usr/bin/fish $username
 # update fish
