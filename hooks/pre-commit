@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# hook for change "Ru localization" lines from `packages` in `README.md`
+# for automate - copy this hook to .git/hooks/
+# for manual - run here
+
+main_git_path=`git rev-parse --show-toplevel`
+readme_file="$main_git_path/README.md"
+packages_file="$main_git_path/packages"
+
+readme_data=`sed -n '10p' $readme_file | sed -E 's/^\*.*: ([0-9]{3}).*/\1/'`
+packages_data=`grep -n 'enable change locale' $packages_file | cut -d: -f1`
+
+if [[ $readme_data != $packages_data ]]; then
+    sed -Ei "10s/[0-9]{3} -/$packages_data -/" $readme_file
+    packages_data=$((packages_data+1))
+    sed -Ei "10s/- [0-9]{3}/- $packages_data/" $readme_file
+    git add $readme_file
+fi
+
