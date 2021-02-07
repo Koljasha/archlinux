@@ -29,7 +29,7 @@
     * in `polybar` set brightness not work in VirtualBox
 
 ***
-##### `hooks/` - for devolopers
+#### `hooks/` - for devolopers
 
 * change **Ru localization** lines from `packages` in `README.md`
     * for automate - copy this hook to `.git/hooks/`
