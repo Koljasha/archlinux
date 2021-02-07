@@ -28,3 +28,8 @@
     * after install run `lxappearance`: reselect theme and confirm (needed to apply the theme for QT apps, like `vlc`)
     * in `polybar` set brightness not work in VirtualBox
 
+***
+##### `hooks/` - for devolopers
+
+* change *Ru localization* lines from `packages` in `README.md`
+
