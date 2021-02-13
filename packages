@@ -221,7 +221,7 @@ sudo chmod 755 /usr/share/backgrounds/gnome/*
 sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
 
 # correct feh.desktop
-sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --start-at %f/' /usr/share/applications/feh.desktop
+sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --start-at %f/' /usr/share/applications/feh.desktop
 
 # install miniconda
 while [[ $mconda != "1" ]] && [[ $mconda != "2" ]]; do
