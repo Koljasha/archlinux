@@ -46,7 +46,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 packages="
 $drivers $headers reflector
-dosfstools mtools man-db man-pages xdg-user-dirs bash-completion ntfs-3g gvfs wmctrl
+dosfstools mtools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
 git htop lm_sensors lesspipe numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 vim fish tmux ranger
