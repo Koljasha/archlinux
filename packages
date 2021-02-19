@@ -130,7 +130,7 @@ sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx 
 # enable color in pacman
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
-# stop timeout in systemd
+# timeoutstop in systemd
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
 
 # install Vim-plug
@@ -170,7 +170,7 @@ fish -c 'fish_update_completions'
 git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
 # create dir for Trash
-mkdir -p ~/.local/share/Trash/files
+# mkdir -p ~/.local/share/Trash/files
 
 # gnome-screenshot settings
 gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
