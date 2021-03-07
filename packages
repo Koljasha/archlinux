@@ -47,7 +47,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 packages="
 $drivers $headers reflector
 dosfstools mtools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
-git htop lm_sensors lesspipe numlockx wget curl cmake ctags neofetch highlight
+git htop lm_sensors lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 vim fish tmux ranger
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
@@ -257,6 +257,7 @@ echo "Ok"
 # Enable services
 sudo systemctl enable lightdm.service
 sudo systemctl enable reflector.timer
+sudo systemctl enable pkgfile-update.timer
 
 # enable change backgrounds
 while [[ $chbg != "1" ]] && [[ $chbg != "2" ]]; do
