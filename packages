@@ -69,6 +69,7 @@ remmina freerdp libvncserver
 # viewnior - image viewer
 # evince - document viewer
 # wine winetricks lutris - for windows applications and games
+# virtualbox - virtual machines (choose virtualbox-host-modules-arch for linux kernel; choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
 packages_aur="
 xkb-switch
