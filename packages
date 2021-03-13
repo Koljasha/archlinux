@@ -126,6 +126,11 @@ sudo cp files/smb.conf /etc/samba/smb.conf
 sudo mkdir /etc/systemd/system/x11vnc.service.d
 sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 
+# Copy icons
+sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
+sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
+sudo gtk-update-icon-cache /usr/share/icons/hicolor
+
 ###############
 
 # Packages settings
