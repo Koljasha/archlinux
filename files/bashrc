@@ -17,7 +17,7 @@ alias grep='grep --color=auto'
 
 # alias for python virtual envorenment
 alias venv.activate="source venv/bin/activate"
-alias venv.create="python -m venv venv && venv.activate && pip install wheel"
+alias venv.create="python -m venv venv && venv.activate"
 
 # ranger auto cd
 rcd() {
