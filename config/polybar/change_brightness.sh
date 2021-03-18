@@ -18,7 +18,7 @@ if [[ $1 == 'change' ]]; then
     brightness=`zenity --scale --title="Brightness" --text="Set brightness %" --value=$brightness --step=10 --min-value=10`
     if (( $? == 0 )); then
         brightness=`echo $brightness | awk '{ print $1/10 }' | awk '{ print ($0-int($0)<0.499)?int($0):int($0)+1 }' | awk '{ print $1/10 }'`
-        xrandr --output eDP-1 --brightness $brightness
+        xrandr --output eDP1 --brightness $brightness
     fi
 fi
 
