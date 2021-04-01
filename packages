@@ -70,7 +70,8 @@ remmina freerdp libvncserver
 # viewnior - image viewer
 # evince - document viewer
 
-# wine winetricks lutris - for windows applications and games
+# wine winetricks lutris - for windows applications
+# lutris gamemode lib32-gamemode - for windows games
 
 # virtualbox - virtual machines
 # (choose virtualbox-host-modules-arch for linux kernel)
