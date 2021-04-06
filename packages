@@ -58,9 +58,9 @@ openssh openvpn network-manager-applet networkmanager-openvpn
 transmission-gtk firefox
 remmina freerdp
 gparted file-roller
+terminator pcmanfm-gtk3
 openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom gsimplecal
 samba x11vnc libvncserver
-terminator pcmanfm-gtk3
 menumaker zenity dmenu rofi jgmenu plank
 gnome-calendar gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
 vlc qt5ct
