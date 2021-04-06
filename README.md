@@ -22,11 +22,14 @@
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 * `./packages` - install window managers (Openbox, i3wm | Xfce), packages and settings it
-    * these are the minimal apps that I use without embellishments and frills
-    * key bindings and settings are mostly standard with minor changes and scripts
-    * installing (building) packages from AUR takes some time
-    * after install run `lxappearance`: reselect theme and confirm (needed to apply the theme for QT apps, like `vlc`)
-    * in `polybar` set brightness not work in VirtualBox
+    * for Openbox, i3wm:
+        * these are the minimal apps that I use without embellishments and frills
+        * key bindings and settings are mostly standard with minor changes and scripts
+        * installing (building) packages from AUR takes some time
+        * after install run `lxappearance`: reselect theme and confirm (needed to apply the theme for QT apps, like `vlc`)
+        * in `polybar` set brightness not work in VirtualBox
+    * for Xfce:
+        * default settings
 
 ***
 #### `hooks/` - for devolopers
