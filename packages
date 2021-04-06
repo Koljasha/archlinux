@@ -42,6 +42,26 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 ###############
 
+while [[ $de != "1" ]] && [[ $de != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "What Desktop Environment install"
+    echo "1) Openbox & i3 by Koljasha settings"
+    echo "2) Xfce default settings"
+    echo "####################"
+    read -n1 -p">" de
+done
+echo; echo
+
+if [[ $de == "1" ]]; then
+    de="koljasha"
+elif [[ $de == "2" ]]; then
+    de="xfce"
+fi
+echo "Ok"
+
+###############
+
 # Packages
 
 packages="
@@ -58,13 +78,25 @@ openssh openvpn network-manager-applet networkmanager-openvpn
 transmission-gtk firefox
 remmina freerdp
 gparted file-roller
-terminator pcmanfm-gtk3
-openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom gsimplecal
-samba x11vnc libvncserver
-menumaker zenity dmenu rofi jgmenu plank
-gnome-calendar gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
-vlc qt5ct
 "
+
+if [[ $de == "koljasha" ]]; then
+    packages="
+    $packages
+    terminator pcmanfm-gtk3
+    openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom gsimplecal
+    samba x11vnc libvncserver
+    menumaker zenity dmenu rofi jgmenu plank
+    gnome-calendar gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
+    vlc qt5ct
+    "
+elif [[ $de == "xfce" ]]; then
+    packages="
+    $packages
+    xfce4 xfce4-goodies
+    gst-libav galculator
+    "
+fi
 
 # Other packages:
 # xfce4-power-manager - show the charge of the keyboard and mouse
@@ -83,14 +115,27 @@ vlc qt5ct
 
 packages_aur="
 xkb-switch
-qt5-styleplugins
-arc-dark-osx-openbox-theme-git
-sublime-text-3
-polybar
 "
+
+if [[ $de == "koljasha" ]]; then
+    packages_aur="
+    $packages_aur
+    qt5-styleplugins
+    arc-dark-osx-openbox-theme-git
+    sublime-text-3
+    polybar
+    "
+elif [[ $de == "xfce" ]]; then
+    :
+fi
 
 # Other packages:
 # mintstick - write .img or .iso files to a USB Key
+
+
+echo "$packages"
+echo "$packages_aur"
+exit 0
 
 ###############
 
