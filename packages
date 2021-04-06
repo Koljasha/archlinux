@@ -78,6 +78,8 @@ vlc qt5ct
 # (choose virtualbox-host-modules-arch for linux kernel)
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
+# libreoffice-still libreoffice-still-ru - office
+
 packages_aur="
 xkb-switch
 qt5-styleplugins
