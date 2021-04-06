@@ -42,6 +42,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 ###############
 
+# Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]]; do
     echo; echo
     echo "####################"
