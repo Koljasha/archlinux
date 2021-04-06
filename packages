@@ -132,11 +132,6 @@ fi
 # Other packages:
 # mintstick - write .img or .iso files to a USB Key
 
-
-echo "$packages"
-echo "$packages_aur"
-exit 0
-
 ###############
 
 # change|check folder
@@ -160,32 +155,44 @@ username=`whoami`
 ###############
 
 # Copy configs
+
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
 cp files/tmux.conf ~/.tmux.conf
 cp files/face ~/.face
 
-cp -r config/ ~/.config
+if [[ $de == "koljasha" ]]; then
+    cp -r config/ ~/.config
+elif [[ $de == "xfce" ]]; then
+    mkdir ~/.config
 
-mkdir ~/.config/picom
-cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
 
-sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-sudo cp files/smb.conf /etc/samba/smb.conf
-sudo mkdir /etc/systemd/system/x11vnc.service.d
-sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+fi
 
-sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
+if [[ $de == "koljasha" ]]; then
+    mkdir ~/.config/picom
+    cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
 
-# Copy icons
-sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
-sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
-sudo gtk-update-icon-cache /usr/share/icons/hicolor
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    sudo cp files/smb.conf /etc/samba/smb.conf
+
+    sudo mkdir /etc/systemd/system/x11vnc.service.d
+    sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
+
+    sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
+
+    # Copy icons
+    sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
+    sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor
+fi
 
 ###############
-
-# Packages settings
 
 # enable numlockx in lightdm
 sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
@@ -195,6 +202,8 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
 # timeoutstop in systemd
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
+
+###############
 
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -215,6 +224,8 @@ echo; echo
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
 
+###############
+
 # install oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish
 oh-my-fish/bin/install --noninteractive --offline
@@ -229,62 +240,76 @@ sudo chsh -s /usr/bin/fish $username
 # update fish
 fish -c 'fish_update_completions'
 
+###############
+
 # ranger icons
 git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
 # create dir for Trash
 # mkdir -p ~/.local/share/Trash/files
 
-# gnome-screenshot settings
-gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
+###############
 
-# picom settings
-while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
+if [[ $de == "koljasha" ]]; then
+    # gnome-screenshot settings
+    gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
+
+    ###############
+
+    # picom settings
+    while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Disable Vsync (this enable transparency for me in Virtual Box)"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" vvsync
+    done
     echo; echo
-    echo "####################"
-    echo "Disable Vsync (this enable transparency for me in Virtual Box)"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" vvsync
-done
-echo; echo
 
-if [[ $vvsync == "1" ]]; then
-    sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
-    sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
-fi
-echo "Ok"
+    if [[ $vvsync == "1" ]]; then
+        sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
+        sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
+    fi
+    echo "Ok"
 
-# xrandr to set screen resolution for Virtual Box
-while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
+    ###############
+
+    # xrandr to set screen resolution for Virtual Box
+    while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Set screen resolution 1360x768 for Virtual Box"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" vscrres
+    done
     echo; echo
-    echo "####################"
-    echo "Set screen resolution 1360x768 for Virtual Box"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" vscrres
-done
-echo; echo
 
-if [[ $vscrres == "1" ]]; then
-    sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
-    sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
+    if [[ $vscrres == "1" ]]; then
+        sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
+        sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
+    fi
+    echo "Ok"
+
+    ###############
+
+    # terminator max window
+    sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
+
+    # backgrounds
+    sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
+    sudo rm /usr/share/backgrounds/gnome/VNC.png
+    sudo chmod 755 /usr/share/backgrounds/gnome/*
+    # sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
+
+    # correct feh.desktop
+    sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --start-at %f/' /usr/share/applications/feh.desktop
 fi
-echo "Ok"
 
-# terminator max window
-sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
-
-# backgrounds
-sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
-sudo rm /usr/share/backgrounds/gnome/VNC.png
-sudo chmod 755 /usr/share/backgrounds/gnome/*
-# sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
-
-# correct feh.desktop
-sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --start-at %f/' /usr/share/applications/feh.desktop
+###############
 
 # install miniconda
 while [[ $mconda != "1" ]] && [[ $mconda != "2" ]]; do
@@ -323,71 +348,80 @@ sudo systemctl enable reflector.timer
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
 
-# enable change backgrounds
-while [[ $chbg != "1" ]] && [[ $chbg != "2" ]]; do
+###############
+
+if [[ $de == "koljasha" ]]; then
+    # enable change backgrounds
+    while [[ $chbg != "1" ]] && [[ $chbg != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable change backgrounds"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" chbg
+    done
     echo; echo
-    echo "####################"
-    echo "Enable change backgrounds"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" chbg
-done
-echo; echo
 
-if [[ $chbg == "1" ]]; then
-    systemctl --user enable setbg.timer
-fi
-echo "Ok"
+    if [[ $chbg == "1" ]]; then
+        systemctl --user enable setbg.timer
+    fi
+    echo "Ok"
 
-# enable samba share for user
-while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
+    ###############
+
+    # enable samba share for user
+    while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable Samba share \"Home directory\" for $username"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" smb
+    done
     echo; echo
-    echo "####################"
-    echo "Enable Samba share \"Home directory\" for $username"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" smb
-done
-echo; echo
 
-if [[ $smb == "1" ]]; then
-    echo "Password Samba share for $username"
-    sudo smbpasswd -a $username
-    sudo systemctl enable smb.service
-fi
-echo "Ok"
+    if [[ $smb == "1" ]]; then
+        echo "Password Samba share for $username"
+        sudo smbpasswd -a $username
+        sudo systemctl enable smb.service
+    fi
+    echo "Ok"
 
-# enable x11vnc server
-while [[ $vnc != "1" ]] && [[ $vnc != "2" ]]; do
+    ###############
+
+    # enable x11vnc server
+    while [[ $vnc != "1" ]] && [[ $vnc != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable X11VNC Server"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" vnc
+    done
     echo; echo
-    echo "####################"
-    echo "Enable X11VNC Server"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" vnc
-done
-echo; echo
 
-if [[ $vnc == "1" ]]; then
-    sudo systemctl enable x11vnc.service
+    if [[ $vnc == "1" ]]; then
+        sudo systemctl enable x11vnc.service
+    fi
+    echo "Ok"
 fi
-echo "Ok"
-
 ###############
 
 # end update settings
 
-# enable change locale
-localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
+if [[ $de == "koljasha" ]]; then
+    # enable change locale
+    localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
+
+    # menu_maker for Openbox
+    ~/.config/openbox/menu_maker
+fi
 
 # clean yay
 yay -Yc --noconfirm
-
-# menu_maker for Openbox
-~/.config/openbox/menu_maker
 
 # rm installer folder
 rm -rf ~/archlinux_installer
