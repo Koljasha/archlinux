@@ -107,6 +107,7 @@ fi
 
 # wine winetricks - for windows applications
 # lutris gamemode lib32-gamemode - for windows games
+# Drivers: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
 
 # virtualbox - virtual machines
 # (choose virtualbox-host-modules-arch for linux kernel)
