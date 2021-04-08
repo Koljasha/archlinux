@@ -76,6 +76,7 @@ xorg accountsservice
 pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz
+polkit-gnome
 arc-gtk-theme arc-icon-theme
 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 gparted pavucontrol network-manager-applet
@@ -86,12 +87,14 @@ terminator
 if [[ $de == "koljasha" ]]; then
     packages="
     $packages
-    pcmanfm-gtk3 file-roller
-    openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom gsimplecal
-    samba x11vnc libvncserver
+    openbox i3 picom
+    obconf lxappearance-gtk3
+    feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
+    pcmanfm-gtk3 file-roller
     gnome-calendar gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
     vlc qt5ct
+    samba x11vnc libvncserver
     "
 elif [[ $de == "xfce" ]]; then
     packages="
