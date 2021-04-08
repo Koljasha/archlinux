@@ -427,6 +427,7 @@ fi
 yay -Yc --noconfirm
 
 # rm installer folder
+echo; echo
 echo "####################"
 echo "Delete installer folder '~/archlinux_installer' ?"
 echo "1) No"
