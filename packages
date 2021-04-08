@@ -46,7 +46,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 while [[ $de != "1" ]] && [[ $de != "2" ]]; do
     echo; echo
     echo "####################"
-    echo "What Desktop Environment install"
+    echo "What Desktop Environment install?"
     echo "1) Openbox & i3wm by Koljasha settings"
     echo "2) Xfce default settings"
     echo "####################"
@@ -73,7 +73,8 @@ atool p7zip unrar unzip zip
 vim fish tmux ranger
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz
-xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
+xorg accountsservice
+lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 pulseaudio pulseaudio-alsa pavucontrol
 openssh openvpn network-manager-applet networkmanager-openvpn
 transmission-gtk firefox
