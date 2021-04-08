@@ -80,12 +80,13 @@ arc-gtk-theme arc-icon-theme
 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 gparted pavucontrol network-manager-applet
 transmission-gtk remmina firefox
+terminator
 "
 
 if [[ $de == "koljasha" ]]; then
     packages="
     $packages
-    terminator pcmanfm-gtk3 file-roller
+    pcmanfm-gtk3 file-roller
     openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom gsimplecal
     samba x11vnc libvncserver
     menumaker zenity dmenu rofi jgmenu plank
@@ -175,6 +176,7 @@ elif [[ $de == "xfce" ]]; then
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
 fi
 
 if [[ $de == "koljasha" ]]; then
