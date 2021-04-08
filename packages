@@ -424,7 +424,7 @@ if [[ $de == "koljasha" ]]; then
 fi
 
 # enable change locale
-localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
+sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
 
 # clean yay
 yay -Yc --noconfirm
