@@ -70,16 +70,16 @@ $drivers $headers reflector
 dosfstools mtools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
 git htop lm_sensors lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
+openssh openvpn freerdp
 vim fish tmux ranger
-gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
-arc-gtk-theme arc-icon-theme xcursor-vanilla-dmz
 xorg accountsservice
+pulseaudio pulseaudio-alsa networkmanager-openvpn
+gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
+xcursor-vanilla-dmz
+arc-gtk-theme arc-icon-theme
 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-pulseaudio pulseaudio-alsa pavucontrol
-openssh openvpn network-manager-applet networkmanager-openvpn
-transmission-gtk firefox
-remmina freerdp
-gparted
+gparted pavucontrol network-manager-applet
+transmission-gtk remmina firefox
 "
 
 if [[ $de == "koljasha" ]]; then
