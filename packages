@@ -416,12 +416,12 @@ fi
 # end update settings
 
 if [[ $de == "koljasha" ]]; then
-    # enable change locale
-    localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
-
     # menu_maker for Openbox
     ~/.config/openbox/menu_maker
 fi
+
+# enable change locale
+localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
 
 # clean yay
 yay -Yc --noconfirm
