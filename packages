@@ -79,13 +79,13 @@ pulseaudio pulseaudio-alsa pavucontrol
 openssh openvpn network-manager-applet networkmanager-openvpn
 transmission-gtk firefox
 remmina freerdp
-gparted file-roller
+gparted
 "
 
 if [[ $de == "koljasha" ]]; then
     packages="
     $packages
-    terminator pcmanfm-gtk3
+    terminator pcmanfm-gtk3 file-roller
     openbox i3 obconf lxappearance-gtk3 polkit-gnome feh picom gsimplecal
     samba x11vnc libvncserver
     menumaker zenity dmenu rofi jgmenu plank
@@ -96,7 +96,7 @@ elif [[ $de == "xfce" ]]; then
     packages="
     $packages
     xfce4 xfce4-goodies
-    gst-libav galculator
+    gst-libav galculator xarchiver
     "
 fi
 
