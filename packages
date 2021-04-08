@@ -132,8 +132,6 @@ if [[ $de == "koljasha" ]]; then
     sublime-text-3
     polybar
     "
-elif [[ $de == "xfce" ]]; then
-    :
 fi
 
 # Other packages:
@@ -440,9 +438,7 @@ echo "other) Yes"
 echo "####################"
 
 read -n1 -p">" rminstall; echo
-if [[ $rminstall == "1" ]]; then
-    :
-else
+if [[ $rminstall != "1" ]]; then
     rm -rf ~/archlinux_installer
 fi
 
