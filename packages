@@ -92,7 +92,8 @@ if [[ $de == "koljasha" ]]; then
     obconf lxappearance-gtk3
     feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
-    pcmanfm-gtk3 file-roller
+    pcmanfm-gtk3
+    file-roller gedit
     gnome-calendar gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
     vlc
     samba x11vnc libvncserver
@@ -129,7 +130,6 @@ if [[ $de == "koljasha" ]]; then
     packages_aur="
     $packages_aur
     arc-dark-osx-openbox-theme-git
-    sublime-text-3
     polybar
     "
 fi
@@ -169,6 +169,7 @@ cp files/face ~/.face
 
 if [[ $de == "koljasha" ]]; then
     cp -r config/ ~/.config
+    rm -rf ~/.config/sublime-text-3
 elif [[ $de == "xfce" ]]; then
     mkdir ~/.config
 
