@@ -176,7 +176,6 @@ elif [[ $de == "xfce" ]]; then
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
 
-    cp -r config/gtk-3.0 ~/.config/gtk-3.0
     cp -r config/qt5ct ~/.config/qt5ct
 
     cp -r config/htop ~/.config/htop
