@@ -82,6 +82,7 @@ lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 gparted pavucontrol network-manager-applet
 transmission-gtk remmina firefox
 terminator
+qt5ct kvantum-qt5
 "
 
 if [[ $de == "koljasha" ]]; then
@@ -93,7 +94,7 @@ if [[ $de == "koljasha" ]]; then
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3 file-roller
     gnome-calendar gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
-    vlc qt5ct kvantum-qt5
+    vlc
     samba x11vnc libvncserver
     "
 elif [[ $de == "xfce" ]]; then
@@ -173,6 +174,9 @@ elif [[ $de == "xfce" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
+
+    cp -r config/gtk-3.0 ~/.config/gtk-3.0
+    cp -r config/qt5ct ~/.config/qt5ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
