@@ -260,6 +260,11 @@ git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/dev
 
 ###############
 
+# terminator max window
+sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
+
+###############
+
 if [[ $de == "koljasha" ]]; then
     # gnome-screenshot settings
     gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
@@ -270,7 +275,7 @@ if [[ $de == "koljasha" ]]; then
     while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
         echo; echo
         echo "####################"
-        echo "Disable Vsync (this enable transparency for me in Virtual Box)"
+        echo "Disable Vsync (this enable transparency for me in VirtualBox)"
         echo "1) yes"
         echo "2) no"
         echo "####################"
@@ -287,27 +292,24 @@ if [[ $de == "koljasha" ]]; then
     ###############
 
     # xrandr to set screen resolution for Virtual Box
-    while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
-        echo; echo
-        echo "####################"
-        echo "Set screen resolution 1360x768 for Virtual Box"
-        echo "1) yes"
-        echo "2) no"
-        echo "####################"
-        read -n1 -p">" vscrres
-    done
-    echo; echo
+    # while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
+        # echo; echo
+        # echo "####################"
+        # echo "Set screen resolution 1360x768 for Virtual Box"
+        # echo "1) yes"
+        # echo "2) no"
+        # echo "####################"
+        # read -n1 -p">" vscrres
+    # done
+    # echo; echo
 
-    if [[ $vscrres == "1" ]]; then
-        sed -i 's/# exec --no-startup-id xrandr/exec --no-startup-id xrandr/' ~/.config/i3/config
-        sed -i 's/# xrandr/xrandr/' ~/.config/openbox/autostart
-    fi
-    echo "Ok"
+    # if [[ $vscrres == "1" ]]; then
+        # sed -i 's/# exec --no-startup-id xrandr -s/exec --no-startup-id xrandr -s/' ~/.config/i3/config
+        # sed -i 's/# xrandr -s/xrandr -s/' ~/.config/openbox/autostart
+    # fi
+    # echo "Ok"
 
     ###############
-
-    # terminator max window
-    sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
 
     # backgrounds
     sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
