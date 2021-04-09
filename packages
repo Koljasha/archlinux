@@ -269,6 +269,12 @@ if [[ $de == "koljasha" ]]; then
     # gnome-screenshot settings
     gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
 
+	# gedit settings
+	gsettings set org.gnome.gedit.preferences.editor insert-spaces true
+	gsettings set org.gnome.gedit.preferences.editor scheme "oblivion"
+	gsettings set org.gnome.gedit.preferences.editor tabs-size 4
+	gsettings set org.gnome.gedit.preferences.editor wrap-last-split-mode "word"
+
     ###############
 
     # picom settings
