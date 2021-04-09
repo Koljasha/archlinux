@@ -7,7 +7,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 426 - 427
+* `./packages`  lines : 425 - 426
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -26,7 +26,6 @@
         * these are the minimal apps that I use without embellishments and frills
         * key bindings and settings are mostly standard with minor changes and scripts
         * installing (building) packages from AUR takes some time
-        * after install run `lxappearance`: reselect theme and confirm (needed to apply the theme for QT apps, like `vlc`)
         * in `polybar` set brightness not work in VirtualBox
     * for Xfce:
         * default settings
