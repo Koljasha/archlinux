@@ -251,8 +251,8 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/terminator ~/.config/terminator
 
     # config services
-    mkdir ~/.config/picom
-    cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+    # mkdir ~/.config/picom
+    # cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
 
     sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
 
