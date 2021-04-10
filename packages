@@ -43,12 +43,13 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 ###############
 
 # Select Desktop Environment
-while [[ $de != "1" ]] && [[ $de != "2" ]]; do
+while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
     echo "1) Openbox & i3wm settings by Koljasha"
     echo "2) Xfce default settings"
+    echo "3) Lxde default settings"
     echo "####################"
     read -n1 -p">" de
 done
@@ -58,6 +59,8 @@ if [[ $de == "1" ]]; then
     de="koljasha"
 elif [[ $de == "2" ]]; then
     de="xfce"
+elif [[ $de == "3" ]]; then
+    de="lxde"
 fi
 echo "Ok"
 
@@ -102,7 +105,13 @@ elif [[ $de == "xfce" ]]; then
     packages="
     $packages
     xfce4 xfce4-goodies
-    gst-libav galculator xarchiver
+    galculator xarchiver gst-libav
+    "
+elif [[ $de == "lxde" ]]; then
+    packages="
+    $packages
+    lxde-gtk3 obconf picom
+    l3afpad galculator xarchiver mpv
     "
 fi
 
@@ -155,6 +164,13 @@ yay -S --noconfirm $packages_aur
 
 ###############
 
+# now error when start lxappearance -> del this app
+if [[ $de == "lxde" ]]; then
+    sudo pacman -Rsn --noconfirm lxappearance-obcond-gtk3
+fi
+
+###############
+
 username=`whoami`
 
 ###############
@@ -168,9 +184,49 @@ cp files/tmux.conf ~/.tmux.conf
 cp files/face ~/.face
 
 if [[ $de == "koljasha" ]]; then
+    # ~/.config
     cp -r config/ ~/.config
     rm -rf ~/.config/sublime-text-3
+
+    mkdir ~/.config/picom
+    cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+
+    # config services
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
+
+    sudo cp files/smb.conf /etc/samba/smb.conf
+
+    sudo mkdir /etc/systemd/system/x11vnc.service.d
+    sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
+
+    # copy icons
+    sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
+    sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor
+
+    # gnome-screenshot settings
+    gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
+
+    # gedit settings
+    gsettings set org.gnome.gedit.preferences.editor insert-spaces true
+    gsettings set org.gnome.gedit.preferences.editor scheme "oblivion"
+    gsettings set org.gnome.gedit.preferences.editor tabs-size 4
+    gsettings set org.gnome.gedit.preferences.editor wrap-last-split-mode "word"
+
+    # backgrounds
+    sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
+    sudo rm /usr/share/backgrounds/gnome/VNC.png
+    sudo chmod 755 /usr/share/backgrounds/gnome/*
+    # sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
+
+    # correct feh.desktop
+    sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --start-at %f/' /usr/share/applications/feh.desktop
+
+    # menu_maker for Openbox
+    ~/.config/openbox/menu_maker
 elif [[ $de == "xfce" ]]; then
+    # ~/.config
     mkdir ~/.config
 
     cp -r config/fish ~/.config/fish
@@ -181,24 +237,27 @@ elif [[ $de == "xfce" ]]; then
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
-fi
+elif [[ $de == "lxde" ]]; then
+    # ~/.config
+    mkdir ~/.config
 
-if [[ $de == "koljasha" ]]; then
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+
+    cp -r config/gtk-3.0 ~/.config/gtk-3.0
+    cp -r config/qt5ct ~/.config/qt5ct
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+
+    # config services
     mkdir ~/.config/picom
     cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
 
-    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    sudo cp files/smb.conf /etc/samba/smb.conf
-
-    sudo mkdir /etc/systemd/system/x11vnc.service.d
-    sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
-
-    sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
-
-    # Copy icons
-    sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
-    sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
-    sudo gtk-update-icon-cache /usr/share/icons/hicolor
+    # delete openbox session from display manager
+    sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
+    sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
 fi
 
 ###############
@@ -211,6 +270,15 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
 # timeoutstop in systemd
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
+
+# terminator max window
+sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
+
+# enable change locale
+sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
+
+# ranger icons
+git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
 ###############
 
@@ -251,83 +319,6 @@ fish -c 'fish_update_completions'
 
 ###############
 
-# ranger icons
-git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
-
-# create dir for Trash
-# mkdir -p ~/.local/share/Trash/files
-
-###############
-
-# terminator max window
-sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
-
-###############
-
-if [[ $de == "koljasha" ]]; then
-    # gnome-screenshot settings
-    gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
-
-    # gedit settings
-    gsettings set org.gnome.gedit.preferences.editor insert-spaces true
-    gsettings set org.gnome.gedit.preferences.editor scheme "oblivion"
-    gsettings set org.gnome.gedit.preferences.editor tabs-size 4
-    gsettings set org.gnome.gedit.preferences.editor wrap-last-split-mode "word"
-
-    ###############
-
-    # picom settings
-    while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
-        echo; echo
-        echo "####################"
-        echo "Disable Vsync (this enable transparency for me in VirtualBox)"
-        echo "1) yes"
-        echo "2) no"
-        echo "####################"
-        read -n1 -p">" vvsync
-    done
-    echo; echo
-
-    if [[ $vvsync == "1" ]]; then
-        sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
-        sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
-    fi
-    echo "Ok"
-
-    ###############
-
-    # xrandr to set screen resolution for Virtual Box
-    # while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
-        # echo; echo
-        # echo "####################"
-        # echo "Set screen resolution 1360x768 for Virtual Box"
-        # echo "1) yes"
-        # echo "2) no"
-        # echo "####################"
-        # read -n1 -p">" vscrres
-    # done
-    # echo; echo
-
-    # if [[ $vscrres == "1" ]]; then
-        # sed -i 's/# exec --no-startup-id xrandr -s/exec --no-startup-id xrandr -s/' ~/.config/i3/config
-        # sed -i 's/# xrandr -s/xrandr -s/' ~/.config/openbox/autostart
-    # fi
-    # echo "Ok"
-
-    ###############
-
-    # backgrounds
-    sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
-    sudo rm /usr/share/backgrounds/gnome/VNC.png
-    sudo chmod 755 /usr/share/backgrounds/gnome/*
-    # sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
-
-    # correct feh.desktop
-    sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --start-at %f/' /usr/share/applications/feh.desktop
-fi
-
-###############
-
 # install miniconda
 while [[ $mconda != "1" ]] && [[ $mconda != "2" ]]; do
     echo; echo
@@ -356,6 +347,50 @@ if [[ $mconda == "1" ]]; then
     rm miniconda
 fi
 echo "Ok"
+
+###############
+
+if [[ $de == "koljasha" ]] || [[ $de == "lxde" ]]; then
+    # picom settings
+    while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Disable Vsync (this enable transparency for me in VirtualBox)"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" vvsync
+    done
+    echo; echo
+
+    if [[ $vvsync == "1" ]]; then
+        sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
+        sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
+    fi
+    echo "Ok"
+fi
+
+###############
+
+# if [[ $de == "koljasha" ]]; then
+    # # xrandr to set screen resolution for Virtual Box
+    # while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
+        # echo; echo
+        # echo "####################"
+        # echo "Set screen resolution 1360x768 for Virtual Box"
+        # echo "1) yes"
+        # echo "2) no"
+        # echo "####################"
+        # read -n1 -p">" vscrres
+    # done
+    # echo; echo
+
+    # if [[ $vscrres == "1" ]]; then
+        # sed -i 's/# exec --no-startup-id xrandr -s/exec --no-startup-id xrandr -s/' ~/.config/i3/config
+        # sed -i 's/# xrandr -s/xrandr -s/' ~/.config/openbox/autostart
+    # fi
+    # echo "Ok"
+# fi
 
 ###############
 
@@ -425,17 +460,10 @@ if [[ $de == "koljasha" ]]; then
     fi
     echo "Ok"
 fi
+
 ###############
 
 # end update settings
-
-if [[ $de == "koljasha" ]]; then
-    # menu_maker for Openbox
-    ~/.config/openbox/menu_maker
-fi
-
-# enable change locale
-sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
 
 # clean yay
 yay -Yc --noconfirm
