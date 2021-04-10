@@ -451,8 +451,8 @@ yay -Yc --noconfirm
 echo; echo
 echo "####################"
 echo "Delete installer folder '~/archlinux_installer' ?"
-echo "1) No"
-echo "other) Yes"
+echo "1) no"
+echo "other) yes"
 echo "####################"
 
 read -n1 -p">" rminstall; echo
