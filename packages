@@ -365,8 +365,8 @@ if [[ $de == "koljasha" ]] || [[ $de == "lxde" ]]; then
     echo; echo
 
     if [[ $vvsync == "2" ]]; then
-        sed -i 's/^# vsync = false/vsync = false/' /etc/xdg/picom.conf
-        sed -i 's/^vsync = true/# vsync = true/' /etc/xdg/picom.conf
+        sudo sed -i 's/^# vsync = false/vsync = false/' /etc/xdg/picom.conf
+        sudo sed -i 's/^vsync = true/# vsync = true/' /etc/xdg/picom.conf
     fi
     echo "Ok"
 fi
