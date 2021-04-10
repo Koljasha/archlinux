@@ -76,7 +76,6 @@ xorg accountsservice
 pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz
-polkit-gnome
 arc-gtk-theme arc-icon-theme
 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 gparted pavucontrol network-manager-applet
@@ -90,6 +89,7 @@ if [[ $de == "koljasha" ]]; then
     $packages
     openbox i3 picom
     obconf lxappearance-gtk3
+    polkit-gnome
     feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
