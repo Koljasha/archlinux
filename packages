@@ -373,28 +373,6 @@ fi
 
 ###############
 
-# if [[ $de == "koljasha" ]]; then
-    # # xrandr to set screen resolution for Virtual Box
-    # while [[ $vscrres != "1" ]] && [[ $vscrres != "2" ]]; do
-        # echo; echo
-        # echo "####################"
-        # echo "Set screen resolution 1360x768 for Virtual Box"
-        # echo "1) yes"
-        # echo "2) no"
-        # echo "####################"
-        # read -n1 -p">" vscrres
-    # done
-    # echo; echo
-
-    # if [[ $vscrres == "1" ]]; then
-        # sed -i 's/# exec --no-startup-id xrandr -s/exec --no-startup-id xrandr -s/' ~/.config/i3/config
-        # sed -i 's/# xrandr -s/xrandr -s/' ~/.config/openbox/autostart
-    # fi
-    # echo "Ok"
-# fi
-
-###############
-
 # Enable services
 sudo systemctl enable lightdm.service
 sudo systemctl enable reflector.timer
