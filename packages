@@ -166,7 +166,7 @@ yay -S --noconfirm $packages_aur
 
 # now error when start lxappearance -> del this app
 if [[ $de == "lxde" ]]; then
-    sudo pacman -Rsn --noconfirm lxappearance-obcond-gtk3
+    sudo pacman -Rsn --noconfirm lxappearance-obconf-gtk3
 fi
 
 ###############
