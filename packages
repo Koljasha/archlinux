@@ -186,10 +186,9 @@ cp files/face ~/.face
 if [[ $de == "koljasha" ]]; then
     # ~/.config
     cp -r config/ ~/.config
-    rm -rf ~/.config/sublime-text-3
 
-    mkdir ~/.config/picom
-    cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+    # sublime config for memory in this repo
+    rm -rf ~/.config/sublime-text-3
 
     # config services
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
@@ -237,6 +236,9 @@ elif [[ $de == "xfce" ]]; then
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
+
+    # config services
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 elif [[ $de == "lxde" ]]; then
     # ~/.config
     mkdir ~/.config
@@ -251,9 +253,7 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/terminator ~/.config/terminator
 
     # config services
-    # mkdir ~/.config/picom
-    # cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
-
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
 
     # delete openbox session from display manager
@@ -365,8 +365,8 @@ if [[ $de == "koljasha" ]] || [[ $de == "lxde" ]]; then
     echo; echo
 
     if [[ $vvsync == "2" ]]; then
-        sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
-        sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
+        sed -i 's/^# vsync = false/vsync = false/' /etc/xdg/picom.conf
+        sed -i 's/^vsync = true/# vsync = true/' /etc/xdg/picom.conf
     fi
     echo "Ok"
 fi
