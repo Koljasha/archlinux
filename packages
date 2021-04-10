@@ -254,6 +254,8 @@ elif [[ $de == "lxde" ]]; then
     mkdir ~/.config/picom
     cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
 
+    sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
+
     # delete openbox session from display manager
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
