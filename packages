@@ -74,7 +74,7 @@ dosfstools mtools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-
 git htop lm_sensors lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 openssh openvpn freerdp
-vim fish tmux ranger
+gvim fish tmux ranger
 xorg accountsservice
 pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
@@ -179,6 +179,7 @@ username=`whoami`
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
 cp files/vimrc ~/.vimrc
+cp files/gvimrc ~/.gvimrc
 cp files/tmux.conf ~/.tmux.conf
 cp files/face ~/.face
 
@@ -300,6 +301,11 @@ vim -c PlugInstall
 echo; echo
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
+
+# gvim -> evim
+sudo cp /usr/share/applications/gvim.desktop /usr/share/applications/evim.desktop
+sudo sed -i "s/GVim/eVim/" /usr/share/applications/evim.desktop
+sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 
 ###############
 
