@@ -74,7 +74,8 @@ dosfstools mtools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-
 git htop lm_sensors lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 openssh openvpn freerdp
-gvim fish tmux ranger
+fish tmux ranger
+gvim imagemagick
 xorg accountsservice
 pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
