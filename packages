@@ -156,10 +156,11 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
 
 # build yay
-git clone https://aur.archlinux.org/yay.git
-cd yay && makepkg -sirc --noconfirm
-cd .. && rm -rf yay
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin && makepkg -sirc --noconfirm
+cd .. && rm -rf yay-bin
 
+# Install packages from aur
 yay -S --noconfirm $packages_aur
 
 ###############
