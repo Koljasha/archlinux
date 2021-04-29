@@ -184,6 +184,10 @@ cp files/vimrc ~/.vimrc
 cp files/gvimrc ~/.gvimrc
 cp files/tmux.conf ~/.tmux.conf
 
+mkdir ~/.ssh
+cp files/ssh_config ~/.ssh/config
+
+
 if [[ $de == "koljasha" ]]; then
     # ~/.config
     cp -r config/ ~/.config

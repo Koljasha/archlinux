@@ -1,0 +1,14 @@
+# Github.com
+Host github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/git_rsa
+
+# Bitbucket.org
+Host bitbucket.org
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/git_rsa
+
+# GitLab.com
+Host gitlab.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/git_rsa
