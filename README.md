@@ -38,3 +38,4 @@
 * change **Ru localization** lines from `packages` in `README.md`
     * for automate - copy this hooks to `.git/hooks/`
     * for manual - run in `hooks/`
+
