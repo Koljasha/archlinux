@@ -70,7 +70,7 @@ echo "Ok"
 
 packages="
 $drivers $headers reflector
-dosfstools mtools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
+dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
 git htop lm_sensors lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 openssh openvpn freerdp
