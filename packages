@@ -140,11 +140,9 @@ if [[ $de == "koljasha" ]]; then
     $packages_aur
     arc-dark-osx-openbox-theme-git
     polybar
+    mintstick
     "
 fi
-
-# Other packages:
-# mintstick - write .img or .iso files to a USB Key
 
 ###############
 
