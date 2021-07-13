@@ -192,9 +192,6 @@ if [[ $de == "koljasha" ]]; then
     # ~/.config
     cp -r config/ ~/.config
 
-    # sublime config for memory in this repo
-    rm -rf ~/.config/sublime-text-3
-
     # config services
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
