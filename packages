@@ -84,7 +84,7 @@ arc-gtk-theme arc-icon-theme
 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 gparted pavucontrol network-manager-applet
 transmission-gtk remmina firefox
-terminator
+terminator alacritty
 qt5ct kvantum-qt5
 "
 
@@ -241,6 +241,7 @@ elif [[ $de == "xfce" ]]; then
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
 
     # config services
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
@@ -256,6 +257,7 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
 
     # config services
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
