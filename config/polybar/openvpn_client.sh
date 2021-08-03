@@ -13,7 +13,7 @@ status=`pgrep -x openvpn`
 
 if (( $# == 0 )); then
     if [[ -z $status ]]; then
-        echo "%{F#444444}%{u#444444}%{+u}  VPN%{u-}%{F-}"
+        echo "%{F#99d3ff}%{u#99d3ff}%{+u}  VPN%{u-}%{F-}"
     else
         echo "%{F#55aa55}%{u#55aa55}%{+u}  VPN%{u-}%{F-}"
     fi
