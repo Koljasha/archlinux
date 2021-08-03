@@ -2,10 +2,10 @@
 
 #
 # show:
-# $ ./change_brightness
+# $ ./change_brightness.sh
 #
 # set brightness (round):
-# ./change_brightness change
+# $ ./change_brightness.sh change
 #
 
 brightness=`xrandr --verbose | grep -i brightness | cut -d':' -f2 | cut -c2- | awk '{ print $1*100 }'`
