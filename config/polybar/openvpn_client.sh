@@ -22,9 +22,9 @@ fi
 
 if [[ $1 == 'change' ]]; then
     if [[ -z $status ]]; then
-        systemctl start openvpn-client@openvpn
+        sudo systemctl start openvpn-client@openvpn
     else
-        systemctl stop openvpn-client@openvpn
+        sudo systemctl stop openvpn-client@openvpn
     fi
 fi
 
