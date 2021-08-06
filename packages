@@ -194,6 +194,9 @@ if [[ $de == "koljasha" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
 
+    sudo cp files/sudo_openvpn /etc/sudoers.d/openvpn
+    sudo sed -i "s/username/${username}/" /etc/sudoers.d/openvpn
+
     sudo cp files/smb.conf /etc/samba/smb.conf
 
     sudo mkdir /etc/systemd/system/x11vnc.service.d

@@ -1,0 +1,4 @@
+# openvpn-client
+
+username ALL = NOPASSWD: /usr/bin/systemctl start openvpn-client@*, /usr/bin/systemctl stop openvpn-client@*
+
