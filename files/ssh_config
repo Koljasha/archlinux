@@ -1,3 +1,8 @@
+# Host __hostname__
+  # User __username__
+  # Hostname __hostname__
+  # IdentityFile ~/.ssh/__key__
+
 # Github.com
 Host github.com
   PreferredAuthentications publickey
