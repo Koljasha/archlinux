@@ -15,9 +15,14 @@ alias grep='grep --color=auto'
 # alias for conda
 # alias conda.update="conda update --all --yes"
 
-# alias for python virtual envorenment
-alias venv.activate="source venv/bin/activate"
-alias venv.create="python -m venv venv && venv.activate"
+# alias for create/activate python virtual envorenment
+venv() {
+    if test -e venv; then
+        source venv/bin/activate
+    else
+        python -m venv venv && source venv/bin/activate
+    fi
+}
 
 # ranger auto cd
 rcd() {
