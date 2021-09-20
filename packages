@@ -239,6 +239,7 @@ elif [[ $de == "xfce" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
 
@@ -255,6 +256,7 @@ elif [[ $de == "lxde" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
 
