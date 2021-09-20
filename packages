@@ -287,7 +287,7 @@ sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/system
 # terminator max window
 sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
 cp /usr/share/applications/terminator.desktop ~/.local/share/applications/
-sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.desktop
+sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 
 # enable change locale
 sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
