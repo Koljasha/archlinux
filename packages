@@ -185,6 +185,7 @@ cp files/tmux.conf ~/.tmux.conf
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
 
+mkdir -p ~/.local/share/applications
 
 if [[ $de == "koljasha" ]]; then
     # ~/.config
@@ -284,6 +285,8 @@ sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/system
 
 # terminator max window
 sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
+cp /usr/share/applications/terminator.desktop ~/.local/share/applications/
+sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.desktop
 
 # enable change locale
 sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
