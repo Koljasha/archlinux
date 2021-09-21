@@ -7,7 +7,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 305 - 306
+* `./packages`  lines : 328 - 329
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -29,7 +29,9 @@
         * in `polybar` set brightness not work in VirtualBox
     * for Xfce:
         * default settings
-    * for LXDE:
+    * for Lxde:
+        * default settings
+    * for Gnome:
         * default settings
 
 ***
