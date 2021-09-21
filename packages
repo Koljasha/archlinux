@@ -75,22 +75,22 @@ git htop lm_sensors lesspipe pkgfile numlockx wget curl cmake ctags neofetch hig
 atool p7zip unrar unzip zip
 openssh openvpn freerdp
 fish tmux ranger
-gvim imagemagick
+terminator alacritty
 xorg accountsservice
+imagemagick ffmpeg
 pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz
 arc-gtk-theme arc-icon-theme
-lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-gparted pavucontrol network-manager-applet
-transmission-gtk remmina firefox
-terminator alacritty
+gvim gparted pavucontrol network-manager-applet transmission-gtk
+remmina firefox
 qt5ct kvantum-qt5
 "
 
 if [[ $de == "koljasha" ]]; then
     packages="
     $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     openbox i3 picom
     obconf lxappearance-gtk3
     polkit-gnome
@@ -104,12 +104,14 @@ if [[ $de == "koljasha" ]]; then
 elif [[ $de == "xfce" ]]; then
     packages="
     $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     xfce4 xfce4-goodies
     galculator xarchiver gst-libav
     "
 elif [[ $de == "lxde" ]]; then
     packages="
     $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     lxde-gtk3 obconf picom
     l3afpad galculator xarchiver mpv
     "
@@ -178,9 +180,9 @@ username=`whoami`
 
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
+cp files/tmux.conf ~/.tmux.conf
 cp files/vimrc ~/.vimrc
 cp files/gvimrc ~/.gvimrc
-cp files/tmux.conf ~/.tmux.conf
 
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
@@ -202,6 +204,9 @@ if [[ $de == "koljasha" ]]; then
 
     sudo mkdir /etc/systemd/system/x11vnc.service.d
     sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
+
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 
     # copy icons
     sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
@@ -250,6 +255,9 @@ elif [[ $de == "xfce" ]]; then
 
     # config services
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "lxde" ]]; then
     # ~/.config
     mkdir ~/.config
@@ -269,6 +277,9 @@ elif [[ $de == "lxde" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
 
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+
     # delete openbox session from display manager
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
@@ -280,9 +291,6 @@ fi
 sudo cp files/username.png /var/lib/AccountsService/icons/${username}.png
 sudo cp files/username /var/lib/AccountsService/users/${username}
 sudo sed -i "s/username/${username}/" /var/lib/AccountsService/users/${username}
-
-# enable numlockx in lightdm
-sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 
 # enable color in pacman
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
@@ -398,7 +406,10 @@ fi
 ###############
 
 # Enable services
-sudo systemctl enable lightdm.service
+if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]]; then
+    sudo systemctl enable lightdm.service
+fi
+
 sudo systemctl enable reflector.timer
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
