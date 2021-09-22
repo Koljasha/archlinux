@@ -50,7 +50,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "1) Openbox & i3wm settings by Koljasha"
     echo "2) Xfce default settings"
     echo "3) Lxde default settings"
-    echo "4) Gnome default settings"
+    echo "4) Gnome + Gnome Flashback default settings"
     echo "####################"
     read -n1 -p">" de
 done
@@ -121,7 +121,7 @@ elif [[ $de == "lxde" ]]; then
 elif [[ $de == "gnome" ]]; then
     packages="
     $packages
-    gnome gnome-extra
+    gnome gnome-extra gnome-flashback
     "
 fi
 

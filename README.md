@@ -31,7 +31,7 @@
         * default settings
     * for Lxde:
         * default settings
-    * for Gnome:
+    * for Gnome, Gnome Flashback:
         * default settings
 
 ***
