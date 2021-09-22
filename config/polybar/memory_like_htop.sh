@@ -1,4 +1,4 @@
-/usr/bin/env bash
+#!/usr/bin/env bash
 
 function to_Gb {
     data=`echo $1 | awk '{ print $0/1024 }'`

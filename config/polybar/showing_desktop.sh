@@ -1,4 +1,4 @@
-/usr/bin/env bash
+#!/usr/bin/env bash
 
 status=`wmctrl -m | grep "showing the desktop" | awk -F ": " '{ print $2 }'`
 if [[ $status == "OFF" ]]; then

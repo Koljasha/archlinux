@@ -1,4 +1,4 @@
-/usr/bin/env bash
+#!/usr/bin/env bash
 
 # mmaker
 mmaker -f -t GNOME-terminal OpenBox3

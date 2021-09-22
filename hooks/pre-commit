@@ -1,4 +1,4 @@
-/usr/bin/env bash
+#!/usr/bin/env bash
 
 # hook for change "Ru localization" lines from `packages` in `README.md`
 # for automate - copy this hook to .git/hooks/

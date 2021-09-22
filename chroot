@@ -1,4 +1,4 @@
-/usr/bin/env bash
+#!/usr/bin/env bash
 
 # Set the time zone
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
