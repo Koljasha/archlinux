@@ -1,4 +1,4 @@
-#!/bin/bash
+/usr/bin/env bash
 
 status=`pgrep -x smbd`
 if [[ -z $status ]]; then

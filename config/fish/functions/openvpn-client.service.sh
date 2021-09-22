@@ -1,4 +1,4 @@
-#!/bin/bash
+/usr/bin/env bash
 
 # !!! Need openvpn config file: /etc/openvpn/client/openvpn.conf !!!
 
