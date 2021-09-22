@@ -22,10 +22,10 @@ sed -i '12a\ \t\t<separator />' ~/.config/openbox/menu.xml
 sed -i '/name="Reconfigure"/ a\ \t\t\t<item label="Restart"> <action name="Restart"/> </item>' ~/.config/openbox/menu.xml
 
 sed -i '/name="Exit"/ a\ \t\t\t</action> </item>' ~/.config/openbox/menu.xml
-sed -i '/name="Exit"/ a\ \t\t\t\t<execute>~/.config/openbox/menu_exit_openbox poweroff</execute>' ~/.config/openbox/menu.xml
+sed -i '/name="Exit"/ a\ \t\t\t\t<execute>~/.config/openbox/menu_exit_openbox.sh poweroff</execute>' ~/.config/openbox/menu.xml
 sed -i '/name="Exit"/ a\ \t\t\t<item label="Power Off"> <action name="Execute">' ~/.config/openbox/menu.xml
 
 sed -i '/name="Exit"/ a\ \t\t\t</action> </item>' ~/.config/openbox/menu.xml
-sed -i '/name="Exit"/ a\ \t\t\t\t<execute>~/.config/openbox/menu_exit_openbox reboot</execute>' ~/.config/openbox/menu.xml
+sed -i '/name="Exit"/ a\ \t\t\t\t<execute>~/.config/openbox/menu_exit_openbox.sh reboot</execute>' ~/.config/openbox/menu.xml
 sed -i '/name="Exit"/ a\ \t\t\t<item label="Reboot"> <action name="Execute">' ~/.config/openbox/menu.xml
 
