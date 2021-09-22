@@ -1,6 +1,10 @@
 # defined smb.service start|stop
 #
 function smb.service --description 'smb.service start|stop'
-    ~/.config/fish/functions/smb.service.sh
+        if test -z (pgrep -x smbd)
+            sudo systemctl start smb.service
+        else
+            sudo systemctl stop smb.service
+        end
 end
 
