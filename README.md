@@ -7,7 +7,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 326 - 327
+* `./packages`  lines : 355 - 356
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -30,6 +30,8 @@
     * for Xfce:
         * default settings
     * for Lxde:
+        * default settings
+    * for Enlightenment:
         * default settings
     * for Gnome, Gnome Flashback:
         * default settings
