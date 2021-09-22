@@ -244,7 +244,7 @@ if [[ $de == "koljasha" ]]; then
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 
     # menu_maker for Openbox
-    ~/.config/openbox/menu_maker
+    ~/.config/openbox/menu_maker.sh
 elif [[ $de == "xfce" ]]; then
     # ~/.config
     mkdir ~/.config
