@@ -208,14 +208,14 @@ if [[ $de == "koljasha" ]]; then
     # ~/.config
     cp -r config/ ~/.config
 
-    # config services
+    # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-
+    # copy image for lightdm
     sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
 
+    # config services
     sudo cp files/sudo_openvpn /etc/sudoers.d/openvpn
     sudo sed -i "s/username/${username}/" /etc/sudoers.d/openvpn
 
@@ -224,7 +224,7 @@ if [[ $de == "koljasha" ]]; then
     sudo mkdir /etc/systemd/system/x11vnc.service.d
     sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 
-    # copy icons
+    # copy desktop icons
     sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
     sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
@@ -269,9 +269,8 @@ elif [[ $de == "xfce" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
-    # config services
+    # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "lxde" ]]; then
@@ -289,10 +288,9 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
-    # config services
+    # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
-
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 
@@ -314,9 +312,8 @@ elif [[ $de == "efl" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
-    # config services
+    # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "gnome" ]]; then
