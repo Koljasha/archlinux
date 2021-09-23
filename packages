@@ -126,14 +126,14 @@ elif [[ $de == "lxde" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     lxde-gtk3 obconf picom
-    l3afpad galculator engrampa gpicview mpv
+    l3afpad galculator xarchiver gpicview mpv
     "
 elif [[ $de == "efl" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     connman enlightenment terminology
-    l3afpad galculator engrampa gpicview mpv
+    l3afpad galculator xarchiver gpicview mpv
     "
 elif [[ $de == "mate" ]]; then
     packages="
@@ -145,7 +145,8 @@ elif [[ $de == "cinnamon" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    cinnamon
+    cinnamon cinnamon-translations x-apps
+    gnome-calculator file-roller gpicview celluloid
     "
 elif [[ $de == "gnome" ]]; then
     packages="
