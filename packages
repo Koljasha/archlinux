@@ -160,11 +160,6 @@ if [[ $de == "koljasha" ]]; then
     polybar
     mintstick
     "
-# elif [[ $de == "efl" ]]; then
-    # packages_aur="
-    # $packages_aur
-    # econnman
-    # "
 fi
 
 ###############
@@ -304,7 +299,7 @@ elif [[ $de == "lxde" ]]; then
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
 elif [[ $de == "efl" ]]; then
-    rm -rf ~/.profile
+    rm ~/.profile
 
     # ~/.config
     mkdir ~/.config
