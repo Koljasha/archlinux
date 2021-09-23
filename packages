@@ -131,7 +131,7 @@ elif [[ $de == "efl" ]]; then
 elif [[ $de == "gnome" ]]; then
     packages="
     $packages
-    gnome gnome-extra gnome-flashback
+    gnome gnome-extra gnome-flashback gst-libav
     "
 fi
 
