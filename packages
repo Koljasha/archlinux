@@ -116,21 +116,21 @@ elif [[ $de == "xfce" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     xfce4 xfce4-goodies
-    galculator xarchiver gst-libav
+    galculator engrampa gst-libav
     "
 elif [[ $de == "lxde" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     lxde-gtk3 obconf picom
-    l3afpad galculator xarchiver gpicview mpv
+    l3afpad galculator engrampa gpicview mpv
     "
 elif [[ $de == "efl" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     connman enlightenment terminology
-    l3afpad galculator xarchiver gpicview mpv
+    l3afpad galculator engrampa gpicview mpv
     "
 elif [[ $de == "mate" ]]; then
     packages="
@@ -146,8 +146,7 @@ elif [[ $de == "gnome" ]]; then
 fi
 
 # Other packages:
-# viewnior - image viewer
-# evince - document viewer
+# atril - document viewer
 
 # wine winetricks - for windows applications
 # lutris gamemode lib32-gamemode - for windows games
