@@ -373,6 +373,10 @@ elif [[ $de == "cinnamon" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
+    # copy desktop icons
+    sudo cp files/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor
+
     # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
