@@ -125,7 +125,8 @@ elif [[ $de == "efl" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    enlightenment terminology
+    connman enlightenment terminology
+    galculator xarchiver gpicview mpv
     "
 elif [[ $de == "gnome" ]]; then
     packages="
@@ -158,6 +159,11 @@ if [[ $de == "koljasha" ]]; then
     arc-dark-osx-openbox-theme-git
     polybar
     mintstick
+    "
+elif [[ $de == "efl" ]]; then
+    packages_aur="
+    $packages_aur
+    econnman
     "
 fi
 
@@ -298,6 +304,8 @@ elif [[ $de == "lxde" ]]; then
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
 elif [[ $de == "efl" ]]; then
+    rm -rf ~/.profile
+
     # ~/.config
     mkdir ~/.config
 
@@ -453,8 +461,12 @@ fi
 ###############
 
 # Enable services
-if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "efl" ]]; then
+if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]]; then
     sudo systemctl enable lightdm.service
+elif [[ $de == "efl" ]]; then
+    sudo systemctl enable lightdm.service
+    sudo systemctl disable NetworkManager.service
+    sudo systemctl enable connman.service
 elif [[ $de == "gnome" ]]; then
     sudo systemctl enable gdm.service
 fi
