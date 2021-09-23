@@ -44,7 +44,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 # Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
-   && [[ $de != "5" ]] && [[ $de != "6" ]]; do
+   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
@@ -53,7 +53,8 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "3) Lxde default settings"
     echo "4) Enlightenment default settings"
     echo "5) Mate default settings"
-    echo "6) Gnome + Gnome Flashback default settings"
+    echo "6) Cinnamon default settings"
+    echo "7) Gnome + Gnome Flashback default settings"
     echo "####################"
     read -n1 -p">" de
 done
@@ -70,6 +71,8 @@ elif [[ $de == "4" ]]; then
 elif [[ $de == "5" ]]; then
     de="mate"
 elif [[ $de == "6" ]]; then
+    de="cinnamon"
+elif [[ $de == "7" ]]; then
     de="gnome"
 fi
 echo "Ok"
@@ -137,6 +140,12 @@ elif [[ $de == "mate" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     mate mate-extra celluloid
+    "
+elif [[ $de == "cinnamon" ]]; then
+    packages="
+    $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    cinnamon
     "
 elif [[ $de == "gnome" ]]; then
     packages="
@@ -349,6 +358,25 @@ elif [[ $de == "mate" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+elif [[ $de == "cinnamon" ]]; then
+    # ~/.config
+    mkdir ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/qt5ct ~/.config/qt5ct
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
+
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "gnome" ]]; then
     # ~/.config
     mkdir ~/.config
@@ -486,7 +514,8 @@ fi
 ###############
 
 # Enable services
-if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "mate" ]]; then
+if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "mate" ]]\
+|| [[ $de == "cinnamon" ]] ; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
