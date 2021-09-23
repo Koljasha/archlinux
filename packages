@@ -160,11 +160,11 @@ if [[ $de == "koljasha" ]]; then
     polybar
     mintstick
     "
-elif [[ $de == "efl" ]]; then
-    packages_aur="
-    $packages_aur
-    econnman
-    "
+# elif [[ $de == "efl" ]]; then
+    # packages_aur="
+    # $packages_aur
+    # econnman
+    # "
 fi
 
 ###############
