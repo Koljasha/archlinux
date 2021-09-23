@@ -33,6 +33,8 @@
         * default settings
     * for Enlightenment:
         * default settings
+    * for Mate:
+        * default settings
     * for Gnome, Gnome Flashback:
         * default settings
 
