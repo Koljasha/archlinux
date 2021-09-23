@@ -126,7 +126,7 @@ elif [[ $de == "efl" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     connman enlightenment terminology
-    galculator xarchiver gpicview mpv
+    l3afpad galculator xarchiver gpicview mpv
     "
 elif [[ $de == "gnome" ]]; then
     packages="
