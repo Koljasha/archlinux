@@ -376,6 +376,7 @@ elif [[ $de == "cinnamon" ]]; then
 
     # copy desktop icons
     sudo cp files/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
+    sudo cp files/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon2d_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
     # config lightdm
