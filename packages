@@ -147,7 +147,7 @@ elif [[ $de == "cinnamon" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     cinnamon cinnamon-translations x-apps
-    gnome-calculator file-roller gthumb celluloid
+    gnome-calculator gnome-screenshot file-roller gthumb celluloid
     "
 elif [[ $de == "gnome" ]]; then
     packages="
