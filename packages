@@ -97,14 +97,14 @@ xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
 arc-icon-theme breeze-icons oxygen-icons
 firefox
-gparted pavucontrol network-manager-applet transmission-gtk
-qt5ct kvantum-qt5
 "
 
 if [[ $de == "koljasha" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
     openbox i3 picom
     obconf lxappearance-gtk3
     polkit-gnome
@@ -119,6 +119,8 @@ elif [[ $de == "xfce" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
     xfce4 xfce4-goodies
     galculator engrampa gst-libav
     "
@@ -126,6 +128,8 @@ elif [[ $de == "lxde" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
     lxde-gtk3 obconf picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
     "
@@ -133,25 +137,33 @@ elif [[ $de == "efl" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    connman enlightenment terminology
+    gparted pavucontrol transmission-gtk
+    qt5ct kvantum-qt5
+    enlightenment terminology connman
     l3afpad galculator xarchiver gpicview mpv
     "
 elif [[ $de == "mate" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
     mate mate-extra celluloid
     "
 elif [[ $de == "cinnamon" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
     cinnamon cinnamon-translations x-apps
     gnome-calculator gnome-screenshot file-roller gthumb celluloid
     "
 elif [[ $de == "gnome" ]]; then
     packages="
     $packages
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
     gnome gnome-extra gnome-flashback gst-libav
     "
 fi
