@@ -96,7 +96,7 @@ gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-font
 xcursor-vanilla-dmz
 arc-gtk-theme arc-icon-theme
 gparted pavucontrol network-manager-applet transmission-gtk
-remmina firefox
+firefox
 qt5ct kvantum-qt5
 "
 
@@ -111,8 +111,8 @@ if [[ $de == "koljasha" ]]; then
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
     file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
+    remmina samba x11vnc libvncserver
     vlc
-    samba x11vnc libvncserver
     "
 elif [[ $de == "xfce" ]]; then
     packages="
