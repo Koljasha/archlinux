@@ -93,10 +93,11 @@ xorg accountsservice
 imagemagick ffmpeg
 pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
-xcursor-vanilla-dmz
-arc-gtk-theme arc-icon-theme
-gparted pavucontrol network-manager-applet transmission-gtk
+xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
+arc-gtk-theme adapta-gtk-theme breeze-gtk
+arc-icon-theme breeze-icons oxygen-icons papirus-icon-theme
 firefox
+gparted pavucontrol network-manager-applet transmission-gtk
 qt5ct kvantum-qt5
 "
 
