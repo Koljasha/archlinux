@@ -95,7 +95,7 @@ pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
-arc-icon-theme breeze-icons oxygen-icons papirus-icon-theme
+arc-icon-theme breeze-icons oxygen-icons
 firefox
 gparted pavucontrol network-manager-applet transmission-gtk
 qt5ct kvantum-qt5
