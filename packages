@@ -87,7 +87,7 @@ dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-comple
 git htop lm_sensors upower lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
 openssh openvpn freerdp
-fish tmux ranger
+fish tmux ranger vim
 terminator alacritty
 xorg accountsservice
 imagemagick ffmpeg
@@ -95,7 +95,7 @@ pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz
 arc-gtk-theme arc-icon-theme
-gvim gparted pavucontrol network-manager-applet transmission-gtk
+gparted pavucontrol network-manager-applet transmission-gtk
 remmina firefox
 qt5ct kvantum-qt5
 "
@@ -107,7 +107,7 @@ if [[ $de == "koljasha" ]]; then
     openbox i3 picom
     obconf lxappearance-gtk3
     polkit-gnome
-    feh gsimplecal
+    gvim feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
     file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
@@ -217,7 +217,9 @@ cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
 cp files/tmux.conf ~/.tmux.conf
 cp files/vimrc ~/.vimrc
-cp files/gvimrc ~/.gvimrc
+if [[ $de == "koljasha" ]]; then
+    cp files/gvimrc ~/.gvimrc
+fi
 
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
@@ -444,9 +446,11 @@ echo; echo
 sed -i 's/desert/PaperColor/' ~/.vimrc
 
 # gvim -> evim
-sudo cp /usr/share/applications/gvim.desktop /usr/share/applications/evim.desktop
-sudo sed -i "s/GVim/eVim/" /usr/share/applications/evim.desktop
-sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
+if [[ $de == "koljasha" ]]; then
+    sudo cp /usr/share/applications/gvim.desktop /usr/share/applications/evim.desktop
+    sudo sed -i "s/GVim/eVim/" /usr/share/applications/evim.desktop
+    sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
+fi
 
 ###############
 
