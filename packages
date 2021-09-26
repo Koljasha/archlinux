@@ -54,7 +54,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "4) Enlightenment default settings"
     echo "5) Mate default settings"
     echo "6) Cinnamon default settings"
-    echo "7) Gnome + Gnome Flashback default settings"
+    echo "7) Gnome, Gnome Flashback default settings"
     echo "8) Kde Plasma default settings"
     echo "####################"
     read -n1 -p">" de
