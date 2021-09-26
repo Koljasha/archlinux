@@ -184,7 +184,7 @@ elif [[ $de == "kde" ]]; then
 fi
 
 # Other packages:
-# atril - document viewer
+# xreader, atril - document viewer
 
 # wine winetricks - for windows applications
 # lutris gamemode lib32-gamemode - for windows games
