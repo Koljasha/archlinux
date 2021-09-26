@@ -7,7 +7,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 434 - 435
+* `./packages`  lines : 461 - 462
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -38,6 +38,8 @@
     * for Cinnamon:
         * default settings
     * for Gnome, Gnome Flashback:
+        * default settings
+    * for Kde Plasma:
         * default settings
 
 ***

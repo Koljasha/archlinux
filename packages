@@ -44,7 +44,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 # Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
-   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]]; do
+   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
@@ -55,6 +55,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "5) Mate default settings"
     echo "6) Cinnamon default settings"
     echo "7) Gnome + Gnome Flashback default settings"
+    echo "8) Kde Plasma default settings"
     echo "####################"
     read -n1 -p">" de
 done
@@ -74,6 +75,8 @@ elif [[ $de == "6" ]]; then
     de="cinnamon"
 elif [[ $de == "7" ]]; then
     de="gnome"
+elif [[ $de == "8" ]]; then
+    de="kde"
 fi
 echo "Ok"
 
@@ -105,6 +108,7 @@ if [[ $de == "koljasha" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
+
     openbox i3 picom
     obconf lxappearance-gtk3
     polkit-gnome
@@ -121,6 +125,7 @@ elif [[ $de == "xfce" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
+
     xfce4 xfce4-goodies
     galculator engrampa gst-libav
     "
@@ -130,6 +135,7 @@ elif [[ $de == "lxde" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
+
     lxde-gtk3 obconf picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
     "
@@ -139,6 +145,7 @@ elif [[ $de == "efl" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol transmission-gtk
     qt5ct kvantum-qt5
+
     enlightenment terminology connman
     l3afpad galculator xarchiver gpicview mpv
     "
@@ -148,6 +155,7 @@ elif [[ $de == "mate" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
+
     mate mate-extra celluloid
     "
 elif [[ $de == "cinnamon" ]]; then
@@ -156,6 +164,7 @@ elif [[ $de == "cinnamon" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
+
     cinnamon cinnamon-translations x-apps
     gnome-calculator gnome-screenshot file-roller gthumb celluloid
     "
@@ -164,7 +173,13 @@ elif [[ $de == "gnome" ]]; then
     $packages
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
+
     gnome gnome-extra gnome-flashback gst-libav
+    "
+elif [[ $de == "kde" ]]; then
+    packages="
+    $packages
+    plasma plasma-wayland-session kde-applications
     "
 fi
 
@@ -412,6 +427,18 @@ elif [[ $de == "gnome" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+elif [[ $de == "kde" ]]; then
+    # ~/.config
+    mkdir ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
 fi
 
 ###############
@@ -545,6 +572,8 @@ elif [[ $de == "efl" ]]; then
     sudo systemctl enable connman.service
 elif [[ $de == "gnome" ]]; then
     sudo systemctl enable gdm.service
+elif [[ $de == "kde" ]]; then
+    sudo systemctl enable sddm.service
 fi
 
 sudo systemctl enable reflector.timer
