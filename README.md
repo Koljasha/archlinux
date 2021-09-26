@@ -7,7 +7,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 466 - 467
+* `./packages`  lines : 468 - 469
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
