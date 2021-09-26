@@ -443,6 +443,7 @@ elif [[ $de == "kde" ]]; then
     # config sddm
     sudo mkdir /etc/sddm.conf.d
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
+    sudo cp files/username.png /var/lib/AccountsService/icons/${username}
 fi
 
 ###############
