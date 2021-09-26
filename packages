@@ -439,6 +439,10 @@ elif [[ $de == "kde" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+
+    # config sddm
+    sudo mkdir /etc/sddm.conf.d
+    sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
 fi
 
 ###############
