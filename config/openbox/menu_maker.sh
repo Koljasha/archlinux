@@ -9,7 +9,7 @@ sed -i '4a\ \t\t\t<execute>terminator -m</execute>' ~/.config/openbox/menu.xml
 sed -i '5a\ \t\t</action> </item>' ~/.config/openbox/menu.xml
 
 sed -i '6a\ \t\t<item label="FireFox"> <action name="Execute">' ~/.config/openbox/menu.xml
-sed -i '7a\ \t\t\t<execute>fireFox</execute>' ~/.config/openbox/menu.xml
+sed -i '7a\ \t\t\t<execute>firefox</execute>' ~/.config/openbox/menu.xml
 sed -i '8a\ \t\t</action> </item>' ~/.config/openbox/menu.xml
 
 sed -i '9a\ \t\t<item label="PCManFM"> <action name="Execute">' ~/.config/openbox/menu.xml
