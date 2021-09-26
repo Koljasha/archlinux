@@ -428,6 +428,8 @@ elif [[ $de == "gnome" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 elif [[ $de == "kde" ]]; then
+    rm ~/.profile
+
     # ~/.config
     mkdir ~/.config
 
