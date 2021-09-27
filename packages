@@ -351,17 +351,17 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
-    # config lightdm
-    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
-    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-
     # enable picom autostart
     sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
 
     # delete openbox session from display manager
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
+
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "efl" ]]; then
     rm ~/.profile
 
@@ -460,6 +460,8 @@ elif [[ $de == "kde" ]]; then
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
     sudo cp files/username.png /var/lib/AccountsService/icons/${username}
 elif [[ $de == "lxqt" ]]; then
+    rm ~/.profile
+
     # ~/.config
     mkdir ~/.config
 
@@ -474,17 +476,17 @@ elif [[ $de == "lxqt" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
-    # config lightdm
-    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
-    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-
     # enable picom autostart
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
     # delete openbox session from display manager
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
+
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 fi
 
 ###############
