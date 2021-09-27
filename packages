@@ -352,7 +352,8 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/alacritty ~/.config/alacritty
 
     # enable picom autostart
-    sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
+    # sudo sed -i '$ a @picom' /etc/xdg/lxsession/LXDE/autostart
+    sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
     # delete openbox session from display manager
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
