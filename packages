@@ -479,6 +479,10 @@ elif [[ $de == "lxqt" ]]; then
     # enable picom autostart
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
+    # copy desktop icons
+    sudo cp files/lxqt_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor
+
     # delete openbox session from display manager
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
