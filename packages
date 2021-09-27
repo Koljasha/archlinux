@@ -147,7 +147,6 @@ elif [[ $de == "lxqt" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted network-manager-applet
-    qt5ct kvantum-qt5
 
     lxqt breeze picom xsettingsd
     transmission-qt featherpad galculator vlc
