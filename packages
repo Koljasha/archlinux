@@ -187,9 +187,12 @@ elif [[ $de == "kde" ]]; then
 elif [[ $de == "lxqt" ]]; then
     packages="
     $packages
-    lxqt breeze picom sddm
-    partitionmanager transmission-qt
-    featherpad kcalc vlc
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted network-manager-applet
+    qt5ct kvantum-qt5
+
+    lxqt breeze picom xsettingsd
+    transmission-qt featherpad galculator vlc
     "
 fi
 
@@ -457,8 +460,6 @@ elif [[ $de == "kde" ]]; then
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
     sudo cp files/username.png /var/lib/AccountsService/icons/${username}
 elif [[ $de == "lxqt" ]]; then
-    rm ~/.profile
-
     # ~/.config
     mkdir ~/.config
 
@@ -466,15 +467,24 @@ elif [[ $de == "lxqt" ]]; then
     rm -rf ~/.config/fish/functions/smb.*
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
+    cp -r config/qt5ct ~/.config/qt5ct
+
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
-    # config sddm
-    sudo mkdir /etc/sddm.conf.d
-    sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
-    sudo cp files/username.png /var/lib/AccountsService/icons/${username}
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+
+    # enable picom autostart
+    sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
+
+    # delete openbox session from display manager
+    sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
+    sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
 fi
 
 ###############
@@ -600,7 +610,8 @@ fi
 ###############
 
 # Enable services
-if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] ; then
+if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]]\
+|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "lxqt" ]] ; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
@@ -608,7 +619,7 @@ elif [[ $de == "efl" ]]; then
     sudo systemctl enable connman.service
 elif [[ $de == "gnome" ]]; then
     sudo systemctl enable gdm.service
-elif [[ $de == "kde" ]] || [[ $de == "lxqt" ]]; then
+elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
 fi
 
