@@ -31,6 +31,8 @@
         * default settings
     * for Lxde:
         * default settings
+    * for Lxqt:
+        * default settings
     * for Enlightenment:
         * default settings
     * for Mate:
@@ -40,8 +42,6 @@
     * for Gnome, Gnome Flashback:
         * default settings
     * for Kde Plasma:
-        * default settings
-    * for Lxqt:
         * default settings
 
 ***
