@@ -148,7 +148,7 @@ elif [[ $de == "lxqt" ]]; then
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted network-manager-applet
 
-    lxqt breeze picom xsettingsd
+    lxqt picom xsettingsd
     transmission-qt featherpad galculator vlc
     "
 elif [[ $de == "efl" ]]; then
