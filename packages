@@ -51,12 +51,12 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "1) Openbox & i3wm settings by Koljasha"
     echo "2) Xfce default settings"
     echo "3) Lxde default settings"
-    echo "4) Enlightenment default settings"
-    echo "5) Mate default settings"
-    echo "6) Cinnamon default settings"
-    echo "7) Gnome, Gnome Flashback default settings"
-    echo "8) Kde Plasma default settings"
-    echo "9) Lxqt default settings"
+    echo "4) Lxqt default settings"
+    echo "5) Enlightenment default settings"
+    echo "6) Mate default settings"
+    echo "7) Cinnamon default settings"
+    echo "8) Gnome, Gnome Flashback default settings"
+    echo "9) Kde Plasma default settings"
     echo "####################"
     read -n1 -p">" de
 done
@@ -69,17 +69,17 @@ elif [[ $de == "2" ]]; then
 elif [[ $de == "3" ]]; then
     de="lxde"
 elif [[ $de == "4" ]]; then
-    de="efl"
-elif [[ $de == "5" ]]; then
-    de="mate"
-elif [[ $de == "6" ]]; then
-    de="cinnamon"
-elif [[ $de == "7" ]]; then
-    de="gnome"
-elif [[ $de == "8" ]]; then
-    de="kde"
-elif [[ $de == "9" ]]; then
     de="lxqt"
+elif [[ $de == "5" ]]; then
+    de="efl"
+elif [[ $de == "6" ]]; then
+    de="mate"
+elif [[ $de == "7" ]]; then
+    de="cinnamon"
+elif [[ $de == "8" ]]; then
+    de="gnome"
+elif [[ $de == "9" ]]; then
+    de="kde"
 fi
 echo "Ok"
 
@@ -142,6 +142,16 @@ elif [[ $de == "lxde" ]]; then
     lxde-gtk3 obconf picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
     "
+elif [[ $de == "lxqt" ]]; then
+    packages="
+    $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted network-manager-applet
+    qt5ct kvantum-qt5
+
+    lxqt breeze picom xsettingsd
+    transmission-qt featherpad galculator vlc
+    "
 elif [[ $de == "efl" ]]; then
     packages="
     $packages
@@ -183,16 +193,6 @@ elif [[ $de == "kde" ]]; then
     packages="
     $packages
     plasma plasma-wayland-session kde-applications
-    "
-elif [[ $de == "lxqt" ]]; then
-    packages="
-    $packages
-    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    gparted network-manager-applet
-    qt5ct kvantum-qt5
-
-    lxqt breeze picom xsettingsd
-    transmission-qt featherpad galculator vlc
     "
 fi
 
@@ -363,6 +363,38 @@ elif [[ $de == "lxde" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+elif [[ $de == "lxqt" ]]; then
+    rm ~/.profile
+
+    # ~/.config
+    mkdir ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/qt5ct ~/.config/qt5ct
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
+
+    # enable picom autostart
+    sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
+
+    # copy desktop icons
+    sudo cp files/lxqt_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor
+
+    # delete openbox session from display manager
+    sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
+    sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
+
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "efl" ]]; then
     rm ~/.profile
 
@@ -460,38 +492,6 @@ elif [[ $de == "kde" ]]; then
     sudo mkdir /etc/sddm.conf.d
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
     sudo cp files/username.png /var/lib/AccountsService/icons/${username}
-elif [[ $de == "lxqt" ]]; then
-    rm ~/.profile
-
-    # ~/.config
-    mkdir ~/.config
-
-    cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
-
-    cp -r config/qt5ct ~/.config/qt5ct
-
-    cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
-
-    # enable picom autostart
-    sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
-
-    # copy desktop icons
-    sudo cp files/lxqt_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
-    sudo gtk-update-icon-cache /usr/share/icons/hicolor
-
-    # delete openbox session from display manager
-    sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
-    sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
-
-    # config lightdm
-    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
-    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 fi
 
 ###############
@@ -617,8 +617,8 @@ fi
 ###############
 
 # Enable services
-if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]]\
-|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "lxqt" ]] ; then
+if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
+|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]]; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
