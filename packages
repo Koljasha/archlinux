@@ -44,7 +44,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 # Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
-   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]; do
+   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]] && [[ $de != "9" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
@@ -56,6 +56,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "6) Cinnamon default settings"
     echo "7) Gnome, Gnome Flashback default settings"
     echo "8) Kde Plasma default settings"
+    echo "9) Lxqt default settings"
     echo "####################"
     read -n1 -p">" de
 done
@@ -77,6 +78,8 @@ elif [[ $de == "7" ]]; then
     de="gnome"
 elif [[ $de == "8" ]]; then
     de="kde"
+elif [[ $de == "9" ]]; then
+    de="lxqt"
 fi
 echo "Ok"
 
@@ -180,6 +183,13 @@ elif [[ $de == "kde" ]]; then
     packages="
     $packages
     plasma plasma-wayland-session kde-applications
+    "
+elif [[ $de == "lxqt" ]]; then
+    packages="
+    $packages
+    lxqt breeze picom sddm
+    partitionmanager transmission-qt
+    featherpad kcalc vlc
     "
 fi
 
@@ -446,6 +456,25 @@ elif [[ $de == "kde" ]]; then
     sudo mkdir /etc/sddm.conf.d
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
     sudo cp files/username.png /var/lib/AccountsService/icons/${username}
+elif [[ $de == "lxqt" ]]; then
+    rm ~/.profile
+
+    # ~/.config
+    mkdir ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
+
+    # config sddm
+    sudo mkdir /etc/sddm.conf.d
+    sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
+    sudo cp files/username.png /var/lib/AccountsService/icons/${username}
 fi
 
 ###############
@@ -548,7 +577,7 @@ echo "Ok"
 
 ###############
 
-if [[ $de == "koljasha" ]] || [[ $de == "lxde" ]]; then
+if [[ $de == "koljasha" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]]; then
     # picom settings
     while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
         echo; echo
@@ -579,7 +608,7 @@ elif [[ $de == "efl" ]]; then
     sudo systemctl enable connman.service
 elif [[ $de == "gnome" ]]; then
     sudo systemctl enable gdm.service
-elif [[ $de == "kde" ]]; then
+elif [[ $de == "kde" ]] || [[ $de == "lxqt" ]]; then
     sudo systemctl enable sddm.service
 fi
 
