@@ -147,6 +147,7 @@ elif [[ $de == "lxqt" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted network-manager-applet
+    qt5ct kvantum-qt5
 
     lxqt picom xsettingsd
     transmission-qt featherpad galculator vlc
@@ -372,10 +373,16 @@ elif [[ $de == "lxqt" ]]; then
     rm -rf ~/.config/fish/functions/smb.*
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
+    cp -r config/qt5ct ~/.config/qt5ct
+
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+
+    # QT Environment
+    mkdir ~/.config/lxqt
+    cp files/lxqt_session.conf ~/.config/lxqt/session.conf
 
     # enable picom autostart
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
