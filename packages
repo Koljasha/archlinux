@@ -373,8 +373,6 @@ elif [[ $de == "lxqt" ]]; then
     rm -rf ~/.config/fish/functions/smb.*
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
-    cp -r config/qt5ct ~/.config/qt5ct
-
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
