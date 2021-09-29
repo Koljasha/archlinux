@@ -26,22 +26,22 @@
         * these are the minimal apps that I use without embellishments and frills
         * key bindings and settings are mostly standard with minor changes and scripts
         * installing (building) packages from AUR takes some time
-        * in `polybar` set brightness not work in VirtualBox
-    * for Xfce:
+        * in *polybar* set brightness not work in VirtualBox
+    * for **Xfce**:
         * default settings
-    * for Lxde:
+    * for **Lxde**:
         * default settings
-    * for Lxqt:
+    * for **Lxqt**:
         * default settings
-    * for Enlightenment:
+    * for **Enlightenment**:
         * default settings
-    * for Mate:
+    * for **Mate**:
         * default settings
-    * for Cinnamon:
+    * for **Cinnamon**:
         * default settings
-    * for Gnome, Gnome Flashback:
+    * for **Gnome, Gnome Flashback**:
         * default settings
-    * for Kde Plasma:
+    * for **Kde Plasma**:
         * default settings
 
 ***
