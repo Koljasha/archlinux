@@ -201,7 +201,7 @@ map <S-F8> :set relativenumber! <CR>
 " vmap <F10> <Esc><F5>:!clear;python % <CR>
 
 " F11 - проверка орфографии
-map <F11> :setlocal spelllang=ru spell! <CR> 
+" map <F11> :setlocal spelllang=ru spell! <CR> 
 " ]s - следующее слово с ошибкой
 " [s - предыдущее слово с ошибкой
 " z= - замена из списка
@@ -210,10 +210,10 @@ map <F11> :setlocal spelllang=ru spell! <CR>
 " zG - игнорировать слово:
 
 " F12 - полная русская раскладка (на выборе English)
-map <F12> :set keymap=russian-jcukenwin <CR> 
-imap <F12> <Esc>:set keymap=russian-jcukenwin<CR>i
-map <S-F12> :set keymap= <CR> 
-imap <S-F12> <Esc>:set keymap=<CR>i
+" map <F12> :set keymap=russian-jcukenwin <CR> 
+" imap <F12> <Esc>:set keymap=russian-jcukenwin<CR>i
+" map <S-F12> :set keymap= <CR> 
+" imap <S-F12> <Esc>:set keymap=<CR>i
 
 " автодополнения i_ctrl-x_:
 " ctrl-l - добавить строку
