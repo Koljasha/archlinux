@@ -31,8 +31,8 @@ font pango:Sans 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec terminator
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Return exec --no-startup-id terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -366,8 +366,8 @@ mode "$mode_gaps_left" {
 #
 
 # Bind for app:
-bindsym $mod+b exec firefox
-# bindsym $mod+n exec pcmanfm
+bindsym $mod+b exec --no-startup-id firefox
+# bindsym $mod+n exec --no-startup-id pcmanfm
 
 # Workspace for app:
 # (name of class - command: xprop)
@@ -382,15 +382,15 @@ for_window [ class="Terminator" ] floating enable move position 277 156
 for_window [class="Terminator"] resize set 1366 768
 
 # Screenshot
-bindsym Print exec gnome-screenshot -a
+bindsym Print exec --no-startup-id gnome-screenshot -a
 
 # Volume control (type 1):
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Image for i3lock:
-bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
+bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
 
 #
 # Execute on start
