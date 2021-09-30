@@ -377,6 +377,10 @@ assign [class="firefox"] $workspace5
 assign [class="vlc"] $workspace9
 assign [class="Remmina"] $workspace10
 
+# Terminator in floating mode
+for_window [ class="Terminator" ] floating enable move position 277 156
+for_window [class="Terminator"] resize set 1366 768
+
 # Screenshot
 bindsym Print exec gnome-screenshot -a
 
@@ -389,7 +393,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym $mod+Shift+l exec i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
 
 #
-# Execute
+# Execute on start
 #
 
 # set screen resolution for Virtual Box
