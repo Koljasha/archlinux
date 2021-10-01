@@ -250,6 +250,7 @@ map <S-F8> :set relativenumber! <CR>
 	" отключен - GitGutter - git состояние
 	" отключен - Fugitive - расширение git для Vim
 	" отключен - GV - просмотр коммитов
+" Lightline-Bufferline - отображение буферов в Lightline
 " Lightline - строка статуса
 " отключен - ListToggle - вкл/выкл quickfix и location окон
 " отключен - Livedown - автопросмотр MarkDown файлов в браузере
@@ -516,11 +517,32 @@ let g:EasyMotion_smartcase = 1
 	" ----------------------------------------
 " ----------------------------------------
 
+" Lightline-Bufferline - отображение буферов в Lightline
+" !!! - 4 строк ниже:
+" ---------------
+" https://github.com/mengelbrecht/lightline-bufferline
+Plug 'mengelbrecht/lightline-bufferline'
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#enable_devicons = 1
+" ----------------------------------------
+
 " Lightline - строка статуса
-" !!! - 2 строк ниже:
+" !!! - 14 строк ниже:
 " ---------------
 " https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
+let g:lightline = {
+	  \ 'tabline': {
+	  \   'left': [ ['buffers'] ],
+	  \   'right': [ ['close'], ['tabs'] ]
+	  \ },
+	  \ 'component_expand': {
+	  \   'buffers': 'lightline#bufferline#buffers'
+	  \ },
+	  \ 'component_type': {
+	  \   'buffers': 'tabsel'
+	  \ },
+	  \ }
 " ----------------------------------------
 
 " ListToggle - вкл/выкл quickfix и location окон
