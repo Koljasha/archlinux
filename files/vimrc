@@ -275,6 +275,7 @@ map <S-F8> :set relativenumber! <CR>
 " Xkbswitch - смена на En при переходе в командный режим
 " Vim-Devicons - иконки Nerd
 " отключен - Jedi-vim - IDE для Python (для Python)
+" отключен - Python-mode - IDE для Python (для Python)
 " отключен - Snippets - набор сниппетов
 " отключен - (UltiSnips - движок для сниппетов)
 " отключен - Syntastic - синтаксические ошибки кода
@@ -832,6 +833,13 @@ Plug 'ryanoasis/vim-devicons'
 " " Renaming <leader>r
 " " Usages <leader>n (shows all the usages of a name)
 " " Open module, e.g. :Pyimport os (opens the os module)
+" ----------------------------------------
+
+" Python-mode - IDE для Python
+" !!! - 2 строки ниже:
+" " ---------------
+" " https://github.com/python-mode/python-mode
+" Plug 'python-mode/python-mode', { 'for': 'python' }
 " ----------------------------------------
 
 " Snippets - набор сниппетов
