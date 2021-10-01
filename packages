@@ -312,6 +312,9 @@ if [[ $de == "koljasha" ]]; then
     cp /usr/share/applications/feh.desktop ~/.local/share/applications/
     cp files/mimeinfo.cache ~/.local/share/applications/
 
+    # jgmenu Exit for user
+    sed -i "s/username/$username/" ~/.config/jgmenu/append.csv
+
     # terminator for plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 

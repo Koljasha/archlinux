@@ -2,8 +2,7 @@
 Lock,i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png,system-lock-screen
 Exit,^checkout(exit),system-shutdown
 ^tag(exit)
-Exit Openbox,openbox --exit,system-log-out
-Exit i3wm,i3-msg exit,system-log-out
+Exit,/home/username/.config/jgmenu/exit.sh,system-log-out
 Suspend,systemctl -i suspend,system-suspend
 Reboot,systemctl -i reboot,system-reboot
 Poweroff,systemctl -i poweroff,system-shutdown
