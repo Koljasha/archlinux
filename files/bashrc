@@ -35,6 +35,6 @@ rcd() {
     rm -f -- "$temp_file"
 }
 
-# save current directory (need for i3 therminal)
+# save current directory (need for i3 terminal)
 export PROMPT_COMMAND="pwd > /tmp/whereami"
 
