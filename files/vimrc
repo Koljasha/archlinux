@@ -132,7 +132,9 @@ set splitright
 set splitbelow
 
 " для корректной работы Alacritty
-set term=xterm-256color
+if !has('nvim')
+	set term=xterm-256color
+endif
 
 " ----------------------------------------
 " ----------------------------------------
