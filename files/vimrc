@@ -839,7 +839,7 @@ Plug 'ryanoasis/vim-devicons'
 " !!! - 2 строки ниже:
 " " ---------------
 " " https://github.com/python-mode/python-mode
-" Plug 'python-mode/python-mode', { 'for': 'python' }
+" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " ----------------------------------------
 
 " Snippets - набор сниппетов
