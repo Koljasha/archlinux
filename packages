@@ -115,7 +115,8 @@ if [[ $de == "koljasha" ]]; then
     openbox i3 picom
     obconf lxappearance-gtk3
     polkit-gnome
-    gvim feh gsimplecal
+    neovim gvim
+    feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
     file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
