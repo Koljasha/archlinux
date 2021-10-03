@@ -818,6 +818,20 @@ let g:XkbSwitchIMappings = ['ru']
 Plug 'ryanoasis/vim-devicons'
 " ----------------------------------------
 
+" ----------------------------------------
+" ----------------------------------------
+
+" IDE
+
+" ----------------------------------------
+" Посмотреть на:
+" https://github.com/neoclide/coc.nvim/wiki
+" https://github.com/fannheyward/coc-pyright
+" https://github.com/pappasam/coc-jedi
+" или для neovim:
+" https://github.com/neovim/nvim-lspconfig
+" ----------------------------------------
+
 " Jedi-vim - IDE для Python
 " !!! - 12 строк ниже:
 " " ---------------
