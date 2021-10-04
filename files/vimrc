@@ -131,7 +131,7 @@ set splitright
 " :split открывает окна снизу
 set splitbelow
 
-" для корректной работы Alacritty
+" для корректной работы Vim в Alacritty
 if !has('nvim')
 	set term=xterm-256color
 endif
@@ -161,6 +161,8 @@ map <Leader>ss :w! <CR>
 
 " <Leader>qq - закрытие буфера без сохранения
 nmap <Leader>qq :bd! <CR>
+" <Leader>bb - следующий буфер
+nmap <Leader>bb :bn <CR>
 
 " сменить split
 nmap <C-Right> <C-W>l
@@ -220,6 +222,7 @@ map <S-F8> :set relativenumber! <CR>
 " map <S-F12> :set keymap= <CR> 
 " imap <S-F12> <Esc>:set keymap=<CR>i
 
+" ----------------------------------------
 " автодополнения i_ctrl-x_:
 " ctrl-l - добавить строку
 " ctrl-n ctrl-p ctrl-i - добавить слово
