@@ -924,9 +924,14 @@ Plug 'ryanoasis/vim-devicons'
 " настройки в конце файла
 
 if has('nvim')
-	" !!! Need install LSP Server
-	" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+	" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 	" ----------------------------------------
+	" https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP client
+	" https://github.com/hrsh7th/nvim-cmp -- Autocompletion plugin
+	" https://github.com/hrsh7th/cmp-nvim-lsp -- LSP source for nvim-cmp
+	" https://github.com/saadparwaiz1/cmp_luasnip -- Snippets source for nvim-cmp
+	" https://github.com/L3MON4D3/LuaSnip -- Snippets plugin
+	" ---------------
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
@@ -963,12 +968,12 @@ highlight SpellCap ctermfg=Blue
 " ----------------------------------------
 " ----------------------------------------
 
-" Neovim LSP
+" Neovim LSP Settings
 
 if has('nvim')
 " ----------------------------------------
 " nvim-lspconfig
-" https://github.com/neovim/nvim-lspconfig
+" settings from https://github.com/neovim/nvim-lspconfig
 " ---------------
 
 lua << EOF
@@ -1010,6 +1015,8 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 
+-- !!! Need install LSP Server
+-- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 -- >sudo npm i -g pyright
 -- >sudo npm i -g bash-language-server
 
@@ -1026,7 +1033,7 @@ EOF
 
 " ----------------------------------------
 " nvim-cmp
-" https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 " ---------------
 
 lua << EOF
