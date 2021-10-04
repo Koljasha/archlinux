@@ -93,6 +93,9 @@ set showtabline=2
 " 256 цветов
 set t_Co=256
 
+" Линия по колонке
+" set colorcolumn=180
+
 " включаем перенос строк
 set wrap
 
