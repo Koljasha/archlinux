@@ -910,9 +910,9 @@ Plug 'ryanoasis/vim-devicons'
 " " ----------------------------------------
 " "
 " " YouCompleteMe - автодополнение кода
-" " https://github.com/Valloric/YouCompleteMe
+" " https://github.com/ycm-core/YouCompleteMe
 " " ---------------
-" Plug 'Valloric/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 " " ---------------
 " let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " let g:ycm_autoclose_preview_window_after_completion = 1
