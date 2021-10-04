@@ -829,7 +829,7 @@ Plug 'ryanoasis/vim-devicons'
 " ----------------------------------------
 " ----------------------------------------
 
-" IDE
+" IDE for Vim
 
 " ----------------------------------------
 " https://github.com/neoclide/coc.nvim/wiki
@@ -919,9 +919,13 @@ Plug 'ryanoasis/vim-devicons'
 " ----------------------------------------
 " ----------------------------------------
 
+" IDE for Neovim
+" Neovim Plugins for LSP Server
+" настройки в конце файла
+
 if has('nvim')
-	" Neovim Plugins
-	" !!! Need install for example Python: >npm i -g pyright
+	" !!! Need install LSP Server
+	" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 	" ----------------------------------------
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/nvim-cmp'
@@ -959,8 +963,9 @@ highlight SpellCap ctermfg=Blue
 " ----------------------------------------
 " ----------------------------------------
 
+" Neovim LSP
+
 if has('nvim')
-	" Neovim LSP
 " ----------------------------------------
 " nvim-lspconfig
 " https://github.com/neovim/nvim-lspconfig
@@ -1004,7 +1009,11 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright' }
+
+-- >sudo npm i -g pyright
+-- >sudo npm i -g bash-language-server
+
+local servers = { 'pyright', 'bashls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
