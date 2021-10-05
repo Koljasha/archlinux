@@ -134,6 +134,9 @@ set splitright
 " :split открывает окна снизу
 set splitbelow
 
+" сворачивание на основании отступов в начале строк
+" set foldmethod=indent
+
 " для корректной работы Vim в Alacritty
 if !has('nvim')
 	set term=xterm-256color
@@ -160,7 +163,7 @@ let &keywordprg=':help'
 nmap <Leader>hl :nohlsearch <CR>
 
 " <Leader>ss - сохранение файла
-map <Leader>ss :w! <CR>
+nmap <Leader>ss :w! <CR>
 
 " <Leader>qq - закрытие буфера без сохранения
 nmap <Leader>qq :bd! <CR>
@@ -179,26 +182,32 @@ nmap <C-S-Left> <C-W><
 nmap <C-S-Up> <C-W>+
 nmap <C-S-Down> <C-W>-
 
-" F4 - ражим вставки (Paste).
-map <F4> :set paste! <CR> 
-imap <F4> <Esc> :set paste! <CR> 
+" F4 - ражим вставки (Paste)
+nmap <F4> :set paste! <CR>
+imap <F4> <Esc> :set paste! <CR>
 
 " F5 - сохранение файла
-map <F5> :w! <CR> 
-imap <F5> <Esc> :w! <CR> 
+nmap <F5> :w! <CR>
+imap <F5> <Esc> :w! <CR>
 
 " S-F5 - сохранить с sudo
-map <S-F5> :execute ':silent w !sudo tee % > /dev/null' <bar> :edit! <cr> 
+nmap <S-F5> :execute ':silent w !sudo tee % > /dev/null' <bar> :edit! <CR>
+
+" F6 - сохранить свертки
+nmap <F6> :mkview <CR>
+
+" S-F6 - загрузить свертки
+nmap <S-F6> :loadview <CR>
 
 " F7 - показать пробелы и табы
-map <F7> :set list! <CR> 
+nmap <F7> :set list! <CR>
 
 " Shift-F7 - использовать табы вместо пробелов
-map <S-F7> :set noet! <CR> 
+nmap <S-F7> :set noet! <CR>
 
 " F8 - отключение нумерации (всей - относительной)
-map <F8> :set number! relativenumber! <CR> 
-map <S-F8> :set relativenumber! <CR> 
+nmap <F8> :set number! relativenumber! <CR>
+nmap <S-F8> :set relativenumber! <CR>
 
 " F11 - проверка орфографии
 " map <F11> :setlocal spelllang=ru spell! <CR> 
@@ -227,6 +236,10 @@ map <S-F8> :set relativenumber! <CR>
 " v/V и zf - выделение блока и создание свертки
 " zc – свернуть блок
 " zo – развернуть блок
+" za – инвертирование
+" zd - удалить свертку
+" :mkview - сохранить структуру сверток
+" :loadview - загрузить структуру сверток
 " ----------------------------------------
 " ----------------------------------------
 
