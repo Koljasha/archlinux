@@ -625,12 +625,6 @@ if has('nvim')
 
 	" https://github.com/saadparwaiz1/cmp_luasnip -- Snippets source for nvim-cmp
 	" https://github.com/L3MON4D3/LuaSnip -- Snippets plugin
-
-	" https://github.com/hrsh7th/cmp-vsnip -- nvim-cmp source for vim-vsnip
-	" https://github.com/hrsh7th/vim-vsnip -- VSCode(LSP)'s snippet feature in vim
-
-	" https://github.com/SirVer/ultisnips -- UltiSnips is the ultimate solution for snippets in Vim
-	" https://github.com/quangnguyen30192/cmp-nvim-ultisnips -- Ultisnips completion source For nvim-cmp
 	" ---------------
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
@@ -639,17 +633,8 @@ if has('nvim')
 
 	" Plug 'rafamadriz/friendly-snippets'
 
-	" For luasnip user
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
-
-	" For vsnip user
-	" Plug 'hrsh7th/cmp-vsnip'
-	" Plug 'hrsh7th/vim-vsnip'
-
-	" For ultisnips user
-	" Plug 'SirVer/ultisnips'
-	" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 	" ----------------------------------------
 endif
 
@@ -760,6 +745,9 @@ local luasnip = require 'luasnip'
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
+--  completion = {
+--    autocomplete = false
+--  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -801,6 +789,10 @@ cmp.setup {
 	{ name = 'buffer' },
   },
 }
+
+-- load snippets collection "rafamadriz/friendly-snippets"
+-- require("luasnip/loaders/from_vscode").lazy_load()
+
 EOF
 endif
 " ----------------------------------------
