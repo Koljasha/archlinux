@@ -617,16 +617,39 @@ if has('nvim')
 	" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 	" ----------------------------------------
 	" https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP client
-	" https://github.com/hrsh7th/nvim-cmp -- Autocompletion plugin
 	" https://github.com/hrsh7th/cmp-nvim-lsp -- LSP source for nvim-cmp
+	" https://github.com/hrsh7th/cmp-buffer -- nvim-cmp source for buffer words
+	" https://github.com/hrsh7th/nvim-cmp -- Autocompletion plugin
+
+	" https://github.com/rafamadriz/friendly-snippets -- Snippets collection
+
 	" https://github.com/saadparwaiz1/cmp_luasnip -- Snippets source for nvim-cmp
 	" https://github.com/L3MON4D3/LuaSnip -- Snippets plugin
+
+	" https://github.com/hrsh7th/cmp-vsnip -- nvim-cmp source for vim-vsnip
+	" https://github.com/hrsh7th/vim-vsnip -- VSCode(LSP)'s snippet feature in vim
+
+	" https://github.com/SirVer/ultisnips -- UltiSnips is the ultimate solution for snippets in Vim
+	" https://github.com/quangnguyen30192/cmp-nvim-ultisnips -- Ultisnips completion source For nvim-cmp
 	" ---------------
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'saadparwaiz1/cmp_luasnip'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/nvim-cmp'
+
+	" Plug 'rafamadriz/friendly-snippets'
+
+	" For luasnip user
 	Plug 'L3MON4D3/LuaSnip'
+	Plug 'saadparwaiz1/cmp_luasnip'
+
+	" For vsnip user
+	" Plug 'hrsh7th/cmp-vsnip'
+	" Plug 'hrsh7th/vim-vsnip'
+
+	" For ultisnips user
+	" Plug 'SirVer/ultisnips'
+	" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 	" ----------------------------------------
 endif
 
@@ -747,7 +770,12 @@ cmp.setup {
 --  },
   snippet = {
     expand = function(args)
+--    For `luasnip` user
       require('luasnip').lsp_expand(args.body)
+--    For `vsnip` user
+--    vim.fn["vsnip#anonymous"](args.body)
+--    For `ultisnips` user
+--    vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   mapping = {
@@ -784,7 +812,15 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+
+--  For `luasnip` user
     { name = 'luasnip' },
+--  For vsnip user.
+--  { name = 'vsnip' },
+--  For ultisnips user.
+--  { name = 'ultisnips' },
+
+	{ name = 'buffer' },
   },
 }
 EOF
