@@ -115,7 +115,7 @@ if [[ $de == "koljasha" ]]; then
     openbox i3 picom
     obconf lxappearance-gtk3
     polkit-gnome
-    neovim gvim
+    npm neovim gvim
     feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
@@ -553,6 +553,12 @@ if [[ $de == "koljasha" ]]; then
     sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 fi
 
+# plugins for Neovim
+if [[ $de == "koljasha" ]]; then
+    sudo npm i -g pyright
+    sudo npm i -g bash-language-server
+    nvim -c PlugInstall
+fi
 ###############
 
 # install oh-my-fish
