@@ -688,6 +688,9 @@ if has('nvim')
 " nvim-lspconfig
 " settings from https://github.com/neovim/nvim-lspconfig
 " ---------------
+" nvim-cmp
+" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+" ---------------
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -725,6 +728,10 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 
@@ -737,19 +744,13 @@ local servers = { 'pyright', 'bashls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
     }
   }
 end
-EOF
 
-" ----------------------------------------
-" nvim-cmp
-" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
-" ---------------
-
-lua << EOF
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
@@ -758,24 +759,10 @@ local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
-
-local check_back_space = function()
-    local col = vim.fn.col '.' - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
-end
-
 cmp.setup {
---  completion = {
---    autocomplete = false
---  },
   snippet = {
     expand = function(args)
---    For `luasnip` user
       require('luasnip').lsp_expand(args.body)
---    For `vsnip` user
---    vim.fn["vsnip#anonymous"](args.body)
---    For `ultisnips` user
---    vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   mapping = {
@@ -789,15 +776,13 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(core, fallback)
+    ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
       elseif luasnip.expand_or_jumpable() then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-      elseif not check_back_space() then
-        cmp.mapping.complete()(core, fallback)
       else
-        vim.cmd(':>')
+        fallback()
       end
     end,
     ['<S-Tab>'] = function(fallback)
@@ -806,20 +791,13 @@ cmp.setup {
       elseif luasnip.jumpable(-1) then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
       else
-        vim.cmd(':<')
+        fallback()
       end
     end,
   },
   sources = {
     { name = 'nvim_lsp' },
-
---  For `luasnip` user
     { name = 'luasnip' },
---  For vsnip user.
---  { name = 'vsnip' },
---  For ultisnips user.
---  { name = 'ultisnips' },
-
 	{ name = 'buffer' },
   },
 }
