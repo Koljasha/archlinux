@@ -804,7 +804,7 @@ cmp.setup {
 }
 
 -- for example:
--- cp ~/.vim/plugged/LuaSnip/Example/snippets.lua\
+-- cp ~/.vim/plugged/LuaSnip/Examples/snippets.lua\
 --    ~/.config/nvim/lua/snippets.lua
 -- require("snippets")
 
