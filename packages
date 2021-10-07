@@ -541,7 +541,11 @@ echo "now click any key"
 echo "####################"
 read -n1 -p">"; echo
 # install vim plugins
-vim -c PlugInstall
+if [[ $de == "koljasha" ]]; then
+    nvim -c PlugInstall
+else
+    vim -c PlugInstall
+fi
 echo; echo
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
@@ -557,7 +561,6 @@ fi
 if [[ $de == "koljasha" ]]; then
     sudo npm i -g pyright
     sudo npm i -g bash-language-server
-    nvim -c PlugInstall
 fi
 ###############
 
