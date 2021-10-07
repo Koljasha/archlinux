@@ -416,6 +416,10 @@ let g:ctrlp_working_path_mode = 'rc'
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
 " ---------------
+let g:AutoPairsShortcutToggle = '<Leader>pp'  " Toggle Autopairs
+let g:AutoPairsShortcutFastWrap = ''  " Fast Wrap
+let g:AutoPairsShortcutJump = ''  " Jump to next closed pair
+let g:AutoPairsShortcutBackInsert = ''  " BackInsert
 " ----------------------------------------
 
 " NERD Commenter - комментирование для различных языков
