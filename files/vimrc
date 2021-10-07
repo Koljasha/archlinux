@@ -806,7 +806,7 @@ cmp.setup {
 -- for example:
 -- cp ~/.vim/plugged/LuaSnip/Examples/snippets.lua\
 --    ~/.config/nvim/lua/snippets.lua
--- require("snippets")
+   require("snippets")
 
 -- load snippets collection "rafamadriz/friendly-snippets"
 -- require("luasnip/loaders/from_vscode").lazy_load()
