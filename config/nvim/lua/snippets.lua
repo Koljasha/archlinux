@@ -201,18 +201,18 @@ ls.snippets = {
 }
 
 -- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
-ls.autosnippets = {
-	all = {
-		s("autotrigger", {
-			t("autosnippet"),
-		}),
-	},
-}
+-- ls.autosnippets = {
+	-- all = {
+		-- s("autotrigger", {
+			-- t("autosnippet"),
+		-- }),
+	-- },
+-- }
 
 -- in a lua file: search lua-, then c-, then all-snippets.
-ls.filetype_extend("lua", { "c" })
+-- ls.filetype_extend("lua", { "c" })
 -- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
-ls.filetype_set("cpp", { "c" })
+-- ls.filetype_set("cpp", { "c" })
 
 --[[
 -- Beside defining your own snippets you can also load snippets from "vscode-like" packages
