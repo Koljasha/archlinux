@@ -11,7 +11,9 @@ function to_Gb {
 full_memory=`free -m | sed -n 2p | awk '{print $2}'`
 full_memory=`to_Gb $full_memory`
 
-busy_memory=`free -m | sed -n 2p | awk '{print $3+$5}'`
+# busy_memory=`free -m | sed -n 2p | awk '{print $3+$5}'`
+# htop 3.1.1 changes:
+busy_memory=`free -m | sed -n 2p | awk '{print $3}'`
 if (( $busy_memory > 1024 )); then
     busy_memory=`to_Gb $busy_memory`
 else
