@@ -210,6 +210,11 @@
         <command>terminator -m</command>
       </action>
     </keybind>
+    <keybind key="W-S-Return">
+      <action name="Execute">
+        <command>alacritty</command>
+      </action>
+    </keybind>
     <!--   -->
     <keybind key="Print">
       <action name="Execute">
