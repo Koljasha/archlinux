@@ -541,11 +541,7 @@ echo "now click any key"
 echo "####################"
 read -n1 -p">"; echo
 # install vim plugins
-if [[ $de == "koljasha" ]]; then
-    nvim -c PlugInstall
-else
-    vim -c PlugInstall
-fi
+vim -c PlugInstall
 echo; echo
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
