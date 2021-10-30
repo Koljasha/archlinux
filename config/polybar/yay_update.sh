@@ -16,7 +16,7 @@ if (( $# == 0 )); then
     data="Arch:$arch|Aur:$aur"
 
     if (( $yay != 0 )); then
-        echo "%{F#55aa55}%{u#55aa55}%{+u}  $data%{u-}%{F-}"
+        echo "%{F#ffb52a}%{u#ffb52a}%{+u}  $data%{u-}%{F-}"
     else
         echo "%{F#99d3ff}%{u#99d3ff}%{+u}  $data%{u-}%{F-}"
     fi
