@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+#
+# show:
+# $ ./yay.sh
+#
+# $ ./yay.sh change
+#
+
+if (( $# == 0 )); then
+    sudo pacman -Sy 1>/dev/null
+
+    yay=`yay -Qu | wc -l`
+    arch=`pacman -Qu | wc -l`
+    aur=`echo $yay $arch | awk '{ print $1-$2 }'`
+    data="Arch:$arch|Aur:$aur"
+
+    if (( $yay != 0 )); then
+        echo "%{F#55aa55}%{u#55aa55}%{+u}  $data%{u-}%{F-}"
+    else
+        echo "%{F#99d3ff}%{u#99d3ff}%{+u}  $data%{u-}%{F-}"
+    fi
+    exit 0
+fi
+
+if [[ $1 == 'change' ]]; then
+    terminator -m -x ~/.config/polybar/yay_update.sh terminal
+    exit 0
+fi
+
+if [[ $1 == 'terminal' ]]; then
+    yay
+
+    echo
+    echo "####################"
+    echo "Click any key"
+    echo "####################"
+    read -n1 -p">"; echo
+
+    polybar-msg cmd restart
+
+    exit 0
+fi
