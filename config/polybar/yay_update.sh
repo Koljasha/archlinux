@@ -13,7 +13,7 @@ if (( $# == 0 )); then
     yay=`yay -Qu | wc -l`
     arch=`pacman -Qu | wc -l`
     aur=`echo $yay $arch | awk '{ print $1-$2 }'`
-    data="Arch:$arch|Aur:$aur"
+    data="Arch:$arch | Aur:$aur"
 
     if (( $yay != 0 )); then
         echo "%{F#ffb52a}%{u#ffb52a}%{+u}  $data%{u-}%{F-}"
