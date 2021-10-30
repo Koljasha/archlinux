@@ -1,0 +1,4 @@
+# pacman
+
+username ALL = NOPASSWD: /usr/bin/pacman
+
