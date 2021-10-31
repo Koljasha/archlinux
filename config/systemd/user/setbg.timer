@@ -7,7 +7,7 @@ Description=Set backgrounds timer
 
 [Timer]
 OnCalendar=*-*-* *:*:00
-AccuracySec=1s
+AccuracySec=1us
 
 [Install]
 WantedBy=timers.target
