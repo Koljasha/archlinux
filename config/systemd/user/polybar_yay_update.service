@@ -1,0 +1,13 @@
+#
+# Service for update yay polybar module
+#
+
+[Unit]
+Description=Update yay polybar module
+
+[Service]
+ExecStart=/usr/bin/polybar-msg hook yay_update 1
+
+[Install]
+WantedBy=default.target
+

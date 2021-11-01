@@ -291,6 +291,9 @@ if [[ $de == "koljasha" ]]; then
     sudo mkdir /etc/systemd/system/x11vnc.service.d
     sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 
+    # polybar yay_update service
+    systemctl --user enable polybar_yay_update.timer
+
     # copy desktop icons
     sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
     sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg

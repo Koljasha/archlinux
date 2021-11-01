@@ -24,20 +24,13 @@ if (( $# == 0 )); then
 fi
 
 if [[ $1 == 'change' ]]; then
+    echo "%{F#55aa55}%{u#55aa55}%{+u}  Update%{u-}%{F-}"
     terminator -m -x ~/.config/polybar/yay_update.sh terminal
     exit 0
 fi
 
 if [[ $1 == 'terminal' ]]; then
     yay
-
-    echo
-    echo "####################"
-    echo "Click any key"
-    echo "####################"
-    read -n1 -p">"; echo
-
-    polybar-msg cmd restart
-
+    polybar-msg hook yay_update 1
     exit 0
 fi
