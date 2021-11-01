@@ -8,7 +8,7 @@ Description=Update yay polybar module
 [Timer]
 OnCalendar=*-*-* *:0,30
 Persistent=true
-AccuracySec=1us
+# AccuracySec=1us
 
 [Install]
 WantedBy=timers.target
