@@ -31,7 +31,12 @@ fi
 
 if [[ $1 == 'terminal' ]]; then
     yay
-    polybar-msg hook yay_update 1
+
+    # for script
+    # polybar-msg cmd restart
+    # for ipc
+    polybar-msg hook yay_update_ipc 1
+
     exit 0
 fi
 
