@@ -27,7 +27,7 @@ fi
 if [[ $1 == 'change' ]]; then
     echo "%{F#55aa55}%{u#55aa55}%{+u}  Update%{u-}%{F-}"
 
-    if [[ $2 == 'ipc'  ]]; then
+    if [[ $2 == 'ipc' ]]; then
         terminator -m -x ~/.config/polybar/yay_update.sh terminal ipc
     else
         terminator -m -x ~/.config/polybar/yay_update.sh terminal
@@ -39,7 +39,13 @@ fi
 if [[ $1 == 'terminal' ]]; then
     yay
 
-    if [[ $2 == 'ipc'  ]]; then
+    echo
+    echo "####################"
+    echo "Click any key"
+    echo "####################"
+    read -n1 -p">"; echo
+
+    if [[ $2 == 'ipc' ]]; then
         polybar-msg hook yay_update_ipc 1
     else
         polybar-msg cmd restart
