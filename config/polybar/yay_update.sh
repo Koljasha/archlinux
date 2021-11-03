@@ -4,7 +4,7 @@
 # show:
 # $ ./yay.sh
 #
-# $ ./yay.sh change
+# $ ./yay.sh change OR ./yay.sh change ipc
 #
 
 if (( $# == 0 )); then
@@ -20,22 +20,30 @@ if (( $# == 0 )); then
     else
         echo "%{F#99d3ff}%{u#99d3ff}%{+u}  $data%{u-}%{F-}"
     fi
+
     exit 0
 fi
 
 if [[ $1 == 'change' ]]; then
     echo "%{F#55aa55}%{u#55aa55}%{+u}  Update%{u-}%{F-}"
-    terminator -m -x ~/.config/polybar/yay_update.sh terminal
+
+    if [[ $2 == 'ipc'  ]]; then
+        terminator -m -x ~/.config/polybar/yay_update.sh terminal ipc
+    else
+        terminator -m -x ~/.config/polybar/yay_update.sh terminal
+    fi
+
     exit 0
 fi
 
 if [[ $1 == 'terminal' ]]; then
     yay
 
-    # for script
-    # polybar-msg cmd restart
-    # for ipc
-    polybar-msg hook yay_update_ipc 1
+    if [[ $2 == 'ipc'  ]]; then
+        polybar-msg hook yay_update_ipc 1
+    else
+        polybar-msg cmd restart
+    fi
 
     exit 0
 fi
