@@ -523,6 +523,9 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 # timeoutstop in systemd
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
 
+# systemd journal size
+sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=100M/' /etc/systemd/journald.conf
+
 # terminator max window
 sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
 cp /usr/share/applications/terminator.desktop ~/.local/share/applications/
