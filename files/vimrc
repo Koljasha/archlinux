@@ -31,7 +31,7 @@ filetype plugin indent on
 " :echo glob($VIMRUNTIME . '/ftplugin/*.vim')
 
 " мышь во всех режимах
-" set mouse=a
+set mouse=a
 
 " подсветка синтаксиса
 syntax on
