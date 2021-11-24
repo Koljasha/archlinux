@@ -189,24 +189,22 @@ imap <F4> <Esc> :set paste! <CR>
 " F5 - сохранение файла
 nmap <F5> :w! <CR>
 imap <F5> <Esc> :w! <CR>
-
-" S-F5 - сохранить с sudo
+" Shift-F5 - сохранить с sudo
 nmap <S-F5> :execute ':silent w !sudo tee % > /dev/null' <bar> :edit! <CR>
 
 " F6 - сохранить свертки
-nmap <F6> :mkview <CR>
-
-" S-F6 - загрузить свертки
-nmap <S-F6> :loadview <CR>
+" nmap <F6> :mkview <CR>
+" Shift-F6 - загрузить свертки
+" nmap <S-F6> :loadview <CR>
 
 " F7 - показать пробелы и табы
 nmap <F7> :set list! <CR>
-
 " Shift-F7 - использовать табы вместо пробелов
 nmap <S-F7> :set noet! <CR>
 
-" F8 - отключение нумерации (всей - относительной)
+" F8 - отключение нумерации
 nmap <F8> :set number! relativenumber! <CR>
+" Shift-F8 - относительная нумерация
 nmap <S-F8> :set relativenumber! <CR>
 
 " F11 - проверка орфографии
@@ -219,14 +217,17 @@ nmap <S-F8> :set relativenumber! <CR>
 " zG - игнорировать слово:
 
 " F12 - полная русская раскладка (на выборе English)
-" map <F12> :set keymap=russian-jcukenwin <CR> 
+" map <F12> :set keymap=russian-jcukenwin <CR>
 " imap <F12> <Esc>:set keymap=russian-jcukenwin<CR>i
-" map <S-F12> :set keymap= <CR> 
+" map <S-F12> :set keymap= <CR>
 " imap <S-F12> <Esc>:set keymap=<CR>i
 
 " ----------------------------------------
 " Help Some Keybinding
 " ----------------------------------------
+" ----------------------------------------
+" копировать в системный буфер обмена:
+" выделить, далее "+y
 " ----------------------------------------
 " автодополнения i_ctrl-x_:
 " ctrl-l - добавить строку
