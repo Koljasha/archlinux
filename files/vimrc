@@ -207,6 +207,11 @@ nmap <F8> :set number! relativenumber! <CR>
 " Shift-F8 - относительная нумерация
 nmap <S-F8> :set relativenumber! <CR>
 
+" F9 - отключение мыши
+nmap <F9> :set mouse= <CR>
+" Shift-F9 - включение мыши
+nmap <S-F9> :set mouse=a <CR>
+
 " F11 - проверка орфографии
 " map <F11> :setlocal spelllang=ru spell! <CR> 
 " ]s - следующее слово с ошибкой
