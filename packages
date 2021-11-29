@@ -656,9 +656,29 @@ elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
 fi
 
-sudo systemctl enable reflector.timer
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
+
+# pacman-mirrorlist settings
+while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "What pacman-mirrorlist use"
+    echo "1) global pacman mirrorlist"
+    echo "2) reflector for update"
+    echo "####################"
+    read -n1 -p">" mlist
+done
+echo; echo
+
+if [[ $mlist == "1" ]]; then
+    sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
+    sudo sed -i '7,8s/#Server/Server/' /etc/pacman.d/mirrorlist
+    sudo pacman -Syu --needed --noconfirm pacman-mirrorlist
+else
+    sudo systemctl enable reflector.timer
+fi
+echo "Ok"
 
 ###############
 
