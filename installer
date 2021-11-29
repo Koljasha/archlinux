@@ -217,7 +217,7 @@ else
 fi
 
 
-packages="base base-devel $kernel linux-firmware $microcode $grub vi networkmanager"
+packages="base base-devel $kernel linux-firmware $microcode $grub networkmanager nano"
 pacstrap /mnt $packages
 
 # Generate /etc/fstab
