@@ -377,9 +377,10 @@ assign [class="firefox"] $workspace5
 assign [class="vlc"] $workspace9
 assign [class="Remmina"] $workspace10
 
-# Terminator in floating mode
+# Floating mode
 for_window [ class="Terminator" ] floating enable move position 277 156
 for_window [class="Terminator"] resize set 1366 768
+for_window [ class="Gnome-calculator" ] floating enable
 
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot -a
