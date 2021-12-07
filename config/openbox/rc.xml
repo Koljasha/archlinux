@@ -280,7 +280,7 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="W-n">
+    <keybind key="W-space">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
