@@ -177,10 +177,10 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings Koljasha -->
-    <keybind key="W-r">
+    <keybind key="W-S-r">
       <action name="Reconfigure"/>
     </keybind>
-    <keybind key="W-S-r">
+    <keybind key="W-C-r">
       <action name="Restart"/>
     </keybind>
     <!--   -->
@@ -189,6 +189,12 @@
     </keybind>
     <keybind key="W-S-q">
       <action name="Close"/>
+    </keybind>
+    <!--   -->
+    <keybind key="W-C-p">
+      <action name="Execute">
+        <command>openbox --exit</command>
+      </action>
     </keybind>
     <!--   -->
     <keybind key="W-grave">
