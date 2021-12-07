@@ -177,8 +177,15 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings Koljasha -->
+    <keybind key="W-r">
+      <action name="Reconfigure"/>
+    </keybind>
     <keybind key="W-S-r">
       <action name="Restart"/>
+    </keybind>
+    <!--   -->
+    <keybind key="W-t">
+      <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="W-S-q">
       <action name="Close"/>
@@ -273,7 +280,7 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="W-0">
+    <keybind key="W-n">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
@@ -327,9 +334,6 @@
       <action name="GoToDesktop">
         <to>4</to>
       </action>
-    </keybind>
-    <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
