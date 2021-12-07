@@ -164,7 +164,7 @@ set $light_gray          #f3f4f5
 set $light_blue          #99d3ff
 
 # class                 border              background          text             indicator
-client.focused          $dark_gray          $gray               $gray            $gray
+client.focused          $dark_gray          $gray               $dark_gray            $gray
 client.unfocused        $dark_gray          $dark_gray          $gray            $dark_gray
 client.urgent           $dark_gray          $red                $gray            $dark_gray
 
