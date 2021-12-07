@@ -18,8 +18,8 @@ font pango:Sans 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id ~/.config/i3/i3_shell.sh alacritty
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/i3_shell.sh terminator
+bindsym $mod+Return exec --no-startup-id ~/.config/i3/shell.sh alacritty
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/shell.sh terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -30,7 +30,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Control+r restart
 
 # lock with i3lock:
-bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
+# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
 
 # Create Log out, Reboot, Poweroff bindings
 mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
