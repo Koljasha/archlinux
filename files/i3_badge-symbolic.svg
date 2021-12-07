@@ -1,9 +1,5 @@
 <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
- <metadata id="metadata4417">image/svg+xml</metadata>
 
- <filter id="a">
-  <feGaussianBlur id="feGaussianBlur4360" stdDeviation="13.39623"/>
- </filter>
  <g>
   <title>Layer 1</title>
   <g fill="#ffffff" fill-rule="evenodd" id="g4401">
