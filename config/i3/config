@@ -173,7 +173,7 @@ set $light_blue          #99d3ff
 # class                 border              background          text             indicator
 client.focused          $dark_gray          $gray               $dark_gray            $gray
 client.unfocused        $dark_gray          $dark_gray          $gray            $dark_gray
-client.urgent           $dark_gray          $red                $gray            $dark_gray
+client.urgent           $dark_gray          $light_gray         $dark_gray            $dark_gray
 
 # Borders
 default_border pixel 3
@@ -348,11 +348,13 @@ assign [class="Pcmanfm"] $workspace4
 assign [class="firefox"] $workspace5
 assign [class="vlc"] $workspace9
 assign [class="Transmission-gtk"] $workspace9
-assign [class="Remmina"] $workspace10
+assign [class="remmina"] $workspace10
 
 # Floating mode
-floating_minimum_size 1366 x 768
+# floating_minimum_size 1366 x 768
 for_window [ class="Terminator" ] floating enable
+for_window [ class="Gnome-calculator" ] floating enable
+for_window [ class="isaac-ng.exe" ] floating enable
 
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot -a
