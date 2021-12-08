@@ -47,6 +47,9 @@ bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L
 # exit i3 (logs you out of your X session)
 bindsym $mod+Control+p exec i3-msg exit
 
+# restart polybar
+bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
+
 ######### Menu #########
 
 # start dmenu (a program launcher)
