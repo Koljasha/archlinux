@@ -299,8 +299,8 @@ if [[ $de == "koljasha" ]]; then
     # systemctl --user enable polybar_yay_update.timer
 
     # copy desktop icons
-    sudo cp files/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
-    sudo cp files/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
+    sudo cp files/badge/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
+    sudo cp files/badge/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
     # gnome-screenshot settings
@@ -402,7 +402,7 @@ elif [[ $de == "lxqt" ]]; then
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
     # copy desktop icons
-    sudo cp files/lxqt_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
+    sudo cp files/badge/lxqt_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
     # delete openbox session from display manager
@@ -469,8 +469,8 @@ elif [[ $de == "cinnamon" ]]; then
     cp -r config/alacritty ~/.config/alacritty
 
     # copy desktop icons
-    sudo cp files/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
-    sudo cp files/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon2d_badge-symbolic.svg
+    sudo cp files/badge/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
+    sudo cp files/badge/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon2d_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
     # config lightdm
