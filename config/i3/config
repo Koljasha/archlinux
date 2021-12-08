@@ -344,6 +344,7 @@ bindsym $mod+b exec --no-startup-id firefox
 assign [class="Pcmanfm"] $workspace4
 assign [class="firefox"] $workspace5
 assign [class="vlc"] $workspace9
+assign [class="Transmission-gtk"] $workspace9
 assign [class="Remmina"] $workspace10
 
 # Floating mode
