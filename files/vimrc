@@ -167,6 +167,7 @@ nmap <Leader>ss :w! <CR>
 
 " <Leader>qq - закрытие буфера без сохранения
 nmap <Leader>qq :bd! <CR>
+
 " <Leader>bb - следующий буфер
 nmap <Leader>bb :bn <CR>
 
