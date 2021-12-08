@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+/usr/bin/terminator --geometry=1366x768 "$@"
+
