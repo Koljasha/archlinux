@@ -326,6 +326,9 @@ if [[ $de == "koljasha" ]]; then
     # jgmenu Exit for user
     sed -i "s/username/$username/" ~/.config/jgmenu/append.csv
 
+    # terminator size for i3
+    sudo cp files/terminator /usr/local/bin/terminator
+
     # terminator for plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 
