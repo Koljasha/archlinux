@@ -229,6 +229,12 @@
       </action>
     </keybind>
     <!--   -->
+    <keybind key="W-S-v">
+      <action name="Execute">
+        <command>~/.config/polybar/openvpn_client.sh change</command>
+      </action>
+    </keybind>
+    <!--   -->
     <keybind key="Print">
       <action name="Execute">
         <command>gnome-screenshot -a</command>
