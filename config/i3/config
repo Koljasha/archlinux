@@ -17,20 +17,13 @@ font pango:Sans 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec --no-startup-id ~/.config/i3/shell.sh alacritty
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/shell.sh terminator
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# reload the configuration file
+# Reload the configuration file
 bindsym $mod+Shift+r reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Control+r restart
-
-# lock with i3lock:
-# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
 
 # Create Log out, Reboot, Poweroff bindings
 mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
@@ -44,11 +37,9 @@ mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
         bindsym Escape mode "default"
 }
 bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]"
-# exit i3 (logs you out of your X session)
-bindsym $mod+Control+p exec i3-msg exit
 
-# restart polybar
-bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Control+p exec i3-msg exit
 
 ######### Menu #########
 
@@ -335,12 +326,8 @@ mode "$mode_gaps_left" {
 # Scripts for Koljasha
 
 #
-# Binding
+# Layouts and Workspaces
 #
-
-# Bind for app:
-bindsym $mod+b exec --no-startup-id firefox
-# bindsym $mod+n exec --no-startup-id pcmanfm
 
 # Workspace for app:
 # (name of class - command: xprop)
@@ -356,6 +343,17 @@ for_window [ class="Terminator" ] floating enable
 for_window [ class="Gnome-calculator" ] floating enable
 for_window [ class="isaac-ng.exe" ] floating enable
 
+#
+# Binding
+#
+
+# Terminals
+bindsym $mod+Return exec --no-startup-id ~/.config/i3/shell.sh alacritty
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/shell.sh terminator
+
+# Browser
+bindsym $mod+b exec --no-startup-id firefox
+
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot -a
 
@@ -364,8 +362,14 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-# some binding
+# Vpn
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/openvpn_client.sh change
+
+# Polybar restart
+bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
+
+# lock with i3lock:
+# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
 
 #
 # Execute on start
