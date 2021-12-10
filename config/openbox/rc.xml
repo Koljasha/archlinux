@@ -234,6 +234,11 @@
         <command>~/.config/polybar/openvpn_client.sh change</command>
       </action>
     </keybind>
+    <keybind key="W-p">
+      <action name="Execute">
+        <command>~/.config/polybar/openbox.sh</command>
+      </action>
+    </keybind>
     <!--   -->
     <keybind key="Print">
       <action name="Execute">
