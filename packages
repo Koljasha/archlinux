@@ -109,9 +109,7 @@ if [[ $de == "koljasha" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    gparted baobab
-    pavucontrol network-manager-applet transmission-gtk
-
+    gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
 
     openbox i3 picom
@@ -121,7 +119,7 @@ if [[ $de == "koljasha" ]]; then
     feh gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
-    file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
+    baobab file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
     remmina samba x11vnc libvncserver
     vlc
     "
