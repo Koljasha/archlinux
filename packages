@@ -94,7 +94,7 @@ git htop lm_sensors upower smartmontools lesspipe pkgfile numlockx wget curl cma
 atool p7zip unrar unzip zip
 openssh freerdp openvpn networkmanager-openvpn
 xorg xorg-xinit accountsservice
-pulseaudio pulseaudio-alsa
+pipewire wireplumber pipewire-alsa pipewire-pulse
 fish tmux ranger vim
 terminator alacritty
 imagemagick ffmpeg
@@ -197,6 +197,8 @@ elif [[ $de == "kde" ]]; then
 fi
 
 # Other packages:
+# pulseaudio pulseaudio-alsa - previous sound server
+
 # xreader, atril - document viewer
 
 # wine winetricks - for windows applications
