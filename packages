@@ -92,12 +92,12 @@ $drivers $headers reflector
 dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
 git htop lm_sensors upower smartmontools lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight
 atool p7zip unrar unzip zip
-openssh openvpn freerdp
+openssh freerdp openvpn networkmanager-openvpn
+xorg xorg-xinit accountsservice
+pulseaudio pulseaudio-alsa
 fish tmux ranger vim
 terminator alacritty
-xorg xorg-xinit accountsservice
 imagemagick ffmpeg
-pulseaudio pulseaudio-alsa networkmanager-openvpn
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
@@ -114,8 +114,8 @@ if [[ $de == "koljasha" ]]; then
 
     openbox i3 picom obconf lxappearance-gtk3
     polkit-gnome
-    npm neovim gvim
-    feh gsimplecal
+    npm neovim
+    feh gvim gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
