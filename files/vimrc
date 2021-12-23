@@ -288,6 +288,7 @@ nmap <S-F9> :set mouse=a <CR>
 " MRU - последние открытые файлы
 " Buffer Explorer - переключение открытых буферов
 " Ctrlp - нечеткий поиск
+" FZF - нечеткий поиск
 
 " Auto Pairs - парные скобки и ковычки
 " NERD Commenter - комментирование для различных языков
@@ -421,6 +422,15 @@ let g:ctrlp_map = '<Leader>cp'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'rc'
+" ----------------------------------------
+
+" FZF - нечеткий поиск
+" ---------------
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf.vim'
+" ---------------
+nmap <Leader>f :FZF 
+" ---------------
 " ----------------------------------------
 
 " ----------------------------------------
