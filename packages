@@ -582,6 +582,8 @@ oh-my-fish/bin/install --noninteractive --offline
 fish -c 'omf install agnoster'
 # install fzf plugins
 fish -c 'omf install fzf'
+fish -c 'set -U FZF_LEGACY_KEYBINDINGS 0; set -U FZF_PREVIEW_DIR_CMD "ls -lah"; set -U FZF_PREVIEW_FILE_CMD "head -n 20"; set -U FZF_COMPLETE 2'
+cp files/fzf_complete.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete.fish
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
 # exit status in fish agnoster theme
