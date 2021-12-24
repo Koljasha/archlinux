@@ -429,7 +429,7 @@ let g:ctrlp_working_path_mode = 'rc'
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
 " ---------------
-nmap <Leader>f :FZF 
+nmap <Leader>ff :FZF 
 " ---------------
 " ----------------------------------------
 
