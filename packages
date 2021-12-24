@@ -580,6 +580,8 @@ git clone https://github.com/oh-my-fish/oh-my-fish
 oh-my-fish/bin/install --noninteractive --offline
 # install theme for fish
 fish -c 'omf install agnoster'
+# install fzf plugins
+fish -c 'omf install fzf'
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
 # exit status in fish agnoster theme
