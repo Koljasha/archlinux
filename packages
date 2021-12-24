@@ -583,6 +583,7 @@ fish -c 'omf install agnoster'
 # install fzf plugins
 fish -c 'omf install fzf'
 fish -c 'set -U FZF_LEGACY_KEYBINDINGS 0; set -U FZF_PREVIEW_DIR_CMD "ls -lah"; set -U FZF_PREVIEW_FILE_CMD "head -n 20"; set -U FZF_COMPLETE 2'
+cp files/fzf.fish ~/.local/share/omf/pkg/fzf/conf.d/fzf.fish
 cp files/fzf_complete.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete.fish
 # clean oh-my-fish
 rm -rf ~/archlinux_installer/oh-my-fish
@@ -590,6 +591,8 @@ rm -rf ~/archlinux_installer/oh-my-fish
 sed -i 's/✘/✘ $RETVAL'/ ~/.local/share/omf/themes/agnoster/functions/fish_prompt.fish
 # fish is main shell
 sudo chsh -s /usr/bin/fish $username
+# fish editor
+fish -c 'set -U EDITOR vim'
 # update fish
 fish -c 'fish_update_completions'
 
