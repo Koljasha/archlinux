@@ -3,8 +3,6 @@
 #
 
 set fish_greeting
-# for fish fzf
-set -U FZF_COMPLETE 2
 # save current directory (for i3 terminal)
 prompt_command
 
