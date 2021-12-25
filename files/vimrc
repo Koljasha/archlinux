@@ -287,7 +287,6 @@ nmap <S-F9> :set mouse=a <CR>
 " NERD Tree - файловый менеджер
 " MRU - последние открытые файлы
 " Buffer Explorer - переключение открытых буферов
-" Ctrlp - нечеткий поиск
 " FZF - нечеткий поиск
 
 " Auto Pairs - парные скобки и ковычки
@@ -410,18 +409,6 @@ Plug 'vim-scripts/bufexplorer.zip'
 " <Leader>be - открыть Buffer Explorer
 " <Leader>bs - открыть Buffer Explorer (горизонтально)
 " <Leader>bv - открыть Buffer Explorer (вертикально)
-" ----------------------------------------
-
-" Ctrlp - нечеткий поиск
-" !!! - 7 строк ниже:
-" ---------------
-" https://github.com/ctrlpvim/ctrlp.vim
-Plug 'ctrlpvim/ctrlp.vim'
-" ---------------
-let g:ctrlp_map = '<Leader>cp'
-let g:ctrlp_by_filename = 1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_working_path_mode = 'rc'
 " ----------------------------------------
 
 " FZF - нечеткий поиск
