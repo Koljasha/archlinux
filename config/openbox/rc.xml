@@ -242,7 +242,7 @@
     <!--   -->
     <keybind key="Print">
       <action name="Execute">
-        <command>gnome-screenshot -a</command>
+        <command>gnome-screenshot --interactive</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">

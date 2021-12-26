@@ -1,8 +1,6 @@
 # i3 config file
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-######### Main #########
-
 set $mod Mod4
 set $alt Mod1
 
@@ -16,6 +14,8 @@ font pango:Sans 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+######### Main #########
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -341,6 +341,7 @@ assign [class="remmina"] $workspace10
 # floating_minimum_size 1366 x 768
 for_window [ class="Terminator" ] floating enable
 for_window [ class="Gnome-calculator" ] floating enable
+for_window [ class="Gnome-screenshot" ] floating enable
 for_window [ class="isaac-ng.exe" ] floating enable
 
 #
@@ -355,7 +356,7 @@ bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/shell.sh terminator
 bindsym $mod+b exec --no-startup-id firefox
 
 # Screenshot
-bindsym Print exec --no-startup-id gnome-screenshot -a
+bindsym Print exec --no-startup-id gnome-screenshot --interactive
 
 # Volume control (type 1):
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
