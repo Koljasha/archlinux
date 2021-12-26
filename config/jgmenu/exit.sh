@@ -6,7 +6,7 @@ if [[ -n $(pgrep -x openbox) ]]; then
     openbox --exit
 elif [[ -n $(pgrep -x i3) ]]; then
     i3-msg "exit"
-elif [[ -n $(pgrep -x qtile) ]]; then
+elif [[ -n $(pgrep -f '^/usr/bin/python /usr/bin/qtile') ]]; then
     qtile cmd-obj -o cmd -f shutdown
 fi
 
