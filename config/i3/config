@@ -52,8 +52,8 @@ bindsym $mod+Control+p exec i3-msg exit
 
 # Rofi
 bindsym $mod+d exec --no-startup-id "rofi -show run"
-bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
 # jgmenu
 bindsym $mod+grave exec --no-startup-id jgmenu_run
@@ -102,11 +102,11 @@ bindsym $mod+Shift+s split h
 bindsym $mod+w layout toggle
 bindsym $mod+e layout toggle split
 
-# enter fullscreen mode for the focused container
-bindsym $mod+Control+f fullscreen toggle
-
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+Control+f fullscreen toggle
 
 ######### Workspaces #########
 
@@ -154,11 +154,11 @@ bindsym $alt+Control+Right workspace next_on_output
 ######### Appearance #########
 
 # colors
-set $dark_gray           #222222
-set $gray                #757575
-set $red                 #bd2c40
-
 set $light_gray          #f3f4f5
+set $gray                #757575
+set $dark_gray           #222222
+
+set $red                 #bd2c40
 set $light_blue          #99d3ff
 
 # class                 border              background          text             indicator
@@ -197,7 +197,7 @@ default_border pixel 3
 
 ######### Gaps #########
 
-gaps inner 10
+gaps inner 5
 
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
