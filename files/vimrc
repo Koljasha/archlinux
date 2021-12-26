@@ -597,45 +597,6 @@ let g:XkbSwitchIMappings = ['ru']
 " " Open module, e.g. :Pyimport os (opens the os module)
 " ----------------------------------------
 
-" Snippets - набор сниппетов
-" UltiSnips - движок для сниппетов
-" !!! - 12 строк ниже:
-" " ---------------
-" " https://github.com/honza/vim-snippets
-" Plug 'honza/vim-snippets'
-" " https://github.com/sirver/ultisnips
-" Plug 'sirver/ultisnips'
-" " ---------------
-" " вставить сниппет
-" let g:UltiSnipsExpandTrigger = "<c-a>"
-" " перемещение по сниппету
-" let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-" " список сниппетов для слова
-" let g:UltiSnipsListSnippets = "<m-w>"
-" ----------------------------------------
-
-" Syntastic - синтаксические ошибки кода
-" !!! - 16 строк ниже:
-" " ---------------
-" " https://github.com/vim-syntastic/syntastic
-" Plug 'vim-syntastic/syntastic'
-" " ---------------
-" " проверка при сохранении/открытии (кроме ZZ, :wq и :x)
-" " set statusline+=%#warningmsg#
-" " set statusline+=%{SyntasticStatuslineFlag()}
-" " set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" " отключение / включение
-" map <Leader>sy :SyntasticToggleMode <CR>
-" " : SyntasticInfo - доступные / активные чекеры
-" " : help syntastic-checkers - информация по чекерам
-" " let g:syntastic_<filetype>_checkers = ['<checker-name-1>','<checker-name-2>']
-" ----------------------------------------
-
 " ----------------------------------------
 " ----------------------------------------
 
