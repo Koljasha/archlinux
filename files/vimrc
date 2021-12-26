@@ -258,7 +258,7 @@ nmap <S-F9> :set mouse=a <CR>
 " :jumps история перемещений
 " ctrl-o и ctrl-i - перемещение по истории
 " ----------------------------------------
-" ctrl-d и ctrl-u - экран на полавину вниз/вверх
+" ctrl-d и ctrl-u - экран на половину вниз/вверх
 " ----------------------------------------
 " v/V и zf - выделение блока и создание свертки
 " zc – свернуть блок
@@ -282,6 +282,7 @@ nmap <S-F9> :set mouse=a <CR>
 " Lightline-Bufferline - отображение буферов в Lightline
 " Lightline - строка статуса
 " Vim-Devicons - иконки Nerd
+" CSS Color - цвета css
 
 " Startify - стартовый экран
 " NERD Tree - файловый менеджер
@@ -331,19 +332,19 @@ Plug 'nlknguyen/papercolor-theme'
 " ----------------------------------------
 
 " Lightline-Bufferline - отображение буферов в Lightline
-" !!! - 4 строк ниже:
 " ---------------
 " https://github.com/mengelbrecht/lightline-bufferline
 Plug 'mengelbrecht/lightline-bufferline'
+" ---------------
 let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#enable_devicons = 1
 " ----------------------------------------
 
 " Lightline - строка статуса
-" !!! - 14 строк ниже:
 " ---------------
 " https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
+" ---------------
 let g:lightline = {
 	  \ 'tabline': {
 	  \   'left': [ ['buffers'] ],
@@ -361,8 +362,15 @@ let g:lightline = {
 " Vim-Devicons - иконки Nerd
 " ---------------
 " https://github.com/ryanoasis/vim-devicons
-" ---------------
 Plug 'ryanoasis/vim-devicons'
+" ---------------
+" ----------------------------------------
+
+" CSS Color - цвета css:
+" ---------------
+" https://github.com/ap/vim-css-color
+Plug 'ap/vim-css-color'
+" ---------------
 " ----------------------------------------
 
 " ----------------------------------------
@@ -424,7 +432,6 @@ nmap <Leader>ff :FZF
 " ----------------------------------------
 
 " Auto Pairs - парные скобки и ковычки
-" !!! - 2 строк ниже:
 " ---------------
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
@@ -467,7 +474,6 @@ let g:NERDCustomDelimiters = {
 " ----------------------------------------
 
 " EasyMotion - простые перемещения
-" !!! - 25 строк ниже:
 " ---------------
 " https://github.com/easymotion/vim-easymotion
 Plug 'easymotion/vim-easymotion'
@@ -502,7 +508,6 @@ let g:EasyMotion_smartcase = 1
 " ctags --list-languages
 " список тегов для конкретного языка
 " ctags --list-kinds=<Lang>
-" !!! - 6 строк ниже:
 " ---------------
 " https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar'
@@ -533,7 +538,6 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " " ---------------
 " https://github.com/tmhedberg/matchit
 " https://github.com/gregsexton/MatchTag
-" !!! - 2 строк ниже:
 " ---------------
 Plug 'tmhedberg/matchit', { 'for': 'html' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
