@@ -195,7 +195,7 @@ floating_layout = layout.Floating(
 widget_defaults = dict(
     font="sans",
     fontsize=12,
-    padding=5,
+    padding=3,
     foreground=colors["light_blue"],
 )
 extension_defaults = widget_defaults.copy()
