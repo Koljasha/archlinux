@@ -364,7 +364,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Vpn
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/openvpn_client.sh change
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/scripts/openvpn_client.sh change
 
 # Polybar restart
 bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
