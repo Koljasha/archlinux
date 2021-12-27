@@ -28,9 +28,9 @@ if [[ $1 == 'change' ]]; then
     echo "%{F#55aa55}%{u#55aa55}%{+u}  Update%{u-}%{F-}"
 
     if [[ $2 == 'ipc' ]]; then
-        terminator -m -x ~/.config/polybar/yay_update.sh terminal ipc
+        terminator -m -x ~/.config/polybar/scripts/yay_update.sh terminal ipc
     else
-        terminator -m -x ~/.config/polybar/yay_update.sh terminal
+        terminator -m -x ~/.config/polybar/scripts/yay_update.sh terminal
     fi
 
     exit 0
