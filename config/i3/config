@@ -349,8 +349,8 @@ for_window [ class="isaac-ng.exe" ] floating enable
 #
 
 # Terminals
-bindsym $mod+Return exec --no-startup-id ~/.config/i3/shell.sh alacritty
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/shell.sh terminator
+bindsym $mod+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh alacritty
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh terminator
 
 # Browser
 bindsym $mod+b exec --no-startup-id firefox

@@ -3,6 +3,6 @@
 # Show all active i3wm binding
 
 echo "Active i3wm keybind:"
-~/.config/i3/show_binding.sh
+~/.config/i3/scripts/show_binding.sh
 $SHELL
 
