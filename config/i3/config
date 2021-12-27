@@ -186,11 +186,11 @@ default_border pixel 3
             # }
 
         # # i3status
-        # # status_command i3status --config ~/.config/i3/i3status.conf
-        # status_command exec ~/.config/i3/i3status.sh
+        # # status_command i3status --config ~/.config/i3/i3status/i3status.conf
+        # status_command exec ~/.config/i3/i3status/i3status.sh
 
         # # py3status
-        # # status_command py3status --config ~/.config/i3/i3status.conf
+        # # status_command py3status --config ~/.config/i3/i3status/i3status.conf
 
         # position top
 # }
