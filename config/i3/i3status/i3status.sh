@@ -9,7 +9,7 @@ function func_language {
     fi
 }
 
-i3status -c ~/.config/i3/i3status.conf |
+i3status -c ~/.config/i3/i3status/i3status.conf |
 (
     read line && echo "$line" &&
     read line && echo "$line" &&
