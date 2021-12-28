@@ -200,6 +200,15 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+class MyPulseVolume(widget.PulseVolume):
+    """
+    widget.PulseVolume with gray word "Mute""
+    """
+    def _update_drawer(self):
+        super()._update_drawer()
+        if self.text == "M":
+            self.text = "<span color='#757575'>Mute</span>"
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -220,8 +229,8 @@ screens = [
                                       display_map={"us":"us", "ru":"ru"},
                                       fmt="<span color='#bd2c40'></span> {}"),
                 widget.Sep(),
-                widget.PulseVolume(update_interval=0.1,
-                                   fmt="<span color='#ffb52a'></span> {}"),
+                MyPulseVolume(update_interval=0.1,
+                              fmt="<span color='#ffb52a'></span> {}"),
                 widget.Sep(),
                 widget.GenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
                                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn(scripts["brightness_change"])},
@@ -280,16 +289,14 @@ auto_fullscreen = True
 bring_front_click = "floating_only"
 cursor_warp = True
 dgroups_app_rules = []
-focus_on_window_activation = "smart"
+focus_on_window_activation = "focus"
 follow_mouse_focus = True
 reconfigure_screens = True
 auto_minimize = True
 wmname = "Qtile"
 
 # TODO
-# Volume widget M->Mute
-# urgency hint to window in other group
 # CheckUpdate redraw widget
 # yay_update widhet
-
+# urgency hint to window in other group
 
