@@ -151,7 +151,7 @@ groups = [
     Group("6: "),
     Group("7: "),
     Group("8: "),
-    Group("9: ", matches=[Match(wm_class=["vlc", "Transmission-gtk"])], layout="max"),
+    Group("9: ", matches=[Match(wm_class=["vlc", "Transmission-gtk"])]),
     Group("10: ", matches=[Match(wm_class=["org.remmina.Remmina"])], layout="max"),
 ]
 
