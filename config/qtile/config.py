@@ -286,3 +286,10 @@ reconfigure_screens = True
 auto_minimize = True
 wmname = "Qtile"
 
+# TODO
+# Volume widget M->Mute
+# urgency hint to window in other group
+# CheckUpdate redraw widget
+# yay_update widhet
+
+
