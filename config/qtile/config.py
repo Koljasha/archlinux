@@ -297,7 +297,6 @@ auto_minimize = True
 wmname = "Qtile"
 
 # TODO
-# CheckUpdate redraw widget
-# yay_update widhet
+# how redraw widget
 # urgency hint to window in other group
 
