@@ -9,6 +9,8 @@ from libqtile.config import Key, Click, Drag, Group, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 
+from libqtile.log_utils import logger
+
 
 ######### Variables & functions #########
 
@@ -200,6 +202,8 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# Wrappers on widgets
+
 class MyPulseVolume(widget.PulseVolume):
     """
     widget.PulseVolume with gray word "Mute""
@@ -209,10 +213,41 @@ class MyPulseVolume(widget.PulseVolume):
         if self.text == "M":
             self.text = "<span color='#757575'>Mute</span>"
 
+
+class MyGenPollText(widget.GenPollText):
+    """
+    widget.GenPollText with update after clicking execute
+    """
+    defaults = [
+        ("execute", None, "Command to execute on click"),
+    ]
+
+    def __init__(self, **config):
+        super().__init__(**config)
+        self.add_defaults(MyGenPollText.defaults)
+
+        # Helpful to have this as a variable as we can shorten it for testing
+        self.execute_polling_interval = 0.1
+
+        if self.execute:
+            self.add_callbacks({"Button1": self.do_execute})
+
+    def do_execute(self):
+        self._process = subprocess.Popen(self.execute, shell=True)
+        self.timeout_add(self.execute_polling_interval, self._refresh_count)
+
+    def _refresh_count(self):
+        if self._process.poll() is None:
+            self.timeout_add(self.execute_polling_interval, self._refresh_count)
+        else:
+            self.timer_setup()
+
+
 screens = [
     Screen(
         top=bar.Bar(
             [
+                # Left
                 widget.Spacer(length=5),
                 widget.Image(filename="~/.config/qtile/qtile.svg",
                              mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("jgmenu_run")}),
@@ -225,6 +260,8 @@ screens = [
                 widget.Sep(),
                 widget.Spacer(length=5),
                 widget.TaskList(foreground=colors["white"]),
+
+                # Right
                 widget.KeyboardLayout(configured_keyboards=["us","ru"],
                                       display_map={"us":"us", "ru":"ru"},
                                       fmt="<span color='#bd2c40'></span> {}"),
@@ -232,10 +269,10 @@ screens = [
                 MyPulseVolume(update_interval=0.1,
                               fmt="<span color='#ffb52a'></span> {}"),
                 widget.Sep(),
-                widget.GenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
-                                   mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn(scripts["brightness_change"])},
-                                   update_interval=2,
-                                   fmt="<span color='#ffb52a'></span> {}"),
+                MyGenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
+                             execute=scripts["brightness_change"],
+                             update_interval=5,
+                             fmt="<span color='#ffb52a'></span> {}"),
                 widget.Sep(),
                 widget.Memory(format="{MemUsed: .2f}{mm} |{MemTotal: .2f}{mm}",
                               measure_mem="G",
@@ -297,6 +334,6 @@ auto_minimize = True
 wmname = "Qtile"
 
 # TODO
-# how redraw widget
+# check pacman -Sy
 # urgency hint to window in other group
 
