@@ -17,15 +17,6 @@ from libqtile.log_utils import logger
 mod = "mod4"
 alt = "mod1"
 
-scripts = {
-    "alacritty": os.path.expanduser("~/.config/qtile/scripts/shell.sh alacritty"),
-    "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
-    "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
-    "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
-    "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
-    "brightness_change": os.path.expanduser("~/.config/qtile/scripts/brightness.sh change"),
-}
-
 colors = {
     "green": "#55aa55",
     "red": "#bd2c40",
@@ -36,6 +27,15 @@ colors = {
     "dark_gray": "#222222",
     "light_blue": "#99d3ff",
     "blue": "#215578",
+}
+
+scripts = {
+    "alacritty": os.path.expanduser("~/.config/qtile/scripts/shell.sh alacritty"),
+    "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
+    "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
+    "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
+    "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
+    "brightness_change": os.path.expanduser("~/.config/qtile/scripts/brightness.sh change"),
 }
 
 @hook.subscribe.startup_once
