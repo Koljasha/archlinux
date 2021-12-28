@@ -115,6 +115,9 @@ keys = [
     # Browser
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
+    # File manager
+    Key([mod, "shift"], "b", lazy.spawn("pcmanfm"), desc="Launch browser"),
+
     # Screenshot
     Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
 
@@ -143,7 +146,7 @@ groups = [
     Group("1: "),
     Group("2: "),
     Group("3: "),
-    Group("4: ", matches=[Match(wm_class=["Pcmanfm"])], layout="max"),
+    Group("4: ", matches=[Match(wm_class=["Pcmanfm"])]),
     Group("5: ", matches=[Match(wm_class=["firefox"])], layout="max"),
     Group("6: "),
     Group("7: "),
