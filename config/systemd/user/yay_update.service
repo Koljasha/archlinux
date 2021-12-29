@@ -1,0 +1,13 @@
+#
+# Service for update packages
+#
+
+[Unit]
+Description=Update Arch packages with yay
+
+[Service]
+ExecStart=/usr/bin/yay -Sy
+
+[Install]
+WantedBy=default.target
+

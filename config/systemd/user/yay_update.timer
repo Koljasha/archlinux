@@ -1,9 +1,9 @@
 #
-# Timer for update yay polybar module
+# Timer for update packages
 #
 
 [Unit]
-Description=Update yay polybar module
+Description=Update Arch packages with yay
 
 [Timer]
 OnCalendar=*-*-* *:0,30

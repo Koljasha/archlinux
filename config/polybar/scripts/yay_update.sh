@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 #
-# show:
 # $ ./yay.sh
+# $ ./yay.sh change
 #
-# $ ./yay.sh change OR ./yay.sh change ipc
+# !!! -> need yay -Sy as timer or cron
 #
 
 if (( $# == 0 )); then
-    sudo pacman -Sy 1>/dev/null
-
     yay=`yay -Qu | wc -l`
     arch=`pacman -Qu | wc -l`
     aur=`echo $yay $arch | awk '{ print $1-$2 }'`
@@ -26,30 +24,14 @@ fi
 
 if [[ $1 == 'change' ]]; then
     echo "%{F#55aa55}%{u#55aa55}%{+u}  Update%{u-}%{F-}"
-
-    if [[ $2 == 'ipc' ]]; then
-        terminator -m -x ~/.config/polybar/scripts/yay_update.sh terminal ipc
-    else
-        terminator -m -x ~/.config/polybar/scripts/yay_update.sh terminal
-    fi
+    terminator -m -x ~/.config/polybar/scripts/yay_update.sh terminal
 
     exit 0
 fi
 
 if [[ $1 == 'terminal' ]]; then
-    yay
-
-    echo
-    echo "####################"
-    echo "Click any key"
-    echo "####################"
-    read -n1 -p">"; echo
-
-    if [[ $2 == 'ipc' ]]; then
-        polybar-msg hook yay_update_ipc 1
-    else
-        polybar-msg cmd restart
-    fi
+    yay -Su
+    polybar-msg cmd restart
 
     exit 0
 fi

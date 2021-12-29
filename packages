@@ -679,8 +679,8 @@ echo "Ok"
 
 
 if [[ $de == "koljasha" ]]; then
-    # polybar yay_update service
-    # systemctl --user enable polybar_yay_update.timer
+    # Update Arch packages with yay
+    systemctl --user enable yay_update.timer
 fi
 
 ###############
