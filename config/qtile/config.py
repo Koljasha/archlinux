@@ -299,7 +299,7 @@ screens = [
                               update_interval=5),
                 widget.Sep(),
                 widget.CheckUpdates(distro="Arch_yay",
-                                    execute="terminator -x yay",
+                                    execute="terminator -x yay -Su",
                                     update_interval=1800,
                                     display_format = "{updates} Updates",
                                     no_update_string="No Updates",
@@ -335,8 +335,4 @@ follow_mouse_focus = True
 reconfigure_screens = True
 auto_minimize = True
 wmname = "Qtile"
-
-# TODO
-# check pacman -Sy
-# urgency hint to window in other group
 
