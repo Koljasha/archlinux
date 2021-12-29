@@ -116,7 +116,7 @@ keys = [
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
     # File manager
-    Key([mod, "shift"], "b", lazy.spawn("pcmanfm"), desc="Launch browser"),
+    Key([mod, "shift"], "b", lazy.spawn("pcmanfm"), desc="Launch file manager"),
 
     # Screenshot
     Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),

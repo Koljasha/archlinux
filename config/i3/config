@@ -355,6 +355,9 @@ bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh ter
 # Browser
 bindsym $mod+b exec --no-startup-id firefox
 
+# File manager
+bindsym $mod+Shift+b exec --no-startup-id pcmanfm
+
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot --interactive
 
