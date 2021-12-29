@@ -300,7 +300,7 @@ screens = [
                 widget.Sep(),
                 widget.CheckUpdates(distro="Arch_yay",
                                     execute="terminator -x yay -Su",
-                                    update_interval=1800,
+                                    update_interval=600,
                                     display_format = "{updates} Updates",
                                     no_update_string="No Updates",
                                     colour_have_updates=colors["yellow"],
