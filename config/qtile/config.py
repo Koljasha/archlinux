@@ -45,10 +45,11 @@ def autostart():
     subprocess.run([scripts["autostart"]])
 
 @hook.subscribe.client_managed
-def window_urgent(window):
-   if qtile.current_group != window.group:
-       subprocess.run([scripts["urgent"]])
-
+def make_urgent(window):
+    atom = set([qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]])
+    prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
+    new_state = prev_state | atom
+    window.window.set_property("_NET_WM_STATE", list(new_state))
 
 ######### Keybindings #########
 
