@@ -30,6 +30,8 @@ colors = {
 }
 
 scripts = {
+    "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
+    "urgent": os.path.expanduser("~/.config/qtile/scripts/urgent.sh"),
     "alacritty": os.path.expanduser("~/.config/qtile/scripts/shell.sh alacritty"),
     "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
     "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
@@ -40,8 +42,12 @@ scripts = {
 
 @hook.subscribe.startup_once
 def autostart():
-    path = os.path.expanduser("~/.config/qtile/autostart.sh")
-    subprocess.run([path])
+    subprocess.run([scripts["autostart"]])
+
+@hook.subscribe.client_managed
+def window_urgent(window):
+   if qtile.current_group != window.group:
+       subprocess.run([scripts["urgent"]])
 
 
 ######### Keybindings #########
@@ -330,7 +336,7 @@ auto_fullscreen = True
 bring_front_click = "floating_only"
 cursor_warp = True
 dgroups_app_rules = []
-focus_on_window_activation = "focus"
+focus_on_window_activation = "smart"
 follow_mouse_focus = True
 reconfigure_screens = True
 auto_minimize = True
