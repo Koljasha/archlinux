@@ -31,7 +31,6 @@ colors = {
 
 scripts = {
     "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
-    "urgent": os.path.expanduser("~/.config/qtile/scripts/urgent.sh"),
     "alacritty": os.path.expanduser("~/.config/qtile/scripts/shell.sh alacritty"),
     "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
     "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
