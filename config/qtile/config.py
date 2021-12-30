@@ -252,6 +252,32 @@ class MyGenPollText(widget.GenPollText):
             self.timer_setup()
 
 
+class MyDF(widget.DF):
+    """
+    widget.DF with {us} - user space
+    """
+    def poll(self):
+        statvfs = os.statvfs(self.partition)
+
+        size = statvfs.f_frsize * statvfs.f_blocks // self.calc
+        free = statvfs.f_frsize * statvfs.f_bfree // self.calc
+        self.user_free = statvfs.f_frsize * statvfs.f_bavail // self.calc
+
+        if self.visible_on_warn and self.user_free >= self.warn_space:
+            text = ""
+        else:
+            text = self.format.format(
+                p=self.partition,
+                s=size,
+                f=free,
+                uf=self.user_free,
+                m=self.measure,
+                r=(size - self.user_free) / size * 100,
+                us=size - free,
+            )
+        return text
+
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -288,7 +314,7 @@ screens = [
                               mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("terminator -x htop")},
                               fmt="<span color='#ffb52a'></span>{}"),
                 widget.Sep(),
-                widget.DF(format="{uf}{m} | {s}{m} | {r:.2f}%",
+                MyDF(format="{us}{m} | {s}{m}",
                           visible_on_warn=False,
                           warn_space=10,
                           update_interval=10,
