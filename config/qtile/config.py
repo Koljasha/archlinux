@@ -50,6 +50,7 @@ def make_urgent(window):
     new_state = prev_state | atom
     window.window.set_property("_NET_WM_STATE", list(new_state))
 
+
 ######### Keybindings #########
 
 keys = [
@@ -108,7 +109,10 @@ keys = [
     ######### Workspaces #########
 
     # switch workspaces with Alt, Ctrl, Tab
-    Key([alt], "Tab", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
+    Key([alt], "Tab",
+        lazy.screen.next_group(skip_empty=True).when(layout="columns"),
+        lazy.group.next_window().when(layout=["max"]),
+        desc="Change groups"),
     Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
 
