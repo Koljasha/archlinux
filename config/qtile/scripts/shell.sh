@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+#
 # run terminal in same working directory
+#
 
 WHEREAMI=$(cat /tmp/whereami)
 

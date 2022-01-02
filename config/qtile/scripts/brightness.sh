@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# show:
-# $ ./change_brightness.sh
-#
-# set brightness (round):
-# $ ./change_brightness.sh change
+# show and set brightness
 #
 
 brightness=`xrandr --verbose | grep -i brightness | cut -d':' -f2 | cut -c2- | awk '{ print $1*100 }'`

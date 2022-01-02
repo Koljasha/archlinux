@@ -37,6 +37,8 @@ scripts = {
     "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
     "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
     "brightness_change": os.path.expanduser("~/.config/qtile/scripts/brightness.sh change"),
+    "keyboard": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh"),
+    "keyboard_change": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh change"),
 }
 
 @hook.subscribe.startup_once
@@ -135,9 +137,6 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%"), desc="Volume up"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%"), desc="Volume down"),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
-
-    # KeyboardLayout
-    Key([alt], "Shift_L", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout"),
 
     # Vpn
     Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
@@ -301,9 +300,10 @@ screens = [
                 widget.TaskList(foreground=colors["white"]),
 
                 # Right
-                widget.KeyboardLayout(configured_keyboards=["us","ru"],
-                                      display_map={"us":"us", "ru":"ru"},
-                                      fmt="<span color='#bd2c40'></span> {}"),
+                MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
+                              execute=scripts["keyboard_change"],
+                              update_interval=1,
+                              fmt="<span color='#bd2c40'></span> {}"),
                 widget.Sep(),
                 MyPulseVolume(update_interval=0.1,
                               fmt="<span color='#ffb52a'></span> {}"),
