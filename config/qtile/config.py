@@ -155,12 +155,12 @@ groups = [
     Group("1: "),
     Group("2: "),
     Group("3: "),
-    Group("4: ", matches=[Match(wm_class=["Pcmanfm"])]),
+    Group("4: "),
     Group("5: ", matches=[Match(wm_class=["firefox"])], layout="max"),
-    Group("6: "),
-    Group("7: "),
-    Group("8: "),
-    Group("9: ", matches=[Match(wm_class=["vlc", "Transmission-gtk"])]),
+    Group("6: ", matches=[Match(wm_class=["Pcmanfm"])], layout="max"),
+    Group("7: ", matches=[Match(wm_class=["vlc"])], layout="max"),
+    Group("8: ", matches=[Match(wm_class=["Transmission-gtk"])], layout="max"),
+    Group("9: ", matches=[Match(wm_class=["VirtualBox Manager", "VirtualBox Machine"])], layout="max"),
     Group("10: ", matches=[Match(wm_class=["org.remmina.Remmina"])], layout="max"),
 ]
 

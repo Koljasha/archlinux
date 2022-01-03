@@ -114,12 +114,12 @@ bindsym $mod+Control+f fullscreen toggle
 set $workspace1 "1:  "
 set $workspace2 "2:  "
 set $workspace3 "3:  "
-set $workspace4 "4:  "
+set $workspace4 "4:  "
 set $workspace5 "5:  "
-set $workspace6 "6:  "
-set $workspace7 "7:  "
-set $workspace8 "8:  "
-set $workspace9 "9:  "
+set $workspace6 "6:  "
+set $workspace7 "7:  "
+set $workspace8 "8:  "
+set $workspace9 "9:  "
 set $workspace10 "10:  "
 
 # switch to workspace
@@ -331,10 +331,11 @@ mode "$mode_gaps_left" {
 
 # Workspace for app:
 # (name of class - command: xprop)
-assign [class="Pcmanfm"] $workspace4
 assign [class="firefox"] $workspace5
-assign [class="vlc"] $workspace9
-assign [class="Transmission-gtk"] $workspace9
+assign [class="Pcmanfm"] $workspace6
+assign [class="vlc"] $workspace7
+assign [class="Transmission-gtk"] $workspace8
+assign [class="VirtualBox"] $workspace9
 assign [class="remmina"] $workspace10
 
 # Floating mode
