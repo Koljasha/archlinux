@@ -50,6 +50,9 @@ chown -R $username:$username /home/$username/archlinux_installer
 
 # Add sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+# Add sudo timeout
+line=`grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
+sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
 
 echo; echo
 # Install GRUB
