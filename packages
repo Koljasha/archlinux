@@ -48,7 +48,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
-    echo "1) Openbox & i3wm settings by Koljasha"
+    echo "1) Openbox & i3wm & Qtile settings by Koljasha"
     echo "2) Xfce default settings"
     echo "3) Lxde default settings"
     echo "4) Lxqt default settings"
