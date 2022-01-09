@@ -395,7 +395,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id picom
 
 # Backgroung image
-exec --no-startup-id feh --randomize --bg-scale /usr/share/backgrounds/gnome/
+exec --no-startup-id feh --randomize --bg-scale /usr/share/backgrounds/archlinux/
 
 # PolicyKit Authentication Agent - Gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

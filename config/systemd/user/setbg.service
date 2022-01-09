@@ -6,7 +6,7 @@
 Description=Set backgrounds service
 
 [Service]
-ExecStart=/usr/bin/feh --randomize --bg-scale /usr/share/backgrounds/gnome/
+ExecStart=/usr/bin/feh --randomize --bg-scale /usr/share/backgrounds/archlinux/
 
 [Install]
 WantedBy=default.target

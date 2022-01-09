@@ -102,6 +102,7 @@ gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-font
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
 arc-icon-theme breeze-icons oxygen-icons
+archlinux-wallpaper
 firefox
 "
 
@@ -118,7 +119,7 @@ if [[ $de == "koljasha" ]]; then
     feh gvim gsimplecal
     menumaker zenity dmenu rofi jgmenu plank
     pcmanfm-gtk3
-    baobab file-roller gnome-screenshot gnome-calculator gnome-backgrounds gnome-terminal
+    baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
     vlc
     "
@@ -304,9 +305,7 @@ if [[ $de == "koljasha" ]]; then
     gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
 
     # backgrounds
-    sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
-    sudo rm /usr/share/backgrounds/gnome/VNC.png
-    sudo chmod 755 /usr/share/backgrounds/gnome/*
+    sudo rm /usr/share/backgrounds/archlinux/archlinux.stw
 
     # correct feh.desktop
     sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --scale-down --start-at %f/' /usr/share/applications/feh.desktop

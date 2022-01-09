@@ -14,7 +14,7 @@ xset s off &
 picom &
 
 # Backgroung image
-feh --randomize --bg-scale /usr/share/backgrounds/gnome/ &
+feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
 
 # PolicyKit Authentication Agent - Gnome
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
