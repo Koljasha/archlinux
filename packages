@@ -89,7 +89,7 @@ echo "Ok"
 
 packages="
 $drivers $headers reflector
-dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl
+dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl xclip
 git htop lm_sensors upower smartmontools lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight fzf
 atool p7zip unrar unzip zip
 openssh freerdp openvpn networkmanager-openvpn
@@ -113,11 +113,12 @@ if [[ $de == "koljasha" ]]; then
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct kvantum-qt5
 
-    openbox i3 qtile picom obconf lxappearance-gtk3
-    polkit-gnome
-    neovim xclip npm
-    feh gvim gsimplecal
-    menumaker zenity dmenu rofi jgmenu plank
+    openbox obconf menumaker plank
+    i3 qtile
+    polkit-gnome lxappearance-gtk3 picom feh zenity
+    gvim gsimplecal
+    dmenu rofi jgmenu
+    neovim npm
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
