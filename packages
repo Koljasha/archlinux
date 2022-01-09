@@ -281,7 +281,7 @@ if [[ $de == "koljasha" ]]; then
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
     # copy image for lightdm
-    sudo cp files/Endless-shapes.png /usr/share/backgrounds/gnome/Endless-shapes.png
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 
     # config services
     sudo cp files/sudo_openvpn /etc/sudoers.d/openvpn
@@ -307,7 +307,6 @@ if [[ $de == "koljasha" ]]; then
     sudo rm /usr/share/backgrounds/gnome/adwaita-timed.xml
     sudo rm /usr/share/backgrounds/gnome/VNC.png
     sudo chmod 755 /usr/share/backgrounds/gnome/*
-    # sudo convert /usr/share/backgrounds/gnome/Endless-shapes.jpg /usr/share/backgrounds/gnome/Endless-shapes.png
 
     # correct feh.desktop
     sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --scale-down --start-at %f/' /usr/share/applications/feh.desktop
@@ -344,6 +343,8 @@ elif [[ $de == "xfce" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "lxde" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -370,6 +371,8 @@ elif [[ $de == "lxde" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "lxqt" ]]; then
     rm ~/.profile
 
@@ -406,6 +409,8 @@ elif [[ $de == "lxqt" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "efl" ]]; then
     rm ~/.profile
 
@@ -427,6 +432,8 @@ elif [[ $de == "efl" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "mate" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -446,6 +453,8 @@ elif [[ $de == "mate" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "cinnamon" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -470,6 +479,8 @@ elif [[ $de == "cinnamon" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "gnome" ]]; then
     # ~/.config
     mkdir -p ~/.config

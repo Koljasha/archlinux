@@ -375,7 +375,7 @@ bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/scripts/openvpn_clie
 bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
 
 # lock with i3lock:
-# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png
+# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png
 
 #
 # Execute on start

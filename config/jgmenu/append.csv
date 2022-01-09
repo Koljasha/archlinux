@@ -1,5 +1,5 @@
 ^sep()
-Lock,i3lock -c 000000 -i /usr/share/backgrounds/gnome/Endless-shapes.png,system-lock-screen
+Lock,i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png,system-lock-screen
 Exit,^checkout(exit),system-shutdown
 ^tag(exit)
 Exit,/home/username/.config/jgmenu/exit.sh,system-log-out
