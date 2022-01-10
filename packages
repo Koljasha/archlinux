@@ -44,41 +44,48 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 # Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
-   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]] && [[ $de != "9" ]]; do
+   && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]\
+   && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
-    echo "1) Openbox & i3wm & Qtile settings by Koljasha"
-    echo "2) Xfce default settings"
-    echo "3) Lxde default settings"
-    echo "4) Lxqt default settings"
-    echo "5) Enlightenment default settings"
-    echo "6) Mate default settings"
-    echo "7) Cinnamon default settings"
-    echo "8) Gnome, Gnome Flashback default settings"
-    echo "9) Kde Plasma default settings"
+    echo "1) Openbox settings by Koljasha"
+    echo "2) i3wm settings by Koljasha"
+    echo "3) Qtile settings by Koljasha"
+    echo "4) Xfce default settings"
+    echo "5) Lxde default settings"
+    echo "6) Lxqt default settings"
+    echo "7) Enlightenment default settings"
+    echo "8) Mate default settings"
+    echo "9) Cinnamon default settings"
+    echo "10) Gnome, Gnome Flashback default settings"
+    echo "11) Kde Plasma default settings"
     echo "####################"
-    read -n1 -p">" de
+    read -p">" de
 done
 echo; echo
 
 if [[ $de == "1" ]]; then
-    de="koljasha"
+    de="koljasha_openbox"
 elif [[ $de == "2" ]]; then
-    de="xfce"
+    de="koljasha_i3wm"
 elif [[ $de == "3" ]]; then
-    de="lxde"
+    de="koljasha_qtile"
 elif [[ $de == "4" ]]; then
-    de="lxqt"
+    de="xfce"
 elif [[ $de == "5" ]]; then
-    de="efl"
+    de="lxde"
 elif [[ $de == "6" ]]; then
-    de="mate"
+    de="lxqt"
 elif [[ $de == "7" ]]; then
-    de="cinnamon"
+    de="efl"
 elif [[ $de == "8" ]]; then
-    de="gnome"
+    de="mate"
 elif [[ $de == "9" ]]; then
+    de="cinnamon"
+elif [[ $de == "10" ]]; then
+    de="gnome"
+elif [[ $de == "11" ]]; then
     de="kde"
 fi
 echo "Ok"
@@ -106,7 +113,7 @@ archlinux-wallpaper
 firefox
 "
 
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
@@ -114,7 +121,40 @@ if [[ $de == "koljasha" ]]; then
     qt5ct kvantum-qt5
 
     openbox obconf menumaker plank
-    i3 qtile
+    polkit-gnome lxappearance-gtk3 picom feh zenity
+    gvim gsimplecal
+    dmenu rofi jgmenu
+    neovim npm
+    pcmanfm-gtk3
+    baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
+    remmina samba x11vnc libvncserver
+    vlc
+    "
+elif [[ $de == "koljasha_i3wm" ]]; then
+    packages="
+    $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
+
+    i3
+    polkit-gnome lxappearance-gtk3 picom feh zenity
+    gvim gsimplecal
+    dmenu rofi jgmenu
+    neovim npm
+    pcmanfm-gtk3
+    baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
+    remmina samba x11vnc libvncserver
+    vlc
+    "
+elif [[ $de == "koljasha_qtile" ]]; then
+    packages="
+    $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    gparted pavucontrol network-manager-applet transmission-gtk
+    qt5ct kvantum-qt5
+
+    qtile
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
     dmenu rofi jgmenu
@@ -217,10 +257,15 @@ packages_aur="
 xkb-switch
 "
 
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]]; then
     packages_aur="
     $packages_aur
     arc-dark-osx-openbox-theme-git
+    polybar
+    "
+elif [[ $de == "koljasha_i3wm" ]]; then
+    packages_aur="
+    $packages_aur
     polybar
     "
 fi
@@ -264,7 +309,7 @@ cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
 cp files/tmux.conf ~/.tmux.conf
 cp files/vimrc ~/.vimrc
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     cp files/gvimrc ~/.gvimrc
 fi
 
@@ -273,7 +318,7 @@ cp files/ssh_config ~/.ssh/config
 
 mkdir -p ~/.local/share/applications
 
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     # ~/.config
     mkdir -p ~/.config
     cp -r config/* ~/.config/
@@ -322,8 +367,10 @@ if [[ $de == "koljasha" ]]; then
     # terminator for plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 
-    # menu_maker for Openbox
-    ~/.config/openbox/menu_maker.sh
+    if [[ $de == "koljasha_openbox" ]]; then
+        # menu_maker for Openbox
+        ~/.config/openbox/menu_maker.sh
+    fi
 elif [[ $de == "xfce" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -564,14 +611,14 @@ echo; echo
 sed -i 's/desert/PaperColor/' ~/.vimrc
 
 # gvim -> evim
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     sudo cp /usr/share/applications/gvim.desktop /usr/share/applications/evim.desktop
     sudo sed -i "s/GVim/eVim/" /usr/share/applications/evim.desktop
     sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 fi
 
 # plugins for Neovim
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     sudo npm i -g pyright
     # sudo npm i -g bash-language-server
 fi
@@ -629,7 +676,8 @@ echo "Ok"
 
 ###############
 
-if [[ $de == "koljasha" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]] \
+|| [[ $de == "lxde" ]] || [[ $de == "lxqt" ]]; then
     # picom settings
     while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
         echo; echo
@@ -652,7 +700,8 @@ fi
 ###############
 
 # Enable services
-if [[ $de == "koljasha" ]] || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]] \
+|| [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
 || [[ $de == "mate" ]] || [[ $de == "cinnamon" ]]; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
@@ -690,14 +739,14 @@ fi
 echo "Ok"
 
 
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     # Update Arch packages with yay
     systemctl --user enable yay_update.timer
 fi
 
 ###############
 
-if [[ $de == "koljasha" ]]; then
+if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     # enable change backgrounds
     while [[ $chbg != "1" ]] && [[ $chbg != "2" ]]; do
         echo; echo

@@ -13,7 +13,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 539 - 540
+* `./packages`  lines : 586 - 587
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -28,27 +28,17 @@
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 * `./packages` - install desktops, packages and settings it
-    * for **Openbox, i3wm, Qtile**:
-        * these are the minimal apps that I use without embellishments and frills
-        * key bindings and settings are mostly standard with minor changes and scripts
-        * installing (building) packages from AUR takes some time
-        * in *polybar* set brightness not work in VirtualBox
-    * for **Xfce**:
-        * default settings
-    * for **Lxde**:
-        * default settings
-    * for **Lxqt**:
-        * default settings
-    * for **Enlightenment**:
-        * default settings
-    * for **Mate**:
-        * default settings
-    * for **Cinnamon**:
-        * default settings
-    * for **Gnome, Gnome Flashback**:
-        * default settings
-    * for **Kde Plasma**:
-        * default settings
+    * **Openbox**
+    * **i3wm**
+    * **Qtile**
+    * **Xfce**
+    * **Lxde**
+    * **Lxqt**
+    * **Enlightenment**
+    * **Mate**
+    * **Cinnamon**
+    * **Gnome, Gnome Flashback**
+    * **Kde Plasma**
 
 ***
 #### `hooks/` - for devolopers
