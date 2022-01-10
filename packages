@@ -45,7 +45,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 # Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
    && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]\
-   && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]]; do
+   && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]] && [[ $de != "12" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
