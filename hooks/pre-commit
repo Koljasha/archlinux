@@ -12,9 +12,9 @@ readme_data=`sed -n '16p' $readme_file | sed -E 's/^\*.*: ([0-9]{3}).*/\1/'`
 packages_data=`grep -n 'enable change locale' $packages_file | cut -d: -f1`
 
 if [[ $readme_data != $packages_data ]]; then
-    sed -Ei "16s/[0-9]{3} -/$packages_data -/" $readme_file
+    sed -Ei "15s/[0-9]{3} -/$packages_data -/" $readme_file
     packages_data=$((packages_data+1))
-    sed -Ei "16s/- [0-9]{3}/- $packages_data/" $readme_file
+    sed -Ei "15s/- [0-9]{3}/- $packages_data/" $readme_file
     git add $readme_file
 fi
 
