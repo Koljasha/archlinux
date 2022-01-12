@@ -16,8 +16,8 @@
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
-* `git clone https://github.com/koljasha/archlinux_installer`
-* `cd archlinux_installer && ./installer`
+* `git clone https://github.com/koljasha/archlinux`
+* `cd archlinux && ./installer`
 
 ***
 #### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)

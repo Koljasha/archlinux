@@ -232,19 +232,19 @@ echo "####################"
 read -n1 -p">"; echo
 
 # Copy script for chroot mode
-cp -r /root/archlinux_installer /mnt/root
+cp -r /root/archlinux /mnt/root
 
 echo
 if [[ "$grub" == "grub os-prober" ]] && [[ $am == "2" ]]; then
     echo "####################"
     echo "In chroot mode do:"
-    echo ">/root/archlinux_installer/chroot /dev/sdX"
+    echo ">/root/archlinux/chroot /dev/sdX"
     echo "where /dev/sdX - disk for install grub"
     echo "####################"
 else
     echo "####################"
     echo "In chroot mode do:"
-    echo ">/root/archlinux_installer/chroot"
+    echo ">/root/archlinux/chroot"
     echo "####################"
 fi
 
@@ -253,7 +253,7 @@ fi
 arch-chroot /mnt
 
 # Clean
-rm -rf /mnt/root/archlinux_installer
+rm -rf /mnt/root/archlinux
 umount -R /mnt
 
 echo; echo
@@ -266,7 +266,7 @@ echo
 echo "####################"
 echo "After reboot run your user and"
 echo "Please do this:"
-echo ">cd ~/archlinux_installer && ./packages"
+echo ">cd ~/archlinux && ./packages"
 echo "####################"
 echo "####################"
 echo

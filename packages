@@ -285,7 +285,7 @@ fi
 ###############
 
 # change|check folder
-cd ~/archlinux_installer
+cd ~/archlinux
 
 # Install packages from repo
 sudo pacman -Syu --noconfirm
@@ -671,7 +671,7 @@ fish -c 'set -U FZF_LEGACY_KEYBINDINGS 0; set -U FZF_PREVIEW_DIR_CMD "ls -lah"; 
 cp files/fzf.fish ~/.local/share/omf/pkg/fzf/conf.d/fzf.fish
 cp files/fzf_complete.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete.fish
 # clean oh-my-fish
-rm -rf ~/archlinux_installer/oh-my-fish
+rm -rf ~/archlinux/oh-my-fish
 # exit status in fish agnoster theme
 sed -i 's/✘/✘ $RETVAL'/ ~/.local/share/omf/themes/agnoster/functions/fish_prompt.fish
 # fish is main shell
@@ -851,14 +851,14 @@ yay -Yc --noconfirm
 # rm installer folder
 echo; echo
 echo "####################"
-echo "Delete installer folder '~/archlinux_installer' ?"
+echo "Delete installer folder '~/archlinux' ?"
 echo "1) no"
 echo "other) yes"
 echo "####################"
 
 read -n1 -p">" rminstall; echo
 if [[ $rminstall != "1" ]]; then
-    rm -rf ~/archlinux_installer
+    rm -rf ~/archlinux
 fi
 
 ###############

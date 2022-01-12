@@ -45,8 +45,8 @@ passwd $username
 
 # Copy scripts
 # chmod -R 755 /home/$username
-cp -r /root/archlinux_installer /home/$username
-chown -R $username:$username /home/$username/archlinux_installer
+cp -r /root/archlinux /home/$username
+chown -R $username:$username /home/$username/archlinux
 
 # Add sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
