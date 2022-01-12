@@ -1,7 +1,6 @@
-# Arch Linux Installer (Arch repo and Aur)
+# Arch Linux Installer
 
 ## Only for Arch linux understanding users -> [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-### auto install for VirtualBox and laptops with settings by Koljasha :-)
 
 ***
 #### Write Iso to Usb [Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_basic_command_line_utilities)
