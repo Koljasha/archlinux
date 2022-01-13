@@ -11,9 +11,9 @@ Host github.com
 # Bitbucket.org
 Host bitbucket.org
   PreferredAuthentications publickey
-  HostkeyAlgorithms +ssh-rsa
-  PubkeyAcceptedAlgorithms +ssh-rsa
   IdentityFile ~/.ssh/git_rsa
+  # HostkeyAlgorithms +ssh-rsa
+  # PubkeyAcceptedAlgorithms +ssh-rsa
 
 # GitLab.com
 Host gitlab.com
