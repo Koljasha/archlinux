@@ -241,7 +241,8 @@ elif [[ $de == "gnome" ]]; then
 elif [[ $de == "budgie" ]]; then
     packages="
     $packages
-    budgie-desktop budgie-desktop-view budgie-screensaver gnome
+    budgie-desktop budgie-desktop-view budgie-screensaver
+    gnome network-manager-applet
     "
 elif [[ $de == "pantheon" ]]; then
     packages="
