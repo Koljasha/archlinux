@@ -247,8 +247,7 @@ elif [[ $de == "budgie" ]]; then
 elif [[ $de == "pantheon" ]]; then
     packages="
     $packages
-    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    pantheon
+    pantheon gdm
     "
 elif [[ $de == "kde" ]]; then
     packages="
@@ -581,17 +580,6 @@ elif [[ $de == "pantheon" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
-
-    # delete duplicate gnome session from display manager
-    sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
-    sudo mv /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/gnome-xorg.desktop.hide
-
-    # enable lightdm-gtk-greeter
-    sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
-    # config lightdm
-    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
-    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "kde" ]]; then
     rm ~/.profile
 
@@ -780,13 +768,13 @@ fi
 # Enable services
 if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]] \
 || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
-|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "deepin" ]] || [[ $de == "pantheon" ]]; then
+|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "deepin" ]]; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
     sudo systemctl disable NetworkManager.service
     sudo systemctl enable connman.service
-elif [[ $de == "gnome" ]] || [[ $de == "budgie" ]]; then
+elif [[ $de == "gnome" ]] || [[ $de == "budgie" ]] || [[ $de == "pantheon" ]]; then
     sudo systemctl enable gdm.service
 elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
