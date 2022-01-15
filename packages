@@ -351,8 +351,6 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 
     # config services
     sudo cp files/sudo_openvpn /etc/sudoers.d/openvpn
@@ -414,8 +412,6 @@ elif [[ $de == "xfce" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "lxde" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -442,8 +438,6 @@ elif [[ $de == "lxde" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "lxqt" ]]; then
     rm ~/.profile
 
@@ -480,8 +474,6 @@ elif [[ $de == "lxqt" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "efl" ]]; then
     rm ~/.profile
 
@@ -503,8 +495,6 @@ elif [[ $de == "efl" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "mate" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -524,8 +514,6 @@ elif [[ $de == "mate" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "cinnamon" ]]; then
     # ~/.config
     mkdir -p ~/.config
@@ -550,8 +538,6 @@ elif [[ $de == "cinnamon" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "gnome" ]]; then
     rm ~/.profile
 
@@ -605,8 +591,6 @@ elif [[ $de == "pantheon" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "kde" ]]; then
     rm ~/.profile
 
@@ -651,11 +635,12 @@ elif [[ $de == "deepin" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 fi
 
 ###############
+
+# copy image for lightdm & i3lock
+sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 
 # icon for user
 sudo cp files/username.png /var/lib/AccountsService/icons/${username}.png
