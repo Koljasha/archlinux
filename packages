@@ -626,10 +626,6 @@ elif [[ $de == "pantheon" ]]; then
     sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
     sudo mv /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/gnome-xorg.desktop.hide
 
-    # default pantheon session
-    echo "[Desktop]" > ~/.dmrc
-    echo "Session=pantheon" >> ~/.dmrc
-
     # enable lightdm-gtk-greeter
     sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
     # config lightdm
