@@ -46,7 +46,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
    && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]\
    && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]]\
-   && [[ $de != "12" ]] && [[ $de != "13" ]]; do
+   && [[ $de != "12" ]] && [[ $de != "13" ]] && [[ $de != "14" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
@@ -60,9 +60,10 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "8) Mate default settings"
     echo "9) Cinnamon default settings"
     echo "10) Gnome default settings"
-    echo "11) Pantheon default settings"
-    echo "12) Kde Plasma default settings"
-    echo "13) Deepin default settings"
+    echo "11) Budgie default settings"
+    echo "12) Pantheon default settings"
+    echo "13) Kde Plasma default settings"
+    echo "14) Deepin default settings"
     echo "####################"
     read -p">" de
 done
@@ -89,10 +90,12 @@ elif [[ $de == "9" ]]; then
 elif [[ $de == "10" ]]; then
     de="gnome"
 elif [[ $de == "11" ]]; then
-    de="pantheon"
+    de="budgie"
 elif [[ $de == "12" ]]; then
-    de="kde"
+    de="pantheon"
 elif [[ $de == "13" ]]; then
+    de="kde"
+elif [[ $de == "14" ]]; then
     de="deepin"
 fi
 echo "Ok"
@@ -234,6 +237,11 @@ elif [[ $de == "gnome" ]]; then
     packages="
     $packages
     gnome gnome-extra
+    "
+elif [[ $de == "budgie" ]]; then
+    packages="
+    $packages
+    budgie-desktop budgie-desktop-view budgie-screensaver gnome
     "
 elif [[ $de == "pantheon" ]]; then
     packages="
@@ -558,6 +566,20 @@ elif [[ $de == "gnome" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+elif [[ $de == "budgie" ]]; then
+    rm ~/.profile
+
+    # ~/.config
+    mkdir -p ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
 elif [[ $de == "pantheon" ]]; then
     rm ~/.profile
 
@@ -778,7 +800,7 @@ elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
     sudo systemctl disable NetworkManager.service
     sudo systemctl enable connman.service
-elif [[ $de == "gnome" ]]; then
+elif [[ $de == "gnome" ]] || [[ $de == "budgie" ]]; then
     sudo systemctl enable gdm.service
 elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
