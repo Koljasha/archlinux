@@ -253,6 +253,7 @@ elif [[ $de == "pantheon" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    qt5ct kvantum-qt5
     pantheon
     "
 fi
@@ -608,8 +609,6 @@ elif [[ $de == "deepin" ]]; then
     # copy image for lightdm
     sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "pantheon" ]]; then
-    rm ~/.profile
-
     # ~/.config
     mkdir -p ~/.config
 
@@ -621,6 +620,8 @@ elif [[ $de == "pantheon" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+
+    cp -r config/qt5ct ~/.config/qt5ct
 
     # delete gnome session from display manager
     sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
