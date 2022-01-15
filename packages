@@ -623,7 +623,7 @@ elif [[ $de == "pantheon" ]]; then
 
     cp -r config/qt5ct ~/.config/qt5ct
 
-    # delete gnome session from display manager
+    # delete duplicate gnome session from display manager
     sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
     sudo mv /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/gnome-xorg.desktop.hide
 
