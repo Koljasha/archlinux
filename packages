@@ -233,10 +233,8 @@ elif [[ $de == "cinnamon" ]]; then
 elif [[ $de == "gnome" ]]; then
     packages="
     $packages
-    gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
-
-    gnome gnome-extra gnome-flashback gst-libav
+    gnome gnome-extra gnome-flashback
+    network-manager-applet gst-libav
     "
 elif [[ $de == "kde" ]]; then
     packages="
@@ -549,14 +547,14 @@ elif [[ $de == "cinnamon" ]]; then
     # copy image for lightdm
     sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "gnome" ]]; then
+    rm ~/.profile
+
     # ~/.config
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
     rm -rf ~/.config/fish/functions/openvpn-client.*
-
-    cp -r config/qt5ct ~/.config/qt5ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
