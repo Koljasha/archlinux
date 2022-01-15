@@ -125,7 +125,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     openbox obconf menumaker plank
     polkit-gnome lxappearance-gtk3 picom feh zenity
@@ -142,7 +142,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     i3
     polkit-gnome lxappearance-gtk3 picom feh zenity
@@ -159,7 +159,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     qtile
     polkit-gnome lxappearance-gtk3 picom feh zenity
@@ -176,7 +176,7 @@ elif [[ $de == "xfce" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     xfce4 xfce4-goodies
     galculator engrampa gst-libav
@@ -186,7 +186,7 @@ elif [[ $de == "lxde" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     lxde-gtk3 obconf picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
@@ -196,7 +196,7 @@ elif [[ $de == "lxqt" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted network-manager-applet
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     lxqt picom xsettingsd
     transmission-qt featherpad galculator vlc
@@ -206,7 +206,7 @@ elif [[ $de == "efl" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     enlightenment terminology connman
     l3afpad galculator xarchiver gpicview mpv
@@ -216,7 +216,7 @@ elif [[ $de == "mate" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     mate mate-extra celluloid
     "
@@ -225,7 +225,7 @@ elif [[ $de == "cinnamon" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     cinnamon cinnamon-translations x-apps
     gnome-calculator gnome-screenshot file-roller gthumb celluloid
@@ -234,7 +234,7 @@ elif [[ $de == "gnome" ]]; then
     packages="
     $packages
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum-qt5
+    qt5ct kvantum
 
     gnome gnome-extra gnome-flashback gst-libav
     "
@@ -253,7 +253,7 @@ elif [[ $de == "pantheon" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    qt5ct kvantum-qt5
+    qt5ct kvantum
     pantheon
     "
 fi
