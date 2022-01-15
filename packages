@@ -60,9 +60,9 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "8) Mate default settings"
     echo "9) Cinnamon default settings"
     echo "10) Gnome, Gnome Flashback default settings"
-    echo "11) Kde Plasma default settings"
-    echo "12) Deepin default settings"
-    echo "13) Pantheon default settings"
+    echo "11) Pantheon default settings"
+    echo "12) Kde Plasma default settings"
+    echo "13) Deepin default settings"
     echo "####################"
     read -p">" de
 done
@@ -89,11 +89,11 @@ elif [[ $de == "9" ]]; then
 elif [[ $de == "10" ]]; then
     de="gnome"
 elif [[ $de == "11" ]]; then
-    de="kde"
-elif [[ $de == "12" ]]; then
-    de="deepin"
-elif [[ $de == "13" ]]; then
     de="pantheon"
+elif [[ $de == "12" ]]; then
+    de="kde"
+elif [[ $de == "13" ]]; then
+    de="deepin"
 fi
 echo "Ok"
 
@@ -236,6 +236,12 @@ elif [[ $de == "gnome" ]]; then
     gnome gnome-extra gnome-flashback
     network-manager-applet gst-libav
     "
+elif [[ $de == "pantheon" ]]; then
+    packages="
+    $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    pantheon
+    "
 elif [[ $de == "kde" ]]; then
     packages="
     $packages
@@ -246,13 +252,6 @@ elif [[ $de == "deepin" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     deepin deepin-extra
-    "
-elif [[ $de == "pantheon" ]]; then
-    packages="
-    $packages
-    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    qt5ct kvantum
-    pantheon
     "
 fi
 
@@ -560,6 +559,33 @@ elif [[ $de == "gnome" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+elif [[ $de == "pantheon" ]]; then
+    rm ~/.profile
+
+    # ~/.config
+    mkdir -p ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
+
+    # delete duplicate gnome session from display manager
+    sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
+    sudo mv /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/gnome-xorg.desktop.hide
+
+    # enable lightdm-gtk-greeter
+    sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 elif [[ $de == "kde" ]]; then
     rm ~/.profile
 
@@ -597,33 +623,6 @@ elif [[ $de == "deepin" ]]; then
     # copy desktop icons
     sudo cp files/badge/deepin_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/deepin_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
-
-    # enable lightdm-gtk-greeter
-    sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
-    # config lightdm
-    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
-    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
-    # copy image for lightdm
-    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
-elif [[ $de == "pantheon" ]]; then
-    # ~/.config
-    mkdir -p ~/.config
-
-    cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
-
-    cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
-
-    cp -r config/qt5ct ~/.config/qt5ct
-
-    # delete duplicate gnome session from display manager
-    sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
-    sudo mv /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/gnome-xorg.desktop.hide
 
     # enable lightdm-gtk-greeter
     sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
