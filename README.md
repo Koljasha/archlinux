@@ -12,7 +12,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 660 - 661
+* `./packages`  lines : 656 - 657
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -36,7 +36,7 @@
     * **Enlightenment**
     * **Mate**
     * **Cinnamon**
-    * **Gnome, Gnome Flashback**
+    * **Gnome**
     * **Kde Plasma**
     * **Deepin**
     * **Pantheon**

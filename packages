@@ -59,7 +59,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "7) Enlightenment default settings"
     echo "8) Mate default settings"
     echo "9) Cinnamon default settings"
-    echo "10) Gnome, Gnome Flashback default settings"
+    echo "10) Gnome default settings"
     echo "11) Pantheon default settings"
     echo "12) Kde Plasma default settings"
     echo "13) Deepin default settings"
@@ -233,8 +233,7 @@ elif [[ $de == "cinnamon" ]]; then
 elif [[ $de == "gnome" ]]; then
     packages="
     $packages
-    gnome gnome-extra gnome-flashback
-    network-manager-applet gst-libav
+    gnome gnome-extra
     "
 elif [[ $de == "pantheon" ]]; then
     packages="
