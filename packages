@@ -45,7 +45,8 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 # Select Desktop Environment
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
    && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]\
-   && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]] && [[ $de != "12" ]]; do
+   && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]]\
+   && [[ $de != "12" ]] && [[ $de != "13" ]]; do
     echo; echo
     echo "####################"
     echo "What Desktop Environment install?"
@@ -61,6 +62,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "10) Gnome, Gnome Flashback default settings"
     echo "11) Kde Plasma default settings"
     echo "12) Deepin default settings"
+    echo "13) Pantheon default settings"
     echo "####################"
     read -p">" de
 done
@@ -90,6 +92,8 @@ elif [[ $de == "11" ]]; then
     de="kde"
 elif [[ $de == "12" ]]; then
     de="deepin"
+elif [[ $de == "13" ]]; then
+    de="pantheon"
 fi
 echo "Ok"
 
@@ -244,6 +248,11 @@ elif [[ $de == "deepin" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     deepin deepin-extra
+    "
+elif [[ $de == "pantheon" ]]; then
+    packages="
+    $packages
+    pantheon
     "
 fi
 
@@ -597,6 +606,20 @@ elif [[ $de == "deepin" ]]; then
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
     # copy image for lightdm
     sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
+elif [[ $de == "pantheon" ]]; then
+    rm ~/.profile
+
+    # ~/.config
+    mkdir -p ~/.config
+
+    cp -r config/fish ~/.config/fish
+    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/openvpn-client.*
+
+    cp -r config/htop ~/.config/htop
+    cp -r config/ranger ~/.config/ranger
+    cp -r config/terminator ~/.config/terminator
+    cp -r config/alacritty ~/.config/alacritty
 fi
 
 ###############
@@ -738,7 +761,7 @@ fi
 # Enable services
 if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]] \
 || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
-|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "deepin" ]]; then
+|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "deepin" ]] || [[ $de == "pantheon" ]]; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
