@@ -252,6 +252,7 @@ elif [[ $de == "deepin" ]]; then
 elif [[ $de == "pantheon" ]]; then
     packages="
     $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     pantheon
     "
 fi
@@ -620,6 +621,23 @@ elif [[ $de == "pantheon" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+
+    # delete gnome session from display manager
+    sudo mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.hide
+    sudo mv /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/gnome-xorg.desktop.hide
+
+    # default pantheon session
+    echo "[Desktop]" > ~/.dmrc
+    echo "Session=pantheon" >> ~/.dmrc
+
+    # enable lightdm-gtk-greeter
+    sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+    # copy image for lightdm
+    sudo cp files/archlinux.png /usr/share/backgrounds/archlinux.png
 fi
 
 ###############
