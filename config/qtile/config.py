@@ -367,7 +367,7 @@ screens = [
 
 auto_fullscreen = True
 bring_front_click = "floating_only"
-cursor_warp = True
+cursor_warp = False
 dgroups_app_rules = []
 focus_on_window_activation = "urgent"
 follow_mouse_focus = True
