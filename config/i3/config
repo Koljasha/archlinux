@@ -408,5 +408,5 @@ exec --no-startup-id ~/.config/polybar/i3.sh
 exec --no-startup-id nm-applet
 
 # Brightness:
-exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.8
+exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7
 

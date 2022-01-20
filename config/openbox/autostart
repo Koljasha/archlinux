@@ -30,7 +30,7 @@ feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
 nm-applet &
 
 # Brightness:
-xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.8 &
+xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
 
 # Plank
 plank &
