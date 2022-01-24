@@ -118,7 +118,7 @@ imagemagick ffmpeg
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
-arc-icon-theme breeze-icons papirus-icon-theme
+arc-icon-theme breeze-icons
 archlinux-wallpaper
 firefox
 "
