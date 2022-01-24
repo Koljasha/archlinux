@@ -240,6 +240,17 @@
       </action>
     </keybind>
     <!--   -->
+    <keybind key="W-b">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-b">
+      <action name="Execute">
+        <command>pcmanfm</command>
+      </action>
+    </keybind>
+    <!--   -->
     <keybind key="Print">
       <action name="Execute">
         <command>gnome-screenshot --interactive</command>
