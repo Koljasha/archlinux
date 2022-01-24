@@ -196,6 +196,11 @@
         <command>openbox --exit</command>
       </action>
     </keybind>
+    <keybind key="W-p">
+      <action name="Execute">
+        <command>~/.config/polybar/openbox.sh</command>
+      </action>
+    </keybind>
     <!--   -->
     <keybind key="W-grave">
       <action name="Execute">
@@ -234,12 +239,6 @@
         <command>~/.config/polybar/scripts/openvpn_client.sh change</command>
       </action>
     </keybind>
-    <keybind key="W-p">
-      <action name="Execute">
-        <command>~/.config/polybar/openbox.sh</command>
-      </action>
-    </keybind>
-    <!--   -->
     <keybind key="W-b">
       <action name="Execute">
         <command>firefox</command>
