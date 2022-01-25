@@ -96,7 +96,7 @@ keys = [
     Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
 
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod], "t", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
 
@@ -132,6 +132,10 @@ keys = [
 
     # Screenshot
     Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
+
+    # Notifications
+    Key([mod, "shift"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
+    Key([mod, "control"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
 
     # Volume control
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%"), desc="Volume up"),

@@ -41,6 +41,9 @@ bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Control+p exec i3-msg exit
 
+# Polybar restart
+bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
+
 ######### Menu #########
 
 # start dmenu (a program launcher)
@@ -364,6 +367,10 @@ bindsym $mod+Shift+b exec --no-startup-id pcmanfm
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot --interactive
 
+# Notifications
+bindsym $mod+Shift+n exec --no-startup-id dunstctl history-pop
+bindsym $mod+Control+n exec --no-startup-id dunstctl close-all
+
 # Volume control (type 1):
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
@@ -371,9 +378,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Vpn
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/scripts/openvpn_client.sh change
-
-# Polybar restart
-bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
 
 # lock with i3lock:
 # bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png

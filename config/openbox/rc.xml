@@ -234,11 +234,6 @@
       </action>
     </keybind>
     <!--   -->
-    <keybind key="W-S-v">
-      <action name="Execute">
-        <command>~/.config/polybar/scripts/openvpn_client.sh change</command>
-      </action>
-    </keybind>
     <keybind key="W-b">
       <action name="Execute">
         <command>firefox</command>
@@ -255,11 +250,18 @@
         <command>gnome-screenshot --interactive</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioMute">
+    <!--   -->
+    <keybind key="W-S-n">
       <action name="Execute">
-        <command>pactl set-sink-mute 0 toggle</command>
+        <command>dunstctl history-pop</command>
       </action>
     </keybind>
+    <keybind key="W-C-n">
+      <action name="Execute">
+        <command>dunstctl close-all</command>
+      </action>
+    </keybind>
+    <!--   -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command>pactl set-sink-volume 0 +2%</command>
@@ -268,6 +270,17 @@
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
         <command>pactl set-sink-volume 0 -2%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>pactl set-sink-mute 0 toggle</command>
+      </action>
+    </keybind>
+    <!--   -->
+    <keybind key="W-S-v">
+      <action name="Execute">
+        <command>~/.config/polybar/scripts/openvpn_client.sh change</command>
       </action>
     </keybind>
     <!--   -->
