@@ -23,14 +23,17 @@ feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
 # PolicyKit Authentication Agent - Gnome
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Polybar
-~/.config/polybar/openbox.sh &
-
 # NetworkManager applet
 nm-applet &
 
-# Brightness:
+# Notifications
+dunst &
+
+# Brightness
 xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
+
+# Polybar
+~/.config/polybar/openbox.sh &
 
 # Plank
 plank &

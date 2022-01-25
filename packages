@@ -133,7 +133,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     openbox obconf menumaker plank
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
-    dmenu rofi jgmenu i3lock
+    dmenu rofi jgmenu i3lock dunst
     neovim npm
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
@@ -150,7 +150,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     i3
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
-    dmenu rofi jgmenu i3lock
+    dmenu rofi jgmenu i3lock dunst
     neovim npm
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
@@ -167,7 +167,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     qtile
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
-    dmenu rofi jgmenu i3lock
+    dmenu rofi jgmenu i3lock dunst
     neovim npm
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal

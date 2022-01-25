@@ -22,6 +22,9 @@ feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
 # NetworkManager applet
 nm-applet &
 
-# Brightness:
+# Notifications
+dunst &
+
+# Brightness
 xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
 
