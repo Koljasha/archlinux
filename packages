@@ -285,12 +285,19 @@ if [[ $de == "koljasha_openbox" ]]; then
     packages_aur="
     $packages_aur
     arc-dark-osx-openbox-theme-git
+    mint-x-icons
     polybar
     "
 elif [[ $de == "koljasha_i3wm" ]]; then
     packages_aur="
     $packages_aur
+    mint-x-icons
     polybar
+    "
+elif [[ $de == "koljasha_qtile" ]]; then
+    packages_aur="
+    $packages_aur
+    mint-x-icons
     "
 fi
 
