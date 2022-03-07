@@ -346,6 +346,8 @@ fi
 
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
+mkdir ~/.gnupg
+cp files/gpg.conf ~/.gnupg/gpg.conf
 
 mkdir -p ~/.local/share/applications
 
