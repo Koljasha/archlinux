@@ -108,7 +108,7 @@ packages="
 $drivers $headers reflector
 dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl xclip
 git htop lm_sensors upower smartmontools lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight fzf
-atool p7zip unrar unzip zip
+p7zip unrar unzip zip
 openssh freerdp openvpn networkmanager-openvpn
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
@@ -278,7 +278,7 @@ fi
 # libreoffice-still libreoffice-still-ru - office
 
 packages_aur="
-xkb-switch
+atool xkb-switch
 "
 
 if [[ $de == "koljasha_openbox" ]]; then
@@ -303,6 +303,7 @@ fi
 
 # Other packages:
 # mintstick - write Iso to Usb
+# bottles - manage wine prefix
 
 ###############
 
