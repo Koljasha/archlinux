@@ -150,7 +150,8 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # switch workspaces with Alt, Ctrl, Tab
-bindsym $alt+Tab workspace next_on_output
+bindsym $alt+Tab focus next
+# bindsym $alt+Tab workspace next_on_output
 bindsym $alt+Control+Left workspace prev_on_output
 bindsym $alt+Control+Right workspace next_on_output
 
