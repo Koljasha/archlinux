@@ -30,7 +30,7 @@ if [[ $1 == 'change' ]]; then
 fi
 
 if [[ $1 == 'terminal' ]]; then
-    yay -Su
+    yay -Su --removemake --cleanafter
     polybar-msg cmd restart
 
     exit 0

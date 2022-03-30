@@ -9,4 +9,5 @@ prompt_command
 alias ll="ls -lah"
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
+alias yay='yay --removemake --cleanafter'
 

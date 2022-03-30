@@ -343,7 +343,7 @@ screens = [
                               update_interval=5),
                 widget.Sep(),
                 widget.CheckUpdates(distro="Arch_yay",
-                                    execute="terminator -x yay -Su",
+                                    execute="terminator -x yay -Su --removemake --cleanafter",
                                     update_interval=600,
                                     display_format = "{updates} Updates",
                                     no_update_string="No Updates",
