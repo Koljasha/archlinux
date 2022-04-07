@@ -202,7 +202,7 @@ floating_layout = layout.Floating(
             *layout.Floating.default_float_rules,
             Match(wm_class="Terminator"),
             Match(wm_class="Gvim"),
-            Match(wm_class="Gnome-calculator"),
+            Match(wm_class="gnome-calculator"),
             Match(wm_class="Gnome-screenshot"),
             Match(wm_class="isaac-ng.exe"),
         ],

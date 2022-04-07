@@ -347,7 +347,7 @@ assign [class="remmina"] $workspace10
 # floating_minimum_size 1366 x 768
 for_window [ class="Terminator" ] floating enable
 for_window [ class="Gvim" ] floating enable
-for_window [ class="Gnome-calculator" ] floating enable
+for_window [ class="gnome-calculator" ] floating enable
 for_window [ class="Gnome-screenshot" ] floating enable
 for_window [ class="isaac-ng.exe" ] floating enable
 
