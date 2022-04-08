@@ -1,4 +1,5 @@
 Terminator,terminator -m,terminator
+Alacritty,alacritty,Alacritty
 Browser,firefox,firefox
 File manager,pcmanfm,system-file-manager
 ^sep()
