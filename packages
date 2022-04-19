@@ -128,7 +128,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     openbox obconf menumaker plank
     polkit-gnome lxappearance-gtk3 picom feh zenity
@@ -145,7 +145,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     i3
     polkit-gnome lxappearance-gtk3 picom feh zenity
@@ -162,7 +162,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     qtile
     polkit-gnome lxappearance-gtk3 picom feh zenity
@@ -179,7 +179,7 @@ elif [[ $de == "xfce" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     xfce4 xfce4-goodies
     galculator engrampa gst-libav
@@ -189,7 +189,7 @@ elif [[ $de == "lxde" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     lxde-gtk3 obconf picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
@@ -199,7 +199,7 @@ elif [[ $de == "lxqt" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted network-manager-applet
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     lxqt picom xsettingsd
     transmission-qt featherpad galculator vlc
@@ -209,7 +209,7 @@ elif [[ $de == "efl" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     enlightenment terminology connman
     l3afpad galculator xarchiver gpicview mpv
@@ -219,7 +219,7 @@ elif [[ $de == "mate" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     mate mate-extra celluloid
     "
@@ -228,7 +228,7 @@ elif [[ $de == "cinnamon" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct kvantum
+    qt5ct qt6ct kvantum
 
     cinnamon cinnamon-translations x-apps
     gnome-calculator gnome-screenshot file-roller gthumb celluloid
@@ -414,6 +414,7 @@ elif [[ $de == "xfce" ]]; then
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
+    cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -433,6 +434,7 @@ elif [[ $de == "lxde" ]]; then
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
+    cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -461,6 +463,7 @@ elif [[ $de == "lxqt" ]]; then
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
+    cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -497,6 +500,7 @@ elif [[ $de == "efl" ]]; then
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
+    cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -516,6 +520,7 @@ elif [[ $de == "mate" ]]; then
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
+    cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -535,6 +540,7 @@ elif [[ $de == "cinnamon" ]]; then
     rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
+    cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
