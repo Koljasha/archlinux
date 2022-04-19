@@ -106,7 +106,7 @@ echo "Ok"
 
 packages="
 $drivers $headers reflector
-dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs wmctrl xclip
+dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs gvfs-mtp wmctrl xclip
 git htop lm_sensors upower smartmontools lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight fzf
 atool p7zip unrar unzip zip
 openssh freerdp openvpn networkmanager-openvpn rsync
