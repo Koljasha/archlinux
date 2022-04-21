@@ -206,8 +206,7 @@ end
 -- Snippets by Koljasha
 --
 
-ls.snippets = {
-	python = {
+ls.add_snippets("python", {
 		-- python __name__ == '__main__'
 		s("ifmain", {
 				t({ "def main ("  }),
@@ -246,15 +245,16 @@ ls.snippets = {
 				t({ "pass" }),
 				i(0),
 		}),
-	},
-}
+	}, {
+	key = "python",
+})
 
--- autotriggered snippets have to be defined in a separate table, luasnip.autosnippets.
--- ls.autosnippets = {
-	-- all = {
-		-- s("autotrigger", {
-			-- t("autosnippet"),
-		-- }),
-	-- },
--- }
-
+-- set type to "autosnippets" for adding autotriggered snippets.
+-- ls.add_snippets("all", {
+	-- s("autotrigger", {
+		-- t("autosnippet"),
+	-- }),
+-- }, {
+	-- type = "autosnippets",
+	-- key = "all_auto",
+-- })
