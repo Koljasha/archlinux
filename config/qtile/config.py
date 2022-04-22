@@ -135,8 +135,8 @@ keys = [
     Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
 
     # Notifications
-    Key([mod, "shift"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
-    Key([mod, "control"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
+    Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
+    Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
 
     # Volume control
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%"), desc="Volume up"),
