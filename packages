@@ -136,7 +136,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     dmenu rofi jgmenu i3lock dunst
     neovim npm
     pcmanfm-gtk3
-    baobab gnome-disk-utility file-roller gnome-screenshot gnome-calculator gnome-terminal
+    baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
     vlc
     "
@@ -153,7 +153,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     dmenu rofi jgmenu i3lock dunst
     neovim npm
     pcmanfm-gtk3
-    baobab gnome-disk-utility file-roller gnome-screenshot gnome-calculator gnome-terminal
+    baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
     vlc
     "
@@ -170,7 +170,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     dmenu rofi jgmenu i3lock dunst
     neovim npm
     pcmanfm-gtk3
-    baobab gnome-disk-utility file-roller gnome-screenshot gnome-calculator gnome-terminal
+    baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
     vlc
     "
