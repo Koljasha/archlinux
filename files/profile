@@ -8,6 +8,6 @@ export LANG=ru_RU.UTF8
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-# temporarily for gtk-4
+# environment for gtk-4
 export GTK_THEME=Arc-Dark
 
