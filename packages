@@ -130,7 +130,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct qt6ct kvantum
 
-    openbox obconf menumaker plank
+    openbox obconf menumaker plank polybar
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
@@ -147,7 +147,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct qt6ct kvantum
 
-    i3
+    i3 polybar
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
@@ -287,13 +287,11 @@ if [[ $de == "koljasha_openbox" ]]; then
     $packages_aur
     arc-dark-osx-openbox-theme-git
     mint-x-icons
-    polybar
     "
 elif [[ $de == "koljasha_i3wm" ]]; then
     packages_aur="
     $packages_aur
     mint-x-icons
-    polybar
     "
 elif [[ $de == "koljasha_qtile" ]]; then
     packages_aur="
