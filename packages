@@ -652,8 +652,12 @@ sudo cp files/username.png /var/lib/AccountsService/icons/${username}.png
 sudo cp files/username /var/lib/AccountsService/users/${username}
 sudo sed -i "s/username/${username}/" /var/lib/AccountsService/users/${username}
 
-# enable color in pacman
+# pacman settings
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+sudo sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+
+# makepkg settings
+sudo sed -i 's/#MAKEFLAGS/MAKEFLAGS/' /etc/makepkg.conf
 
 # timeoutstop in systemd
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
