@@ -35,6 +35,8 @@ scripts = {
     "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
     "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
     "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
+    "mullvad": os.path.expanduser("~/.config/qtile/scripts/mullvad.sh"),
+    "mullvad_change": os.path.expanduser("~/.config/qtile/scripts/mullvad.sh change"),
     "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
     "brightness_change": os.path.expanduser("~/.config/qtile/scripts/brightness.sh change"),
     "keyboard": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh"),
