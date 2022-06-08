@@ -369,8 +369,8 @@ bindsym $mod+Shift+b exec --no-startup-id pcmanfm
 bindsym Print exec --no-startup-id gnome-screenshot --interactive
 
 # Notifications
-bindsym $mod+Shift+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+Control+n exec --no-startup-id dunstctl close-all
+bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
+bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 
 # Volume control (type 1):
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
