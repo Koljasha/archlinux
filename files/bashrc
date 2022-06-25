@@ -35,6 +35,6 @@ rcd() {
     rm -f -- "$temp_file"
 }
 
-# save current directory (need for i3 terminal)
+# save current directory (it is necessary for tiling managers like i3, qtile)
 export PROMPT_COMMAND="pwd > /tmp/whereami"
 
