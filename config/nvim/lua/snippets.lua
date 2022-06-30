@@ -207,17 +207,25 @@ end
 --
 
 ls.add_snippets("python", {
+		-- shebang
+		s("#!", {
+				t({ "#!/usr/bin/env " }),
+				i(1, "python"),
+				t({ "", "", "" }),
+				i(0),
+		}),
 		-- python __name__ == '__main__'
 		s("ifmain", {
+				t({ "", "", "" }),
 				t({ "def main ("  }),
 				i(1),
 				t({ "):" }),
 				t({ "", "\t" }),
-				t({ "pass" }),
-				i(2),
-				t({"", "",  "if __name__ == '__main__':" }),
+				i(2, "pass"),
+				t({ "", "",  "if __name__ == '__main__':" }),
 				t({ "", "\t" }),
 				t({ "main()" }),
+				t({ "", "" }),
 				i(0),
 		}),
 		-- python function
@@ -228,9 +236,11 @@ ls.add_snippets("python", {
 				i(2),
 				t({ "):" }),
 				t({ "", "\t" }),
-				t({ "pass" }),
+				i(3, "pass"),
+				t({ "", "" }),
 				i(0),
 		}),
+		-- python class
 		s("class", {
 				t({ "class "  }),
 				i(1, "ClassName"),
@@ -242,11 +252,24 @@ ls.add_snippets("python", {
 				i(3),
 				t({ "):" }),
 				t({ "", "\t\t" }),
-				t({ "pass" }),
+				i(4, "pass"),
+				t({ "", "" }),
 				i(0),
 		}),
 	}, {
 	key = "python",
+})
+
+ls.add_snippets("sh", {
+		-- shebang
+		s("#!", {
+				t({ "#!/usr/bin/env " }),
+				i(1, "bash"),
+				t({ "", "", "" }),
+				i(0),
+		}),
+	}, {
+	key = "sh",
 })
 
 -- set type to "autosnippets" for adding autotriggered snippets.
