@@ -303,6 +303,9 @@ nmap <S-F9> :set mouse=a <CR>
 
 " Polyglot - коллекция языковых пакетов для Vim
 " Xkbswitch - смена на En при переходе в командный режим
+"
+" Black - форматирование кода Python
+"
 " ----------------------------------------
 " IDE for Vim
 	" отключен - Jedi-vim - IDE для Python (для Python)
@@ -569,6 +572,18 @@ let g:XkbSwitchIMappings = ['ru']
 " путь к библиотеке
 	let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
 " ----------------------------------------
+
+" ----------------------------------------
+" ----------------------------------------
+
+" Black - форматирование кода Python
+" для Neovim нужно: pip install pynvim
+" ---------------
+" https://github.com/psf/black
+Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+" ---------------
+nmap <Leader>bl :Black <CR>
+"" ----------------------------------------
 
 " ----------------------------------------
 " ----------------------------------------
