@@ -244,7 +244,7 @@ nmap <S-F9> :set mouse=a <CR>
 " ctrl-n ctrl-p ctrl-i - добавить слово
 " ctrl-f - добавить имя файла
 " ctrl-o - добавить из языка (автодополнение)
-
+" ----------------------------------------
 " eVim - перейти в normal mode: ctrl-l
 " ----------------------------------------
 " ~, U, u - изменение регистра
@@ -627,7 +627,6 @@ nmap <Leader>bl :Black <CR>
 " настройки в конце файла
 
 if has('nvim')
-	" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 	" ----------------------------------------
 	" https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP client
 	" https://github.com/hrsh7th/cmp-nvim-lsp -- LSP source for nvim-cmp
