@@ -726,20 +726,19 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 
 -- !!! Need install LSP Server
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 -- >sudo npm i -g pyright
 -- >sudo npm i -g bash-language-server
+-- >sudo npm i -g emmet-ls
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
--- local servers = { 'pyright', 'bashls' }
+-- local servers = { 'pyright', 'bashls', 'emmet_ls' }
 local servers = { 'pyright' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
