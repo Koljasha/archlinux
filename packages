@@ -706,7 +706,8 @@ fi
 # plugins for Neovim
 if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
     sudo npm i -g pyright
-    # sudo npm i -g bash-language-server
+    sudo npm i -g bash-language-server
+    sudo npm i -g emmet-ls
 fi
 ###############
 
