@@ -595,30 +595,63 @@ nmap <Leader>bl :Black <CR>
 " ----------------------------------------
 
 " IDE for Vim
-
-" ----------------------------------------
-" https://github.com/neoclide/coc.nvim/wiki
-" https://github.com/fannheyward/coc-pyright
-" https://github.com/pappasam/coc-jedi
 " ----------------------------------------
 
-" Jedi-vim - IDE для Python
-" !!! - 12 строк ниже:
-" " ---------------
-" " https://github.com/davidhalter/jedi-vim
-" " (требуется установленный jedi)
-" " $ pip install jedi
-" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-" " ---------------
-" " Completion <C-Space>
-" " Goto assignments <leader>g (typical goto function)
-" " Goto definitions <leader>d (follow identifier as far as possible, includes imports and statements)
-" " Show Documentation/Pydoc K (shows a popup with assignments)
-" " Renaming <leader>r
-" " Usages <leader>n (shows all the usages of a name)
-" " Open module, e.g. :Pyimport os (opens the os module)
-" ----------------------------------------
+if !has('nvim')
+	" ----------------------------------------
+	" https://github.com/prabirshrestha/vim-lsp -- Async Language Server Protocol plugin for vim8 and neovim
+	" https://github.com/mattn/vim-lsp-settings -- Auto configurations for Language Servers for vim-lsp
 
+	" https://github.com/prabirshrestha/asyncomplete.vim -- Async autocompletion for Vim 8 and Neovim
+	" https://github.com/prabirshrestha/asyncomplete-lsp.vim -- Provide Language Server Protocol autocompletion source
+
+	" https://github.com/mattn/emmet-vim -- support for expanding abbreviations similar to emmet
+	" ---------------
+	Plug 'prabirshrestha/vim-lsp'
+	Plug 'mattn/vim-lsp-settings'
+
+	function! s:on_lsp_buffer_enabled() abort
+		setlocal omnifunc=lsp#complete
+		setlocal signcolumn=yes
+		if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+		nmap <buffer> gd <plug>(lsp-definition)
+		nmap <buffer> gs <plug>(lsp-document-symbol-search)
+		nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+		nmap <buffer> gr <plug>(lsp-references)
+		nmap <buffer> gi <plug>(lsp-implementation)
+		nmap <buffer> gt <plug>(lsp-type-definition)
+		nmap <buffer> <leader>rn <plug>(lsp-rename)
+		nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+		nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+		nmap <buffer> K <plug>(lsp-hover)
+		nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+		nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+		let g:lsp_format_sync_timeout = 1000
+		autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+	endfunction
+
+	augroup lsp_install
+		au!
+		" call s:on_lsp_buffer_enabled only for languages that has the server registered.
+		autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+	augroup END
+
+	Plug 'prabirshrestha/asyncomplete.vim'
+	Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+	" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+	Plug 'mattn/emmet-vim'
+
+	let g:user_emmet_mode='i'
+	let g:user_emmet_install_global = 0
+	autocmd FileType html,css EmmetInstall
+	let g:user_emmet_leader_key=','
+" ----------------------------------------
+endif
 " ----------------------------------------
 " ----------------------------------------
 
