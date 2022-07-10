@@ -624,7 +624,7 @@ if !has('nvim')
 		nmap <buffer> K <plug>(lsp-hover)
 
 		nmap <buffer> gd <plug>(lsp-definition)
-		nmap <buffer> gt <plug>(lsp-type-definition)
+		nmap <buffer> gf <plug>(lsp-type-definition)
 
 		" for symbol-search use ctrl-p, ctrl-n
 		nmap <buffer> gs <plug>(lsp-document-symbol-search)
