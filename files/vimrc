@@ -223,7 +223,7 @@ nmap <F9> :set mouse= <CR>
 nmap <S-F9> :set mouse=a <CR>
 
 " F11 - проверка орфографии
-" map <F11> :setlocal spelllang=ru spell! <CR> 
+" map <F11> :setlocal spelllang=ru spell! <CR>
 " ]s - следующее слово с ошибкой
 " [s - предыдущее слово с ошибкой
 " z= - замена из списка
@@ -236,8 +236,21 @@ nmap <S-F9> :set mouse=a <CR>
 " imap <F12> <Esc>:set keymap=russian-jcukenwin<CR>i
 " map <S-F12> :set keymap= <CR>
 " imap <S-F12> <Esc>:set keymap=<CR>i
-
 " ----------------------------------------
+" ----------------------------------------
+"  Terminal
+if has('nvim')
+	nmap <leader>tt :split term://fish<CR> :startinsert<CR>
+	nmap <leader>tv :vsplit term://fish<CR> :startinsert<CR>
+else
+	nmap <leader>tt :terminal<CR>
+	nmap <leader>tv :vertical terminal<CR>
+endif
+" ctrl-\ + ctrl-n - выйти из terminal -> на Esc
+tnoremap <Esc> <C-\><C-n>
+" ----------------------------------------
+" ----------------------------------------
+
 " Help Some Keybinding
 " ----------------------------------------
 " ----------------------------------------
@@ -259,8 +272,6 @@ nmap <S-F9> :set mouse=a <CR>
 " ----------------------------------------
 " ctrl-w + q - закрыть окно(сплит) (буфер открыт)
 " ctrl-w + r - поменять окна(сплиты) местами
-" ----------------------------------------
-" ctrl-\ + ctrl-n - выйти из terminal
 " ----------------------------------------
 " ctrl-] и ctrl-t - перемещение по топикам Помощи
 " ----------------------------------------
@@ -526,7 +537,7 @@ let g:EasyMotion_smartcase = 1
 " https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar'
 " ---------------
-nmap <Leader>tt :TagbarToggle<CR>
+nmap <Leader>ta :TagbarToggle<CR>
 let g:tagbar_sort = 0
 let g:tagbar_show_linenumbers = 2
 " ----------------------------------------
