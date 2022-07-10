@@ -586,7 +586,7 @@ Plug 'sheerun/vim-polyglot'
 " ---------------
 " библиотека:
 " https://github.com/ierton/xkb-switch - для *nix
-" https://github.com/DeXP/xkb-switch-win - для Win 
+" https://github.com/DeXP/xkb-switch-win - для Win
 " https://github.com/myshov/xkbswitch-macosx - для Mac
 " плагин:
 " https://github.com/lyokha/vim-xkbswitch
@@ -763,7 +763,7 @@ highlight Normal guibg=NONE ctermbg=NONE
 highlight clear SpellBad
 highlight SpellBad ctermfg=Red
 " синий цвет - отсутствие заглавной буквы
-highlight clear SpellCap 
+highlight clear SpellCap
 highlight SpellCap ctermfg=Blue
 
 " ----------------------------------------
