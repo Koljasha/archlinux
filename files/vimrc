@@ -575,8 +575,15 @@ Plug 'sheerun/vim-polyglot'
 " https://github.com/lyokha/vim-xkbswitch
 Plug 'lyokha/vim-xkbswitch'
 " ---------------
-let g:XkbSwitchEnabled = 1 
+let g:XkbSwitchEnabled = 1
 let g:XkbSwitchIMappings = ['ru']
+let g:XkbSwitchIMappingsTr = {
+          \ 'ru':
+          \ {'<': 'qwertyuiopasdfghjkl;zxcvbnm.`/'.
+          \       'QWERTYUIOPASDFGHJKL:ZXCVBNM<>?~@#$^&|',
+          \  '>': 'йцукенгшщзфывапролджячсмитьюё.'.
+          \       'ЙЦУКЕНГШЩЗФЫВАПРОЛДЖЯЧСМИТЬБЮ,Ё"№;:?/'},
+          \ }
 " путь к библиотеке
 	let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
 " ----------------------------------------
