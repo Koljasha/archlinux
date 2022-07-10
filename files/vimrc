@@ -650,7 +650,7 @@ if !has('nvim')
 
 	let g:user_emmet_mode='i'
 	let g:user_emmet_install_global = 0
-	autocmd FileType html,css EmmetInstall
+	autocmd FileType html,htmldjango,css EmmetInstall
 	let g:user_emmet_leader_key=','
 " ----------------------------------------
 endif
@@ -777,6 +777,10 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.emmet_ls.setup({
+    filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+})
 
 -- luasnip setup
 local luasnip = require 'luasnip'
