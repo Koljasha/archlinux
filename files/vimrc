@@ -192,6 +192,10 @@ nmap <C-S-Left> <C-W><
 nmap <C-S-Up> <C-W>+
 nmap <C-S-Down> <C-W>-
 
+" перемещение стрелками в командном режиме
+cnoremap <Down> <C-n>
+cnoremap <Up> <C-p>
+
 " F4 - ражим вставки (Paste)
 nmap <F4> :set paste! <CR>
 imap <F4> <Esc> :set paste! <CR>
