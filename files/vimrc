@@ -237,18 +237,18 @@ nmap <S-F9> :set mouse=a <CR>
 
 " F12 - полная русская раскладка (на выборе English)
 " map <F12> :set keymap=russian-jcukenwin <CR>
-" imap <F12> <Esc>:set keymap=russian-jcukenwin<CR>i
+" imap <F12> <Esc>:set keymap=russian-jcukenwin <CR>i
 " map <S-F12> :set keymap= <CR>
-" imap <S-F12> <Esc>:set keymap=<CR>i
+" imap <S-F12> <Esc>:set keymap= <CR>i
 " ----------------------------------------
 " ----------------------------------------
 "  Terminal
 if has('nvim')
-	nmap <leader>tt :split term://fish<CR> :startinsert<CR>
-	nmap <leader>tv :vsplit term://fish<CR> :startinsert<CR>
+	nmap <leader>tt :split term://fish <CR> :startinsert <CR>
+	nmap <leader>tv :vsplit term://fish <CR> :startinsert <CR>
 else
-	nmap <leader>tt :terminal<CR>
-	nmap <leader>tv :vertical terminal<CR>
+	nmap <leader>tt :terminal <CR>
+	nmap <leader>tv :vertical terminal <CR>
 endif
 " ctrl-\ + ctrl-n - выйти из terminal -> на Esc
 tnoremap <Esc> <C-\><C-n>
@@ -258,31 +258,33 @@ tnoremap <Esc> <C-\><C-n>
 " Help Some Keybinding
 " ----------------------------------------
 " ----------------------------------------
+" eVim - перейти в normal mode: ctrl-l
+" ----------------------------------------
 " автодополнения i_ctrl-x_:
 " ctrl-l - добавить строку
 " ctrl-n ctrl-p ctrl-i - добавить слово
 " ctrl-f - добавить имя файла
 " ctrl-o - добавить из языка (автодополнение)
 " ----------------------------------------
-" eVim - перейти в normal mode: ctrl-l
-" ----------------------------------------
 " ~, U, u - изменение регистра
 " :%s/\<./\u&/g - Первая Буква Строчная
 " ----------------------------------------
 " gv - повторное выделение
 " gx - открыть ссылку в браузере
+" ----------------------------------------
 " gt - следующая вкладка
 " ctrl-w + T - перенести на другую вкладку
 " ----------------------------------------
 " ctrl-w + q - закрыть окно(сплит) (буфер открыт)
 " ctrl-w + r - поменять окна(сплиты) местами
 " ----------------------------------------
-" ctrl-] и ctrl-t - перемещение по топикам Помощи
+" ctrl-d и ctrl-u - экран на половину вниз/вверх
 " ----------------------------------------
+" '' или `` - перемещение на предыдущее место
 " :jumps история перемещений
 " ctrl-o и ctrl-i - перемещение по истории
 " ----------------------------------------
-" ctrl-d и ctrl-u - экран на половину вниз/вверх
+" ctrl-] и ctrl-t - перемещение по топикам Помощи
 " ----------------------------------------
 " v/V и zf - выделение блока и создание свертки
 " zc – свернуть блок
