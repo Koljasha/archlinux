@@ -336,6 +336,7 @@ mode "$mode_gaps_left" {
 # Workspace for app:
 # (name of class - command: xprop)
 assign [class="firefox"] $workspace5
+assign [class="qutebrowser"] $workspace5
 assign [class="Pcmanfm"] $workspace6
 assign [class="vlc"] $workspace7
 assign [class="mpv"] $workspace7
@@ -360,7 +361,8 @@ bindsym $mod+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh alacritty
 bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh terminator
 
 # Browser
-bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+b exec --no-startup-id qutebrowser
+bindsym $mod+Control+b exec --no-startup-id firefox
 
 # File manager
 bindsym $mod+Shift+b exec --no-startup-id pcmanfm

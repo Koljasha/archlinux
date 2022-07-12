@@ -128,7 +128,8 @@ keys = [
     Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
 
     # Browser
-    Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
+    Key([mod], "b", lazy.spawn("qutebrowser"), desc="Launch browser"),
+    Key([mod, "control"], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
     # File manager
     Key([mod, "shift"], "b", lazy.spawn("pcmanfm"), desc="Launch file manager"),
@@ -146,7 +147,7 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
 
     # Vpn
-    Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
+    Key([mod, "shift"], "v", lazy.spawn(scripts["mullvad_change"]), desc="Start|Stop Vpn"),
 ]
 
 mouse = [
@@ -163,7 +164,7 @@ groups = [
     Group("2: "),
     Group("3: "),
     Group("4: "),
-    Group("5: ", matches=[Match(wm_class=["firefox"])], layout="max"),
+    Group("5: ", matches=[Match(wm_class=["firefox", "qutebrowser"])], layout="max"),
     Group("6: ", matches=[Match(wm_class=["Pcmanfm"])], layout="max"),
     Group("7: ", matches=[Match(wm_class=["vlc", "mpv"])], layout="max"),
     Group("8: ", matches=[Match(wm_class=["Transmission-gtk"])], layout="max"),
@@ -340,8 +341,8 @@ screens = [
                 widget.ThermalSensor(foreground=colors["light_blue"],
                                     fmt="<span color='#ffb52a'></span> {}"),
                 widget.Sep(),
-                MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
-                              execute=scripts["openvpn_change"],
+                MyGenPollText(func=lambda: subprocess.check_output(scripts["mullvad"]).decode("utf-8").strip(),
+                              execute=scripts["mullvad_change"],
                               update_interval=5),
                 widget.Sep(),
                 widget.CheckUpdates(distro="Arch_yay",

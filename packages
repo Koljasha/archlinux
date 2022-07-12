@@ -134,7 +134,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
-    neovim npm
+    neovim npm qutebrowser
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
@@ -151,7 +151,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
-    neovim npm
+    neovim npm qutebrowser
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
@@ -168,7 +168,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     polkit-gnome lxappearance-gtk3 picom feh zenity
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
-    neovim npm
+    neovim npm qutebrowser
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
     remmina samba x11vnc libvncserver
