@@ -388,6 +388,8 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     # correct feh.desktop
     sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --scale-down --start-at %f/' /usr/share/applications/feh.desktop
     cp /usr/share/applications/feh.desktop ~/.local/share/applications/
+
+    # mime cache for feh, qutebrowser
     cp files/mimeinfo.cache ~/.local/share/applications/
 
     # jgmenu Exit for user
