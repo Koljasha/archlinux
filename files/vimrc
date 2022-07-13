@@ -617,6 +617,12 @@ let g:XkbSwitchIMappingsTr = {
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 " ---------------
 nmap <Leader>bl :Black <CR>
+
+" run Black on save
+" augroup black_on_save
+  " autocmd!
+  " autocmd BufWritePre *.py Black
+" augroup end
 "" ----------------------------------------
 
 " ----------------------------------------
