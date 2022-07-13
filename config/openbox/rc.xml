@@ -239,6 +239,11 @@
         <command>firefox</command>
       </action>
     </keybind>
+    <keybind key="W-C-b">
+      <action name="Execute">
+        <command>qutebrowser</command>
+      </action>
+    </keybind>
     <keybind key="W-S-b">
       <action name="Execute">
         <command>pcmanfm</command>
