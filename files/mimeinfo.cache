@@ -16,3 +16,5 @@ image/x-portable-graymap=feh.desktop;
 image/x-portable-pixmap=feh.desktop;
 image/x-tga=feh.desktop;
 image/x-xbitmap=feh.desktop;
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;firefox.desktop;
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;firefox.desktop;
