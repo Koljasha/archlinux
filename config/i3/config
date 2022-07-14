@@ -362,17 +362,17 @@ bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh ter
 
 # Browser
 bindsym $mod+b exec --no-startup-id qutebrowser
-bindsym $mod+Control+b exec --no-startup-id firefox
+bindsym $mod+Shift+b exec --no-startup-id firefox
 
 # File manager
-bindsym $mod+Shift+b exec --no-startup-id pcmanfm
+bindsym $mod+Control+b exec --no-startup-id pcmanfm
 
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot --interactive
 
 # Notifications
-bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
+bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
 
 # Volume control (type 1):
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
