@@ -11,6 +11,6 @@ settings:
   content.headers.accept_language:
     global: ru-RU,ru;q=0.9
   url.default_page:
-    global: about:blank
+    global: https://duckduckgo.com/
   url.start_pages:
-    global: https://mail.ru
+    global: https://duckduckgo.com/
