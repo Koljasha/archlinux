@@ -207,6 +207,7 @@ floating_layout = layout.Floating(
             Match(wm_class="Gvim"),
             Match(wm_class="gnome-calculator"),
             Match(wm_class="Gnome-screenshot"),
+            Match(wm_class="torbrowser-launcher"),
             Match(wm_class="isaac-ng.exe"),
         ],
         border_focus=[colors["gray"], colors["light_gray"]],
