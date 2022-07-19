@@ -543,7 +543,7 @@ let g:EasyMotion_smartcase = 1
 " https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar'
 " ---------------
-nmap <Leader>ta :TagbarToggle<CR>
+nmap <Leader>tb :TagbarToggle<CR>
 let g:tagbar_sort = 0
 let g:tagbar_show_linenumbers = 2
 " ----------------------------------------
