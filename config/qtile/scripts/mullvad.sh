@@ -8,9 +8,9 @@ status=`mullvad status | grep Disconnected`
 
 if (( $# == 0 )); then
     if [[ -n $status ]]; then
-        echo "<span foreground='#99d3ff'> VPN</span>"
+        echo "<span foreground='#99d3ff'> Mullvad</span>"
     else
-        echo "<span foreground='#55aa55'> VPN</span>"
+        echo "<span foreground='#55aa55'> Mullvad</span>"
     fi
     exit 0
 fi

@@ -147,6 +147,7 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
 
     # Vpn
+    # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
     Key([mod, "shift"], "v", lazy.spawn(scripts["mullvad_change"]), desc="Start|Stop Vpn"),
 ]
 
@@ -342,6 +343,9 @@ screens = [
                 widget.ThermalSensor(foreground=colors["light_blue"],
                                     fmt="<span color='#ffb52a'></span> {}"),
                 widget.Sep(),
+                # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
+                              # execute=scripts["openvpn_change"],
+                              # update_interval=5),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["mullvad"]).decode("utf-8").strip(),
                               execute=scripts["mullvad_change"],
                               update_interval=5),
