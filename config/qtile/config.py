@@ -35,6 +35,8 @@ scripts = {
     "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
     "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
     "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
+    "wireguard": os.path.expanduser("~/.config/qtile/scripts/wireguard.sh"),
+    "wireguard_change": os.path.expanduser("~/.config/qtile/scripts/wireguard.sh change"),
     "mullvad": os.path.expanduser("~/.config/qtile/scripts/mullvad.sh"),
     "mullvad_change": os.path.expanduser("~/.config/qtile/scripts/mullvad.sh change"),
     "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
@@ -148,7 +150,8 @@ keys = [
 
     # Vpn
     # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
-    Key([mod, "shift"], "v", lazy.spawn(scripts["mullvad_change"]), desc="Start|Stop Vpn"),
+    Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
+    # Key([mod, "shift"], "v", lazy.spawn(scripts["mullvad_change"]), desc="Start|Stop Vpn"),
 ]
 
 mouse = [
@@ -346,9 +349,12 @@ screens = [
                 # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
                               # execute=scripts["openvpn_change"],
                               # update_interval=5),
-                MyGenPollText(func=lambda: subprocess.check_output(scripts["mullvad"]).decode("utf-8").strip(),
-                              execute=scripts["mullvad_change"],
+                MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
+                              execute=scripts["wireguard_change"],
                               update_interval=5),
+                # MyGenPollText(func=lambda: subprocess.check_output(scripts["mullvad"]).decode("utf-8").strip(),
+                              # execute=scripts["mullvad_change"],
+                              # update_interval=5),
                 widget.Sep(),
                 widget.CheckUpdates(distro="Arch_yay",
                                     execute="terminator -x yay -Su --removemake --cleanafter",
