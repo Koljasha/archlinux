@@ -1,0 +1,4 @@
+# wireguard
+
+username ALL = NOPASSWD: /usr/bin/wg, /usr/bin/wg-quick
+

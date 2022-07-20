@@ -368,8 +368,10 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     # config services
     sudo cp files/sudo_openvpn /etc/sudoers.d/openvpn
     sudo cp files/sudo_pacman /etc/sudoers.d/pacman
+    sudo cp files/sudo_wireguard /etc/sudoers.d/wireguard
     sudo sed -i "s/username/${username}/" /etc/sudoers.d/openvpn
     sudo sed -i "s/username/${username}/" /etc/sudoers.d/pacman
+    sudo sed -i "s/username/${username}/" /etc/sudoers.d/wireguard
 
     sudo cp files/smb.conf /etc/samba/smb.conf
 
