@@ -151,7 +151,6 @@ keys = [
     # Vpn
     # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
     Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
-    # Key([mod, "shift"], "v", lazy.spawn(scripts["mullvad_change"]), desc="Start|Stop Vpn"),
 ]
 
 mouse = [
@@ -352,9 +351,6 @@ screens = [
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
                               execute=scripts["wireguard_change"],
                               update_interval=5),
-                # MyGenPollText(func=lambda: subprocess.check_output(scripts["mullvad"]).decode("utf-8").strip(),
-                              # execute=scripts["mullvad_change"],
-                              # update_interval=5),
                 widget.Sep(),
                 widget.CheckUpdates(distro="Arch_yay",
                                     execute="terminator -x yay -Su --removemake --cleanafter",

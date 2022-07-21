@@ -283,9 +283,14 @@
       </action>
     </keybind>
     <!--   -->
+    <!-- <keybind key="W-S-v"> -->
+      <!-- <action name="Execute"> -->
+        <!-- <command>~/.config/polybar/scripts/openvpn_client.sh change</command> -->
+      <!-- </action> -->
+    <!-- </keybind> -->
     <keybind key="W-S-v">
       <action name="Execute">
-        <command>~/.config/polybar/scripts/openvpn_client.sh change</command>
+        <command>~/.config/polybar/scripts/wireguard_client.sh change</command>
       </action>
     </keybind>
     <!--   -->
