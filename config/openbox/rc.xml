@@ -294,6 +294,12 @@
       </action>
     </keybind>
     <!--   -->
+    <keybind key="W-S-u">
+      <action name="Execute">
+        <command>~/.config/polybar/scripts/yay_update.sh change</command>
+      </action>
+    </keybind>
+    <!--   -->
     <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
