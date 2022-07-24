@@ -31,6 +31,7 @@ colors = {
 
 scripts = {
     "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
+    "updates": os.path.expanduser("~/.config/qtile/scripts/updates.sh"),
     "alacritty": os.path.expanduser("~/.config/qtile/scripts/shell.sh alacritty"),
     "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
     "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
@@ -151,6 +152,9 @@ keys = [
     # Vpn
     # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
     Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
+
+    # System updates
+    Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
 ]
 
 mouse = [
