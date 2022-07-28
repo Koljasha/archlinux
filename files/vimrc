@@ -180,6 +180,12 @@ vmap <C-c> "+y
 " Ctrl-Shift-v
 " вставить из буфера vim  в режиме вставки: Ctrl-r + "
 
+" встроенный проводник :Exp :Rex :Tex :Lex :Vex :Sex
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 0
+noremap <leader>oo :Rex
+
 " сменить split
 nmap <C-Right> <C-W>l
 nmap <C-Left> <C-W>h
@@ -436,8 +442,8 @@ map <Leader>op :NERDTreeToggle <CR>
 " https://github.com/vim-scripts/mru.vim
 Plug 'vim-scripts/mru.vim'
 " ---------------
-" <Leader>oo - показать список последних файлов
-map <Leader>oo :MRU <CR>
+" <Leader>ol - показать список последних файлов
+map <Leader>ol :MRU <CR>
 " ----------------------------------------
 
 " Buffer Explorer - переключение открытых буферов
