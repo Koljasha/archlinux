@@ -456,7 +456,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 Plug 'junegunn/fzf.vim'
 " ---------------
 nmap <Leader>ff :FZF <CR>
-nmap <Leader>fc :call popup_clear(1) <CR>
+" for close use Ctrl-c
 " ---------------
 " ----------------------------------------
 
