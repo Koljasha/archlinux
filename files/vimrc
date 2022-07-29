@@ -180,17 +180,6 @@ vmap <C-c> "+y
 " Ctrl-Shift-v
 " вставить из буфера vim  в режиме вставки: Ctrl-r + "
 
-" встроенный проводник :Exp :Rex :Tex :Lex :Vex :Sex
-" gn - сделать каталог корнем
-" ctrl-l - обновить каталог
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-let g:netrw_browse_split = 0
-let g:netrw_liststyle = 3
-" let g:netrw_preview   = 1
-" let g:netrw_alto = 0
-" let g:netrw_winsize   = 30
-noremap <leader>oo :Exp <CR>
-
 " сменить split
 nmap <C-Right> <C-W>l
 nmap <C-Left> <C-W>h
@@ -264,6 +253,18 @@ endif
 " ctrl-\ + ctrl-n - выйти из terminal -> на Esc
 tnoremap <Esc> <C-\><C-n>
 " ----------------------------------------
+" Explore
+" встроенный проводник :Exp :Rex :Tex :Lex :Vex :Sex
+" gn - сделать каталог корнем
+" ctrl-l - обновить каталог
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_browse_split = 0
+let g:netrw_liststyle = 3
+" let g:netrw_preview   = 1
+" let g:netrw_alto = 0
+" let g:netrw_winsize   = 30
+noremap <leader>oo :Exp <CR>
+" ----------------------------------------
 " ----------------------------------------
 
 " Help Some Keybinding
@@ -288,6 +289,8 @@ tnoremap <Esc> <C-\><C-n>
 " ----------------------------------------
 " ctrl-w + q - закрыть окно(сплит) (буфер открыт)
 " ctrl-w + r - поменять окна(сплиты) местами
+" ctrl-w + H - поменять split на verical
+" ctrl-w + K - поменять verical на split
 " ----------------------------------------
 " ctrl-d и ctrl-u - экран на половину вниз/вверх
 " ----------------------------------------
@@ -699,6 +702,7 @@ if !has('nvim')
 	inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 	Plug 'mattn/emmet-vim'
+	" использование в режиме вставки: ,,
 
 	let g:user_emmet_mode='i'
 	let g:user_emmet_install_global = 0
