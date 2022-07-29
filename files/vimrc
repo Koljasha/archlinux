@@ -181,6 +181,8 @@ vmap <C-c> "+y
 " вставить из буфера vim  в режиме вставки: Ctrl-r + "
 
 " встроенный проводник :Exp :Rex :Tex :Lex :Vex :Sex
+" gn - сделать каталог корнем
+" ctrl-l - обновить каталог
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let g:netrw_browse_split = 0
 let g:netrw_liststyle = 3
