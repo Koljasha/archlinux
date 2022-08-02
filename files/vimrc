@@ -288,6 +288,8 @@ noremap <leader>oo :Exp <CR>
 " ctrl-w + T - перенести на другую вкладку
 " ----------------------------------------
 " ctrl-w + q - закрыть окно(сплит) (буфер открыт)
+" ctrl-w + s - открыть split
+" ctrl-w + v - открыть vsplit
 " ctrl-w + r - поменять окна(сплиты) местами
 " ctrl-w + H - поменять split на verical
 " ctrl-w + K - поменять verical на split
