@@ -173,6 +173,10 @@ nmap <Leader>bb :bn <CR>
 " <Leader>BB - предыдущий буфер
 nmap <Leader>BB :bp <CR>
 
+" vsplit|split по номеру буфера
+nmap <Leader>vv :vertical sb
+nmap <Leader>vs :sb
+
 " копировать в системный буфер обмена
 " выделить, далее "+y
 vmap <C-c> "+y
@@ -285,7 +289,7 @@ noremap <leader>oo :Exp <CR>
 " gx - открыть ссылку в браузере
 " ----------------------------------------
 " gt - следующая вкладка
-" ctrl-w + T - перенести на другую вкладку
+" ctrl-w + T - перенести split на другую вкладку
 " ----------------------------------------
 " ctrl-w + q - закрыть окно(сплит) (буфер открыт)
 " ctrl-w + s - открыть split
@@ -293,6 +297,7 @@ noremap <leader>oo :Exp <CR>
 " ctrl-w + r - поменять окна(сплиты) местами
 " ctrl-w + H - поменять split на verical
 " ctrl-w + K - поменять verical на split
+" :[vertical] sb<num_buffer> - vsplit|split по номеру буфера
 " ----------------------------------------
 " ctrl-d и ctrl-u - экран на половину вниз/вверх
 " ----------------------------------------
