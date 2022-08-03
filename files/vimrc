@@ -173,16 +173,20 @@ nmap <Leader>bb :bn <CR>
 " <Leader>BB - предыдущий буфер
 nmap <Leader>BB :bp <CR>
 
-" vsplit|split по номеру буфера
-nmap <Leader>vv :vertical sb
-nmap <Leader>vs :sb
-
 " копировать в системный буфер обмена
 " выделить, далее "+y
 vmap <C-c> "+y
 " вставить из системного буфера обмена
 " Ctrl-Shift-v
 " вставить из буфера vim  в режиме вставки: Ctrl-r + "
+
+" vsplit|split по номеру буфера
+nmap <Leader>vv :vertical sb
+nmap <Leader>vs :sb
+
+" vsplit|split
+nmap <Leader>VV :vsplit
+nmap <Leader>VS :split
 
 " сменить split
 nmap <C-Right> <C-W>l
