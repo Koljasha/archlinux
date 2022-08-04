@@ -276,6 +276,7 @@ fi
 # lutris gamemode lib32-gamemode - for windows games
 # Drivers: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
 
+# gnome-boxes - virtual machines
 # virtualbox - virtual machines
 # (choose virtualbox-host-modules-arch for linux kernel)
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)

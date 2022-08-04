@@ -342,6 +342,7 @@ assign [class="vlc"] $workspace7
 assign [class="mpv"] $workspace7
 assign [class="Transmission-gtk"] $workspace8
 assign [class="VirtualBox"] $workspace9
+assign [class="Gnome-boxes"] $workspace9
 assign [class="remmina"] $workspace10
 
 # Floating mode
