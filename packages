@@ -690,7 +690,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 echo; echo
 echo "####################"
 echo "After install Vim plugins"
-echo "for exit Vim do: ZZ and ZZ"
+echo "for exit Vim do :qa
 echo "####################"
 echo "now click any key"
 echo "####################"
@@ -713,6 +713,9 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     sudo npm i -g pyright
     sudo npm i -g bash-language-server
     sudo npm i -g emmet-ls
+
+    # install nvim plugins
+    nvim -c PlugInstall
 fi
 ###############
 
