@@ -661,10 +661,6 @@ sudo cp files/username.png /var/lib/AccountsService/icons/${username}.png
 sudo cp files/username /var/lib/AccountsService/users/${username}
 sudo sed -i "s/username/${username}/" /var/lib/AccountsService/users/${username}
 
-# pacman settings
-sudo sed -i 's/#Color/Color/' /etc/pacman.conf
-sudo sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-
 # makepkg settings
 sudo sed -i 's/#MAKEFLAGS/MAKEFLAGS/' /etc/makepkg.conf
 
