@@ -418,7 +418,6 @@ elif [[ $de == "xfce" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -438,7 +437,6 @@ elif [[ $de == "lxde" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -467,7 +465,6 @@ elif [[ $de == "lxqt" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -504,7 +501,6 @@ elif [[ $de == "efl" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -524,7 +520,6 @@ elif [[ $de == "mate" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -544,7 +539,6 @@ elif [[ $de == "cinnamon" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -571,7 +565,6 @@ elif [[ $de == "gnome" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -585,7 +578,6 @@ elif [[ $de == "budgie" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -599,7 +591,6 @@ elif [[ $de == "pantheon" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -613,7 +604,6 @@ elif [[ $de == "kde" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -632,7 +622,6 @@ elif [[ $de == "deepin" ]]; then
 
     cp -r config/fish ~/.config/fish
     rm -rf ~/.config/fish/functions/smb.*
-    rm -rf ~/.config/fish/functions/openvpn-client.*
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
