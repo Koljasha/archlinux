@@ -417,7 +417,7 @@ elif [[ $de == "xfce" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -436,7 +436,7 @@ elif [[ $de == "lxde" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -464,7 +464,7 @@ elif [[ $de == "lxqt" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -500,7 +500,7 @@ elif [[ $de == "efl" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -519,7 +519,7 @@ elif [[ $de == "mate" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -538,7 +538,7 @@ elif [[ $de == "cinnamon" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -564,7 +564,7 @@ elif [[ $de == "gnome" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -577,7 +577,7 @@ elif [[ $de == "budgie" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -590,7 +590,7 @@ elif [[ $de == "pantheon" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -603,7 +603,7 @@ elif [[ $de == "kde" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
@@ -621,7 +621,7 @@ elif [[ $de == "deepin" ]]; then
     mkdir -p ~/.config
 
     cp -r config/fish ~/.config/fish
-    rm -rf ~/.config/fish/functions/smb.*
+    rm -rf ~/.config/fish/functions/samba-server.fish
 
     cp -r config/htop ~/.config/htop
     cp -r config/ranger ~/.config/ranger
