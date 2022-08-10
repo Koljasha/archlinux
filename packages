@@ -742,32 +742,32 @@ fish -c 'fish_update_completions'
 
 ###############
 
-# install miniconda
-while [[ $mconda != "1" ]] && [[ $mconda != "2" ]]; do
-    echo; echo
-    echo "####################"
-    echo "Install miniconda"
-    echo "1) yes"
-    echo "2) no"
-    echo "####################"
-    read -n1 -p">" mconda
-done
-echo; echo
+# # install miniconda
+# while [[ $mconda != "1" ]] && [[ $mconda != "2" ]]; do
+    # echo; echo
+    # echo "####################"
+    # echo "Install miniconda"
+    # echo "1) yes"
+    # echo "2) no"
+    # echo "####################"
+    # read -n1 -p">" mconda
+# done
+# echo; echo
 
-if [[ $mconda == "1" ]]; then
-    curl -o miniconda https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash miniconda -p ~/.local/conda -b 2>/dev/null
-    ~/.local/conda/bin/conda update --all --yes
+# if [[ $mconda == "1" ]]; then
+    # curl -o miniconda https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    # bash miniconda -p ~/.local/conda -b 2>/dev/null
+    # ~/.local/conda/bin/conda update --all --yes
 
-    sed -i "s/# alias conda.update/alias conda.update/" ~/.bashrc
-    cp files/conda.update.fish ~/.config/fish/functions/conda.update.fish
+    # sed -i "s/# alias conda.update/alias conda.update/" ~/.bashrc
+    # cp files/conda.update.fish ~/.config/fish/functions/conda.update.fish
 
-    echo "set PATH /home/$username/.local/conda/bin \$PATH" >> ~/.config/fish/config.fish
-    echo "" >> ~/.config/fish/config.fish
+    # echo "set PATH /home/$username/.local/conda/bin \$PATH" >> ~/.config/fish/config.fish
+    # echo "" >> ~/.config/fish/config.fish
 
-    rm miniconda
-fi
-echo "Ok"
+    # rm miniconda
+# fi
+# echo "Ok"
 
 ###############
 
