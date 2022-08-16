@@ -299,8 +299,8 @@ noremap <leader>oo :Exp <CR>
 " ctrl-w + s - открыть split
 " ctrl-w + v - открыть vsplit
 " ctrl-w + r - поменять окна(сплиты) местами
-" ctrl-w + H - поменять split на verical
-" ctrl-w + K - поменять verical на split
+" ctrl-w + H(L) - поменять split на verical
+" ctrl-w + K(J) - поменять verical на split
 " :[vertical] sb<num_buffer> - vsplit|split по номеру буфера
 " ----------------------------------------
 " ctrl-d и ctrl-u - экран на половину вниз/вверх
