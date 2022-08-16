@@ -159,8 +159,8 @@ set timeoutlen=5000 ttimeoutlen=0
 " help по слову при нажатии K
 let &keywordprg=':help'
 
-" <Leader>hl - отключение подсветки поиска hlsearch
-nmap <Leader>hl :nohlsearch <CR>
+" <Leader><space> - отключение подсветки поиска hlsearch
+nmap <Leader><space> :nohlsearch <CR>
 
 " <Leader>ss - сохранение файла
 nmap <Leader>ss :w! <CR>
