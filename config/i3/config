@@ -58,6 +58,10 @@ bindsym $mod+d exec --no-startup-id "rofi -show run"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
+# dmenu
+bindsym $mod+a exec --no-startup-id "dmenu_run"
+bindsym $mod+Shift+a exec --no-startup-id "i3-dmenu-desktop"
+
 # jgmenu
 bindsym $mod+grave exec --no-startup-id jgmenu_run
 
