@@ -224,7 +224,7 @@
     </keybind>
     <keybind key="W-a">
       <action name="Execute">
-        <command>dmenu_run</command>
+        <command>dmenu_run -b</command>
       </action>
     </keybind>
     <!--   -->
