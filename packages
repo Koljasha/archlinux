@@ -307,6 +307,7 @@ fi
 
 # Other packages:
 # mintstick - write Iso to Usb
+# ventoy-bin - write Iso to Usb
 # bottles - manage wine prefix
 
 ###############
