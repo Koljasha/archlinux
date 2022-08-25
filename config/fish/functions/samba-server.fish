@@ -1,6 +1,6 @@
-# defined smb.service start|stop
+# defined smb.service start|stop|status
 #
-function samba-server --description 'smb.service start|stop'
+function samba-server --description 'smb.service start|stop|status'
         if test \( (count $argv) -eq 1 \) -a \( "$argv[1]" = 'status' \)
             systemctl status smb.service
         else
