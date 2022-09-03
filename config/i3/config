@@ -53,13 +53,13 @@ bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
 # installed.
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -p App: -nb '#2f343f' -nf white -sb '#3C4049' -sf green"
 
-# Rofi
-bindsym $mod+d exec --no-startup-id "rofi -show run"
-bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
-bindsym $mod+Tab exec --no-startup-id "rofi -show window"
-
 # dmenu
-bindsym $mod+a exec --no-startup-id "dmenu_run -b"
+bindsym $mod+d exec --no-startup-id "dmenu_run -b"
+
+# rofi
+bindsym $mod+a exec --no-startup-id "rofi -show drun"
+bindsym $mod+Shift+a exec --no-startup-id "rofi -show run"
+bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
 # jgmenu
 bindsym $mod+grave exec --no-startup-id jgmenu_run
@@ -89,24 +89,16 @@ bindsym $mod+space focus next
 # change focus between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
 
-# focus the parent container
-# bindsym $mod+a focus parent
-
-# focus the child container
-# bindsym $mod+d focus child
-
 ######### Layouts #########
 
-# split in vertical orientation
-bindsym $mod+s split v
-# split in horizontal orientation
-bindsym $mod+Shift+s split h
-
 # change container layout (stacked(recursive), tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
 bindsym $mod+w layout toggle
 bindsym $mod+e layout toggle split
+
+# split in vertical orientation
+bindsym $mod+Shift+w split v
+# split in horizontal orientation
+bindsym $mod+Control+w split h
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -358,10 +350,10 @@ for_window [ class="torbrowser-launcher" ] floating enable
 for_window [ class="isaac-ng.exe" ] floating enable
 
 #
-# Binding
+# Apps
 #
 
-# Terminals
+# Terminal
 bindsym $mod+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh alacritty
 bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh terminator
 
@@ -379,7 +371,7 @@ bindsym Print exec --no-startup-id gnome-screenshot --interactive
 bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
 
-# Volume control (type 1):
+# Volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -390,6 +382,15 @@ bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/scripts/wireguard_cl
 
 # System updates
 bindsym $mod+Shift+u exec --no-startup-id ~/.config/polybar/scripts/yay_update.sh change
+
+# Password menu
+bindsym $mod+s exec --no-startup-id ~/.config/polybar/scripts/password.sh
+
+# Run htop
+bindsym $mod+h exec --no-startup-id terminator -x htop
+
+# Change brightness
+bindsym $mod+Shift+h exec --no-startup-id ~/.config/polybar/scripts/change_brightness.sh change
 
 # lock with i3lock:
 # bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png

@@ -38,12 +38,11 @@ scripts = {
     "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
     "wireguard": os.path.expanduser("~/.config/qtile/scripts/wireguard.sh"),
     "wireguard_change": os.path.expanduser("~/.config/qtile/scripts/wireguard.sh change"),
-    "mullvad": os.path.expanduser("~/.config/qtile/scripts/mullvad.sh"),
-    "mullvad_change": os.path.expanduser("~/.config/qtile/scripts/mullvad.sh change"),
     "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
     "brightness_change": os.path.expanduser("~/.config/qtile/scripts/brightness.sh change"),
     "keyboard": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh"),
     "keyboard_change": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh change"),
+    "password": os.path.expanduser("~/.config/qtile/scripts/password.sh"),
 }
 
 @hook.subscribe.startup_once
@@ -73,11 +72,11 @@ keys = [
 
     ######### Menu #########
 
-    Key([mod], "d", lazy.spawn("rofi -show run"), desc="Run rofi run"),
-    Key([mod, "shift"], "d", lazy.spawn("rofi -show drun"), desc="Run rofi drun"),
-    Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
+    Key([mod], "d", lazy.spawn("dmenu_run -b"), desc="Run dmenu run"),
 
-    Key([mod], "a", lazy.spawn("dmenu_run -b"), desc="Run dmenu run"),
+    Key([mod], "a", lazy.spawn("rofi -show drun"), desc="Run rofi drun"),
+    Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Run rofi run"),
+    Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
 
     Key([mod], "grave", lazy.spawn("jgmenu_run"), desc="Run jgmenu"),
 
@@ -128,7 +127,7 @@ keys = [
 
     ######### Apps #########
 
-    # Terminals
+    # Terminal
     Key([mod], "Return", lazy.spawn(scripts["alacritty"]), desc="Launch terminal"),
     Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
 
@@ -157,6 +156,16 @@ keys = [
 
     # System updates
     Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
+
+    # Password menu
+    Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
+
+    # Run htop
+    Key([mod], "h", lazy.spawn("terminator -x htop"), desc="Run htop"),
+
+    # Change brightness
+    Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
+
 ]
 
 mouse = [

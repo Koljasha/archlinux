@@ -177,20 +177,16 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings Koljasha -->
+    <!-- Main -->
+    <keybind key="W-S-q">
+      <action name="Close"/>
+    </keybind>
     <keybind key="W-S-r">
       <action name="Reconfigure"/>
     </keybind>
     <keybind key="W-C-r">
       <action name="Restart"/>
     </keybind>
-    <!--   -->
-    <keybind key="W-t">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
-    <keybind key="W-S-q">
-      <action name="Close"/>
-    </keybind>
-    <!--   -->
     <keybind key="W-C-p">
       <action name="Execute">
         <command>openbox --exit</command>
@@ -201,10 +197,20 @@
         <command>~/.config/polybar/openbox.sh</command>
       </action>
     </keybind>
-    <!--   -->
-    <keybind key="W-grave">
+    <!-- Menu -->
+    <keybind key="W-d">
       <action name="Execute">
-        <command>jgmenu_run</command>
+        <command>dmenu_run -b</command>
+      </action>
+    </keybind>
+    <keybind key="W-a">
+      <action name="Execute">
+        <command>rofi -show drun</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-a">
+      <action name="Execute">
+        <command>rofi -show run</command>
       </action>
     </keybind>
     <keybind key="W-Tab">
@@ -212,99 +218,21 @@
         <command>rofi -show window</command>
       </action>
     </keybind>
-    <keybind key="W-d">
+    <keybind key="W-grave">
       <action name="Execute">
-        <command>rofi -show run</command>
+        <command>jgmenu_run</command>
       </action>
     </keybind>
-    <keybind key="W-S-d">
-      <action name="Execute">
-        <command>rofi -show drun</command>
+    <!-- Window  -->
+    <keybind key="W-space">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>100%</width>
+        <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-a">
-      <action name="Execute">
-        <command>dmenu_run -b</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <keybind key="W-Return">
-      <action name="Execute">
-        <command>terminator -m</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-Return">
-      <action name="Execute">
-        <command>alacritty</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <keybind key="W-b">
-      <action name="Execute">
-        <command>qutebrowser</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-b">
-      <action name="Execute">
-        <command>firefox</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-b">
-      <action name="Execute">
-        <command>pcmanfm</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>gnome-screenshot --interactive</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <keybind key="W-C-n">
-      <action name="Execute">
-        <command>dunstctl history-pop</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-n">
-      <action name="Execute">
-        <command>dunstctl close-all</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <keybind key="XF86AudioRaiseVolume">
-      <action name="Execute">
-        <command>pactl set-sink-volume 0 +2%</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioLowerVolume">
-      <action name="Execute">
-        <command>pactl set-sink-volume 0 -2%</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioMute">
-      <action name="Execute">
-        <command>pactl set-sink-mute 0 toggle</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <!-- <keybind key="W-S-v"> -->
-      <!-- <action name="Execute"> -->
-        <!-- <command>~/.config/polybar/scripts/openvpn_client.sh change</command> -->
-      <!-- </action> -->
-    <!-- </keybind> -->
-    <keybind key="W-S-v">
-      <action name="Execute">
-        <command>~/.config/polybar/scripts/wireguard_client.sh change</command>
-      </action>
-    </keybind>
-    <!--   -->
-    <keybind key="W-S-u">
-      <action name="Execute">
-        <command>~/.config/polybar/scripts/yay_update.sh change</command>
-      </action>
-    </keybind>
-    <!--   -->
     <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -341,16 +269,11 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="W-space">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <y>0</y>
-        <width>100%</width>
-        <height>100%</height>
-      </action>
+    <!-- Layouts -->
+    <keybind key="W-t">
+      <action name="ToggleShowDesktop"/>
     </keybind>
-    <!--   -->
+    <!-- Workspaces -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
         <to>left</to>
@@ -373,6 +296,103 @@
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
+      </action>
+    </keybind>
+    <!-- Apps -->
+    <!-- Terminal -->
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>terminator -m</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-Return">
+      <action name="Execute">
+        <command>alacritty</command>
+      </action>
+    </keybind>
+    <!-- Browser -->
+    <keybind key="W-b">
+      <action name="Execute">
+        <command>qutebrowser</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-b">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
+    <!-- File manager -->
+    <keybind key="W-C-b">
+      <action name="Execute">
+        <command>pcmanfm</command>
+      </action>
+    </keybind>
+    <!-- Screenshot -->
+    <keybind key="Print">
+      <action name="Execute">
+        <command>gnome-screenshot --interactive</command>
+      </action>
+    </keybind>
+    <!-- Notifications -->
+    <keybind key="W-C-n">
+      <action name="Execute">
+        <command>dunstctl history-pop</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-n">
+      <action name="Execute">
+        <command>dunstctl close-all</command>
+      </action>
+    </keybind>
+    <!-- Volume control -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume 0 +2%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume 0 -2%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>pactl set-sink-mute 0 toggle</command>
+      </action>
+    </keybind>
+    <!-- Vpn -->
+    <!-- <keybind key="W-S-v"> -->
+      <!-- <action name="Execute"> -->
+        <!-- <command>~/.config/polybar/scripts/openvpn_client.sh change</command> -->
+      <!-- </action> -->
+    <!-- </keybind> -->
+    <keybind key="W-S-v">
+      <action name="Execute">
+        <command>~/.config/polybar/scripts/wireguard_client.sh change</command>
+      </action>
+    </keybind>
+    <!-- System updates -->
+    <keybind key="W-S-u">
+      <action name="Execute">
+        <command>~/.config/polybar/scripts/yay_update.sh change</command>
+      </action>
+    </keybind>
+    <!-- Password menu -->
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>~/.config/polybar/scripts/password.sh</command>
+      </action>
+    </keybind>
+    <!-- Run htop -->
+    <keybind key="W-h">
+      <action name="Execute">
+        <command>terminator -x htop</command>
+      </action>
+    </keybind>
+    <!-- Change brightness -->
+    <keybind key="W-S-h">
+      <action name="Execute">
+        <command>~/.config/polybar/scripts/change_brightness.sh change</command>
       </action>
     </keybind>
     <!-- Keybindings Koljasha / -->
