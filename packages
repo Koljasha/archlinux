@@ -132,7 +132,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     qt5ct qt6ct kvantum
 
     openbox obconf menumaker plank polybar
-    polkit-gnome lxappearance-gtk3 picom feh zenity
+    polkit-gnome lxappearance-gtk3 picom feh
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
     neovim npm
@@ -150,7 +150,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     qt5ct qt6ct kvantum
 
     i3 polybar
-    polkit-gnome lxappearance-gtk3 picom feh zenity
+    polkit-gnome lxappearance-gtk3 picom feh
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
     neovim npm
@@ -168,7 +168,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     qt5ct qt6ct kvantum
 
     qtile
-    polkit-gnome lxappearance-gtk3 picom feh zenity
+    polkit-gnome lxappearance-gtk3 picom feh
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
     neovim npm
