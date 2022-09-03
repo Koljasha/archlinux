@@ -31,7 +31,7 @@ colors = {
 
 scripts = {
     "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
-    "updates": os.path.expanduser("~/.config/scripts/updates_qtile.sh"),
+    "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
     "alacritty": os.path.expanduser("~/.config/scripts/shell.sh alacritty"),
     "terminator": os.path.expanduser("~/.config/scripts/shell.sh terminator"),
     "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),

@@ -381,7 +381,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
 
 # System updates
-bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates_polybar.sh change
+bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates.sh change
 
 # Password menu
 bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
