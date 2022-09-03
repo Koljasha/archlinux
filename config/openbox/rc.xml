@@ -363,24 +363,24 @@
     <!-- Vpn -->
     <!-- <keybind key="W-S-v"> -->
       <!-- <action name="Execute"> -->
-        <!-- <command>~/.config/polybar/scripts/openvpn_client.sh change</command> -->
+        <!-- <command>~/.config/scripts/vpn_openvpn.sh change</command> -->
       <!-- </action> -->
     <!-- </keybind> -->
     <keybind key="W-S-v">
       <action name="Execute">
-        <command>~/.config/polybar/scripts/wireguard_client.sh change</command>
+        <command>~/.config/scripts/vpn_wireguard.sh change</command>
       </action>
     </keybind>
     <!-- System updates -->
     <keybind key="W-S-u">
       <action name="Execute">
-        <command>~/.config/polybar/scripts/yay_update.sh change</command>
+        <command>~/.config/scripts/updates_polybar.sh change</command>
       </action>
     </keybind>
     <!-- Password menu -->
     <keybind key="W-s">
       <action name="Execute">
-        <command>~/.config/polybar/scripts/password.sh</command>
+        <command>~/.config/scripts/password.sh</command>
       </action>
     </keybind>
     <!-- Run htop -->
@@ -392,7 +392,7 @@
     <!-- Change brightness -->
     <keybind key="W-S-h">
       <action name="Execute">
-        <command>~/.config/polybar/scripts/change_brightness.sh change</command>
+        <command>~/.config/scripts/brightness.sh change</command>
       </action>
     </keybind>
     <!-- Keybindings Koljasha / -->
