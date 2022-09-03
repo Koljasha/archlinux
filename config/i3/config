@@ -354,8 +354,8 @@ for_window [ class="isaac-ng.exe" ] floating enable
 #
 
 # Terminal
-bindsym $mod+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh alacritty
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/scripts/shell.sh terminator
+bindsym $mod+Return exec --no-startup-id ~/.config/scripts/shell.sh alacritty
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh terminator
 
 # Browser
 bindsym $mod+b exec --no-startup-id qutebrowser
@@ -377,20 +377,20 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Vpn
-# bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/scripts/openvpn_client.sh change
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/polybar/scripts/wireguard_client.sh change
+# bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
 
 # System updates
-bindsym $mod+Shift+u exec --no-startup-id ~/.config/polybar/scripts/yay_update.sh change
+bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates_polybar.sh change
 
 # Password menu
-bindsym $mod+s exec --no-startup-id ~/.config/polybar/scripts/password.sh
+bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
 
 # Run htop
 bindsym $mod+h exec --no-startup-id terminator -x htop
 
 # Change brightness
-bindsym $mod+Shift+h exec --no-startup-id ~/.config/polybar/scripts/change_brightness.sh change
+bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
 
 # lock with i3lock:
 # bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png
