@@ -31,18 +31,18 @@ colors = {
 
 scripts = {
     "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
-    "updates": os.path.expanduser("~/.config/qtile/scripts/updates.sh"),
-    "alacritty": os.path.expanduser("~/.config/qtile/scripts/shell.sh alacritty"),
-    "terminator": os.path.expanduser("~/.config/qtile/scripts/shell.sh terminator"),
-    "openvpn": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh"),
-    "openvpn_change": os.path.expanduser("~/.config/qtile/scripts/openvpn.sh change"),
-    "wireguard": os.path.expanduser("~/.config/qtile/scripts/wireguard.sh"),
-    "wireguard_change": os.path.expanduser("~/.config/qtile/scripts/wireguard.sh change"),
-    "brightness": os.path.expanduser("~/.config/qtile/scripts/brightness.sh"),
-    "brightness_change": os.path.expanduser("~/.config/qtile/scripts/brightness.sh change"),
-    "keyboard": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh"),
-    "keyboard_change": os.path.expanduser("~/.config/qtile/scripts/keyboard.sh change"),
-    "password": os.path.expanduser("~/.config/qtile/scripts/password.sh"),
+    "updates": os.path.expanduser("~/.config/scripts/updates_qtile.sh"),
+    "alacritty": os.path.expanduser("~/.config/scripts/shell.sh alacritty"),
+    "terminator": os.path.expanduser("~/.config/scripts/shell.sh terminator"),
+    "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),
+    "openvpn_change": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh change"),
+    "wireguard": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh"),
+    "wireguard_change": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh change"),
+    "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
+    "brightness_change": os.path.expanduser("~/.config/scripts/brightness.sh change"),
+    "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
+    "keyboard_change": os.path.expanduser("~/.config/scripts/keyboard.sh change"),
+    "password": os.path.expanduser("~/.config/scripts/password.sh"),
 }
 
 @hook.subscribe.startup_once
