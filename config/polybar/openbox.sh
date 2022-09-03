@@ -6,8 +6,8 @@ killall -q polybar
 # polybar-msg cmd quit
 
 # polybar - change display output
-disp=`xrandr | grep "connected primary" | cut -d" " -f1`
-sed -i "s/--output.*--brightness/--output $disp --brightness/" ~/.config/polybar/scripts/change_brightness.sh
+# disp=`xrandr | grep "connected primary" | cut -d" " -f1`
+# sed -i "s/--output.*--brightness/--output $disp --brightness/" ~/.config/scripts/brightness.sh
 
 # ethernet interface
 ethernet=`nmcli device | grep 'ethernet' | awk '{ print $1 }'`
