@@ -24,7 +24,7 @@ fi
 
 if [[ $1 == 'change' ]]; then
     echo "%{F#55aa55}%{u#55aa55}%{+u}  Update%{u-}%{F-}"
-    terminator -m -x ~/.config/polybar/scripts/yay_update.sh terminal
+    terminator -x ~/.config/polybar/scripts/yay_update.sh terminal
 
     exit 0
 fi
