@@ -394,6 +394,12 @@
         <command>~/.config/scripts/brightness.sh change</command>
       </action>
     </keybind>
+    <!-- Change volume -->
+    <keybind key="W-h">
+      <action name="Execute">
+        <command>~/.config/scripts/volume.sh</command>
+      </action>
+    </keybind>
     <!-- Keybindings Koljasha / -->
     <keybind key="W-F1">
       <action name="GoToDesktop">

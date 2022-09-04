@@ -43,6 +43,7 @@ scripts = {
     "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
     "keyboard_change": os.path.expanduser("~/.config/scripts/keyboard.sh change"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
+    "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
 }
 
 @hook.subscribe.startup_once
@@ -159,6 +160,9 @@ keys = [
 
     # Change brightness
     Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
+
+    # Change volume
+    Key([mod], "h", lazy.spawn(scripts["volume"]), desc="Change volume"),
 
 ]
 

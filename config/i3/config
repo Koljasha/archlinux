@@ -401,6 +401,9 @@ bindsym $mod+t exec --no-startup-id terminator -x htop
 # Change brightness
 bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
 
+# Change volume
+bindsym $mod+h exec --no-startup-id ~/.config/scripts/volume.sh
+
 # lock with i3lock:
 # bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png
 
