@@ -155,7 +155,7 @@ keys = [
     Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
 
     # Run htop
-    Key([mod], "h", lazy.spawn("terminator -x htop"), desc="Run htop"),
+    Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
 
     # Change brightness
     Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),

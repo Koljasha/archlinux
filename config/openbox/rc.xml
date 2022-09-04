@@ -383,7 +383,7 @@
       </action>
     </keybind>
     <!-- Run htop -->
-    <keybind key="W-h">
+    <keybind key="W-t">
       <action name="Execute">
         <command>terminator -x htop</command>
       </action>

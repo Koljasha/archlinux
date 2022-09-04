@@ -396,7 +396,7 @@ bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates.sh change
 bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
 
 # Run htop
-bindsym $mod+h exec --no-startup-id terminator -x htop
+bindsym $mod+t exec --no-startup-id terminator -x htop
 
 # Change brightness
 bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
