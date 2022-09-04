@@ -72,7 +72,7 @@ keys = [
 
     ######### Menu #########
 
-    Key([mod], "d", lazy.spawn("dmenu_run -b"), desc="Run dmenu run"),
+    Key([mod], "d", lazy.spawn("dmenu_run -b -i"), desc="Run dmenu run"),
 
     Key([mod], "a", lazy.spawn("rofi -show drun"), desc="Run rofi drun"),
     Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Run rofi run"),
