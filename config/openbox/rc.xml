@@ -224,6 +224,9 @@
       </action>
     </keybind>
     <!-- Window  -->
+    <keybind key="W-S-space">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
     <keybind key="W-space">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -268,10 +271,6 @@
         <width>100%</width>
         <height>50%</height>
       </action>
-    </keybind>
-    <!-- Layouts -->
-    <keybind key="W-t">
-      <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Workspaces -->
     <keybind key="C-A-Left">
