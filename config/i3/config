@@ -332,13 +332,27 @@ mode "$mode_gaps_left" {
 # (name of class - command: xprop)
 assign [class="firefox"] $workspace5
 assign [class="qutebrowser"] $workspace5
+for_window [class="firefox"] layout tabbed
+for_window [class="qutebrowser"] layout tabbed
+
 assign [class="Pcmanfm"] $workspace6
+for_window [class="Pcmanfm"] layout tabbed
+
 assign [class="vlc"] $workspace7
 assign [class="mpv"] $workspace7
+for_window [class="vlc"] layout tabbed
+for_window [class="mpv"] layout tabbed
+
 assign [class="Transmission-gtk"] $workspace8
+for_window [class="Transmission-gtk"] layout tabbed
+
 assign [class="VirtualBox"] $workspace9
 assign [class="Gnome-boxes"] $workspace9
+for_window [class="VirtualBox"] layout tabbed
+for_window [class="Gnome-boxes"] layout tabbed
+
 assign [class="remmina"] $workspace10
+for_window [class="remmina"] layout tabbed
 
 # Floating mode
 # floating_minimum_size 1366 x 768
