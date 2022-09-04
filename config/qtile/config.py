@@ -102,9 +102,9 @@ keys = [
     Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
 
-    Key([mod], "t", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod], "space", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([alt], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
 
     ######### Layouts #########
 
@@ -116,12 +116,6 @@ keys = [
 
     ######### Workspaces #########
 
-    # switch workspaces with Alt, Ctrl, Tab
-    Key([alt], "Tab",
-        lazy.group.next_window(),
-        # lazy.screen.next_group(skip_empty=True).when(layout="columns"),
-        # lazy.group.next_window().when(layout=["max"]),
-        desc="Change window"),
     Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
 
