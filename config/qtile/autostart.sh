@@ -28,3 +28,6 @@ dunst &
 # Brightness
 xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
 
+# Config values
+~/.config/scripts/autostart.sh
+
