@@ -187,6 +187,11 @@
     <keybind key="W-C-r">
       <action name="Restart"/>
     </keybind>
+    <keybind key="W-S-p">
+      <action name="Execute">
+        <command>~/.config/scripts/power.sh</command>
+      </action>
+    </keybind>
     <keybind key="W-C-p">
       <action name="Execute">
         <command>openbox --exit</command>
@@ -359,6 +364,18 @@
         <command>pactl set-sink-mute 0 toggle</command>
       </action>
     </keybind>
+    <!-- Change volume -->
+    <keybind key="W-h">
+      <action name="Execute">
+        <command>~/.config/scripts/volume.sh</command>
+      </action>
+    </keybind>
+    <!-- Change brightness -->
+    <keybind key="W-S-h">
+      <action name="Execute">
+        <command>~/.config/scripts/brightness.sh change</command>
+      </action>
+    </keybind>
     <!-- Vpn -->
     <!-- <keybind key="W-S-v"> -->
       <!-- <action name="Execute"> -->
@@ -386,18 +403,6 @@
     <keybind key="W-t">
       <action name="Execute">
         <command>terminator -x htop</command>
-      </action>
-    </keybind>
-    <!-- Change brightness -->
-    <keybind key="W-S-h">
-      <action name="Execute">
-        <command>~/.config/scripts/brightness.sh change</command>
-      </action>
-    </keybind>
-    <!-- Change volume -->
-    <keybind key="W-h">
-      <action name="Execute">
-        <command>~/.config/scripts/volume.sh</command>
       </action>
     </keybind>
     <!-- Keybindings Koljasha / -->

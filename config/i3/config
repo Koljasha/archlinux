@@ -26,17 +26,20 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Control+r restart
 
 # Create Log out, Reboot, Poweroff bindings
-mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
-        bindsym $mod+Shift+l exec i3-msg exit
-        bindsym $mod+Shift+s exec systemctl -i suspend
-        bindsym $mod+Shift+r exec systemctl -i reboot
-        bindsym $mod+Shift+p exec systemctl -i poweroff
+# mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
+        # bindsym $mod+Shift+l exec i3-msg exit
+        # bindsym $mod+Shift+s exec systemctl -i suspend
+        # bindsym $mod+Shift+r exec systemctl -i reboot
+        # bindsym $mod+Shift+p exec systemctl -i poweroff
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]"
+        # # back to normal: Enter or Escape
+        # bindsym Return mode "default"
+        # bindsym Escape mode "default"
+# }
+# bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]"
+
+# Exit, Reboot, Poweroff
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/scripts/power.sh
 
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Control+p exec i3-msg exit
@@ -385,6 +388,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
+# Change volume
+bindsym $mod+h exec --no-startup-id ~/.config/scripts/volume.sh
+
+# Change brightness
+bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
+
 # Vpn
 # bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
@@ -397,12 +406,6 @@ bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
 
 # Run htop
 bindsym $mod+t exec --no-startup-id terminator -x htop
-
-# Change brightness
-bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
-
-# Change volume
-bindsym $mod+h exec --no-startup-id ~/.config/scripts/volume.sh
 
 # lock with i3lock:
 # bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png

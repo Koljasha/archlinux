@@ -44,6 +44,7 @@ scripts = {
     "keyboard_change": os.path.expanduser("~/.config/scripts/keyboard.sh change"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
+    "power": os.path.expanduser("~/.config/scripts/power.sh"),
 }
 
 @hook.subscribe.startup_once
@@ -68,6 +69,8 @@ keys = [
 
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config Qtile"),
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
+
+    Key([mod, "shift"], "p", lazy.spawn(scripts["power"]), desc="Exit | Reboot | Poweroff"),
 
     Key([mod, "control"], "p", lazy.shutdown(), desc="Shutdown Qtile"),
 
@@ -145,6 +148,12 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%"), desc="Volume down"),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
 
+    # Change volume
+    Key([mod], "h", lazy.spawn(scripts["volume"]), desc="Change volume"),
+
+    # Change brightness
+    Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
+
     # Vpn
     # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
     Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
@@ -157,12 +166,6 @@ keys = [
 
     # Run htop
     Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
-
-    # Change brightness
-    Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
-
-    # Change volume
-    Key([mod], "h", lazy.spawn(scripts["volume"]), desc="Change volume"),
 
 ]
 
