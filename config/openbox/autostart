@@ -33,7 +33,7 @@ dunst &
 xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
 
 # Polybar
-~/.config/polybar/openbox.sh &
+~/.config/polybar/polybar.sh openbox &
 
 # Plank
 plank &

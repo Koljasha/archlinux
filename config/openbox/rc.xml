@@ -199,7 +199,7 @@
     </keybind>
     <keybind key="W-p">
       <action name="Execute">
-        <command>~/.config/polybar/openbox.sh</command>
+        <command>~/.config/polybar/polybar.sh openbox</command>
       </action>
     </keybind>
     <!-- Menu -->

@@ -45,7 +45,7 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/scripts/power.sh
 bindsym $mod+Control+p exec i3-msg exit
 
 # Polybar restart
-bindsym $mod+p exec --no-startup-id ~/.config/polybar/i3.sh
+bindsym $mod+p exec --no-startup-id ~/.config/polybar/polybar.sh i3
 
 ######### Menu #########
 
@@ -443,5 +443,5 @@ exec --no-startup-id dunst &
 exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7
 
 # Polybar
-exec --no-startup-id ~/.config/polybar/i3.sh
+exec --no-startup-id ~/.config/polybar/polybar.sh i3
 
