@@ -24,14 +24,10 @@ if [[ -n $(pgrep -x polybar) ]]; then
     if [[ $1 == 'change' ]]; then
         terminator -x yay -Su --removemake --cleanafter
         polybar-msg cmd restart
-
-        exit 0
     fi
 else
     # for Qtile
     terminator -x yay -Su --removemake --cleanafter
     qtile cmd-obj -o cmd -f reload_config
-
-    exit 0
 fi
 
