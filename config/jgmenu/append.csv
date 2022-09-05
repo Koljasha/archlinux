@@ -2,7 +2,7 @@
 Lock,i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png,system-lock-screen
 Exit,^checkout(exit),system-shutdown
 ^tag(exit)
-Exit,/home/username/.config/jgmenu/exit.sh,system-log-out
+Exit,/home/username/.config/scripts/exit.sh,system-log-out
 Suspend,systemctl -i suspend,system-suspend
 Reboot,systemctl -i reboot,system-reboot
 Poweroff,systemctl -i poweroff,system-shutdown

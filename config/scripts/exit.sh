@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# exit script for Openbox and i3wm
+# exit script for Openbox, i3wm, Qtile
 
 if [[ -n $(pgrep -x openbox) ]]; then
     openbox --exit
