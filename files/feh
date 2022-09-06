@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+/usr/bin/feh --title "feh [%u of %l] - %F - %wx%h:%S" --scale-down "$@"
+
