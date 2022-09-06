@@ -12,7 +12,7 @@ fi
 
 if [[ $1 == 'change' ]]; then
     brightness=`seq 10 10 100 \
-                | rofi -dmenu -l 10 -select 70 -p Brightness`
+                | rofi -dmenu -l 10 -select $brightness -p Brightness`
                 # | dmenu -b -i -p Brightness:`
     if [[ $brightness == "" ]]; then
         exit 0
