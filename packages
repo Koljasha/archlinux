@@ -888,6 +888,36 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
         sudo systemctl enable x11vnc.service
     fi
     echo "Ok"
+
+    ###############
+
+    # enable hibernate
+    while [[ $hbr != "1" ]] && [[ $hbr != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable Hibernate"
+        echo "1) yes"
+        echo "2) no"
+        echo
+        echo "Warning! Read https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate"
+        echo "  -  need a created swap partition or a swap file"
+        echo "  -  the script will automatically create a resume hook"
+        echo "  -  you must manually specify resume=swap_partition in GRUB_CMDLINE_LINUX_DEFAULT"
+        echo "####################"
+        read -n1 -p">" hbr
+    done
+    echo; echo
+
+    if [[ $hbr == "1" ]]; then
+        sudo sed -i -e '/^HOOKS=/s/udev/udev resume/' /etc/mkinitcpio.conf
+        sudo mkinitcpio -P
+    else
+        sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
+        sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
+    fi
+    echo "Ok"
+
+    ###############
 fi
 
 ###############
