@@ -6,17 +6,25 @@
 
 declare -a options=(
 "Exit"
+"Suspend"
+"Hibernate"
 "Reboot"
 "PowerOff"
 )
 
 choice=`printf '%s\n' "${options[@]}" \
-        | rofi -dmenu -i -l 3 -p Exit`
+        | rofi -dmenu -i -l 5 -p Exit`
         # | dmenu -b -i -p Exit:`
 
 case $choice in
         Exit)
                 ~/.config/scripts/exit.sh
+                ;;
+        Suspend)
+                systemctl -i suspend
+                ;;
+        Hibernate)
+                systemctl -i hibernate
                 ;;
         Reboot)
                 systemctl -i reboot

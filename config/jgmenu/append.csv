@@ -4,5 +4,6 @@ Exit,^checkout(exit),system-shutdown
 ^tag(exit)
 Exit,/home/username/.config/scripts/exit.sh,system-log-out
 Suspend,systemctl -i suspend,system-suspend
+Hibernate,systemctl -i hibernate,system-hibernate
 Reboot,systemctl -i reboot,system-reboot
 Poweroff,systemctl -i poweroff,system-shutdown
