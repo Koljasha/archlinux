@@ -11,7 +11,7 @@ if (( $# == 0 )); then
 fi
 
 if [[ $1 == 'change' ]]; then
-    brightness=`seq 10 10 100 \
+    brightness=`seq 100 -10 10 \
                 | rofi -dmenu -l 10 -select $brightness -p Brightness`
                 # | dmenu -b -i -p Brightness:`
     if [[ $brightness == "" ]]; then

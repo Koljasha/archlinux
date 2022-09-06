@@ -34,7 +34,7 @@ if [[ $checker == '.' ]]; then
 fi
 ###
 
-volume=`echo -e "Mute\n100\n95\n90\n85\n80\n75\n70\n65\n60\n55\n50\n45\n40\n35\n30\n25\n20\n15\n10" \
+volume=`echo -e "100\n95\n90\n85\n80\n75\n70\n65\n60\n55\n50\n45\n40\n35\n30\n25\n20\n15\n10\nMute" \
         | rofi -dmenu -l 20 -select $volume -i -p Volume`
         # | dmenu -b -i -p Volume:`
 if [[ $volume == "" ]]; then
