@@ -15,8 +15,6 @@ checker=`echo $volume | awk '{ print $1/10 }'| grep -o "\."`
 if [[ $checker == '.' ]]; then
     integer=`echo $volume | awk '{ print $1/10 }'| cut -d'.' -f1`
     fractional=`echo $volume | awk '{ print $1/10 }'| cut -d'.' -f2`
-    echo $integer
-    echo $fractional
     case $fractional in
         1|2)
             volume="${integer}0"
