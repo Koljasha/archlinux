@@ -5,7 +5,7 @@
 ***
 #### Write Iso to Usb [Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_basic_command_line_utilities)
 ```
-# sudo dd bs=4M if=path/to/archlinux.iso of=/dev/sd_X_ conv=fsync oflag=direct status=progress
+# sudo dd bs=4M if=path/to/archlinux-x86_64.iso of=/dev/sd_X_ conv=fsync oflag=direct status=progress
 ```
 
 ***
