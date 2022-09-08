@@ -116,7 +116,7 @@ pipewire wireplumber pipewire-alsa pipewire-pulse
 fish tmux ranger vim
 terminator alacritty
 imagemagick ffmpeg
-gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
+gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols-2048-em
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
 arc-icon-theme breeze-icons
