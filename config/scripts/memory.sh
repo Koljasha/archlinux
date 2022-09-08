@@ -20,4 +20,4 @@ else
     busy_memory=`echo "$busy_memory Mb"`
 fi
 
-echo "U:$busy_memory | T:$full_memory"
+echo "$busy_memory | $full_memory"
