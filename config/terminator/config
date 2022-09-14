@@ -1,5 +1,6 @@
 [global_config]
-  title_transmit_bg_color = "#0087af"
+  title_transmit_bg_color = "#757575"
+  title_inactive_bg_color = "#222222"
   enabled_plugins = ,
   suppress_multiple_term_dialog = True
   title_use_system_font = False
