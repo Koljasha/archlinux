@@ -180,13 +180,13 @@ vmap <C-c> "+y
 " Ctrl-Shift-v
 " вставить из буфера vim  в режиме вставки: Ctrl-r + "
 
-" vsplit|split по номеру буфера
-nmap <Leader>vv :vertical sb
-nmap <Leader>vs :sb
-
 " vsplit|split
-nmap <Leader>VV :vsplit
-nmap <Leader>VS :split
+nmap <Leader>vv :vsplit
+nmap <Leader>vs :split
+
+" vsplit|split по номеру буфера
+nmap <Leader>VV :vertical sb
+nmap <Leader>VS :sb
 
 " сменить split
 nmap <C-Right> <C-W>l
