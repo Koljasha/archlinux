@@ -107,7 +107,7 @@ echo "Ok"
 packages="
 $drivers $headers reflector
 dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ntfs-3g gvfs gvfs-mtp wmctrl xclip xdotool
-git htop bashtop lm_sensors upower smartmontools lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight fzf pass
+git htop bashtop lm_sensors upower smartmontools dmidecode lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight fzf pass
 atool p7zip unrar unzip zip
 openssh freerdp rsync
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
