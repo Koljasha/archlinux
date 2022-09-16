@@ -105,9 +105,12 @@ echo "Ok"
 # Packages
 
 packages="
-$drivers $headers reflector
-dosfstools mtools net-tools man-db man-pages xdg-user-dirs trash-cli bash-completion ripgrep ntfs-3g gvfs gvfs-mtp wmctrl xclip xdotool
-git htop bashtop lm_sensors upower smartmontools dmidecode lesspipe pkgfile numlockx wget curl cmake ctags neofetch highlight fzf pass
+$drivers $headers reflector pkgfile man-db man-pages
+dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp
+fzf bash-completion ripgrep lesspipe highlight
+wmctrl xclip xdotool ctags trash-cli
+git pass numlockx wget curl cmake
+neofetch htop bashtop lm_sensors upower smartmontools dmidecode
 atool p7zip unrar unzip zip
 openssh freerdp rsync
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
