@@ -1,4 +1,4 @@
-# Host __hostname__
+# Host __name__
   # User __username__
   # Hostname __hostname__
   # IdentityFile ~/.ssh/__key__
