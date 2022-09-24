@@ -314,6 +314,11 @@
         <command>alacritty</command>
       </action>
     </keybind>
+    <keybind key="W-C-Return">
+      <action name="Execute">
+        <command>alacritty --command ranger</command>
+      </action>
+    </keybind>
     <!-- Browser -->
     <keybind key="W-b">
       <action name="Execute">

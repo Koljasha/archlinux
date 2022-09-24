@@ -368,6 +368,7 @@ for_window [ class="isaac-ng.exe" ] floating enable
 # Terminal
 bindsym $mod+Return exec --no-startup-id ~/.config/scripts/shell.sh alacritty
 bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh terminator
+bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
 
 # Browser
 bindsym $mod+b exec --no-startup-id qutebrowser

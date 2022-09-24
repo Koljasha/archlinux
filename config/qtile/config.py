@@ -128,6 +128,7 @@ keys = [
     # Terminal
     Key([mod], "Return", lazy.spawn(scripts["alacritty"]), desc="Launch terminal"),
     Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
+    Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
 
     # Browser
     Key([mod], "b", lazy.spawn("qutebrowser"), desc="Launch browser"),
