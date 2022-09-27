@@ -116,7 +116,7 @@ openssh freerdp rsync
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf gufw
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
-fish tmux ranger vim
+fish tmux ranger vim feh
 terminator alacritty
 imagemagick ffmpeg
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols-2048-em
@@ -135,7 +135,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     qt5ct qt6ct kvantum
 
     openbox obconf menumaker plank polybar
-    polkit-gnome lxappearance-gtk3 picom feh
+    polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
     neovim npm
@@ -153,7 +153,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     qt5ct qt6ct kvantum
 
     i3 polybar
-    polkit-gnome lxappearance-gtk3 picom feh
+    polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
     neovim npm
@@ -171,7 +171,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     qt5ct qt6ct kvantum
 
     qtile
-    polkit-gnome lxappearance-gtk3 picom feh
+    polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
     neovim npm
@@ -396,20 +396,8 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     sudo rm /usr/share/backgrounds/archlinux/archlinux.stw
     sudo rm /usr/share/backgrounds/archlinux/archbtw.png
 
-    # correct feh.desktop
-    sudo sed -i 's/Exec=feh --start-at %u/Exec=feh --title "feh [%%u of %%l] - %%F - %%wx%%h:%%S" --scale-down --start-at %f/' /usr/share/applications/feh.desktop
-    cp /usr/share/applications/feh.desktop ~/.local/share/applications/
-    # correct feh
-    sudo cp files/feh /usr/local/bin/feh
-
-    # mime cache for feh, qutebrowser
-    cp files/mimeinfo.cache ~/.local/share/applications/
-
     # jgmenu Exit for user
     sed -i "s/username/$username/" ~/.config/jgmenu/append.csv
-
-    # terminator size for i3
-    sudo cp files/terminator /usr/local/bin/terminator
 
     # terminator for plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
@@ -665,9 +653,17 @@ sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/system
 # systemd journal size
 sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=512M/' /etc/systemd/journald.conf
 
-# terminator max window
-sudo sed -i "s/^Exec=terminator/Exec=terminator -m/" /usr/share/applications/terminator.desktop
-cp /usr/share/applications/terminator.desktop ~/.local/share/applications/
+# /usr/local/bin
+sudo cp files/apps/terminator /usr/local/bin/terminator
+sudo cp files/apps/feh /usr/local/bin/feh
+
+# applications
+cp files/apps/terminator.desktop ~/.local/share/applications/
+cp files/apps/feh.desktop ~/.local/share/applications/
+cp files/apps/ranger.desktop ~/.local/share/applications/
+
+# mime cache
+cp files/apps/mimeinfo.cache ~/.local/share/applications/
 
 # enable change locale
 sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
