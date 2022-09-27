@@ -718,8 +718,8 @@ fish -c 'omf install agnoster'
 # install fzf plugins
 fish -c 'omf install fzf'
 fish -c 'set -U FZF_LEGACY_KEYBINDINGS 0; set -U FZF_PREVIEW_DIR_CMD "ls -lah"; set -U FZF_PREVIEW_FILE_CMD "head -n 20"; set -U FZF_COMPLETE 2'
-cp files/fzf.fish ~/.local/share/omf/pkg/fzf/conf.d/fzf.fish
-cp files/fzf_complete.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete.fish
+cp files/fish/fzf.fish ~/.local/share/omf/pkg/fzf/conf.d/fzf.fish
+cp files/fish/fzf_complete.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete.fish
 # clean oh-my-fish
 rm -rf ~/archlinux/oh-my-fish
 # exit status in fish agnoster theme
@@ -751,7 +751,7 @@ fish -c 'fish_update_completions'
     # ~/.local/conda/bin/conda update --all --yes
 
     # sed -i "s/# alias conda.update/alias conda.update/" ~/.bashrc
-    # cp files/conda.update.fish ~/.config/fish/functions/conda.update.fish
+    # cp files/fish/conda.update.fish ~/.config/fish/functions/conda.update.fish
 
     # echo "set PATH /home/$username/.local/conda/bin \$PATH" >> ~/.config/fish/config.fish
     # echo "" >> ~/.config/fish/config.fish
