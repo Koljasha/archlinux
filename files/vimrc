@@ -652,6 +652,40 @@ nmap <Leader>bl :Black <CR>
 " augroup end
 "" ----------------------------------------
 
+" Emmet - дополнение html
+" ---------------
+" https://github.com/mattn/emmet-vim
+Plug 'mattn/emmet-vim'
+" использование в режиме вставки: ,,
+" ---------------
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+autocmd FileType html,htmldjango,css EmmetInstall
+let g:user_emmet_leader_key=','
+
+let g:user_emmet_settings = {
+\  'variables': {
+\    'lang': 'ru',
+\    'title': 'Django'
+\    },
+\  'html': {
+\    'default_attributes': {
+\      'option': {'value': v:null},
+\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
+\    },
+\    'snippets': {
+\      'html:5': "<!DOCTYPE html>\n"
+\              ."<html lang=\"${lang}\">\n"
+\              ."<head>\n"
+\              ."\t<meta charset=\"${charset}\">\n"
+\              ."\t<title>${title}</title>\n"
+\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+\              ."</head>\n"
+\              ."<body>\n\t${child}|\n</body>\n"
+\              ."</html>",
+\    },
+\  },
+\}
 " ----------------------------------------
 " ----------------------------------------
 
@@ -665,8 +699,6 @@ if !has('nvim')
 
 	" https://github.com/prabirshrestha/asyncomplete.vim -- Async autocompletion for Vim 8 and Neovim
 	" https://github.com/prabirshrestha/asyncomplete-lsp.vim -- Provide Language Server Protocol autocompletion source
-
-	" https://github.com/mattn/emmet-vim -- support for expanding abbreviations similar to emmet
 	" ---------------
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'mattn/vim-lsp-settings'
@@ -712,38 +744,6 @@ if !has('nvim')
 	" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 	inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-	Plug 'mattn/emmet-vim'
-	" использование в режиме вставки: ,,
-
-	let g:user_emmet_mode='i'
-	let g:user_emmet_install_global = 0
-	autocmd FileType html,htmldjango,css EmmetInstall
-	let g:user_emmet_leader_key=','
-
-	let g:user_emmet_settings = {
-	\  'variables': {
-	\    'lang': 'ru',
-	\    'title': 'Django'
-	\    },
-	\  'html': {
-	\    'default_attributes': {
-	\      'option': {'value': v:null},
-	\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
-	\    },
-	\    'snippets': {
-	\      'html:5': "<!DOCTYPE html>\n"
-	\              ."<html lang=\"${lang}\">\n"
-	\              ."<head>\n"
-	\              ."\t<meta charset=\"${charset}\">\n"
-	\              ."\t<title>${title}</title>\n"
-	\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-	\              ."</head>\n"
-	\              ."<body>\n\t${child}|\n</body>\n"
-	\              ."</html>",
-	\    },
-	\  },
-	\}
 " ----------------------------------------
 endif
 " ----------------------------------------
@@ -856,7 +856,8 @@ local lspconfig = require('lspconfig')
 -- >sudo npm i -g emmet-ls
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'bashls', 'emmet_ls' }
+-- local servers = { 'pyright', 'bashls', 'emmet_ls' }
+local servers = { 'pyright', 'bashls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -864,9 +865,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.emmet_ls.setup({
-    filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-})
+-- lspconfig.emmet_ls.setup({
+--   filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+-- })
 
 -- luasnip setup
 local luasnip = require 'luasnip'
