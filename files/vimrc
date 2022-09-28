@@ -481,7 +481,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
 " ---------------
-nmap <Leader>ff :FZF <CR>
+nmap <Leader>zz :FZF <CR>
 " for close use Ctrl-c
 " ---------------
 " ----------------------------------------
