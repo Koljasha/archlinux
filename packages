@@ -112,8 +112,8 @@ wmctrl xclip xdotool ctags trash-cli
 git pass numlockx wget curl cmake
 neofetch htop lm_sensors upower smartmontools dmidecode
 atool p7zip unrar unzip zip
-openssh freerdp rsync
-openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf gufw
+openssh freerdp rsync gufw
+openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
 fish tmux ranger vim feh
