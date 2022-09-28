@@ -116,7 +116,10 @@ openssh freerdp rsync gufw
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
-fish tmux ranger vim feh
+fish tmux ranger feh
+python-pip python-pynvim
+vim neovim
+nodejs npm pyright bash-language-server
 terminator alacritty
 imagemagick ffmpeg
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols-2048-em
@@ -138,7 +141,6 @@ if [[ $de == "koljasha_openbox" ]]; then
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
-    neovim npm
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
@@ -156,7 +158,6 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
-    neovim npm
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
@@ -174,7 +175,6 @@ elif [[ $de == "koljasha_qtile" ]]; then
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
-    neovim npm
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
@@ -699,15 +699,8 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 fi
 
-# plugins for Neovim
-if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
-    sudo npm i -g pyright
-    sudo npm i -g bash-language-server
-    sudo npm i -g emmet-ls
-
-    # install nvim plugins
-    nvim -c PlugInstall
-fi
+# install nvim plugins
+nvim -c PlugInstall
 ###############
 
 # install oh-my-fish
