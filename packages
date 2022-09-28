@@ -116,7 +116,7 @@ openssh freerdp rsync gufw
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
-fish tmux ranger feh
+fish tmux feh ranger ueberzug ffmpegthumbnailer
 python-pip python-pynvim
 vim neovim
 nodejs npm pyright bash-language-server
