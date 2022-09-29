@@ -144,7 +144,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
-    remmina samba x11vnc libvncserver
+    remmina samba x11vnc
     vlc
     "
 elif [[ $de == "koljasha_i3wm" ]]; then
@@ -161,7 +161,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
-    remmina samba x11vnc libvncserver
+    remmina samba x11vnc
     vlc
     "
 elif [[ $de == "koljasha_qtile" ]]; then
@@ -178,7 +178,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     baobab file-roller gnome-screenshot gnome-calculator gnome-terminal
-    remmina samba x11vnc libvncserver
+    remmina samba x11vnc
     vlc
     "
 elif [[ $de == "xfce" ]]; then
