@@ -328,6 +328,9 @@ mode "$mode_gaps_left" {
 
 # Workspace for app:
 # (name of class - command: xprop)
+
+for_window [class="Pcmanfm"] layout tabbed
+
 assign [class="firefox"] $workspace5
 assign [class="qutebrowser"] $workspace5
 for_window [class="firefox"] layout tabbed
