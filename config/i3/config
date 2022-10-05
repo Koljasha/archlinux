@@ -337,9 +337,7 @@ assign [class="Pcmanfm"] $workspace6
 for_window [class="Pcmanfm"] layout tabbed
 
 assign [class="vlc"] $workspace7
-assign [class="mpv"] $workspace7
 for_window [class="vlc"] layout tabbed
-for_window [class="mpv"] layout tabbed
 
 assign [class="Transmission-gtk"] $workspace8
 for_window [class="Transmission-gtk"] layout tabbed

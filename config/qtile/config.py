@@ -185,7 +185,7 @@ groups = [
     Group("4: "),
     Group("5: ", matches=[Match(wm_class=["firefox", "qutebrowser"])], layout="max"),
     Group("6: ", matches=[Match(wm_class=["Pcmanfm"])], layout="max"),
-    Group("7: ", matches=[Match(wm_class=["vlc", "mpv"])], layout="max"),
+    Group("7: ", matches=[Match(wm_class=["vlc"])], layout="max"),
     Group("8: ", matches=[Match(wm_class=["Transmission-gtk"])], layout="max"),
     Group("9: ", matches=[Match(wm_class=["VirtualBox Manager", "VirtualBox Machine", "Gnome-boxes"])], layout="max"),
     Group("10: ", matches=[Match(wm_class=["org.remmina.Remmina"])], layout="max"),
