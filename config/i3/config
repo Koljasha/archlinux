@@ -164,7 +164,7 @@ client.unfocused        $dark_gray          $dark_gray          $gray           
 client.urgent           $dark_gray          $light_gray         $dark_gray            $dark_gray
 
 # Borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
 ######### Bars #########
 

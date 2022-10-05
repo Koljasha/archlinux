@@ -201,7 +201,7 @@ layouts = [
                    border_focus_stack=[colors["gray"], colors["light_gray"]],
                    border_normal=[colors["dark_gray"], colors["dark_gray"]],
                    border_normal_stack=[colors["dark_gray"], colors["dark_gray"]],
-                   border_width=3,
+                   border_width=2,
                    margin=5),
     layout.Max(),
 
