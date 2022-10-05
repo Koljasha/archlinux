@@ -22,7 +22,7 @@ if [[ -n $(pgrep -x polybar) ]]; then
     fi
 
     if [[ $1 == 'change' ]]; then
-        terminator -x yay -Su --removemake --cleanafter
+        terminator -m -x yay -Su --removemake --cleanafter
         polybar-msg cmd restart
     fi
 else
