@@ -131,7 +131,6 @@ keys = [
     Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
 
     # Browser
-    Key([mod], "b", lazy.spawn("qutebrowser"), desc="Launch browser"),
     Key([mod, "shift"], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
     # File manager

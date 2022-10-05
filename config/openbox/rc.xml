@@ -320,11 +320,6 @@
       </action>
     </keybind>
     <!-- Browser -->
-    <keybind key="W-b">
-      <action name="Execute">
-        <command>qutebrowser</command>
-      </action>
-    </keybind>
     <keybind key="W-S-b">
       <action name="Execute">
         <command>firefox</command>
