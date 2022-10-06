@@ -25,19 +25,6 @@ bindsym $mod+Shift+r reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Control+r restart
 
-# Create Log out, Reboot, Poweroff bindings
-# mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
-        # bindsym $mod+Shift+l exec i3-msg exit
-        # bindsym $mod+Shift+s exec systemctl -i suspend
-        # bindsym $mod+Shift+r exec systemctl -i reboot
-        # bindsym $mod+Shift+p exec systemctl -i poweroff
-
-        # # back to normal: Enter or Escape
-        # bindsym Return mode "default"
-        # bindsym Escape mode "default"
-# }
-# bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]"
-
 # Exit, Reboot, Poweroff
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/scripts/power.sh
 
@@ -48,13 +35,6 @@ bindsym $mod+Control+p exec i3-msg exit
 bindsym $mod+p exec --no-startup-id ~/.config/polybar/polybar.sh i3
 
 ######### Menu #########
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run -i -p Run: -nb "#2f343f" -nf white -sb "#3C4049" -sf green
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -p App: -nb '#2f343f' -nf white -sb '#3C4049' -sf green"
 
 # dmenu
 bindsym $mod+d exec --no-startup-id "dmenu_run -b -i"
@@ -200,6 +180,133 @@ client.urgent           $dark_gray          $light_gray         $dark_gray      
 
 # Borders
 for_window [class="^.*"] border pixel 1
+
+#####################
+
+# Scripts for Koljasha
+
+#
+# Layouts and Workspaces
+#
+
+# Workspace for app:
+# (name of class - command: xprop)
+
+for_window [class="Pcmanfm"] layout tabbed
+
+assign [class="firefox"] $workspace5
+assign [class="qutebrowser"] $workspace5
+for_window [class="firefox"] layout tabbed
+for_window [class="qutebrowser"] layout tabbed
+
+assign [class="vlc"] $workspace7
+for_window [class="vlc"] layout tabbed
+
+assign [class="Transmission-gtk"] $workspace8
+for_window [class="Transmission-gtk"] layout tabbed
+
+assign [class="VirtualBox"] $workspace9
+assign [class="Gnome-boxes"] $workspace9
+for_window [class="VirtualBox"] layout tabbed
+for_window [class="Gnome-boxes"] layout tabbed
+
+assign [class="remmina"] $workspace10
+for_window [class="remmina"] layout tabbed
+
+# Floating mode
+# floating_minimum_size 1366 x 768
+for_window [ class="Terminator" ] floating enable
+for_window [ class="Gvim" ] floating enable
+for_window [ class="gnome-calculator" ] floating enable
+for_window [ class="Gnome-screenshot" ] floating enable
+for_window [ class="torbrowser-launcher" ] floating enable
+for_window [ class="isaac-ng.exe" ] floating enable
+
+#
+# Apps
+#
+
+# Terminal
+bindsym $mod+Return exec --no-startup-id ~/.config/scripts/shell.sh alacritty
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh terminator
+bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
+
+# Browser
+bindsym $mod+b exec --no-startup-id firefox
+
+# File manager
+bindsym $mod+Control+b exec --no-startup-id pcmanfm
+
+# Run htop
+bindsym $mod+t exec --no-startup-id terminator -x htop
+
+# lock with i3lock:
+# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png
+
+#
+# Execute on start
+#
+
+# set screen resolution for Virtual Box
+# exec --no-startup-id xrandr -s 1360x768
+
+# Numlock on
+exec --no-startup-id numlockx on
+
+# Disable Xorg screensaver
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+
+# Transparency
+exec --no-startup-id picom
+
+# Backgroung image
+exec --no-startup-id feh --randomize --bg-scale /usr/share/backgrounds/archlinux/
+
+# PolicyKit Authentication Agent - Gnome
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# NetworkManager applet
+exec --no-startup-id nm-applet
+
+# Notifications
+exec --no-startup-id dunst &
+
+# Brightness
+exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7
+
+# Polybar
+exec --no-startup-id ~/.config/polybar/polybar.sh i3
+
+
+
+########################
+######### Zip ##########
+########################
+
+######### Main #########
+
+# Create Log out, Reboot, Poweroff bindings
+# mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]" {
+        # bindsym $mod+Shift+l exec i3-msg exit
+        # bindsym $mod+Shift+s exec systemctl -i suspend
+        # bindsym $mod+Shift+r exec systemctl -i reboot
+        # bindsym $mod+Shift+p exec systemctl -i poweroff
+
+        # # back to normal: Enter or Escape
+        # bindsym Return mode "default"
+        # bindsym Escape mode "default"
+# }
+# bindsym $mod+Shift+p mode "Poweroff|Reboot|Exit: Mod + [(P)oweroff, (R)eboot, (L)ogout, (S)uspend]"
+
+######### Menu #########
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run -i -p Run: -nb "#2f343f" -nf white -sb "#3C4049" -sf green
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -p App: -nb '#2f343f' -nf white -sb '#3C4049' -sf green"
 
 ######### Bars #########
 
@@ -353,100 +460,6 @@ for_window [class="^.*"] border pixel 1
         # bindsym Escape mode "default"
 # }
 
-#####################
-
-# Scripts for Koljasha
-
-#
-# Layouts and Workspaces
-#
-
-# Workspace for app:
-# (name of class - command: xprop)
-
-for_window [class="Pcmanfm"] layout tabbed
-
-assign [class="firefox"] $workspace5
-assign [class="qutebrowser"] $workspace5
-for_window [class="firefox"] layout tabbed
-for_window [class="qutebrowser"] layout tabbed
-
-assign [class="vlc"] $workspace7
-for_window [class="vlc"] layout tabbed
-
-assign [class="Transmission-gtk"] $workspace8
-for_window [class="Transmission-gtk"] layout tabbed
-
-assign [class="VirtualBox"] $workspace9
-assign [class="Gnome-boxes"] $workspace9
-for_window [class="VirtualBox"] layout tabbed
-for_window [class="Gnome-boxes"] layout tabbed
-
-assign [class="remmina"] $workspace10
-for_window [class="remmina"] layout tabbed
-
-# Floating mode
-# floating_minimum_size 1366 x 768
-for_window [ class="Terminator" ] floating enable
-for_window [ class="Gvim" ] floating enable
-for_window [ class="gnome-calculator" ] floating enable
-for_window [ class="Gnome-screenshot" ] floating enable
-for_window [ class="torbrowser-launcher" ] floating enable
-for_window [ class="isaac-ng.exe" ] floating enable
-
-#
-# Apps
-#
-
-# Terminal
-bindsym $mod+Return exec --no-startup-id ~/.config/scripts/shell.sh alacritty
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh terminator
-bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
-
-# Browser
-bindsym $mod+b exec --no-startup-id firefox
-
-# File manager
-bindsym $mod+Control+b exec --no-startup-id pcmanfm
-
-# Run htop
-bindsym $mod+t exec --no-startup-id terminator -x htop
-
-# lock with i3lock:
-# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png
-
-#
-# Execute on start
-#
-
-# set screen resolution for Virtual Box
-# exec --no-startup-id xrandr -s 1360x768
-
-# Numlock on
-exec --no-startup-id numlockx on
-
-# Disable Xorg screensaver
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
-
-# Transparency
-exec --no-startup-id picom
-
-# Backgroung image
-exec --no-startup-id feh --randomize --bg-scale /usr/share/backgrounds/archlinux/
-
-# PolicyKit Authentication Agent - Gnome
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# NetworkManager applet
-exec --no-startup-id nm-applet
-
-# Notifications
-exec --no-startup-id dunst &
-
-# Brightness
-exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7
-
-# Polybar
-exec --no-startup-id ~/.config/polybar/polybar.sh i3
+########################
+########################
 
