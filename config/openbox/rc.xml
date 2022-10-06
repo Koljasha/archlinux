@@ -235,13 +235,13 @@
       </action>
     </keybind>
     <!-- Brightness -->
-    <keybind key="W-S-h">
+    <keybind key="W-h">
       <action name="Execute">
         <command>~/.config/scripts/brightness.sh change</command>
       </action>
     </keybind>
     <!-- Volume -->
-    <keybind key="W-h">
+    <keybind key="W-z">
       <action name="Execute">
         <command>~/.config/scripts/volume.sh</command>
       </action>

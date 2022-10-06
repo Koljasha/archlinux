@@ -88,10 +88,10 @@ keys = [
     Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
 
     # Brightness
-    Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
+    Key([mod], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
 
     # Volume
-    Key([mod], "h", lazy.spawn(scripts["volume"]), desc="Change volume"),
+    Key([mod], "z", lazy.spawn(scripts["volume"]), desc="Change volume"),
 
     ######### System #########
 
