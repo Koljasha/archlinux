@@ -320,7 +320,7 @@
       </action>
     </keybind>
     <!-- Browser -->
-    <keybind key="W-S-b">
+    <keybind key="W-b">
       <action name="Execute">
         <command>firefox</command>
       </action>

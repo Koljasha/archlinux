@@ -369,7 +369,7 @@ bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh termin
 bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
 
 # Browser
-bindsym $mod+Shift+b exec --no-startup-id firefox
+bindsym $mod+b exec --no-startup-id firefox
 
 # File manager
 bindsym $mod+Control+b exec --no-startup-id pcmanfm
