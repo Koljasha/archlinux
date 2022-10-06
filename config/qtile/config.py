@@ -84,6 +84,36 @@ keys = [
 
     Key([mod], "grave", lazy.spawn("jgmenu_run"), desc="Run jgmenu"),
 
+    # Password
+    Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
+
+    # Brightness
+    Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
+
+    # Volume
+    Key([mod], "h", lazy.spawn(scripts["volume"]), desc="Change volume"),
+
+    ######### System #########
+
+    # Volume control
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%"), desc="Volume up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%"), desc="Volume down"),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
+
+    # Screenshot
+    Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
+
+    # Notifications
+    Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
+    Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
+
+    # Vpn
+    # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
+    Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
+
+    # System updates
+    Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
+
     ######### Window #########
 
     # Switch between windows
@@ -135,34 +165,6 @@ keys = [
 
     # File manager
     Key([mod, "control"], "b", lazy.spawn("pcmanfm"), desc="Launch file manager"),
-
-    # Screenshot
-    Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
-
-    # Notifications
-    Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
-    Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
-
-    # Volume control
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%"), desc="Volume up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%"), desc="Volume down"),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
-
-    # Change volume
-    Key([mod], "h", lazy.spawn(scripts["volume"]), desc="Change volume"),
-
-    # Change brightness
-    Key([mod, "shift"], "h", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
-
-    # Vpn
-    # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
-    Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
-
-    # System updates
-    Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
-
-    # Password menu
-    Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
 
     # Run htop
     Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),

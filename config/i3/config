@@ -67,6 +67,36 @@ bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 # jgmenu
 bindsym $mod+grave exec --no-startup-id jgmenu_run
 
+# Password
+bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
+
+# Brightness
+bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
+
+# Volume
+bindsym $mod+h exec --no-startup-id ~/.config/scripts/volume.sh
+
+######### System #########
+
+# Volume control
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Screenshot
+bindsym Print exec --no-startup-id gnome-screenshot --interactive
+
+# Notifications
+bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
+bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
+
+# Vpn
+# bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
+
+# System updates
+bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates.sh change
+
 ######### Window #########
 
 # change focus
@@ -373,34 +403,6 @@ bindsym $mod+b exec --no-startup-id firefox
 
 # File manager
 bindsym $mod+Control+b exec --no-startup-id pcmanfm
-
-# Screenshot
-bindsym Print exec --no-startup-id gnome-screenshot --interactive
-
-# Notifications
-bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
-bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
-
-# Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-
-# Change volume
-bindsym $mod+h exec --no-startup-id ~/.config/scripts/volume.sh
-
-# Change brightness
-bindsym $mod+Shift+h exec --no-startup-id ~/.config/scripts/brightness.sh change
-
-# Vpn
-# bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
-
-# System updates
-bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates.sh change
-
-# Password menu
-bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
 
 # Run htop
 bindsym $mod+t exec --no-startup-id terminator -x htop
