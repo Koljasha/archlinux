@@ -58,6 +58,15 @@ def make_urgent(window):
     new_state = prev_state | atom
     window.window.set_property("_NET_WM_STATE", list(new_state))
 
+@lazy.function
+def increase_gaps(qtile):
+    qtile.current_layout.margin += 5
+    qtile.current_group.layout_all()
+
+@lazy.function
+def decrease_gaps(qtile):
+    qtile.current_layout.margin = qtile.current_layout.margin-5 if qtile.current_layout.margin-5 > 0 else 0
+    qtile.current_group.layout_all()
 
 ######### Keybindings #########
 
@@ -147,6 +156,9 @@ keys = [
 
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+
+    Key([mod, "shift"], 'g', increase_gaps(), desc="Increase Gaps"),
+    Key([mod, "control"], 'g', decrease_gaps(), desc="Decrease Gaps"),
 
     ######### Workspaces #########
 
