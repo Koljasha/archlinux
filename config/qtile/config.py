@@ -219,6 +219,7 @@ layouts = [
                    margin=5),
     layout.Max(),
 
+    # layout.Floating(),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
