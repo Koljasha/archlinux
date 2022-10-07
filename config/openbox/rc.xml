@@ -298,10 +298,10 @@
       </action>
     </keybind>
     <!-- Window  -->
-    <keybind key="W-S-space">
+    <keybind key="W-space">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="W-space">
+    <keybind key="W-S-space">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
@@ -310,7 +310,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-Left">
+    <keybind key="W-S-Left">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
@@ -319,7 +319,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-Right">
+    <keybind key="W-S-Right">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>1/2</x>
@@ -328,7 +328,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-Up">
+    <keybind key="W-S-Up">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
@@ -337,7 +337,7 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="W-Down">
+    <keybind key="W-S-Down">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
