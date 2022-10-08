@@ -110,7 +110,7 @@ dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp
 fzf bash-completion ripgrep lesspipe highlight
 wmctrl xclip xdotool ctags trash-cli jq
 git pass numlockx wget curl
-neofetch htop lm_sensors upower smartmontools dmidecode
+neofetch htop lm_sensors cmatrix upower smartmontools dmidecode
 atool p7zip unrar unzip zip
 openssh freerdp rsync gufw
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
