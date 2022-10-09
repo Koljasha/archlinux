@@ -240,9 +240,6 @@ bindsym $mod+Control+b exec --no-startup-id pcmanfm
 # Run htop
 bindsym $mod+t exec --no-startup-id terminator -x htop
 
-# lock with i3lock:
-# bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -i /usr/share/backgrounds/archlinux.png
-
 #
 # Execute on start
 #
