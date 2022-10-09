@@ -440,6 +440,8 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
 
+    cp -r config/picom ~/.config/picom
+
     # enable picom autostart
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
@@ -467,6 +469,8 @@ elif [[ $de == "lxqt" ]]; then
     cp -r config/ranger ~/.config/ranger
     cp -r config/terminator ~/.config/terminator
     cp -r config/alacritty ~/.config/alacritty
+
+    cp -r config/picom ~/.config/picom
 
     # QT Environment
     mkdir ~/.config/lxqt
@@ -770,8 +774,8 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     echo; echo
 
     if [[ $vvsync == "2" ]]; then
-        sudo sed -i 's/^# vsync = false/vsync = false/' /etc/xdg/picom.conf
-        sudo sed -i 's/^vsync = true/# vsync = true/' /etc/xdg/picom.conf
+        sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
+        sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
     fi
     echo "Ok"
 fi
