@@ -15,6 +15,28 @@ font pango:Sans 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+######### Appearance #########
+
+# colors
+set $light_gray          #f3f4f5
+set $gray                #757575
+set $dark_gray           #222222
+
+set $red                 #bd2c40
+set $light_blue          #99d3ff
+
+# class                 border              background          text             indicator
+client.focused          $dark_gray          $gray               $dark_gray            $gray
+client.unfocused        $dark_gray          $dark_gray          $gray            $dark_gray
+client.urgent           $dark_gray          $light_gray         $dark_gray            $dark_gray
+
+# Borders
+for_window [class="^.*"] border pixel 1
+
+###############################
+######### Keybindings #########
+###############################
+
 ######### Main #########
 
 # kill focused window
@@ -77,6 +99,22 @@ bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh cha
 # System updates
 bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates.sh change
 
+######### Apps #########
+
+# Terminal
+bindsym $mod+Return exec --no-startup-id ~/.config/scripts/shell.sh alacritty
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh terminator
+bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
+
+# Browser
+bindsym $mod+b exec --no-startup-id firefox
+
+# File manager
+bindsym $mod+Control+b exec --no-startup-id pcmanfm
+
+# Run htop
+bindsym $mod+t exec --no-startup-id terminator -x htop
+
 ######### Window #########
 
 # change focus
@@ -124,18 +162,6 @@ bindsym $mod+Control+g gaps inner current minus 5
 
 ######### Workspaces #########
 
-# Workspaces
-set $workspace1 "1:  "
-set $workspace2 "2:  "
-set $workspace3 "3:  "
-set $workspace4 "4:  "
-set $workspace5 "5:  "
-set $workspace6 "6:  "
-set $workspace7 "7:  "
-set $workspace8 "8:  "
-set $workspace9 "9:  "
-set $workspace10 "10:  "
-
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -163,31 +189,19 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-######### Appearance #########
+######### Apps Layouts and Workspaces #########
 
-# colors
-set $light_gray          #f3f4f5
-set $gray                #757575
-set $dark_gray           #222222
-
-set $red                 #bd2c40
-set $light_blue          #99d3ff
-
-# class                 border              background          text             indicator
-client.focused          $dark_gray          $gray               $dark_gray            $gray
-client.unfocused        $dark_gray          $dark_gray          $gray            $dark_gray
-client.urgent           $dark_gray          $light_gray         $dark_gray            $dark_gray
-
-# Borders
-for_window [class="^.*"] border pixel 1
-
-#####################
-
-# Scripts for Koljasha
-
-#
-# Layouts and Workspaces
-#
+# Workspaces
+set $workspace1 "1:  "
+set $workspace2 "2:  "
+set $workspace3 "3:  "
+set $workspace4 "4:  "
+set $workspace5 "5:  "
+set $workspace6 "6:  "
+set $workspace7 "7:  "
+set $workspace8 "8:  "
+set $workspace9 "9:  "
+set $workspace10 "10:  "
 
 # Workspace for app:
 # (name of class - command: xprop)
@@ -214,7 +228,6 @@ assign [class="remmina"] $workspace10
 for_window [class="remmina"] layout tabbed
 
 # Floating mode
-# floating_minimum_size 1366 x 768
 for_window [ class="Terminator" ] floating enable
 for_window [ class="Gvim" ] floating enable
 for_window [ class="gnome-calculator" ] floating enable
@@ -222,27 +235,7 @@ for_window [ class="Gnome-screenshot" ] floating enable
 for_window [ class="torbrowser-launcher" ] floating enable
 for_window [ class="isaac-ng.exe" ] floating enable
 
-#
-# Apps
-#
-
-# Terminal
-bindsym $mod+Return exec --no-startup-id ~/.config/scripts/shell.sh alacritty
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/scripts/shell.sh terminator
-bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
-
-# Browser
-bindsym $mod+b exec --no-startup-id firefox
-
-# File manager
-bindsym $mod+Control+b exec --no-startup-id pcmanfm
-
-# Run htop
-bindsym $mod+t exec --no-startup-id terminator -x htop
-
-#
-# Execute on start
-#
+######### Execute on start #########
 
 # set screen resolution for Virtual Box
 # exec --no-startup-id xrandr -s 1360x768

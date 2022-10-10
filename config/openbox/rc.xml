@@ -176,17 +176,24 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+
+    <!-- -->
     <!-- Keybindings Koljasha -->
+    <!-- -->
+
     <!-- Main -->
+
     <keybind key="W-S-q">
       <action name="Close"/>
     </keybind>
+
     <keybind key="W-S-r">
       <action name="Reconfigure"/>
     </keybind>
     <keybind key="W-C-r">
       <action name="Restart"/>
     </keybind>
+
     <keybind key="W-S-p">
       <action name="Execute">
         <command>~/.config/scripts/power.sh</command>
@@ -202,12 +209,15 @@
         <command>~/.config/polybar/polybar.sh openbox</command>
       </action>
     </keybind>
+
     <!-- Menu -->
+
     <keybind key="W-d">
       <action name="Execute">
         <command>dmenu_run -b -i</command>
       </action>
     </keybind>
+
     <keybind key="W-a">
       <action name="Execute">
         <command>rofi -show drun</command>
@@ -223,30 +233,36 @@
         <command>rofi -show window</command>
       </action>
     </keybind>
+
     <keybind key="W-grave">
       <action name="Execute">
         <command>jgmenu_run</command>
       </action>
     </keybind>
+
     <!-- Password -->
     <keybind key="W-s">
       <action name="Execute">
         <command>~/.config/scripts/password.sh</command>
       </action>
     </keybind>
+
     <!-- Brightness -->
     <keybind key="W-h">
       <action name="Execute">
         <command>~/.config/scripts/brightness.sh change</command>
       </action>
     </keybind>
+
     <!-- Volume -->
     <keybind key="W-z">
       <action name="Execute">
         <command>~/.config/scripts/volume.sh</command>
       </action>
     </keybind>
+
     <!-- System  -->
+
     <!-- Volume control -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
@@ -263,12 +279,14 @@
         <command>pactl set-sink-mute 0 toggle</command>
       </action>
     </keybind>
+
     <!-- Screenshot -->
     <keybind key="Print">
       <action name="Execute">
         <command>gnome-screenshot --interactive</command>
       </action>
     </keybind>
+
     <!-- Notifications -->
     <keybind key="W-C-n">
       <action name="Execute">
@@ -280,6 +298,7 @@
         <command>dunstctl close-all</command>
       </action>
     </keybind>
+
     <!-- Vpn -->
     <!-- <keybind key="W-S-v"> -->
       <!-- <action name="Execute"> -->
@@ -291,16 +310,60 @@
         <command>~/.config/scripts/vpn_wireguard.sh change</command>
       </action>
     </keybind>
+
     <!-- System updates -->
     <keybind key="W-S-u">
       <action name="Execute">
         <command>~/.config/scripts/updates.sh change</command>
       </action>
     </keybind>
+
+    <!-- Apps -->
+
+    <!-- Terminal -->
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>terminator -m</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-Return">
+      <action name="Execute">
+        <command>alacritty</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-Return">
+      <action name="Execute">
+        <command>alacritty --command ranger</command>
+      </action>
+    </keybind>
+
+    <!-- Browser -->
+    <keybind key="W-b">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
+
+    <!-- File manager -->
+    <keybind key="W-C-b">
+      <action name="Execute">
+        <command>pcmanfm</command>
+      </action>
+    </keybind>
+
+    <!-- Run htop -->
+    <keybind key="W-t">
+      <action name="Execute">
+        <command>terminator -x htop</command>
+      </action>
+    </keybind>
+
     <!-- Window  -->
+
     <keybind key="W-space">
       <action name="ToggleShowDesktop"/>
     </keybind>
+
     <keybind key="W-S-space">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -346,7 +409,9 @@
         <height>50%</height>
       </action>
     </keybind>
+
     <!-- Workspaces -->
+
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
         <to>left</to>
@@ -359,6 +424,7 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+
     <keybind key="C-A-Up">
       <action name="SendToDesktop">
         <to>right</to>
@@ -371,42 +437,11 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <!-- Apps -->
-    <!-- Terminal -->
-    <keybind key="W-Return">
-      <action name="Execute">
-        <command>terminator -m</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-Return">
-      <action name="Execute">
-        <command>alacritty</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-Return">
-      <action name="Execute">
-        <command>alacritty --command ranger</command>
-      </action>
-    </keybind>
-    <!-- Browser -->
-    <keybind key="W-b">
-      <action name="Execute">
-        <command>firefox</command>
-      </action>
-    </keybind>
-    <!-- File manager -->
-    <keybind key="W-C-b">
-      <action name="Execute">
-        <command>pcmanfm</command>
-      </action>
-    </keybind>
-    <!-- Run htop -->
-    <keybind key="W-t">
-      <action name="Execute">
-        <command>terminator -x htop</command>
-      </action>
-    </keybind>
+
+    <!-- -->
     <!-- Keybindings Koljasha / -->
+    <!-- -->
+
     <keybind key="W-F1">
       <action name="GoToDesktop">
         <to>1</to>

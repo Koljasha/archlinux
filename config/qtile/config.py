@@ -123,6 +123,22 @@ keys = [
     # System updates
     Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
 
+    ######### Apps #########
+
+    # Terminal
+    Key([mod], "Return", lazy.spawn(scripts["alacritty"]), desc="Launch terminal"),
+    Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
+    Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
+
+    # Browser
+    Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
+
+    # File manager
+    Key([mod, "control"], "b", lazy.spawn("pcmanfm"), desc="Launch file manager"),
+
+    # Run htop
+    Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
+
     ######### Window #########
 
     # Switch between windows
@@ -164,22 +180,6 @@ keys = [
 
     Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
-
-    ######### Apps #########
-
-    # Terminal
-    Key([mod], "Return", lazy.spawn(scripts["alacritty"]), desc="Launch terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
-    Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
-
-    # Browser
-    Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
-
-    # File manager
-    Key([mod, "control"], "b", lazy.spawn("pcmanfm"), desc="Launch file manager"),
-
-    # Run htop
-    Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
 
 ]
 
