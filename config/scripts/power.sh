@@ -5,14 +5,14 @@
 #
 
 declare -a options=(
-"Exit"
-"Suspend"
-"Hibernate"
-"Reboot"
-"PowerOff"
+"Exit\0icon\x1fsystem-log-out"
+"Suspend\0icon\x1fsystem-suspend"
+"Hibernate\0icon\x1fsystem-hibernate"
+"Reboot\0icon\x1fsystem-reboot"
+"PowerOff\0icon\x1fsystem-shutdown"
 )
 
-choice=`printf '%s\n' "${options[@]}" \
+choice=`printf '%b\n' "${options[@]}" \
         | rofi -dmenu -i -l 2 -p Exit`
         # | dmenu -b -i -p Exit:`
 
