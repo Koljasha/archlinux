@@ -11,7 +11,19 @@ if (( $# == 0 )); then
 fi
 
 if [[ $1 == 'change' ]]; then
-    brightness=`seq 100 -10 10 \
+    declare -a options=(
+    "100\0icon\x1fvideo-display"
+    "90\0icon\x1fvideo-display"
+    "80\0icon\x1fvideo-display"
+    "70\0icon\x1fvideo-display"
+    "60\0icon\x1fvideo-display"
+    "50\0icon\x1fvideo-display"
+    "40\0icon\x1fvideo-display"
+    "30\0icon\x1fvideo-display"
+    "20\0icon\x1fvideo-display"
+    "10\0icon\x1fvideo-display"
+    )
+    brightness=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $brightness -p Brightness`
                 # | dmenu -b -i -p Brightness:`
     if [[ $brightness == "" ]]; then
