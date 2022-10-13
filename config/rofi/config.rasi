@@ -147,4 +147,5 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@import "/usr/share/rofi/themes/android_notification.rasi"
+/* @import "/usr/share/rofi/themes/android_notification.rasi" */
+@import "~/.config/rofi/android_notification.rasi"

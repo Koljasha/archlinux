@@ -33,7 +33,7 @@ fi
 ###
 
 volume=`echo -e "100\n95\n90\n85\n80\n75\n70\n65\n60\n55\n50\n45\n40\n35\n30\n25\n20\n15\n10\nMute" \
-        | rofi -dmenu -l 20 -select $volume -i -p Volume`
+        | rofi -dmenu -l 7 -select $volume -i -p Volume`
         # | dmenu -b -i -p Volume:`
 if [[ $volume == "" ]]; then
         exit 0

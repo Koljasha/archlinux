@@ -13,7 +13,7 @@ declare -a options=(
 )
 
 choice=`printf '%s\n' "${options[@]}" \
-        | rofi -dmenu -i -l 5 -p Exit`
+        | rofi -dmenu -i -l 2 -p Exit`
         # | dmenu -b -i -p Exit:`
 
 case $choice in
