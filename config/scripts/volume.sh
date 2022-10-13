@@ -32,7 +32,29 @@ if [[ $checker == '.' ]]; then
 fi
 ###
 
-volume=`echo -e "100\n95\n90\n85\n80\n75\n70\n65\n60\n55\n50\n45\n40\n35\n30\n25\n20\n15\n10\nMute" \
+declare -a options=(
+"100\0icon\x1faudio-volume-high"
+"95\0icon\x1faudio-volume-high"
+"90\0icon\x1faudio-volume-high"
+"85\0icon\x1faudio-volume-high"
+"80\0icon\x1faudio-volume-high"
+"75\0icon\x1faudio-volume-high"
+"70\0icon\x1faudio-volume-medium"
+"65\0icon\x1faudio-volume-medium"
+"60\0icon\x1faudio-volume-medium"
+"55\0icon\x1faudio-volume-medium"
+"50\0icon\x1faudio-volume-medium"
+"45\0icon\x1faudio-volume-medium"
+"40\0icon\x1faudio-volume-low"
+"35\0icon\x1faudio-volume-low"
+"30\0icon\x1faudio-volume-low"
+"25\0icon\x1faudio-volume-low"
+"20\0icon\x1faudio-volume-low"
+"15\0icon\x1faudio-volume-low"
+"10\0icon\x1faudio-volume-low"
+"Mute\0icon\x1faudio-volume-off"
+)
+volume=`printf '%b\n' "${options[@]}" \
         | rofi -dmenu -l 6 -select $volume -i -p Volume`
         # | dmenu -b -i -p Volume:`
 if [[ $volume == "" ]]; then
