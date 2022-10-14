@@ -173,8 +173,8 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
-    Key([mod, "shift"], 'g', increase_gaps(), desc="Increase Gaps"),
-    Key([mod, "control"], 'g', decrease_gaps(), desc="Decrease Gaps"),
+    Key([mod, "shift"], "g", increase_gaps(), desc="Increase Gaps"),
+    Key([mod, "control"], "g", decrease_gaps(), desc="Decrease Gaps"),
 
     ######### Workspaces #########
 
@@ -343,7 +343,7 @@ screens = [
                                 borderwidth=2),
                 widget.Sep(padding=5),
                 widget.Spacer(length=3),
-                widget.TaskList(foreground=colors["white"], title_width_method='uniform'),
+                widget.TaskList(foreground=colors["white"], title_width_method="uniform"),
 
                 # Right
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
