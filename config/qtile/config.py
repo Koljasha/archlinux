@@ -53,10 +53,11 @@ def autostart():
 
 @hook.subscribe.client_managed
 def make_urgent(window):
-    atom = set([qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]])
-    prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
-    new_state = prev_state | atom
-    window.window.set_property("_NET_WM_STATE", list(new_state))
+    if qtile.current_window is None or qtile.current_window.wid != window.wid:
+        atom = set([qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]])
+        prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
+        new_state = prev_state | atom
+        window.window.set_property("_NET_WM_STATE", list(new_state))
 
 @lazy.function
 def increase_gaps(qtile):
