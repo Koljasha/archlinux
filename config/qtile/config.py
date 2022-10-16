@@ -114,8 +114,8 @@ keys = [
     ######### System #########
 
     # Volume control
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%"), desc="Volume up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%"), desc="Volume down"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc="Volume up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc="Volume down"),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
 
     # Screenshot

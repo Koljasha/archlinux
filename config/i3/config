@@ -81,8 +81,8 @@ bindsym $mod+z exec --no-startup-id ~/.config/scripts/volume.sh
 ######### System #########
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Screenshot
