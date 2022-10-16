@@ -10,6 +10,7 @@ from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 
 from libqtile.log_utils import logger
+from time import sleep
 
 
 ######### Variables & functions #########
@@ -58,6 +59,13 @@ def make_urgent(window):
         prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
         new_state = prev_state | atom
         window.window.set_property("_NET_WM_STATE", list(new_state))
+
+    # Pcmanfm always urgent without wm_state, maybe some bug...
+    no_urgent=("Pcmanfm",)
+    if window._wm_class[1] in no_urgent:
+        window.toggle_maximize()
+        sleep(0.1)
+        window.toggle_maximize()
 
 @lazy.function
 def increase_gaps(qtile):
