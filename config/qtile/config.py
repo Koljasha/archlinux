@@ -60,13 +60,6 @@ def make_urgent(window):
         new_state = prev_state | atom
         window.window.set_property("_NET_WM_STATE", list(new_state))
 
-    # Pcmanfm always urgent without wm_state, maybe some bug...
-    no_urgent=("Pcmanfm",)
-    if window._wm_class[1] in no_urgent:
-        window.toggle_maximize()
-        sleep(0.1)
-        window.toggle_maximize()
-
 @lazy.function
 def increase_gaps(qtile):
     qtile.current_layout.margin += 5
