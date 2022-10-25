@@ -355,7 +355,7 @@ noremap <leader>oo :Exp <CR>
 " Polyglot - коллекция языковых пакетов для Vim
 " Xkbswitch - смена на En при переходе в командный режим
 "
-" Black - форматирование кода Python
+" Black - форматирование кода Python - отключен
 "
 " ----------------------------------------
 " ----------------------------------------
@@ -641,9 +641,9 @@ let g:XkbSwitchIMappingsTr = {
 " для Neovim нужно: pip install pynvim
 " ---------------
 " https://github.com/psf/black
-Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+" Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 " ---------------
-nmap <Leader>bl :Black <CR>
+" nmap <Leader>bl :Black <CR>
 
 " run Black on save
 " augroup black_on_save
