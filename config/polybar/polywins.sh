@@ -107,7 +107,7 @@ active_left="%{F$active_text_color}"
 active_right="%{F-}"
 inactive_left="%{F$inactive_text_color}"
 inactive_right="%{F-}"
-separator="%{F$inactive_text_color}$separator%{F-}"
+separator="%{F$active_text_color}$separator%{F-}"
 
 if [ -n "$active_underline" ]; then
 	active_left="${active_left}%{+u}%{u$active_underline}"
