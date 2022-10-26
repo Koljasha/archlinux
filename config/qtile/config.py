@@ -209,7 +209,7 @@ groups = [
     Group("10: ", matches=[Match(wm_class=["org.remmina.Remmina"])], layout="max"),
 
     ScratchPad("scratchpad", [
-        DropDown("terminal", "alacritty", opacity=0.95, height=0.4),
+        DropDown("terminal", "alacritty", opacity=0.95, height=0.45),
     ])
 ]
 
