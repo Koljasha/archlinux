@@ -5,12 +5,11 @@ import os
 import subprocess
 
 from libqtile import hook, layout, bar, widget, qtile
-from libqtile.config import Key, Click, Drag, Group, Match, Screen
+from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 
 from libqtile.log_utils import logger
-from time import sleep
 
 
 ######### Variables & functions #########
@@ -130,7 +129,10 @@ keys = [
     # Terminal
     Key([mod], "Return", lazy.spawn(scripts["alacritty"]), desc="Launch terminal"),
     Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
+
     Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
+
+    Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
 
     # Browser
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
@@ -205,6 +207,10 @@ groups = [
     Group("8: ", matches=[Match(wm_class=["Transmission-gtk"])], layout="max"),
     Group("9: ", matches=[Match(wm_class=["VirtualBox Manager", "VirtualBox Machine", "Gnome-boxes"])], layout="max"),
     Group("10: ", matches=[Match(wm_class=["org.remmina.Remmina"])], layout="max"),
+
+    ScratchPad("scratchpad", [
+        DropDown("terminal", "alacritty", opacity=0.95, height=0.4),
+    ])
 ]
 
 dgroups_key_binder = simple_key_binder(mod)
