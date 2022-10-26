@@ -242,12 +242,6 @@ nmap <S-F9> :set mouse=a <CR>
 " zg - добавить в словарь
 " zw - убрать из словаря:
 " zG - игнорировать слово:
-
-" F12 - полная русская раскладка (на выборе English)
-" map <F12> :set keymap=russian-jcukenwin <CR>
-" imap <F12> <Esc>:set keymap=russian-jcukenwin <CR>i
-" map <S-F12> :set keymap= <CR>
-" imap <S-F12> <Esc>:set keymap= <CR>i
 " ----------------------------------------
 " ----------------------------------------
 "  Terminal
