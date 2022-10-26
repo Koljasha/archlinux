@@ -132,8 +132,6 @@ keys = [
 
     Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
 
-    Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
-
     # Browser
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
@@ -179,6 +177,8 @@ keys = [
 
     Key([mod, "shift"], "g", increase_gaps(), desc="Increase Gaps"),
     Key([mod, "control"], "g", decrease_gaps(), desc="Decrease Gaps"),
+
+    Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
 
     ######### Workspaces #########
 
