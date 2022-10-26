@@ -8,14 +8,11 @@ if [[ -n $(pgrep -x polybar) ]]; then
     # for Polybar (Openbox, i3wm)
     if (( $# == 0 )); then
         yay=`yay -Qu | wc -l`
-        arch=`pacman -Qu | wc -l`
-        aur=`echo $yay $arch | awk '{ print $1-$2 }'`
-        data="Arch:$arch | Aur:$aur"
 
         if (( $yay != 0 )); then
-            echo "%{F#ffb52a}%{u#ffb52a}%{+u}  $data%{u-}%{F-}"
+            echo "%{F#ffb52a}%{u#ffb52a}%{+u}  $yay Updates%{u-}%{F-}"
         else
-            echo "%{F#99d3ff}%{u#99d3ff}%{+u}  $data%{u-}%{F-}"
+            echo "%{F#99d3ff}%{u#99d3ff}%{+u}  No Updates%{u-}%{F-}"
         fi
 
         exit 0
