@@ -4,7 +4,7 @@
 # lock script
 #
 
-terminator --geometry=1920x1080 --fullscreen --execute cmatrix -Lrb &
+terminator --geometry=1920x1080 --fullscreen --execute "cmatrix -Lrb" &
 sleep 1
 i3lock -c 000000 -n
 killall cmatrix
