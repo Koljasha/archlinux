@@ -11,3 +11,8 @@ colorscheme PaperColor
 " размер окна
 set lines=45 columns=150
 
+" убрать Toolbar
+set guioptions-=T
+" убрать Menu
+" set guioptions-=m
+
