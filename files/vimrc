@@ -364,9 +364,9 @@ noremap <leader>OO :Vex <CR>
 " Polyglot - коллекция языковых пакетов для Vim
 " Xkbswitch - смена на En при переходе в командный режим
 "
-" Black - форматирование кода Python - отключен
-"
 " ----------------------------------------
+" ----------------------------------------
+" IDE
 " ----------------------------------------
 " IDE for Vim
 " ----------------------------------------
@@ -646,22 +646,10 @@ let g:XkbSwitchIMappingsTr = {
 " ----------------------------------------
 " ----------------------------------------
 
-" Black - форматирование кода Python
-" для Neovim нужно: pip install pynvim
-" ---------------
-" https://github.com/psf/black
-" Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
-" ---------------
-" nmap <Leader>bl :Black <CR>
+" IDE
+" ----------------------------------------
 
-" run Black on save
-" augroup black_on_save
-  " autocmd!
-  " autocmd BufWritePre *.py Black
-" augroup end
-"" ----------------------------------------
-
-" Emmet - дополнение html
+" Emmet
 " ---------------
 " https://github.com/mattn/emmet-vim
 Plug 'mattn/emmet-vim'
@@ -695,6 +683,23 @@ let g:user_emmet_settings = {
 \    },
 \  },
 \}
+" ----------------------------------------
+
+" Black - форматирование кода Python
+" для Neovim нужно: pip install pynvim
+" ---------------
+" https://github.com/psf/black
+" Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+" ---------------
+" nmap <Leader>bl :Black <CR>
+
+" run Black on save
+" augroup black_on_save
+  " autocmd!
+  " autocmd BufWritePre *.py Black
+" augroup end
+" ----------------------------------------
+
 " ----------------------------------------
 " ----------------------------------------
 
@@ -755,6 +760,7 @@ if !has('nvim')
 	inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 " ----------------------------------------
 endif
+
 " ----------------------------------------
 " ----------------------------------------
 
