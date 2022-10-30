@@ -107,7 +107,7 @@ echo "Ok"
 packages="
 $drivers $headers reflector pkgfile man-db man-pages
 dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp
-fzf fd ripgrep bat jq highlight
+fzf fd ripgrep bat jq tree highlight
 wmctrl xclip xdotool bash-completion lesspipe ctags
 git pass trash-cli numlockx wget curl
 neofetch htop lm_sensors cmatrix upower smartmontools dmidecode
