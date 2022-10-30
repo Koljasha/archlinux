@@ -8,6 +8,12 @@
 " убираем совместимость с vi
 set nocompatible
 
+" 256 цветов
+set t_Co=256
+
+" мышь во всех режимах
+set mouse=a
+
 " автоматически обновлять файл при его изменении
 set autoread
 
@@ -20,18 +26,8 @@ set noswapfile
 " не выгружать буфер, когда переключаемся на другой файл
 set hidden
 
-" .vimrc из каталога запуска
-" set exrc
-" set secure
-
 " определение типа файла
 filetype plugin indent on
-" list filetypes:
-" :echo glob($VIMRUNTIME . '/syntax/*.vim')
-" :echo glob($VIMRUNTIME . '/ftplugin/*.vim')
-
-" мышь во всех режимах
-set mouse=a
 
 " подсветка синтаксиса
 syntax on
@@ -54,9 +50,6 @@ set ruler
 " включаем отображение команды
 set showcmd
 
-" показывать первую парную скобку после ввода второй
-" set showmatch
-
 " включить подсветку невидимых символов
 set list
 
@@ -76,25 +69,11 @@ set smartindent
 " наследовать отступы предыдущей строки
 set autoindent
 
-" подсветка текущей строки
-" set cursorline
-" highlight cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-
 " всегда показывать строку статуса
 set laststatus=2
 
-" описание строки статуса - (через плагин)
-" set statusline=%<%r%m\ %f:%y\ %=\ %-15(%l,%c:%v\ %p%%%)
-" set statusline+=\ %{strftime(\"%H:%M\ %d.%m.%Y\ %a\")}
-
 " показывать строку вкладок всегда
 set showtabline=2
-
-" 256 цветов
-set t_Co=256
-
-" Линия по колонке
-" set colorcolumn=180
 
 " включаем перенос строк
 set wrap
@@ -106,17 +85,11 @@ set linebreak
 set wildmenu
 set wcm=<TAB>
 
-" вывести весь список сразу доступных вариантов
-" set wildmode=list:longest,full
-
 " подсветка поиска
 set hlsearch
 
 " автопоиск первого совпадения
 set incsearch
-
-" останавливать поиск при достижении конца файла
-" set nowrapscan
 
 " игнорировать регистр букв при поиске
 set ignorecase
@@ -125,22 +98,46 @@ set ignorecase
 set encoding=utf-8
 set termencoding=utf-8
 
-" список кодировок файлов для авто-определения
-" set fileencodings=utf-8,koi8-r,cp1251,cp866
-
 " :vsplit открывает окна справа
 set splitright
 
 " :split открывает окна снизу
 set splitbelow
 
-" сворачивание на основании отступов в начале строк
-" set foldmethod=indent
-
-" для корректной работы Vim в Alacritty
+" для корректной работы Vim в Alacritty(ctrl+left|right)
 if !has('nvim')
 	set term=xterm-256color
 endif
+
+" линия по колонке
+" set colorcolumn=120
+
+" .vimrc из каталога запуска
+" set exrc
+" set secure
+
+" показывать первую парную скобку после ввода второй
+" set showmatch
+
+" подсветка текущей строки
+" set cursorline
+" highlight cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+" описание строки статуса
+" set statusline=%<%r%m\ %f:%y\ %=\ %-15(%l,%c:%v\ %p%%%)
+" set statusline+=\ %{strftime(\"%H:%M\ %d.%m.%Y\ %a\")}
+
+" вывести весь список сразу доступных вариантов
+" set wildmode=list:longest,full
+
+" останавливать поиск при достижении конца файла
+" set nowrapscan
+
+" список кодировок файлов для авто-определения
+" set fileencodings=utf-8,koi8-r,cp1251,cp866
+
+" сворачивание на основании отступов в начале строк
+" set foldmethod=indent
 
 " ----------------------------------------
 " ----------------------------------------
