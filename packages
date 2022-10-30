@@ -694,7 +694,7 @@ read -n1 -p">"; echo
 vim -c PlugInstall
 echo; echo
 # enable vim colorscheme
-sed -i 's/desert/PaperColor/' ~/.vimrc
+sed -i 's/desert/PaperColor/' ~/.vim/init/colors.vim
 
 # NeoVim
 cp -r config/nvim ~/.config
