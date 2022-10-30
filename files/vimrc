@@ -22,7 +22,7 @@ source ~/.vim/init/explorers.vim
 " Reload .vimrc and :PlugInstall to install plugins
 " --------------
 
-" Specify a directory for plugins
+" Initialize plugin system
 call plug#begin()
 
 " ----------------------------------------
