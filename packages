@@ -348,10 +348,6 @@ username=`whoami`
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
 cp files/tmux.conf ~/.tmux.conf
-cp files/vimrc ~/.vimrc
-if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
-    cp files/gvimrc ~/.gvimrc
-fi
 
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
@@ -677,6 +673,10 @@ git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/dev
 
 ###############
 
+# Vim
+cp files/vimrc ~/.vimrc
+mkdir -p ~/.vim/init
+cp files/vim/* ~/.vim/init/
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # install vim spell RU UTF-8
@@ -696,15 +696,20 @@ echo; echo
 # enable vim colorscheme
 sed -i 's/desert/PaperColor/' ~/.vimrc
 
-# gvim -> evim
+# NeoVim
+cp -r config/nvim ~/.config
+# install nvim plugins
+nvim -c PlugInstall
+
+# Gvim
 if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == "koljasha_qtile" ]]; then
+    cp files/gvimrc ~/.gvimrc
+
     sudo cp /usr/share/applications/gvim.desktop /usr/share/applications/evim.desktop
     sudo sed -i "s/GVim/eVim/" /usr/share/applications/evim.desktop
     sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 fi
 
-# install nvim plugins
-nvim -c PlugInstall
 ###############
 
 # install oh-my-fish
