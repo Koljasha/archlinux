@@ -6,7 +6,7 @@
   help = None
 [profiles]
   [[default]]
-    background_darkness = 0.85
+    background_darkness = 0.95
     background_type = transparent
     font = Monospace 10
     show_titlebar = False
