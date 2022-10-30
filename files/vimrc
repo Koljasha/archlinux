@@ -12,6 +12,7 @@ source ~/.vim/init/bindkeys.vim
 source ~/.vim/init/explorers.vim
 
 " ----------------------------------------
+" ----------------------------------------
 " Плагины
 " ----------------------------------------
 
@@ -22,7 +23,7 @@ source ~/.vim/init/explorers.vim
 " --------------
 
 " Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " ----------------------------------------
 
@@ -33,14 +34,7 @@ source ~/.vim/init/pluggins.vim
 source ~/.vim/init/ide_main.vim
 
 " IDE плагины Vim
-if !has('nvim')
-    source ~/.vim/init/ide_vim.vim
-endif
-
-" IDE плагины NeoVim
-if has('nvim')
-    source ~/.vim/init/ide_nvim.vim
-endif
+source ~/.vim/init/ide_vim.vim
 
 " ----------------------------------------
 
