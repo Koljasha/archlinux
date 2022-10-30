@@ -38,7 +38,7 @@ source ~/.vim/init/pluggins.vim
 source ~/.vim/init/ide_main.vim
 
 " IDE плагины NeoVim
-source ~/.config/nvim/init/ide_nvim.vim
+source ~/.config/nvim/ide.vim
 
 " ----------------------------------------
 
@@ -54,8 +54,12 @@ source ~/.vim/init/colors.vim
 " ----------------------------------------
 
 " Neovim LSP Settings
-source ~/.config/nvim/init/lsp.vim
+lua << EOF
+    require("lsp")
+EOF
 
 " ----------------------------------------
 " ----------------------------------------
+
+" vim:ft=vim
 

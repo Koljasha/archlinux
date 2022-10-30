@@ -1,16 +1,15 @@
-" ----------------------------------------
-" Neovim LSP Settings
-" ----------------------------------------
+----------------------------------------
+-- Neovim LSP Settings
+----------------------------------------
 
-" ---------------
-" nvim-lspconfig
-" settings from https://github.com/neovim/nvim-lspconfig
-" ---------------
-" nvim-cmp
-" settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
-" ---------------
+---------------
+-- nvim-lspconfig
+-- settings from https://github.com/neovim/nvim-lspconfig
+---------------
+-- nvim-cmp
+-- settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+---------------
 
-lua << EOF
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -119,12 +118,4 @@ snippet = {
 
 -- load snippets collection "rafamadriz/friendly-snippets"
 -- require("luasnip/loaders/from_vscode").lazy_load()
-
-EOF
-
-" ----------------------------------------
-" ----------------------------------------
-
-" vim:ft=vim
-
 
