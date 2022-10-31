@@ -10,7 +10,7 @@ let &packpath = &runtimepath
 source ~/.vim/init/settings.vim
 
 " Привязки клавиш
-source ~/.vim/init/bindkeys.vim
+source ~/.vim/init/mappings.vim
 
 " Терминал и Проводник
 source ~/.vim/init/explorers.vim
