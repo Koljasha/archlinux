@@ -21,8 +21,7 @@
 " Tagbar - окно-список тегов
 " Repeat - расширенный повтор по "."
 " Supertab - дополнение по <Tab>
-" Matchit - перемещение по тегам HTML (%) (для HTML)
-" Matchtag - подсветка тегов HTML (для HTML)
+" Match-up - перемещение по тегам, скобкам...
 
 " Polyglot - коллекция языковых пакетов для Vim
 " Xkbswitch - смена на En при переходе в командный режим
@@ -245,14 +244,11 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " ----------------------------------------
 
-" Matchit - перемещение по тегам HTML (%)
-" Matchtag - подсветка тегов HTML
+" Match-up - перемещение по тегам, скобкам...
 " " ---------------
-" https://github.com/tmhedberg/matchit
-" https://github.com/gregsexton/MatchTag
+" https://github.com/andymass/vim-matchup
+Plug 'andymass/vim-matchup'
 " ---------------
-Plug 'tmhedberg/matchit', { 'for': 'html' }
-Plug 'gregsexton/MatchTag', { 'for': 'html' }
 " ----------------------------------------
 
 " ----------------------------------------
