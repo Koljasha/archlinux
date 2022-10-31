@@ -54,9 +54,7 @@ source ~/.vim/init/colors.vim
 " ----------------------------------------
 
 " Neovim LSP Settings
-lua << EOF
-    require("lsp")
-EOF
+lua require("lsp")
 
 " ----------------------------------------
 " ----------------------------------------
