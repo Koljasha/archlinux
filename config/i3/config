@@ -119,21 +119,33 @@ bindsym $mod+t exec --no-startup-id terminator -x htop
 
 # change focus
 bindsym $mod+Left focus left
+bindsym $mod+h focus left
 bindsym $mod+Down focus down
+bindsym $mod+j focus down
 bindsym $mod+Up focus up
+bindsym $mod+k focus up
 bindsym $mod+Right focus right
+bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+j move down
 bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+l move right
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+Control+Left resize shrink width 2 px or 2 ppt
+bindsym $mod+Control+h resize shrink width 2 px or 2 ppt
 bindsym $mod+Control+Down resize grow height 2 px or 2 ppt
+bindsym $mod+Control+j resize grow height 2 px or 2 ppt
 bindsym $mod+Control+Up resize shrink height 2 px or 2 ppt
+bindsym $mod+Control+k resize shrink height 2 px or 2 ppt
 bindsym $mod+Control+Right resize grow width 2 px or 2 ppt
+bindsym $mod+Control+l resize grow width 2 px or 2 ppt
 
 # change focus
 bindsym $alt+Tab focus next
