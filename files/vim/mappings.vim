@@ -11,7 +11,7 @@ set timeoutlen=5000 ttimeoutlen=0
 let &keywordprg=':help'
 
 " <Leader><space> - отключение подсветки поиска hlsearch
-nmap <Leader><space> :nohlsearch <CR>
+nmap <Leader>/ :nohlsearch <CR>
 
 " <Leader>ss - сохранение файла
 nmap <Leader>ss :w! <CR>
@@ -39,16 +39,16 @@ nmap <Leader>VV :vertical sb
 nmap <Leader>VS :sb
 
 " сменить split
-nmap <C-Right> <C-W>l
 nmap <C-Left> <C-W>h
-nmap <C-Up> <C-W>k
 nmap <C-Down> <C-W>j
+nmap <C-Up> <C-W>k
+nmap <C-Right> <C-W>l
 
 " изменить размера split
-nmap <C-S-Right> <C-W>>
 nmap <C-S-Left> <C-W><
-nmap <C-S-Up> <C-W>+
 nmap <C-S-Down> <C-W>-
+nmap <C-S-Up> <C-W>+
+nmap <C-S-Right> <C-W>>
 
 " перемещение стрелками в командном режиме
 cnoremap <Down> <C-n>
