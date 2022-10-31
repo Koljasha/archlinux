@@ -195,7 +195,9 @@ keys = [
     ######### Workspaces #########
 
     Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
+    Key([alt, "control"], "h", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
+    Key([alt, "control"], "l", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
 
 ]
 
