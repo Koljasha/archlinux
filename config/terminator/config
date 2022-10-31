@@ -6,12 +6,15 @@
   help = None
 [profiles]
   [[default]]
+    background_color = "#1d1f21"
     background_darkness = 0.95
     background_type = transparent
     font = Monospace 10
+    foreground_color = "#c5c8c6"
     show_titlebar = False
     scrollback_lines = 5000
     use_system_font = False
+    bold_is_bright = True
 [layouts]
   [[default]]
     [[[window0]]]
