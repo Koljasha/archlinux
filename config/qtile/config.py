@@ -69,6 +69,20 @@ def decrease_gaps(qtile):
     qtile.current_layout.margin = qtile.current_layout.margin-5 if qtile.current_layout.margin-5 > 0 else 0
     qtile.current_group.layout_all()
 
+@lazy.function
+def move_prev_group(qtile):
+    groups = qtile.groups[:-1] # without ScratchPad
+    index =  groups.index(qtile.current_group)
+    index = len(groups)-1 if index == 0 else index-1
+    qtile.current_window.togroup(groups[index].name, switch_group=True)
+
+@lazy.function
+def move_next_group(qtile):
+    groups = qtile.groups[:-1] # without ScratchPad
+    index =  groups.index(qtile.current_group)
+    index = 0 if index == len(groups)-1 else index+1
+    qtile.current_window.togroup(groups[index].name, switch_group=True)
+
 ######### Keybindings #########
 
 keys = [
@@ -198,6 +212,11 @@ keys = [
     Key([alt, "control"], "h", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "l", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
+
+    Key([alt, "control"], "Down", move_prev_group(), desc="Move window to prev group"),
+    Key([alt, "control"], "j", move_prev_group(), desc="Move window to prev group"),
+    Key([alt, "control"], "Up", move_next_group(), desc="Move window to next group"),
+    Key([alt, "control"], "k", move_next_group(), desc="Move window to next group"),
 
 ]
 
