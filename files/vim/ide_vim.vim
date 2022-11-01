@@ -19,9 +19,9 @@ function! s:on_lsp_buffer_enabled() abort
 	setlocal signcolumn=yes
 	if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 
-	nmap <buffer> \d <plug>(lsp-document-diagnostics)
-	nmap <buffer> [d <plug>(lsp-previous-diagnostic)
-	nmap <buffer> ]d <plug>(lsp-next-diagnostic)
+	nmap <buffer> [<space>  <plug>(lsp-document-diagnostics)
+	nmap <buffer> [d <plug>(lsp-next-diagnostic)
+	nmap <buffer> [D <plug>(lsp-previous-diagnostic)
 
 	nmap <buffer> K <plug>(lsp-hover)
 	nmap <buffer> gd <plug>(lsp-definition)
