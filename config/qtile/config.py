@@ -204,8 +204,6 @@ keys = [
     Key([mod, "shift"], "g", increase_gaps(), desc="Increase Gaps"),
     Key([mod, "control"], "g", decrease_gaps(), desc="Decrease Gaps"),
 
-    Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
-
     ######### Workspaces #########
 
     Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
@@ -217,6 +215,8 @@ keys = [
     Key([alt, "control"], "j", move_prev_group(), desc="Move window to prev group"),
     Key([alt, "control"], "Up", move_next_group(), desc="Move window to next group"),
     Key([alt, "control"], "k", move_next_group(), desc="Move window to next group"),
+
+    Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
 
 ]
 
