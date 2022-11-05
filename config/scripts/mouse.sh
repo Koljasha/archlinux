@@ -4,19 +4,16 @@
 #  set mouse speed
 #
 
-if [[ $1 == "" ]]; then
-    echo "Error: No speed value"
-    exit 2
+mouse_name="M310"
+id=`xinput list | grep $mouse_name | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
+
+# show mouse speed
+if (( $# == 0 )); then
+    xinput --list-props $id | grep "libinput Accel Speed"
+    exit 0
 fi
 
-speed=$1 # range of [-1,1]
-
-# for mouse Logitech M310
-id=`xinput list | grep "M310" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
-
-# set speed
+# set speed; range of [-1,1]
+speed=$1
 xinput --set-prop $id 'libinput Accel Speed' $speed
-
-# for check
-# xinput --list-props $id
 
