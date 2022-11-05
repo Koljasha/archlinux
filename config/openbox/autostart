@@ -38,3 +38,6 @@ xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightnes
 # Plank
 plank &
 
+# Set mouse speed
+# ~/.config/scripts/mouse.sh 0.7 &
+

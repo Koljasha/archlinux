@@ -291,3 +291,6 @@ exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -
 # Polybar
 exec --no-startup-id ~/.config/polybar/polybar.sh i3
 
+# Set mouse speed
+# exec --no-startup-id ~/.config/scripts/mouse.sh 0.7
+
