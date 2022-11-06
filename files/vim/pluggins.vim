@@ -147,10 +147,11 @@ nmap <Leader>zz :FZF <CR>
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
 " ---------------
-let g:AutoPairsShortcutToggle = '<Leader>pp'  " Toggle Autopairs
 let g:AutoPairsShortcutFastWrap = ''  " Fast Wrap
 let g:AutoPairsShortcutJump = ''  " Jump to next closed pair
 let g:AutoPairsShortcutBackInsert = ''  " BackInsert
+" Toggle Autopairs
+" let g:AutoPairsShortcutToggle = '<Leader>pp'
 " ----------------------------------------
 
 " NERD Commenter - комментирование для различных языков
