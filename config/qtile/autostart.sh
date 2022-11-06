@@ -32,5 +32,5 @@ xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightnes
 ~/.config/scripts/autostart.sh &
 
 # Set mouse speed
-# ~/.config/scripts/mouse.sh 0.7 &
+# ~/.config/scripts/mouse.sh M310 0.7 &
 
