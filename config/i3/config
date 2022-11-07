@@ -293,4 +293,5 @@ exec --no-startup-id ~/.config/polybar/polybar.sh i3
 
 # Set mouse speed
 # exec --no-startup-id ~/.config/scripts/mouse.sh M310 0.7
+# exec --no-startup-id ~/.config/scripts/mouse.sh MOSART 0.5
 
