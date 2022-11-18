@@ -11,7 +11,6 @@ PS1='[\u@\h \W]\$ '
 alias ls='ls --color=auto'
 alias ll="ls -lah"
 alias grep='grep --color=auto'
-alias egrep='grep -E'
 
 # alias for conda
 # alias conda.update="conda update --all --yes"
