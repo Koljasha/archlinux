@@ -101,28 +101,24 @@ set splitright
 " :split открывает окна снизу
 set splitbelow
 
-" для корректной работы Vim в Alacritty(ctrl+left|right)
-if !has('nvim')
-	set term=xterm-256color
-endif
-
-" линия по колонке
-" set colorcolumn=120
-
 " .vimrc из каталога запуска
 " set exrc
 " set secure
 
-" показывать первую парную скобку после ввода второй
-" set showmatch
+" линия по колонке
+" set colorcolumn=120
 
-" подсветка текущей строки
+" подсветка текущей строки|колонки
 " set cursorline
+" set cursorcolumn
 " highlight cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 " описание строки статуса
 " set statusline=%<%r%m\ %f:%y\ %=\ %-15(%l,%c:%v\ %p%%%)
 " set statusline+=\ %{strftime(\"%H:%M\ %d.%m.%Y\ %a\")}
+
+" показывать первую парную скобку после ввода второй
+" set showmatch
 
 " вывести весь список сразу доступных вариантов
 " set wildmode=list:longest,full
@@ -135,6 +131,11 @@ endif
 
 " сворачивание на основании отступов в начале строк
 " set foldmethod=indent
+
+" для корректной работы Vim в Alacritty(ctrl+left|right)
+" if !has('nvim')
+	" set term=xterm-256color
+" endif
 
 " ----------------------------------------
 " ----------------------------------------
