@@ -274,7 +274,7 @@ fi
 
 # xreader, atril - document viewer
 
-# wine winetricks - for windows applications
+# wine|wine-staging winetricks - for windows applications
 # bottles - bottles for windows applications
 # lutris gamemode lib32-gamemode - for windows games
 # Drivers: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
