@@ -1,0 +1,12 @@
+.terminator-terminal-window notebook tab {
+    min-height: 0;
+    padding: 0px;
+    margin: 0px;
+}
+
+.terminator-terminal-window notebook tab button {
+    min-height: 0;
+    padding: 0px;
+    margin: 0px;
+}
+
