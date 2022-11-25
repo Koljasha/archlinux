@@ -218,6 +218,21 @@ keys = [
 
     Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
 
+    ######### Mouse on the keyboard #########
+
+    Key([mod, alt], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Mouse left"),
+    Key([mod, alt, "control"], "Left", lazy.spawn("xdotool mousemove_relative -- -10 0"), desc="Mouse left"),
+    Key([mod, alt], "Right", lazy.spawn("xdotool mousemove_relative -- 50 0"), desc="Mouse right"),
+    Key([mod, alt, "control"], "Right", lazy.spawn("xdotool mousemove_relative -- 10 0"), desc="Mouse right"),
+    Key([mod, alt], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -50"), desc="Mouse up"),
+    Key([mod, alt, "control"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -10"), desc="Mouse up"),
+    Key([mod, alt], "Down", lazy.spawn("xdotool mousemove_relative -- 0 50"), desc="Mouse down"),
+    Key([mod, alt, "control"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 10"), desc="Mouse down"),
+
+    Key([mod, alt], "Return", lazy.spawn("xdotool click --clearmodifiers 1"), desc="Mouse left click"),
+    Key([mod, alt], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
+    Key([mod, alt], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
+
 ]
 
 mouse = [
