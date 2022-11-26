@@ -276,7 +276,18 @@ groups = [
     ])
 ]
 
-dgroups_key_binder = simple_key_binder(mod)
+# dgroups_key_binder = simple_key_binder(mod)   # not work after use KeyChord
+
+for i in groups[:-1]: # without ScratchPad
+    key = i.name.split(':')[0]
+    key = key if len(key) == 1 else key[-1]
+    name = i.name
+    keys.extend(
+        [
+            Key([mod], key, lazy.group[name].toscreen(), desc=f"Switch to group {name}"),
+            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=False), desc=f"Move focused window to group {name}"),
+        ]
+    )
 
 
 ######### Layouts #########
