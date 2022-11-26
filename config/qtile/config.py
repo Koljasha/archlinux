@@ -5,7 +5,7 @@ import os
 import subprocess
 
 from libqtile import hook, layout, bar, widget, qtile
-from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
+from libqtile.config import Key, KeyChord, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 
@@ -220,21 +220,32 @@ keys = [
 
     ######### Mouse on the keyboard #########
 
-    Key([mod, alt], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Mouse left"),
-    Key([mod, alt, "control"], "Left", lazy.spawn("xdotool mousemove_relative -- -10 0"), desc="Mouse left"),
-    Key([mod, alt], "Right", lazy.spawn("xdotool mousemove_relative -- 50 0"), desc="Mouse right"),
-    Key([mod, alt, "control"], "Right", lazy.spawn("xdotool mousemove_relative -- 10 0"), desc="Mouse right"),
-    Key([mod, alt], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -50"), desc="Mouse up"),
-    Key([mod, alt, "control"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -10"), desc="Mouse up"),
-    Key([mod, alt], "Down", lazy.spawn("xdotool mousemove_relative -- 0 50"), desc="Mouse down"),
-    Key([mod, alt, "control"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 10"), desc="Mouse down"),
+    KeyChord([mod, alt], "Return", [
+            Key([], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Mouse left"),
+            Key(["shift"], "Left", lazy.spawn("xdotool mousemove_relative -- -10 0"), desc="Mouse left"),
+            Key(["control"], "Left", lazy.spawn("xdotool mousemove_relative -- -250 0"), desc="Mouse left"),
 
-    Key([mod, alt], "Return", lazy.spawn("xdotool click --clearmodifiers 1"), desc="Mouse left click"),
-    Key([mod, alt], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
-    Key([mod, alt], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
-    Key([mod, alt], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
-    Key([mod, alt], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
+            Key([], "Right", lazy.spawn("xdotool mousemove_relative -- 50 0"), desc="Mouse right"),
+            Key(["shift"], "Right", lazy.spawn("xdotool mousemove_relative -- 10 0"), desc="Mouse right"),
+            Key(["control"], "Right", lazy.spawn("xdotool mousemove_relative -- 250 0"), desc="Mouse right"),
 
+            Key([], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -50"), desc="Mouse up"),
+            Key(["shift"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -10"), desc="Mouse up"),
+            Key(["control"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -250"), desc="Mouse up"),
+
+            Key([], "Down", lazy.spawn("xdotool mousemove_relative -- 0 50"), desc="Mouse down"),
+            Key(["shift"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 10"), desc="Mouse down"),
+            Key(["control"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 250"), desc="Mouse down"),
+
+            Key([], "Return", lazy.spawn("xdotool click --clearmodifiers 1"), desc="Mouse left click"),
+            Key([], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
+            Key([], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
+            Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
+            Key([], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
+            ],
+            mode=True,
+            name="  "
+        )
 ]
 
 mouse = [
@@ -404,6 +415,7 @@ screens = [
                 widget.TaskList(foreground=colors["white"], title_width_method="uniform"),
 
                 # Right
+                widget.Chord(foreground=colors["light_blue"], background=colors["red"]), # show Mouse mode
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
                               execute=scripts["keyboard_change"],
                               update_interval=1,
