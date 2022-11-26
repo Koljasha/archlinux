@@ -180,7 +180,7 @@ keys = [
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    KeyChord([mod, "control"], "space", [
+    KeyChord([mod, "shift"], "space", [
             Key([], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
             Key([], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
             Key([], "Down", lazy.layout.grow_down(), desc="Grow window down"),
@@ -208,7 +208,7 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
-    KeyChord([mod, "shift"], "space", [
+    KeyChord([mod, "control"], "space", [
             Key([], "Up", increase_gaps(), desc="Increase Gaps"),
             Key([], "Right", increase_gaps(), desc="Increase Gaps"),
             Key([], "Down", decrease_gaps(), desc="Decrease Gaps"),
