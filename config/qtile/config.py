@@ -220,7 +220,7 @@ keys = [
 
     ######### Mouse on the keyboard #########
 
-    KeyChord([mod], "Insert", [
+    KeyChord([mod], "Home", [
             Key([], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Mouse left"),
             Key(["shift"], "Left", lazy.spawn("xdotool mousemove_relative -- -10 0"), desc="Mouse left"),
             Key(["control"], "Left", lazy.spawn("xdotool mousemove_relative -- -250 0"), desc="Mouse left"),
@@ -240,8 +240,10 @@ keys = [
             Key([], "Return", lazy.spawn("xdotool click --clearmodifiers 1"), desc="Mouse left click"),
             Key([], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
             Key([], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
-            Key([], "Home", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
-            Key([], "End", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
+            Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
+            Key([], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
+
+            Key([mod], 'Home', lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
             name="   ",
