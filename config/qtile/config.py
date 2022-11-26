@@ -209,9 +209,9 @@ keys = [
     Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
     KeyChord([mod, "control"], "space", [
-            Key([], "Up", increase_gaps(), desc="Increase Gaps"),
+            Key([], "Down", increase_gaps(), desc="Increase Gaps"),
             Key([], "Right", increase_gaps(), desc="Increase Gaps"),
-            Key([], "Down", decrease_gaps(), desc="Decrease Gaps"),
+            Key([], "Up", decrease_gaps(), desc="Decrease Gaps"),
             Key([], "Left", decrease_gaps(), desc="Decrease Gaps"),
 
             Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
