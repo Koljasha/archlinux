@@ -170,8 +170,16 @@ bindsym $mod+Control+f fullscreen toggle
 
 # gaps
 gaps inner 5
-bindsym $mod+Shift+g gaps inner current plus 5
-bindsym $mod+Control+g gaps inner current minus 5
+bindsym $mod+Control+space mode "  "
+mode "  " {
+    bindsym Down gaps inner current plus 5
+    bindsym Right gaps inner current plus 5
+    bindsym Up gaps inner current minus 5
+    bindsym Left gaps inner current minus 5
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 ######### Workspaces #########
 
