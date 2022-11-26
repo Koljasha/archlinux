@@ -180,14 +180,21 @@ keys = [
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    KeyChord([mod, "control"], "space", [
+            Key([], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
+            Key([], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+            Key([], "Down", lazy.layout.grow_down(), desc="Grow window down"),
+            Key([], "j", lazy.layout.grow_down(), desc="Grow window down"),
+            Key([], "Up", lazy.layout.grow_up(), desc="Grow window up"),
+            Key([], "k", lazy.layout.grow_up(), desc="Grow window up"),
+            Key([], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
+            Key([], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+
+            Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
+            ],
+            mode=True,
+            name="  " ,
+        ),
 
     Key([mod], "space", lazy.layout.normalize(), desc="Reset all window sizes"),
 
@@ -201,8 +208,17 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
-    Key([mod, "shift"], "g", increase_gaps(), desc="Increase Gaps"),
-    Key([mod, "control"], "g", decrease_gaps(), desc="Decrease Gaps"),
+    KeyChord([mod, "shift"], "space", [
+            Key([], "Up", increase_gaps(), desc="Increase Gaps"),
+            Key([], "Right", increase_gaps(), desc="Increase Gaps"),
+            Key([], "Down", decrease_gaps(), desc="Decrease Gaps"),
+            Key([], "Left", decrease_gaps(), desc="Decrease Gaps"),
+
+            Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
+            ],
+            mode=True,
+            name="  " ,
+        ),
 
     ######### Workspaces #########
 
@@ -247,7 +263,7 @@ keys = [
             ],
             mode=True,
             name="   ",
-        )
+        ),
 ]
 
 mouse = [
@@ -428,7 +444,7 @@ screens = [
                 widget.TaskList(foreground=colors["white"], title_width_method="uniform"),
 
                 # Right
-                widget.Chord(foreground=colors["light_blue"], background=colors["red"]), # show Mouse mode
+                widget.Chord(foreground=colors["light_blue"], background=colors["red"]),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
                               execute=scripts["keyboard_change"],
                               update_interval=1,
