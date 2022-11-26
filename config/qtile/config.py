@@ -237,7 +237,7 @@ keys = [
             Key(["shift"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 10"), desc="Mouse down"),
             Key(["control"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 250"), desc="Mouse down"),
 
-            Key([], "Return", lazy.spawn("xdotool click --clearmodifiers 1"), desc="Mouse left click"),
+            Key([], "Return", lazy.spawn("xdotool click 1"), desc="Mouse left click"),
             Key([], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
             Key([], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
             Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
