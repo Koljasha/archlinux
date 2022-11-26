@@ -139,14 +139,20 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+l move right
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+Control+Left resize shrink width 2 px or 2 ppt
-bindsym $mod+Control+h resize shrink width 2 px or 2 ppt
-bindsym $mod+Control+Down resize grow height 2 px or 2 ppt
-bindsym $mod+Control+j resize grow height 2 px or 2 ppt
-bindsym $mod+Control+Up resize shrink height 2 px or 2 ppt
-bindsym $mod+Control+k resize shrink height 2 px or 2 ppt
-bindsym $mod+Control+Right resize grow width 2 px or 2 ppt
-bindsym $mod+Control+l resize grow width 2 px or 2 ppt
+bindsym $mod+Shift+space mode "  "
+mode "  " {
+    bindsym Left resize shrink width 2 px or 2 ppt
+    bindsym h resize shrink width 2 px or 2 ppt
+    bindsym Down resize grow height 2 px or 2 ppt
+    bindsym j resize grow height 2 px or 2 ppt
+    bindsym Up resize shrink height 2 px or 2 ppt
+    bindsym k resize shrink height 2 px or 2 ppt
+    bindsym Right resize grow width 2 px or 2 ppt
+    bindsym l resize grow width 2 px or 2 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # change focus
 bindsym $alt+Tab focus next
