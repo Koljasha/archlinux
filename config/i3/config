@@ -227,6 +227,36 @@ bindsym $alt+Control+k exec --no-startup-id ~/.config/i3/move_window.sh right
 bindsym $mod+Shift+BackSpace move scratchpad
 bindsym $mod+BackSpace scratchpad show
 
+######### Mouse on the keyboard #########
+
+bindsym $mod+Home mode "  "
+mode "  " {
+    bindsym Left exec --no-startup-id xdotool mousemove_relative -- -50 0
+    bindsym Shift+Left exec --no-startup-id xdotool mousemove_relative -- -10 0
+    bindsym Control+Left exec --no-startup-id xdotool mousemove_relative -- -250 0
+
+    bindsym Right exec --no-startup-id xdotool mousemove_relative -- 50 0
+    bindsym Shift+Right exec --no-startup-id xdotool mousemove_relative -- 10 0
+    bindsym Control+Right exec --no-startup-id xdotool mousemove_relative -- 250 0
+
+    bindsym Up exec --no-startup-id xdotool mousemove_relative -- 0 -50
+    bindsym Shift+Up exec --no-startup-id xdotool mousemove_relative -- 0 -10
+    bindsym Control+Up exec --no-startup-id xdotool mousemove_relative -- 0 -250
+
+    bindsym Down exec --no-startup-id xdotool mousemove_relative -- 0 50
+    bindsym Shift+Down exec --no-startup-id xdotool mousemove_relative -- 0 10
+    bindsym Control+Down exec --no-startup-id xdotool mousemove_relative -- 0 250
+
+    bindsym Return exec --no-startup-id xdotool click 1
+    bindsym Page_Up exec --no-startup-id xdotool click 4
+    bindsym Page_Down exec --no-startup-id xdotool click 5
+    bindsym Insert exec --no-startup-id xdotool click 9
+    bindsym Delete exec --no-startup-id xdotool click 8
+
+    bindsym $mod+Home mode "default"
+    bindsym Escape mode "default"
+}
+
 ######### Apps Layouts and Workspaces #########
 
 # Workspaces
