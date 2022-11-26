@@ -216,7 +216,7 @@ keys = [
     Key([alt, "control"], "Up", move_next_group(), desc="Move window to next group"),
     Key([alt, "control"], "k", move_next_group(), desc="Move window to next group"),
 
-    Key([mod], 'backspace', lazy.group['scratchpad'].dropdown_toggle('terminal'), desc="ScratchPad"),
+    Key([mod], "backspace", lazy.group["scratchpad"].dropdown_toggle("terminal"), desc="ScratchPad"),
 
     ######### Mouse on the keyboard #########
 
@@ -232,6 +232,8 @@ keys = [
     Key([mod, alt], "Return", lazy.spawn("xdotool click --clearmodifiers 1"), desc="Mouse left click"),
     Key([mod, alt], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
     Key([mod, alt], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
+    Key([mod, alt], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
+    Key([mod, alt], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
 
 ]
 
