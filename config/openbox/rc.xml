@@ -175,7 +175,7 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
-    <chainQuitKey>C-g</chainQuitKey>
+    <chainQuitKey>W-q</chainQuitKey>
 
     <!-- -->
     <!-- Keybindings Koljasha -->
