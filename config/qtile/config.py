@@ -191,6 +191,7 @@ keys = [
             Key([], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
 
             Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
+            Key([mod, "shift"], 'space', lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
             name="  " ,
@@ -215,6 +216,7 @@ keys = [
             Key([], "Left", decrease_gaps(), desc="Decrease Gaps"),
 
             Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
+            Key([mod, "control"], 'space', lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
             name="  " ,

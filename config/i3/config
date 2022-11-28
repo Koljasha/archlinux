@@ -152,6 +152,7 @@ mode "  " {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+Shift+space mode "default"
 }
 
 # change focus
@@ -185,6 +186,7 @@ mode "  " {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+Control+space mode "default"
 }
 
 ######### Workspaces #########
@@ -253,8 +255,8 @@ mode "  " {
     bindsym Insert exec --no-startup-id xdotool click 9
     bindsym Delete exec --no-startup-id xdotool click 8
 
-    bindsym $mod+Home mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+Home mode "default"
 }
 
 ######### Apps Layouts and Workspaces #########
