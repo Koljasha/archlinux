@@ -153,8 +153,8 @@ keys = [
     Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
 
     # Fn keys
-    Key([], "XF86Explorer", lazy.spawn("remmina"), desc="Remmina"),
-    Key([], "XF86Search", lazy.spawn("pcmanfm"), desc="PcManFm"),
+    Key([], "XF86Explorer", lazy.spawn("pcmanfm"), desc="PcManFm"),
+    Key([], "XF86Search", lazy.spawn("remmina"), desc="Remmina"),
     Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
     Key([], "XF86Tools", lazy.spawn("evim"), desc="Editor"),
 

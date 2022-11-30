@@ -354,12 +354,12 @@
     <!-- Fn keys -->
     <keybind key="XF86Explorer">
       <action name="Execute">
-        <command>remmina</command>
+        <command>pcmanfm</command>
       </action>
     </keybind>
     <keybind key="XF86Search">
       <action name="Execute">
-        <command>pcmanfm</command>
+        <command>remmina</command>
       </action>
     </keybind>
     <keybind key="XF86Calculator">
