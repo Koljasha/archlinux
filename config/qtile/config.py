@@ -149,11 +149,14 @@ keys = [
     # Browser
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
-    # File manager
-    Key([mod, "control"], "b", lazy.spawn("pcmanfm"), desc="Launch file manager"),
-
     # Run htop
     Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
+
+    # Fn keys
+    Key([], "XF86Explorer", lazy.spawn("remmina"), desc="Remmina"),
+    Key([], "XF86Search", lazy.spawn("pcmanfm"), desc="PcManFm"),
+    Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
+    Key([], "XF86Tools", lazy.spawn("evim"), desc="Editor"),
 
     ######### Window #########
 

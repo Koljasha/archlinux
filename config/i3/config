@@ -110,11 +110,14 @@ bindsym $mod+Control+Return exec --no-startup-id alacritty --command ranger
 # Browser
 bindsym $mod+b exec --no-startup-id firefox
 
-# File manager
-bindsym $mod+Control+b exec --no-startup-id pcmanfm
-
 # Run htop
 bindsym $mod+t exec --no-startup-id terminator -x htop
+
+# Fn keys
+bindsym $XF86Explorer exec --no-startup-id remmina
+bindsym $XF86Search exec --no-startup-id pcmanfm
+bindsym $XF86Calculator exec --no-startup-id gnome-calculator
+bindsym $XF86Tools exec --no-startup-id evim
 
 ######### Window #########
 
