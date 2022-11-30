@@ -26,7 +26,7 @@
     * `/dev/sda` - auto mount
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
-* `./packages` - install desktops, packages and settings it
+* `./packages` - install desktops, packages and settings it *(Openbox, i3wm, Qtile - my settings; other - default settings)*
     * **Openbox**
     * **i3wm**
     * **Qtile**
