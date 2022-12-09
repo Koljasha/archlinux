@@ -1,5 +1,4 @@
 [global_config]
-  tab_position = bottom
   enabled_plugins = ,
 [keybindings]
   close_term = <Primary><Shift>q
