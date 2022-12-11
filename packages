@@ -347,7 +347,6 @@ username=`whoami`
 
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
-cp files/tmux.conf ~/.tmux.conf
 
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
@@ -397,6 +396,9 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
 
     # terminator for plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
+
+    # tmux pluggins manager
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
     if [[ $de == "koljasha_openbox" ]]; then
         # menu_maker for Openbox
