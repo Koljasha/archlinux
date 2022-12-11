@@ -297,7 +297,7 @@ groups = [
     ])
 ]
 
-# dgroups_key_binder = simple_key_binder(mod)   # not work after use KeyChord
+# dgroups_key_binder = simple_key_binder(mod)   # error change https://github.com/qtile/qtile/issues/4024
 
 for i in groups[:-1]: # without ScratchPad
     key = i.name.split(':')[0]
