@@ -217,7 +217,7 @@ ls.add_snippets("python", {
 		-- python __name__ == '__main__'
 		s("ifmain", {
 				t({ "", "", "" }),
-				t({ "def main ("  }),
+				t({ "def main("  }),
 				i(1),
 				t({ "):" }),
 				t({ "", "\t" }),
