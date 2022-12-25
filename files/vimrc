@@ -31,10 +31,10 @@ call plug#begin()
 source ~/.vim/init/pluggins.vim
 
 " IDE плагины общие
-source ~/.vim/init/ide_main.vim
+" source ~/.vim/init/ide_main.vim
 
 " IDE плагины Vim
-source ~/.vim/init/ide_vim.vim
+" source ~/.vim/init/ide_vim.vim
 
 " ----------------------------------------
 
