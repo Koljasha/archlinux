@@ -511,6 +511,8 @@ screens = [
             margin=2,
             opacity=0.95,
         ),
+    wallpaper='/usr/share/backgrounds/archlinux/simple.png',
+    wallpaper_mode='fill',
     ),
 ]
 
