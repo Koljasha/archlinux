@@ -49,10 +49,7 @@ scripts = {
 
 @hook.subscribe.startup_once
 def autostart():
-    if qtile.core.name == "x11":
-        subprocess.run([scripts["autostart"]])
-    elif qtile.core.name == "wayland":
-        pass
+    subprocess.run([scripts["autostart"]])
 
 @hook.subscribe.client_managed
 def make_urgent(window):

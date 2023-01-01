@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# session=`echo $XDG_SESSION_TYPE`
+
 # set screen resolution for Virtual Box
 # xrandr -s 1360x768 &
 
