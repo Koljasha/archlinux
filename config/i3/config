@@ -310,41 +310,5 @@ for_window [ class="isaac-ng.exe" ] floating enable
 
 ######### Execute on start #########
 
-# set screen resolution for Virtual Box
-# exec --no-startup-id xrandr -s 1360x768
-
-# Numlock on
-exec --no-startup-id numlockx on
-
-# Disable Xorg screensaver
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
-
-# Transparency
-exec --no-startup-id picom
-
-# Backgroung image
-exec --no-startup-id feh --randomize --bg-scale /usr/share/backgrounds/archlinux/
-
-# PolicyKit Authentication Agent - Gnome
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# NetworkManager applet
-exec --no-startup-id nm-applet
-
-# Notifications
-exec --no-startup-id dunst
-
-# Brightness
-exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7
-
-# Change values for brightness, eth, wifi
-exec --no-startup-id ~/.config/scripts/default_values.sh
-
-# Polybar
-exec --no-startup-id ~/.config/polybar/polybar.sh i3
-
-# Set mouse speed
-# exec --no-startup-id ~/.config/scripts/mouse.sh M310 0.7
-# exec --no-startup-id ~/.config/scripts/mouse.sh MOSART 0.5
+exec --no-startup-id ~/.config/i3/autostart.sh
 
