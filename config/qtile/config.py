@@ -501,6 +501,7 @@ screens = [
                              fmt=" {}"),
                 widget.Sep(padding=5),
                 widget.Systray(),
+                # widget.StatusNotifier(),    # see qtile-extras; for nm use nm-applet --indicator
                 widget.Spacer(length=5),
             ],
             background=colors["dark_gray"],
