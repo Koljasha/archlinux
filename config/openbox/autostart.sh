@@ -1,8 +1,6 @@
-#
-# These things are run when an Openbox X Session is started.
-# You may place a similar script in $HOME/.config/openbox/autostart
-# to run user-specific things.
-#
+#!/usr/bin/env bash
+
+# session=`echo $XDG_SESSION_TYPE`
 
 # set screen resolution for Virtual Box
 # xrandr -s 1360x768 &
