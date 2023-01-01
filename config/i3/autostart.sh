@@ -34,7 +34,7 @@ xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightnes
 ~/.config/scripts/default_values.sh &
 
 # Polybar
-~/.config/polybar/polybar.sh openbox &
+~/.config/polybar/polybar.sh i3 &
 
 # Set mouse speed
 # ~/.config/scripts/mouse.sh M310 0.7 &
