@@ -31,7 +31,7 @@ dunst &
 xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
 
 # Config values
-~/.config/scripts/autostart.sh &
+~/.config/scripts/default_values.sh &
 
 # Set mouse speed
 # ~/.config/scripts/mouse.sh M310 0.7 &

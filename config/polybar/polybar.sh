@@ -11,7 +11,7 @@ fi
 killall -q polybar
 
 # change config values for brightness, eth, wifi
-~/.config/scripts/autostart.sh
+~/.config/scripts/default_values.sh
 
 # Launch bars
 echo "---" | tee -a /tmp/polybar.log
