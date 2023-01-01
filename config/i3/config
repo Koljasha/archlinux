@@ -333,10 +333,13 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 
 # Notifications
-exec --no-startup-id dunst &
+exec --no-startup-id dunst
 
 # Brightness
 exec --no-startup-id xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7
+
+# Change values for brightness, eth, wifi
+exec --no-startup-id ~/.config/scripts/default_values.sh
 
 # Polybar
 exec --no-startup-id ~/.config/polybar/polybar.sh i3
