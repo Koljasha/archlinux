@@ -22,6 +22,7 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: "0.98"
 
 window:
   # Window dimensions (changes require restart)
@@ -156,7 +157,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 9.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
