@@ -172,7 +172,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     qt5ct qt6ct kvantum
 
     qtile
-    wlroots python-pywlroots
+    wlroots python-pywlroots python-pyxdg python-dbus-next
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst
