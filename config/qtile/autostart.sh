@@ -22,7 +22,11 @@ picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # NetworkManager applet
-nm-applet &
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    nm-applet  --indicator &
+else
+    nm-applet &
+fi
 
 # Notifications
 dunst &

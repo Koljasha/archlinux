@@ -87,8 +87,7 @@ if qtile.core.name == "x11":
             window.window.set_property("_NET_WM_STATE", list(new_state))
 
 if qtile.core.name == "wayland":
-    @lazy.function
-    def get_keyboard_layout(qtile):
+    def get_keyboard_layout():
         for device in qtile.core.keyboards[:1]:
             keymap = device.wlr_device.keyboard._ptr.keymap
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
@@ -463,6 +462,17 @@ class MyDF(widget.DF):
         return text
 
 
+class MyKeyboardLayout(widget.GenPollText):
+    """
+    widget.GenPollText for show and change keyboard layout
+    """
+    def __init__(self, **config):
+        super().__init__(**config)
+        self.add_callbacks(
+            {"Button1": change_keyboard_layout(), }
+        )
+
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -471,41 +481,56 @@ screens = [
                 widget.Spacer(length=5),
                 widget.Image(filename="~/.config/qtile/qtile.svg",
                              mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("jgmenu_run")}),
+
                 widget.Spacer(length=5),
                 widget.CurrentLayoutIcon(scale=0.8),
+
                 widget.Spacer(length=5),
                 widget.GroupBox(hide_unused=True,
                                 disable_drag=True,
                                 borderwidth=2),
+
                 widget.Sep(padding=5),
                 widget.Spacer(length=3),
+
+                # Center
                 widget.TaskList(foreground=colors["white"], title_width_method="uniform"),
 
                 # Right
+                # keyboard chord and layout for X11 and Wayland
                 widget.Chord(foreground=colors["light_blue"], background=colors["red"]),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
                               execute=scripts["keyboard_change"],
                               update_interval=1,
-                              fmt="<span color='#bd2c40'></span> {}"),
+                              fmt="<span color='#bd2c40'></span> {}") \
+                if qtile.core.name == "x11" else \
+                MyKeyboardLayout(func=get_keyboard_layout,
+                                 update_interval=0.5,
+                                 fmt="<span color='#bd2c40'></span> {}"),
+
                 widget.Sep(padding=5),
                 MyPulseVolume(update_interval=0.1,
                               fmt="<span color='#ffb52a'></span> {}"),
+
                 widget.Sep(padding=5),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
                               execute=scripts["brightness_change"],
                               update_interval=5,
                               fmt="<span color='#ffb52a'></span> {}"),
+
                 widget.Sep(padding=5),
                 widget.Memory(format="{MemUsed: .2f}{mm} |{MemTotal: .2f}{mm}",
                               measure_mem="G",
                               mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("terminator -x htop")},
                               fmt="<span color='#ffb52a'></span>{}"),
+
                 widget.Sep(padding=5),
                 MyDF(format="{us}{m} | {s}{m}",
                           visible_on_warn=False,
                           warn_space=10,
                           update_interval=10,
                           fmt="<span color='#ffb52a'></span> {}"),
+
                 widget.Sep(padding=5),
                 # widget.CPU(format="{load_percent}%",
                            # fmt="<span color='#ffb52a'></span> {}"),
@@ -519,6 +544,7 @@ screens = [
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
                               execute=scripts["wireguard_change"],
                               update_interval=5),
+
                 widget.Sep(padding=5),
                 widget.CheckUpdates(distro="Arch_yay",
                                     execute="terminator -x 'yay -Su --removemake --cleanafter'",
@@ -528,13 +554,16 @@ screens = [
                                     colour_have_updates=colors["yellow"],
                                     colour_no_updates=colors["light_blue"],
                                     fmt=" {}"),
+
                 widget.Sep(padding=5),
                 widget.Clock(format="%A %Y-%m-%d %H:%M:%S",
                              mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("gsimplecal")},
                              fmt=" {}"),
+
                 widget.Sep(padding=5),
-                widget.Systray(),
-                # widget.StatusNotifier(),    # see qtile-extras; for nm use nm-applet --indicator
+                widget.Systray() \
+                if qtile.core.name == "x11" else \
+                widget.StatusNotifier(),    # see qtile-extras
                 widget.Spacer(length=5),
             ],
             background=colors["dark_gray"],
