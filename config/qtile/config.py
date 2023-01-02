@@ -466,10 +466,15 @@ class MyKeyboardLayout(widget.GenPollText):
     """
     widget.GenPollText for show and change keyboard layout
     """
+    defaults = [
+        ("execute", None, "Command to execute on click"),
+    ]
+
     def __init__(self, **config):
         super().__init__(**config)
+        self.add_defaults(MyKeyboardLayout.defaults)
         self.add_callbacks(
-            {"Button1": set_keyboard_layout(), }
+            { "Button1": self.execute, }
         )
 
 
@@ -505,6 +510,7 @@ screens = [
                               fmt="<span color='#bd2c40'></span> {}") \
                 if qtile.core.name == "x11" else \
                 MyKeyboardLayout(func=get_keyboard_layout,
+                                 execute=set_keyboard_layout(),
                                  update_interval=0.5,
                                  fmt="<span color='#bd2c40'></span> {}"),
 
