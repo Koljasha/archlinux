@@ -11,3 +11,11 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # environment for gtk-4
 export GTK_THEME=Arc-Dark
 
+# environment for Wayland
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    export XKB_DEFAULT_LAYOUT=us,ru
+    export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
+
+    export MOZ_ENABLE_WAYLAND=1
+fi
+
