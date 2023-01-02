@@ -98,7 +98,7 @@ if qtile.core.name == "wayland":
                 return 'us'
 
     @lazy.function
-    def change_keyboard_layout(qtile):
+    def set_keyboard_layout(qtile):
         for device in qtile.core.keyboards[:1]:
             keymap = device.wlr_device.keyboard._ptr.keymap
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
@@ -299,7 +299,7 @@ keys = [
 if qtile.core.name == "wayland":
     keys.extend(
         [
-        Key([alt], "Shift_L", change_keyboard_layout(), desc="Change keyboard layout"),
+        Key([alt], "Shift_L", set_keyboard_layout(), desc="Change keyboard layout"),
         ]
     )
 
@@ -469,7 +469,7 @@ class MyKeyboardLayout(widget.GenPollText):
     def __init__(self, **config):
         super().__init__(**config)
         self.add_callbacks(
-            {"Button1": change_keyboard_layout(), }
+            {"Button1": set_keyboard_layout(), }
         )
 
 
