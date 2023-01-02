@@ -53,15 +53,6 @@ scripts = {
 def autostart():
     subprocess.run([scripts["autostart"]])
 
-if qtile.core.name == "x11":
-    @hook.subscribe.client_managed
-    def make_urgent(window):
-        if qtile.current_window is None or qtile.current_window.wid != window.wid:
-            atom = set([qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]])
-            prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
-            new_state = prev_state | atom
-            window.window.set_property("_NET_WM_STATE", list(new_state))
-
 @lazy.function
 def increase_gaps(qtile):
     qtile.current_layout.margin += 5
@@ -86,9 +77,29 @@ def move_next_group(qtile):
     index = 0 if index == len(groups)-1 else index+1
     qtile.current_window.togroup(groups[index].name, switch_group=True)
 
+if qtile.core.name == "x11":
+    @hook.subscribe.client_managed
+    def make_urgent(window):
+        if qtile.current_window is None or qtile.current_window.wid != window.wid:
+            atom = set([qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]])
+            prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
+            new_state = prev_state | atom
+            window.window.set_property("_NET_WM_STATE", list(new_state))
+
 if qtile.core.name == "wayland":
     @lazy.function
-    def change_layout(qtile):
+    def get_keyboard_layout(qtile):
+        for device in qtile.core.keyboards[:1]:
+            keymap = device.wlr_device.keyboard._ptr.keymap
+            name = lib.xkb_keymap_layout_get_name(keymap, 0)
+            layout = ffi.string(name).decode()
+            if layout == "Russian":
+                return 'ru'
+            else:
+                return 'us'
+
+    @lazy.function
+    def change_keyboard_layout(qtile):
         for device in qtile.core.keyboards[:1]:
             keymap = device.wlr_device.keyboard._ptr.keymap
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
@@ -289,7 +300,7 @@ keys = [
 if qtile.core.name == "wayland":
     keys.extend(
         [
-        Key([alt], "Shift_L", change_layout(), desc="Change keyboard layout"),
+        Key([alt], "Shift_L", change_keyboard_layout(), desc="Change keyboard layout"),
         ]
     )
 
