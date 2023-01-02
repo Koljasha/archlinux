@@ -289,7 +289,7 @@ keys = [
 if qtile.core.name == "wayland":
     keys.extend(
         [
-        Key([alt], "Shift_L" , change_layout(), desc="Change keyboard layout"),
+        Key([alt], "Shift_L", change_layout(), desc="Change keyboard layout"),
         ]
     )
 
