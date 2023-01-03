@@ -24,7 +24,7 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     nm-applet &
 
     # Polybar
-    ~/.config/polybar/polybar.sh i3 &
+    ~/.config/polybar/polybar.sh openbox &
 
     # Plank
     plank &
