@@ -383,6 +383,7 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     sudo cp files/badge/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
     sudo cp files/badge/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
     sudo cp files/badge/qtile_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/qtile_badge-symbolic.svg
+    sudo cp files/badge/qtile-wayland_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/qtile-wayland_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
     # gnome-screenshot settings
