@@ -10,6 +10,28 @@ if (( $# == 0 )); then
     exit 0
 fi
 
+###
+# round Brightness for past in rofi -select
+###
+checker=`echo $brightness | awk '{ print $1/10 }'| grep -o "\."`
+
+if [[ $checker == '.' ]]; then
+    integer=`echo $brightness | awk '{ print $1/10 }'| cut -d'.' -f1`
+    fractional=`echo $brightness | awk '{ print $1/10 }'| cut -d'.' -f2`
+    case $fractional in
+        1|2|3|4)
+            brightness="${integer}0"
+            ;;
+        5|6|7|8|9)
+            integer=$((integer+1))
+            brightness="${integer}0"
+            ;;
+        *)
+            ;;
+    esac
+fi
+###
+
 if [[ $1 == 'change' ]]; then
     declare -a options=(
     "100\0icon\x1fvideo-display"
