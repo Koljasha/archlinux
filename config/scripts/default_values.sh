@@ -1,12 +1,8 @@
 #!/usr/bin/bash
 
 #
-# change config values for brightness, eth, wifi
+# change config values for eth, wifi
 #
-
-# polybar - change display output
-disp=`xrandr | grep "connected primary" | cut -d" " -f1`
-sed -i "s/--output.*--brightness/--output $disp --brightness/" ~/.config/scripts/brightness.sh
 
 # ethernet interface
 ethernet=`nmcli device | grep 'ethernet' | awk '{ print $1 }'`

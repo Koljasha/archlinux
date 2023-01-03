@@ -30,9 +30,6 @@ fi
 # Backgroung image
 # feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
 
-# Brightness
-# xrandr --output $(xrandr | grep "connected primary" | cut -d" " -f1) --brightness 0.7 &
-
 # Set mouse speed
 # ~/.config/scripts/mouse.sh M310 0.7 &
 # ~/.config/scripts/mouse.sh MOSART 0.5 &
