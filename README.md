@@ -48,4 +48,5 @@
 * change **Ru localization** lines from `packages` in `README.md`
     * for automate - copy this hooks to `.git/hooks/`
     * for manual - run in `hooks/`
+* update icons cache for new icons badge: `sudo gtk-update-icon-cache -f /usr/share/icons/hicolor/`
 
