@@ -13,11 +13,14 @@ export GTK_THEME=Arc-Dark
 
 # environment for Wayland
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    # keyboard layout
     export XKB_DEFAULT_LAYOUT=us,ru
     export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 
+    # firefox
     export MOZ_ENABLE_WAYLAND=1
 
+    # qt apps
     export QT_QPA_PLATFORM=wayland
 fi
 

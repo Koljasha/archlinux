@@ -169,7 +169,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     gparted pavucontrol network-manager-applet transmission-gtk
-    qt5ct qt6ct kvantum
+    qt5ct qt6ct kvantum qt5-wayland qt6-wayland
 
     qtile
     wlroots python-pywlroots python-pyxdg python-dbus-next
