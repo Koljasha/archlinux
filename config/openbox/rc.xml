@@ -283,9 +283,24 @@
     <!-- Screenshot -->
     <keybind key="Print">
       <action name="Execute">
-        <command>gnome-screenshot --interactive</command>
+        <command>~/.config/scripts/screenshot.sh full</command>
       </action>
     </keybind>
+    <keybind key="W-Print">
+      <action name="Execute">
+        <command>~/.config/scripts/screenshot.sh region</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-Print">
+      <action name="Execute">
+        <command>~/.config/scripts/screenshot.sh edit</command>
+      </action>
+    </keybind>
+    <!-- <keybind key="Print"> -->
+      <!-- <action name="Execute"> -->
+        <!-- <command>gnome-screenshot \-\-interactive</command> -->
+      <!-- </action> -->
+    <!-- </keybind> -->
 
     <!-- Notifications -->
     <keybind key="W-C-n">

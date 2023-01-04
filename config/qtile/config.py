@@ -47,6 +47,7 @@ scripts = {
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
     "power": os.path.expanduser("~/.config/scripts/power.sh"),
+    "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
 }
 
 @hook.subscribe.startup_once
@@ -150,7 +151,10 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
 
     # Screenshot
-    Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
+    Key([], "Print", lazy.spawn(f"{scripts['screenshot']} full"), desc="Make a screenshot"),
+    Key([mod], "Print", lazy.spawn(f"{scripts['screenshot']} region"), desc="Make a screenshot"),
+    Key([mod, "shift"], "Print", lazy.spawn(f"{scripts['screenshot']} edit"), desc="Make a screenshot"),
+    # Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
 
     # Notifications
     Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
