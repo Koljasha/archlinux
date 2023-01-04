@@ -94,9 +94,9 @@ if qtile.core.name == "wayland":
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
             layout = ffi.string(name).decode()
             if layout == "Russian":
-                return 'ru'
+                return "ru"
             else:
-                return 'us'
+                return "us"
 
     @lazy.function
     def set_keyboard_layout(qtile):
@@ -222,8 +222,8 @@ keys = [
             Key([], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
             Key([], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
 
-            Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
-            Key([mod, "shift"], 'space', lazy.ungrab_chord()), # for exit chord like Esc
+            Key([], "Return", lazy.ungrab_chord()), # for exit chord like Esc
+            Key([mod, "shift"], "space", lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
             name="  " ,
@@ -247,8 +247,8 @@ keys = [
             Key([], "Up", decrease_gaps(), desc="Decrease Gaps"),
             Key([], "Left", decrease_gaps(), desc="Decrease Gaps"),
 
-            Key([], 'Return', lazy.ungrab_chord()), # for exit chord like Esc
-            Key([mod, "control"], 'space', lazy.ungrab_chord()), # for exit chord like Esc
+            Key([], "Return", lazy.ungrab_chord()), # for exit chord like Esc
+            Key([mod, "control"], "space", lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
             name="  " ,
@@ -293,7 +293,7 @@ keys = [
             Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
             Key([], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
 
-            Key([mod], 'Home', lazy.ungrab_chord()), # for exit chord like Esc
+            Key([mod], "Home", lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
             name="   ",
@@ -336,7 +336,7 @@ groups = [
 # dgroups_key_binder = simple_key_binder(mod)   # error change https://github.com/qtile/qtile/issues/4024
 
 for i in groups[:-1]: # without ScratchPad
-    key = i.name.split(':')[0]
+    key = i.name.split(":")[0]
     key = key if len(key) == 1 else key[-1]
     name = i.name
     keys.extend(
@@ -581,8 +581,8 @@ screens = [
             margin=2,
             opacity=0.95,
         ),
-    wallpaper='/usr/share/backgrounds/archlinux/simple.png',
-    wallpaper_mode='fill',
+    wallpaper="/usr/share/backgrounds/archlinux/simple.png",
+    wallpaper_mode="fill",
     ),
 ]
 
