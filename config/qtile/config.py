@@ -33,16 +33,20 @@ colors = {
 
 scripts = {
     "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
-    "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
+
     "shell": os.path.expanduser("~/.config/scripts/shell.sh"),
+
+    "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
+    "password": os.path.expanduser("~/.config/scripts/password.sh"),
+    "power": os.path.expanduser("~/.config/scripts/power.sh"),
+    "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
+
+    "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
+    "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
+    "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
+
     "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),
     "wireguard": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh"),
-    "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
-    "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
-    "password": os.path.expanduser("~/.config/scripts/password.sh"),
-    "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
-    "power": os.path.expanduser("~/.config/scripts/power.sh"),
-    "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
 }
 
 @hook.subscribe.startup_once
