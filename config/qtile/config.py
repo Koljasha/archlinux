@@ -34,16 +34,11 @@ colors = {
 scripts = {
     "autostart": os.path.expanduser("~/.config/qtile/autostart.sh"),
     "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
-    "alacritty": os.path.expanduser("~/.config/scripts/shell.sh alacritty"),
-    "terminator": os.path.expanduser("~/.config/scripts/shell.sh terminator"),
+    "shell": os.path.expanduser("~/.config/scripts/shell.sh"),
     "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),
-    "openvpn_change": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh change"),
     "wireguard": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh"),
-    "wireguard_change": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh change"),
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
-    "brightness_change": os.path.expanduser("~/.config/scripts/brightness.sh change"),
     "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
-    "keyboard_change": os.path.expanduser("~/.config/scripts/keyboard.sh change"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
     "power": os.path.expanduser("~/.config/scripts/power.sh"),
@@ -138,7 +133,7 @@ keys = [
     Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
 
     # Brightness
-    Key([mod, "control"], "z", lazy.spawn(scripts["brightness_change"]), desc="Change brightness"),
+    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
 
     # Volume
     Key([mod], "z", lazy.spawn(scripts["volume"]), desc="Change volume"),
@@ -161,8 +156,8 @@ keys = [
     Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
 
     # Vpn
-    # Key([mod, "shift"], "v", lazy.spawn(scripts["openvpn_change"]), desc="Start|Stop Vpn"),
-    Key([mod, "shift"], "v", lazy.spawn(scripts["wireguard_change"]), desc="Start|Stop Vpn"),
+    # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Start|Stop Vpn"),
+    Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Start|Stop Vpn"),
 
     # System updates
     Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
@@ -170,8 +165,8 @@ keys = [
     ######### Apps #########
 
     # Terminal
-    Key([mod], "Return", lazy.spawn(scripts["alacritty"]), desc="Launch terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn(scripts["terminator"]), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(f"{scripts['shell']} alacritty"), desc="Launch terminal"),
+    Key([mod, "shift"], "Return", lazy.spawn(f"{scripts['shell']} terminator"), desc="Launch terminal"),
 
     Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
 
@@ -509,7 +504,7 @@ screens = [
                 # keyboard chord and layout for X11 and Wayland
                 widget.Chord(foreground=colors["light_blue"], background=colors["red"]),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
-                              execute=scripts["keyboard_change"],
+                              execute=f"{scripts['keyboard']} change",
                               update_interval=1,
                               fmt="<span color='#bd2c40'></span> {}") \
                 if qtile.core.name == "x11" else \
@@ -524,7 +519,7 @@ screens = [
 
                 widget.Sep(padding=5),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
-                              execute=scripts["brightness_change"],
+                              execute=f"{scripts['brightness']} change",
                               update_interval=5,
                               fmt="<span color='#ffb52a'></span> {}"),
 
@@ -549,10 +544,10 @@ screens = [
                                     # fmt="<span color='#ffb52a'></span> {}"),
                 # widget.Sep(padding=5),
                 # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
-                              # execute=scripts["openvpn_change"],
+                              # execute=f"{scripts['openvpn']} change",
                               # update_interval=5),
                 MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
-                              execute=scripts["wireguard_change"],
+                              execute=f"{scripts['wireguard']} change",
                               update_interval=5),
 
                 widget.Sep(padding=5),
@@ -571,6 +566,7 @@ screens = [
                              fmt=" {}"),
 
                 widget.Sep(padding=5),
+                # systray for X11 and Wayland
                 widget.Systray() \
                 if qtile.core.name == "x11" else \
                 widget.StatusNotifier(),    # see qtile-extras
