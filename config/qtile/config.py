@@ -468,6 +468,7 @@ class MyDF(widget.DF):
 class MyKeyboardLayout(widget.GenPollText):
     """
     widget.GenPollText for show and change keyboard layout
+    use for Qtile Wayland session
     """
     defaults = [
         ("execute", None, "Command to execute on click"),
