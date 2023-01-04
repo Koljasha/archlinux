@@ -24,6 +24,9 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
             ;;
         edit)
             grim -g "$(slurp)" $screenshot
+            if (( $? != 0 )); then
+                exit 0
+            fi
             swappy -f $screenshot &
             ;;
         *)
@@ -40,6 +43,9 @@ else
             ;;
         edit)
             maim --select $screenshot
+            if (( $? != 0 )); then
+                exit 0
+            fi
             swappy -f $screenshot &
 
             # move swappy to center
