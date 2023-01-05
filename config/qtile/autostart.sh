@@ -22,13 +22,13 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
 
     # NetworkManager applet
     nm-applet &
+
+    # Backgroung image
+    feh --bg-scale /usr/share/backgrounds/archlinux/simple.png &
 else
     # NetworkManager applet
     nm-applet  --indicator &
 fi
-
-# Backgroung image
-# feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
 
 # Set mouse speed
 # ~/.config/scripts/mouse.sh M310 0.7 &
