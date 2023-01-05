@@ -27,7 +27,7 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     ~/.config/polybar/polybar.sh i3 &
 
     # Backgroung image
-    feh --randomize --bg-scale /usr/share/backgrounds/archlinux/ &
+    feh --bg-scale /usr/share/backgrounds/archlinux/simple.png &
 else
     # NetworkManager applet
     nm-applet  --indicator &
