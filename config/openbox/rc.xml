@@ -218,6 +218,12 @@
       </action>
     </keybind>
 
+    <keybind key="W-grave">
+      <action name="Execute">
+        <command>jgmenu_run</command>
+      </action>
+    </keybind>
+
     <keybind key="W-a">
       <action name="Execute">
         <command>rofi -show drun</command>
@@ -234,9 +240,17 @@
       </action>
     </keybind>
 
-    <keybind key="W-grave">
+    <!-- Brightness -->
+    <keybind key="W-C-z">
       <action name="Execute">
-        <command>jgmenu_run</command>
+        <command>~/.config/scripts/brightness.sh change</command>
+      </action>
+    </keybind>
+
+    <!-- Clipboard -->
+    <keybind key="W-z">
+      <action name="Execute">
+        <command>clipmenu</command>
       </action>
     </keybind>
 
@@ -244,13 +258,6 @@
     <keybind key="W-s">
       <action name="Execute">
         <command>~/.config/scripts/password.sh</command>
-      </action>
-    </keybind>
-
-    <!-- Brightness -->
-    <keybind key="W-C-z">
-      <action name="Execute">
-        <command>~/.config/scripts/brightness.sh change</command>
       </action>
     </keybind>
 

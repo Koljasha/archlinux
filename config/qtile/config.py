@@ -127,17 +127,20 @@ keys = [
 
     Key([mod], "d", lazy.spawn("dmenu_run -b -i"), desc="Run dmenu run"),
 
+    Key([mod], "grave", lazy.spawn("jgmenu_run"), desc="Run jgmenu"),
+
     Key([mod], "a", lazy.spawn("rofi -show drun"), desc="Run rofi drun"),
     Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Run rofi run"),
     Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
 
-    Key([mod], "grave", lazy.spawn("jgmenu_run"), desc="Run jgmenu"),
+    # Brightness
+    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
+
+    # Clipboard
+    Key([mod], "c", lazy.spawn("clipmenu"), desc="Show clipboard history"),
 
     # Password
     Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
-
-    # Brightness
-    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
 
     # Volume
     Key([mod], "z", lazy.spawn(scripts["volume"]), desc="Change volume"),

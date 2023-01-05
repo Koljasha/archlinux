@@ -62,19 +62,22 @@ bindsym $mod+p exec --no-startup-id ~/.config/polybar/polybar.sh i3
 # dmenu
 bindsym $mod+d exec --no-startup-id "dmenu_run -b -i"
 
+# jgmenu
+bindsym $mod+grave exec --no-startup-id jgmenu_run
+
 # rofi
 bindsym $mod+a exec --no-startup-id "rofi -show drun"
 bindsym $mod+Shift+a exec --no-startup-id "rofi -show run"
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
-# jgmenu
-bindsym $mod+grave exec --no-startup-id jgmenu_run
+# Brightness
+bindsym $mod+Control+z exec --no-startup-id ~/.config/scripts/brightness.sh change
+
+# Clipboard
+bindsym $mod+c exec --no-startup-id "clipmenu"
 
 # Password
 bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
-
-# Brightness
-bindsym $mod+Control+z exec --no-startup-id ~/.config/scripts/brightness.sh change
 
 # Volume
 bindsym $mod+z exec --no-startup-id ~/.config/scripts/volume.sh
