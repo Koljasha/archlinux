@@ -248,7 +248,7 @@
     </keybind>
 
     <!-- Clipboard -->
-    <keybind key="W-z">
+    <keybind key="W-c">
       <action name="Execute">
         <command>clipmenu</command>
       </action>
