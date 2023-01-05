@@ -140,7 +140,7 @@ if [[ $de == "koljasha_openbox" ]]; then
     openbox obconf menumaker plank polybar
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
-    dmenu rofi jgmenu i3lock dunst
+    dmenu rofi jgmenu i3lock dunst clipmenu
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     maim swappy
@@ -158,7 +158,7 @@ elif [[ $de == "koljasha_i3wm" ]]; then
     i3 polybar
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
-    dmenu rofi jgmenu i3lock dunst
+    dmenu rofi jgmenu i3lock dunst clipmenu
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     maim swappy
@@ -177,7 +177,7 @@ elif [[ $de == "koljasha_qtile" ]]; then
     wlroots python-pywlroots python-pyxdg python-dbus-next
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
-    dmenu rofi jgmenu i3lock dunst
+    dmenu rofi jgmenu i3lock dunst clipmenu
     qutebrowser torbrowser-launcher
     pcmanfm-gtk3
     maim grim slurp swappy wl-clipboard
@@ -405,6 +405,10 @@ if [[ $de == "koljasha_openbox" ]] || [[ $de == "koljasha_i3wm" ]] || [[ $de == 
     # tmux pluggins manager
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     ~/.config/tmux/plugins/tpm/bin/install_plugins
+
+    # clipmenu enable
+    sudo sed -i 's/set -- -dmenu/set -- -dmenu -i -p Clipboard/' /usr/bin/clipmenu
+    systemctl --user start clipmenud.service
 
     if [[ $de == "koljasha_openbox" ]]; then
         # menu_maker for Openbox
