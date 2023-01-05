@@ -391,7 +391,7 @@ floating_layout = layout.Floating(
 )
 
 
-######### Bar #########
+######### Bars #########
 
 widget_defaults = dict(
     font="sans",
@@ -583,6 +583,9 @@ my_bar = bar.Bar(
     margin=2,
     opacity=0.95,
 )
+
+
+######### Screens #########
 
 # Screen for X11 and Wayland
 # Bug when wallpaper in X11:
