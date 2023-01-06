@@ -27,7 +27,14 @@ alias rg="rg --hidden --no-ignore --ignore-case"
     # end
 # end
 
-# alias openvpn-up="nmcli connection up OpenVpn"
-# alias openvpn-down="nmcli connection down OpenVpn"
-# alias openvpn-status="nmcli connection show"
+# alias vpn-up="nmcli connection up OpenVpn"
+# alias vpn-down="nmcli connection down OpenVpn"
+# function vpn-status --description 'show OpenVpn status'
+    # if test '--' = $(nmcli connection show | grep vpn | awk '{print $4}')
+        # echo 'No OpenVpn Connection'
+    # else
+        # echo -e 'OpenVpn Connect\n'
+        # nmcli connection show
+    # end
+# end
 
