@@ -2,8 +2,9 @@
 " run config from Vim
 " ----------------------------------------
 
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
+" start with Vim config
+" set runtimepath^=~/.vim runtimepath+=~/.vim/after
+" let &packpath = &runtimepath
 " ----------------------------------------
 
 " Базовые настройки
