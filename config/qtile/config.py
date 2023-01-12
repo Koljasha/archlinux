@@ -498,13 +498,17 @@ my_bar = bar.Bar(
         widget.Spacer(length=5),
         widget.GroupBox(hide_unused=True,
                         disable_drag=True,
-                        borderwidth=2),
+                        borderwidth=1,
+                        this_current_screen_border=colors['gray']),
 
         widget.Sep(padding=5),
         widget.Spacer(length=3),
 
         # Center
-        widget.TaskList(foreground=colors["white"], title_width_method="uniform"),
+        widget.TaskList(title_width_method="uniform",
+                        foreground=colors["white"],
+                        borderwidth=1,
+                        border=colors['gray']),
 
         # Right
         # keyboard chord and layout for X11 and Wayland
