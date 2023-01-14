@@ -12,24 +12,24 @@ fi
 
 ###
 # round Brightness for past in rofi -select
+#
+# substring - ${string:position:length}
+# length - ${#string}
 ###
-checker=`echo $brightness | awk '{ print $1/10 }'| grep -o "\."`
-
-if [[ $checker == '.' ]]; then
-    integer=`echo $brightness | awk '{ print $1/10 }'| cut -d'.' -f1`
-    fractional=`echo $brightness | awk '{ print $1/10 }'| cut -d'.' -f2`
-    case $fractional in
-        1|2|3|4)
-            brightness="${integer}0"
-            ;;
-        5|6|7|8|9)
-            integer=$((integer+1))
-            brightness="${integer}0"
-            ;;
-        *)
-            ;;
-    esac
-fi
+last=${brightness: -1:1}
+prelast=${brightness: -2:1}
+other=${brightness:0:${#brightness}-2}
+case $last in
+    1|2|3|4)
+        brightness="${other}${prelast}0"
+        ;;
+    5|6|7|8|9)
+        prelast=$((prelast+1))
+        brightness="${other}${prelast}0"
+        ;;
+    *)
+        ;;
+esac
 ###
 
 if [[ $1 == 'change' ]]; then
