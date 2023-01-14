@@ -12,7 +12,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 669 - 670
+* `./packages`  lines : 615 - 616
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * `pacman -Sy git`
@@ -27,9 +27,7 @@
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 * `./packages` - install desktops, packages and settings it *(Openbox, i3wm, Qtile - my settings; other - default settings)*
-    * **Openbox**
-    * **i3wm**
-    * **Qtile**
+    * **Qtile**, **i3wm**, **Openbox**
     * **Xfce**
     * **Lxde**
     * **Lxqt**
