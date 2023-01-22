@@ -5,13 +5,13 @@
 # https://man.archlinux.org/man/libinput.4.en
 #
 
-if (( $# == 2 )) && [[ ($1 == 'get') || ($1 == 'set') ]]; then
+if (( $# == 2 )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     mouse_name=$2
     id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
 
     # get mouse params
 
-    if [[ $1 == 'get' ]]; then
+    if [[ $1 == "get" ]]; then
         xinput list-props $id
         echo "Buttons Map:"
         xinput get-button-map $id
@@ -29,7 +29,7 @@ if (( $# == 2 )) && [[ ($1 == 'get') || ($1 == 'set') ]]; then
     xinput set-prop $id "libinput Drag Lock Buttons" 9 1
 
     # set mouse speed: -1.0 <> 1.0
-    # xinput set-prop $id 'libinput Accel Speed' <speed>
+    # xinput set-prop $id "libinput Accel Speed" <speed>
 
     # do emulation of button middle by pressing the left and right buttons
     # setting up the Back command for this combination
