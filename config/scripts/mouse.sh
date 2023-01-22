@@ -25,10 +25,13 @@ if (( $# == 2 )) && [[ ($1 == 'get') || ($1 == 'set') ]]; then
     xinput set-prop $id "libinput Scroll Method Enabled" 0, 0, 1
     xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
 
+    # set mouse speed: -1.0 <> 1.0
+    # xinput set-prop $id 'libinput Accel Speed' <speed>
+
     # make the sticking of button left on the Forward button
     # xinput set-prop $id "libinput Drag Lock Buttons" 9 1
 
-    # do emulation of middle button by pressing the left and right buttons
+    # do emulation of button middle by pressing the left and right buttons
     # setting up the Back command for this combination
     # xinput set-prop $id "libinput Middle Emulation Enabled" 1
     # xinput set-button-map $id 1 8 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
