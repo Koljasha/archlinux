@@ -38,4 +38,11 @@ xinput set-prop $id 'libinput Accel Speed' $speed
 # xinput set-prop $id "libinput Drag Lock Buttons" 9 1
 
 #####
+# press|click (with the sticking) middle button and move the mouse to scroll
+
+# xinput set-prop $id "libinput Button Scrolling Button" 2
+# xinput set-prop $id "libinput Scroll Method Enabled" 0, 0, 1
+# xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
+
+#####
 
