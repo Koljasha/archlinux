@@ -25,24 +25,23 @@ xinput set-prop $id 'libinput Accel Speed' $speed
 
 
 #####
+# https://man.archlinux.org/man/libinput.4.en
+#####
 # do emulation of middle button by pressing the left and right buttons
 # setting up the Back command for this combination
 
 # xinput get-button-map $id
 # xinput set-prop $id "libinput Middle Emulation Enabled" 1
 # xinput set-button-map $id 1 8 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-
 #####
 # make the sticking of button left on the Forward button
 
 # xinput set-prop $id "libinput Drag Lock Buttons" 9 1
-
 #####
 # press|click (with the sticking) middle button and move the mouse to scroll
 
 # xinput set-prop $id "libinput Button Scrolling Button" 2
 # xinput set-prop $id "libinput Scroll Method Enabled" 0, 0, 1
 # xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
-
 #####
 
