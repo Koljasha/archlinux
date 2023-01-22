@@ -1,47 +1,40 @@
 #!/usr/bin/env bash
 
 #
-# set mouse speed
+# set mouse params
+# https://man.archlinux.org/man/libinput.4.en
 #
 
-if (( $# == 0 )); then
+if (( $# == 2 )) && [[ ($1 == 'get') || ($1 == 'set') ]]; then
+    mouse_name=$2
+    id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
+
+    # get mouse params
+
+    if [[ $1 == 'get' ]]; then
+        xinput list-props $id
+        echo "Buttons Map:"
+        xinput get-button-map $id
+        exit 0
+    fi
+
+    # set mouse params
+
+    # press|click (with the sticking) middle button and move the mouse to scroll
+    xinput set-prop $id "libinput Button Scrolling Button" 2
+    xinput set-prop $id "libinput Scroll Method Enabled" 0, 0, 1
+    xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
+
+    # make the sticking of button left on the Forward button
+    # xinput set-prop $id "libinput Drag Lock Buttons" 9 1
+
+    # do emulation of middle button by pressing the left and right buttons
+    # setting up the Back command for this combination
+    # xinput set-prop $id "libinput Middle Emulation Enabled" 1
+    # xinput set-button-map $id 1 8 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+else
     echo "Error: No args"
-    echo "$ ./mouse.sh <name> [<speed>]"
+    echo "$ ./mouse.sh get|set <name>"
     exit 2
 fi
-
-mouse_name=$1
-id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
-
-# show mouse speed
-if (( $# == 1 )); then
-    xinput list-props $id | grep "libinput Accel Speed"
-    exit 0
-fi
-
-# set speed; range of [-1,1]
-speed=$2
-xinput set-prop $id 'libinput Accel Speed' $speed
-
-
-#####
-# https://man.archlinux.org/man/libinput.4.en
-#####
-# do emulation of middle button by pressing the left and right buttons
-# setting up the Back command for this combination
-
-# xinput get-button-map $id
-# xinput set-prop $id "libinput Middle Emulation Enabled" 1
-# xinput set-button-map $id 1 8 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-#####
-# make the sticking of button left on the Forward button
-
-# xinput set-prop $id "libinput Drag Lock Buttons" 9 1
-#####
-# press|click (with the sticking) middle button and move the mouse to scroll
-
-# xinput set-prop $id "libinput Button Scrolling Button" 2
-# xinput set-prop $id "libinput Scroll Method Enabled" 0, 0, 1
-# xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
-#####
 
