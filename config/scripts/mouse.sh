@@ -5,7 +5,7 @@
 # https://man.archlinux.org/man/libinput.4.en
 #
 
-if (( $# == 2 )) && [[ ($1 == "get") || ($1 == "set") ]]; then
+if (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     mouse_name=$2
     id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
 
@@ -28,8 +28,10 @@ if (( $# == 2 )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     # make the sticking of button left on the Forward button
     xinput set-prop $id "libinput Drag Lock Buttons" 9 1
 
-    # set mouse speed: -1.0 <> 1.0
-    # xinput set-prop $id "libinput Accel Speed" <speed>
+    if [[ $3 != "" ]]; then
+        # set mouse speed: -1.0 <> 1.0
+        xinput set-prop $id "libinput Accel Speed" $3
+    fi
 
     # do emulation of button middle by pressing the left and right buttons
     # setting up the Back command for this combination
