@@ -134,6 +134,7 @@ if [[ $de == "koljasha_wm" ]]; then
     qtile i3 openbox polybar plank
     obconf menumaker
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
+    bluez blueman
     polkit-gnome lxappearance-gtk3 picom
     gvim gsimplecal
     dmenu rofi jgmenu i3lock dunst clipmenu
@@ -865,6 +866,25 @@ if [[ $de == "koljasha_wm" ]]; then
     else
         sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
         sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
+    fi
+    echo "Ok"
+
+    ###############
+
+    # enable bluetooth
+    while [[ $blue != "1" ]] && [[ $blue != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable Bluetooth"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" blue
+    done
+    echo; echo
+
+    if [[ $blue == "1" ]]; then
+        sudo systemctl enable bluetooth.service
     fi
     echo "Ok"
 
