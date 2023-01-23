@@ -803,22 +803,20 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # enable samba share for user
-    while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
+    # enable bluetooth
+    while [[ $blue != "1" ]] && [[ $blue != "2" ]]; do
         echo; echo
         echo "####################"
-        echo "Enable Samba share \"Home directory\" for $username"
+        echo "Enable Bluetooth"
         echo "1) yes"
         echo "2) no"
         echo "####################"
-        read -n1 -p">" smb
+        read -n1 -p">" blue
     done
     echo; echo
 
-    if [[ $smb == "1" ]]; then
-        echo "Password Samba share for $username"
-        sudo smbpasswd -a $username
-        sudo systemctl enable smb.service
+    if [[ $blue == "1" ]]; then
+        sudo systemctl enable bluetooth.service
     fi
     echo "Ok"
 
@@ -838,6 +836,27 @@ if [[ $de == "koljasha_wm" ]]; then
 
     if [[ $vnc == "1" ]]; then
         sudo systemctl enable x11vnc.service
+    fi
+    echo "Ok"
+
+    ###############
+
+    # enable samba share for user
+    while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable Samba share \"Home directory\" for $username"
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" smb
+    done
+    echo; echo
+
+    if [[ $smb == "1" ]]; then
+        echo "Password Samba share for $username"
+        sudo smbpasswd -a $username
+        sudo systemctl enable smb.service
     fi
     echo "Ok"
 
@@ -866,25 +885,6 @@ if [[ $de == "koljasha_wm" ]]; then
     else
         sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
         sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
-    fi
-    echo "Ok"
-
-    ###############
-
-    # enable bluetooth
-    while [[ $blue != "1" ]] && [[ $blue != "2" ]]; do
-        echo; echo
-        echo "####################"
-        echo "Enable Bluetooth"
-        echo "1) yes"
-        echo "2) no"
-        echo "####################"
-        read -n1 -p">" blue
-    done
-    echo; echo
-
-    if [[ $blue == "1" ]]; then
-        sudo systemctl enable bluetooth.service
     fi
     echo "Ok"
 
