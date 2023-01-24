@@ -9,6 +9,11 @@ if (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     mouse_name=$2
     id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
 
+    if [[ $id == "" ]]; then
+        echo "No '$mouse_name' device"
+        exit 0
+    fi
+
     # get mouse params
 
     if [[ $1 == "get" ]]; then
@@ -32,6 +37,9 @@ if (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
         # set mouse speed: -1.0 <> 1.0
         xinput set-prop $id "libinput Accel Speed" $3
     fi
+
+    echo "Parameters for '$mouse_name' are set"
+    exit 0
 
     # do emulation of button middle by pressing the left and right buttons
     # setting up the Back command for this combination
