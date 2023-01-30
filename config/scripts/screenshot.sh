@@ -18,9 +18,11 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
     case $mode in
         full)
             grim $screenshot
+            rofi -e "Screenshot created: $screenshot"
             ;;
         region)
             grim -g "$(slurp)" $screenshot
+            rofi -e "Screenshot created: $screenshot"
             ;;
         edit)
             grim -g "$(slurp)" $screenshot
@@ -37,9 +39,11 @@ else
     case $mode in
         full)
             maim $screenshot
+            rofi -e "Screenshot created: $screenshot"
             ;;
         region)
             maim --select $screenshot
+            rofi -e "Screenshot created: $screenshot"
             ;;
         edit)
             maim --select $screenshot
