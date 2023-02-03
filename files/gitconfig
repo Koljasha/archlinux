@@ -1,0 +1,22 @@
+[init]
+    defaultBranch = master
+
+[core]
+    editor = vim
+    pager = delta
+
+[diff]
+    colorMoved = default
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+[delta]
+    navigate = true
+    line-numbers = true
+    ; side-by-side = true
+

@@ -300,6 +300,7 @@ username=`whoami`
 
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
+cp files/gitconfig ~/.gitconfig
 
 mkdir ~/.ssh
 cp files/ssh_config ~/.ssh/config
