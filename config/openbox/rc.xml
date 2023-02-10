@@ -260,6 +260,11 @@
         <command>~/.config/scripts/password.sh</command>
       </action>
     </keybind>
+    <keybind key="W-S-s">
+      <action name="Execute">
+        <command>~/.config/scripts/password_generate.sh</command>
+      </action>
+    </keybind>
 
     <!-- Volume -->
     <keybind key="W-z">

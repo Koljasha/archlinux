@@ -38,6 +38,7 @@ scripts = {
 
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
+    "password_generate": os.path.expanduser("~/.config/scripts/password_generate.sh"),
     "power": os.path.expanduser("~/.config/scripts/power.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
 
@@ -141,6 +142,7 @@ keys = [
 
     # Password
     Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
+    Key([mod, "shift"], "s", lazy.spawn(scripts["password_generate"]), desc="Run menu for generate pass"),
 
     # Volume
     Key([mod], "z", lazy.spawn(scripts["volume"]), desc="Change volume"),
