@@ -296,8 +296,8 @@ for_window [class="qutebrowser"] layout tabbed
 assign [class="vlc"] $workspace7
 for_window [class="vlc"] layout tabbed
 
-assign [class="Transmission-gtk"] $workspace8
-for_window [class="Transmission-gtk"] layout tabbed
+assign [class="transmission-gtk"] $workspace8
+for_window [class="transmission-gtk"] layout tabbed
 
 assign [class="VirtualBox"] $workspace9
 assign [class="Gnome-boxes"] $workspace9
