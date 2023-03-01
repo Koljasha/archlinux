@@ -12,9 +12,11 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 617 - 618
+* `./packages`  lines : 624 - 625
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
+* we are waiting for a few minutes until the repositories update (`cat /etc/pacman.d/mirrorlist` - reflector.service update)
+* `pacman -Sy archlinux-keyring`, if error `pacman-key --populate`
 * `pacman -Sy git`
 * `git clone https://github.com/koljasha/archlinux`
 * `cd archlinux && ./installer`
