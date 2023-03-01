@@ -292,6 +292,12 @@ if [[ $de == "lxde" ]]; then
 fi
 
 ###############
+echo
+echo "####################"
+echo "Click any key; ctrl-c is abort"
+echo "####################"
+read -n1 -p">"; echo
+###############
 
 username=`whoami`
 
