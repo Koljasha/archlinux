@@ -239,9 +239,10 @@ fi
 # xreader, atril - document viewer
 
 # wine|wine-staging winetricks - for windows applications
+# drivers & libs: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
+# for pipewire: lib32-pipewire
 # bottles - bottles for windows applications
 # lutris gamemode lib32-gamemode - for windows games
-# Drivers: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
 
 # gnome-boxes - virtual machines
 # virtualbox - virtual machines
