@@ -103,7 +103,7 @@ $drivers $headers reflector pkgfile man-db man-pages
 dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool bash-completion lesspipe ctags
 git pass trash-cli numlockx wget curl
-fzf fd ripgrep jq tree highlight bat git-delta
+fzf fd ripgrep jq tree highlight bat git-delta ncdu
 neofetch htop lm_sensors cmatrix upower smartmontools dmidecode
 atool p7zip unrar unzip zip
 openssh freerdp rsync gufw
@@ -141,7 +141,7 @@ if [[ $de == "koljasha_wm" ]]; then
     qutebrowser torbrowser-launcher python-beautifulsoup4
     pcmanfm-gtk3
     maim grim slurp swappy
-    baobab file-roller gnome-calculator gnome-terminal
+    file-roller gnome-calculator gnome-terminal
     remmina samba x11vnc
     vlc
     "
