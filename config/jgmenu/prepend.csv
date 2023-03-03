@@ -1,5 +1,6 @@
 Alacritty,alacritty,Alacritty
 Terminator,terminator -m,terminator
 Browser,firefox,firefox
+Ranger,alacritty --command ranger,utilities-terminal
 File manager,pcmanfm,system-file-manager
 ^sep()
