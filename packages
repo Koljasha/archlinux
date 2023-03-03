@@ -669,6 +669,9 @@ if [[ $de == "koljasha_wm" ]]; then
     sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 fi
 
+# vim for vi
+sudo ln -s /usr/bin/vim /usr/bin/vi
+
 ###############
 
 # install oh-my-fish

@@ -4,6 +4,9 @@
 
 export LANG=ru_RU.UTF8
 
+# editor as vim
+export EDITOR=vim
+
 # environment for QT applications
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME="qt5ct"
