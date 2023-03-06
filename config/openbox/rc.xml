@@ -209,6 +209,11 @@
         <command>~/.config/polybar/polybar.sh openbox</command>
       </action>
     </keybind>
+    <keybind key="C-A-Delete">
+      <action name="Execute">
+        <command>systemctl -i reboot</command>
+      </action>
+    </keybind>
 
     <!-- Menu -->
 
