@@ -766,9 +766,6 @@ fi
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
 
-# need for ssd
-# sudo systemctl enable fstrim.timer
-
 # pacman-mirrorlist settings
 while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
     echo; echo
