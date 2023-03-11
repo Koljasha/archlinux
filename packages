@@ -99,7 +99,7 @@ echo "Ok"
 # Packages
 
 packages="
-$drivers $headers reflector pkgfile man-db man-pages
+$drivers $headers reflector pkgfile man-db man-pages arch-install-scripts
 dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool bash-completion lesspipe ctags
 git pass trash-cli numlockx wget curl
