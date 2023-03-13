@@ -8,7 +8,7 @@ xset -dpms &
 xset s off &
 
 # Disable beeper
-xset -b
+xset -b &
 
 # PolicyKit Authentication Agent - Gnome
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
