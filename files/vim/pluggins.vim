@@ -106,6 +106,8 @@ let NERDTreeShowHidden = 1
 let NERDTreeShowLineNumbers = 1
 " открывать с правой стороны
 let g:NERDTreeWinPos = "left"
+" закрыть после открытия файла
+let NERDTreeQuitOnOpen = 1
 " NERDTreeToggle - <Leader>op
 map <Leader>op :NERDTreeToggle <CR>
 " ----------------------------------------
