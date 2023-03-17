@@ -134,8 +134,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
 " ---------------
-nmap <Leader>zz :FZF <CR>
-" for close use Ctrl-c
+" смотреть команды ~/.vim/init/explorers.vim
 " ---------------
 " ----------------------------------------
 
@@ -246,6 +245,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " ----------------------------------------
 
 " Match-up - перемещение по тегам, скобкам...
+" клавиша %
 " " ---------------
 " https://github.com/andymass/vim-matchup
 Plug 'andymass/vim-matchup'

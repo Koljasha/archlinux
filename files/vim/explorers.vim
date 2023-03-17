@@ -5,11 +5,11 @@
 "  Terminal
 " ---------------
 if has('nvim')
-	nmap <leader>tt :split term://fish <CR> :startinsert <CR>
-	nmap <leader>tv :vsplit term://fish <CR> :startinsert <CR>
+	nmap <Leader>tt :split term://fish <CR> :startinsert <CR>
+	nmap <Leader>tv :vsplit term://fish <CR> :startinsert <CR>
 else
-	nmap <leader>tt :terminal <CR>
-	nmap <leader>tv :vertical terminal <CR>
+	nmap <Leader>tt :terminal <CR>
+	nmap <Leader>tv :vertical terminal <CR>
 endif
 
 " ctrl-\ + ctrl-n - выйти из terminal -> на Esc
@@ -29,8 +29,36 @@ let g:netrw_liststyle = 3
 " let g:netrw_alto = 0
 " let g:netrw_winsize   = 30
 
-noremap <leader>oo :Exp <CR>
-noremap <leader>OO :Vex <CR>
+noremap <Leader>oo :Exp <CR>
+noremap <Leader>OO :Vex <CR>
+
+" ----------------------------------------
+
+" FZF Commands
+" ---------------
+" :help fzf-vim-commands
+" ctrl-c - закрыть окно
+" ctrl-t - открыть tab
+" ctrl-x - открыть split
+" ctrl-v - открыть vsplit
+" ---------------
+
+" FZF Files
+nmap <Leader>fz :Files<CR>
+" FZF Buffers
+nmap <Leader>ff :Buffers<CR>
+" FZF Windows
+nmap <Leader>fw :Windows<CR>
+" FZF Rg
+nmap <Leader>fr :Rg<CR>
+" FZF Blines
+nmap <Leader>f/ :BLines<CR>
+" FZF Btags
+nmap <Leader>ft :BTags<CR>
+" FZF History
+nmap <Leader>fh :History<CR>
+" FZF GFiles? (git status)
+nmap <Leader>fs :GFiles?<CR>
 
 " ----------------------------------------
 " ----------------------------------------
