@@ -111,7 +111,7 @@ openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
 fish tmux feh ranger ueberzug ffmpegthumbnailer
-python-pip python-pynvim
+python-pip python-setuptools python-pynvim
 vim neovim
 nodejs npm pyright bash-language-server
 terminator alacritty
