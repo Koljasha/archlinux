@@ -313,6 +313,14 @@
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
 
+[lan-display]
+    body = "Вы подключены к*Проводное соединение*"
+    skip_display = true
+
+[vpn-display]
+    summary = "Сообщение авторизации VPN"
+    skip_display = true
+
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
