@@ -17,7 +17,7 @@ nmap <Leader>/ :nohlsearch <CR>
 nmap <Leader>ss :w! <CR>
 
 " <Leader>qq - закрытие буфера без сохранения
-nmap <Leader>qq :bd! <CR>
+nmap <Leader>qq :bp\|bd! #<CR>
 
 " <Leader>bb - следующий буфер
 nmap <Leader>bb :bn <CR>
