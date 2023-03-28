@@ -18,9 +18,13 @@ tnoremap <Esc> <C-\><C-n>
 
 " Explore
 " ---------------
-" встроенный проводник :Exp :Rex :Tex :Lex :Vex :Sex
+" встроенный проводник :Exp :Rex | :Tex | :Hex :Vex |:Lex :Sex
 " gn - сделать каталог корнем
 " ctrl-l - обновить каталог
+" enter - открыть в этом окне
+" o - открыть как split
+" v - открыть как vsplit
+" t - открыть как tabs
 
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let g:netrw_browse_split = 0
@@ -29,7 +33,22 @@ let g:netrw_liststyle = 3
 " let g:netrw_alto = 0
 " let g:netrw_winsize   = 30
 
-noremap <Leader>oo :Exp <CR>
+function ToggleExplorer()
+    if &ft == "netrw"
+        if exists("w:netrw_rexlocal")
+            Rexplore
+        else
+            if exists("w:netrw_rexfile")
+                exec 'e ' . w:netrw_rexfile
+            endif
+        endif
+    else
+        Explore
+    endif
+endfun
+
+" noremap <Leader>oo :Exp <CR>
+noremap <Leader>oo :call ToggleExplorer() <CR>
 noremap <Leader>OO :Vex <CR>
 
 " ----------------------------------------
