@@ -31,7 +31,7 @@ if (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
 
     # make the sticking of button left on the Forward button
-    xinput set-prop $id "libinput Drag Lock Buttons" 9 1
+    # xinput set-prop $id "libinput Drag Lock Buttons" 9 1
 
     if [[ $3 != "" ]]; then
         # set mouse speed: -1.0 <> 1.0
