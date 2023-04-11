@@ -211,6 +211,11 @@
     </keybind>
     <keybind key="C-A-Delete">
       <action name="Execute">
+        <command>xkill</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-A-Delete">
+      <action name="Execute">
         <command>systemctl -i reboot</command>
       </action>
     </keybind>

@@ -124,7 +124,8 @@ keys = [
 
     Key([mod, "control"], "p", lazy.shutdown(), desc="Shutdown Qtile"),
 
-    Key([alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
+    Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
+    Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
 
     ######### Menu #########
 
