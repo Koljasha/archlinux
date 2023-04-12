@@ -5,7 +5,9 @@
 # https://man.archlinux.org/man/libinput.4.en
 #
 
-if (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
+if (( $# == 1 )) && [[ $1 == "list" ]]; then
+    xinput list
+elif (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     mouse_name=$2
     id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
 
@@ -47,7 +49,7 @@ if (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     # xinput set-button-map $id 1 8 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 else
     echo "Error: No args"
-    echo "$ ./mouse.sh get|set <name>"
+    echo "$ ./mouse.sh list or ./mouse.sh get|set <name>"
     exit 2
 fi
 
