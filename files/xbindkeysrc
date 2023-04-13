@@ -3,10 +3,10 @@
 # xbindkeys configuration #
 ###########################
 
-"xdotool key ctrl+w"
+"xdotool key F5"
   b:6
 
-"xdotool key ctrl+shift+t"
+"xdotool key ctrl+w"
   b:7
 
 ##################################
