@@ -3,9 +3,11 @@
 # xbindkeys configuration #
 ###########################
 
+# Browser tab update
 "xdotool key F5"
   b:6
 
+# Browser tab close
 "xdotool key ctrl+w"
   b:7
 
