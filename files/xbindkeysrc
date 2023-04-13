@@ -1,0 +1,15 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+
+"xdotool key ctrl+w"
+  b:6
+
+"xdotool key ctrl+shift+t"
+  b:7
+
+##################################
+# End of xbindkeys configuration #
+##################################
+

@@ -12,7 +12,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 625 - 626
+* `./packages`  lines : 628 - 629
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * we are waiting for a few minutes until the repositories update (`cat /etc/pacman.d/mirrorlist` - reflector.service update)
