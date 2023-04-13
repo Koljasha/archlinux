@@ -576,7 +576,7 @@ my_bar = bar.Bar(
 
         widget.Sep(padding=5),
         widget.CheckUpdates(distro="Arch_yay",
-                            execute="terminator -x 'yay -Su --removemake --cleanafter'",
+                            execute="terminator -x yay -Su --removemake --cleanafter",
                             update_interval=600,
                             display_format = "{updates} Updates",
                             no_update_string="No Updates",
