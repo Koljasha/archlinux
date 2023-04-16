@@ -37,7 +37,7 @@ fi
 ~/.config/scripts/default_values.sh &
 
 # Additionally bindings
-# xbindkeys &
+xbindkeys &
 
 # Set mouse params | show devices: `xinput list`
 # ~/.config/scripts/mouse.sh set "Logitech MX Ergo" &

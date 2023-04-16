@@ -3,13 +3,13 @@
 # xbindkeys configuration #
 ###########################
 
-# Browser tab update
-"xdotool key F5"
-  b:6
+# hold mouse button 1
+"xdotool mousedown --clearmodifiers 1"
+  control+shift + space
 
-# Browser tab close
-"xdotool key ctrl+w"
-  b:7
+# browser tab update
+"xdotool key F5"
+  b:9
 
 ##################################
 # End of xbindkeys configuration #
