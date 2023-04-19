@@ -110,9 +110,8 @@ set splitbelow
 " set colorcolumn=120
 
 " подсветка текущей строки|колонки
-" set cursorline
+set cursorline
 " set cursorcolumn
-" highlight cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 " описание строки статуса
 " set statusline=%<%r%m\ %f:%y\ %=\ %-15(%l,%c:%v\ %p%%%)
