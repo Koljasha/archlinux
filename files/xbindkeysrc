@@ -8,8 +8,8 @@
   control+shift + space
 
 # browser tab update
-"xdotool key F5"
-  b:9
+# "xdotool key F5"
+  # b:9
 
 ##################################
 # End of xbindkeys configuration #
