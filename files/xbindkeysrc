@@ -11,8 +11,8 @@
 "~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
   b:10
 
-# browser tab update (Deft Pro)
-"xdotool key F5"
+# volume control 
+"~/.config/scripts/volume.sh"
   b:12
 
 ##################################
