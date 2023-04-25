@@ -5,7 +5,7 @@
 
 # hold mouse button 1
 "xdotool mousedown --clearmodifiers 1"
-  control+alt + space
+  control+shift + BackSpace
 
 # mouse sniper mode (Deft Pro)
 "~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
