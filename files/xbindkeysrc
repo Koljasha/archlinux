@@ -5,7 +5,11 @@
 
 # hold mouse button 1
 "xdotool mousedown --clearmodifiers 1"
-  control+shift + space
+  control+alt + space
+
+# mouse sniper mode (Deft Pro)
+"~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
+  b:10
 
 # browser tab update (Deft Pro)
 "xdotool key F5"
