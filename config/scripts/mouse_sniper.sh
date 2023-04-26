@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-# Снайперский режим мыши - замедление скорости перемещения курсора
-# $1 - имя устройства
+#
+# Sniper mouse mode - slowing Accel Speed
+# $1 - device name
+#
 
 if (( $# != 1 )); then
-    echo '$1 - имя устройства'
+    echo '$1 - device name'
     exit 2
 fi
 

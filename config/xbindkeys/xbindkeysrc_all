@@ -1,0 +1,13 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+
+# hold mouse button 1
+"xdotool mousedown --clearmodifiers 1"
+  control+shift + BackSpace
+
+##################################
+# End of xbindkeys configuration #
+##################################
+
