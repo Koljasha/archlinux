@@ -7,12 +7,12 @@
 "xdotool mousedown --clearmodifiers 1"
   control+shift + BackSpace
 
-# mouse sniper mode (Deft Pro)
-"~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
+# volume control
+"~/.config/scripts/volume.sh"
   b:10
 
-# volume control 
-"~/.config/scripts/volume.sh"
+# mouse sniper mode (Deft Pro)
+"~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
   b:12
 
 ##################################
