@@ -41,6 +41,7 @@ scripts = {
     "password_generate": os.path.expanduser("~/.config/scripts/password_generate.sh"),
     "power": os.path.expanduser("~/.config/scripts/power.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
+    "workspaces": os.path.expanduser("~/.config/scripts/workspaces.sh"),
 
     "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
     "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
@@ -284,6 +285,9 @@ keys = [
 
     Key([mod], "backspace", lazy.group["scratchpad"].dropdown_toggle("terminal"), desc="ScratchPad"),
 
+    Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Change workspaces"),
+    Key([mod, "shift"], "x", lazy.spawn(f"{scripts['workspaces']} move"), desc="Move to workspaces"),
+
     ######### Mouse on the keyboard #########
 
     KeyChord([mod], "Home", [
@@ -358,7 +362,7 @@ for i in groups[:-1]: # without ScratchPad
     keys.extend(
         [
             Key([mod], key, lazy.group[name].toscreen(), desc=f"Switch to group {name}"),
-            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=False), desc=f"Move focused window to group {name}"),
+            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=True), desc=f"Move focused window to group {name}"),
         ]
     )
 
@@ -508,6 +512,11 @@ my_bar = bar.Bar(
 
         widget.Spacer(length=5),
         widget.CurrentLayoutIcon(scale=0.8),
+
+        widget.Spacer(length=5),
+        widget.Image(filename="~/.config/qtile/workspaces.svg",
+                     mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} change"),
+                                        "Button3": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} move")}),
 
         widget.Spacer(length=5),
         widget.GroupBox(hide_unused=True,
