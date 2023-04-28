@@ -30,11 +30,17 @@ declare -a options=(
 if (( $# == 1 )) && [[ $1 == 'change' ]]; then
     workspaces=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $workspaces -p Workspaces 2>/dev/null`
+    if [[ $workspaces == '10' ]]; then
+        workspaces='0'
+    fi
     xdotool key --clearmodifiers super+$workspaces
 # move to Workspaces
 elif (( $# == 1 )) && [[ $1 == 'move' ]]; then
     workspaces=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $workspaces -p "Move to Workspaces" 2>/dev/null`
+    if [[ $workspaces == '10' ]]; then
+        workspaces='0'
+    fi
     xdotool key --clearmodifiers super+shift+$workspaces
 else
     echo 'Error: Invalid arguments [ change | move ]'
