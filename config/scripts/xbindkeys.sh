@@ -12,6 +12,6 @@ killall xbindkeys 2>/dev/null
 if [[ $deft_pro != '' ]]; then
     xbindkeys -f ~/.config/xbindkeys/xbindkeysrc_deft_pro
 else
-    xbindkeys -f ~/.config/xbindkeys/xbindkeysrc_all
+    xbindkeys -f ~/.config/xbindkeys/xbindkeysrc
 fi
 
