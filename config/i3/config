@@ -88,6 +88,10 @@ bindsym $mod+Shift+s exec --no-startup-id ~/.config/scripts/password_generate.sh
 # Volume
 bindsym $mod+z exec --no-startup-id ~/.config/scripts/volume.sh
 
+# Workspaces
+bindsym $mod+x exec --no-startup-id ~/.config/scripts/workspaces.sh change
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/scripts/workspaces.sh move
+
 ######### System #########
 
 # Volume control
@@ -248,9 +252,6 @@ bindsym $alt+Control+Down exec --no-startup-id ~/.config/i3/move_window.sh left
 bindsym $alt+Control+j exec --no-startup-id ~/.config/i3/move_window.sh left
 bindsym $alt+Control+Up exec --no-startup-id ~/.config/i3/move_window.sh right
 bindsym $alt+Control+k exec --no-startup-id ~/.config/i3/move_window.sh right
-
-bindsym $mod+x exec --no-startup-id ~/.config/scripts/workspaces.sh change
-bindsym $mod+Shift+x exec --no-startup-id ~/.config/scripts/workspaces.sh move
 
 # scratchpad
 bindsym $mod+Shift+BackSpace move scratchpad

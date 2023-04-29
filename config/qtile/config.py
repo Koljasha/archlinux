@@ -151,6 +151,10 @@ keys = [
     # Volume
     Key([mod], "z", lazy.spawn(scripts["volume"]), desc="Change volume"),
 
+    # Workspaces
+    Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Change workspaces"),
+    Key([mod, "shift"], "x", lazy.spawn(f"{scripts['workspaces']} move"), desc="Move to workspaces"),
+
     ######### System #########
 
     # Volume control
@@ -284,9 +288,6 @@ keys = [
     Key([alt, "control"], "k", move_next_group(), desc="Move window to next group"),
 
     Key([mod], "backspace", lazy.group["scratchpad"].dropdown_toggle("terminal"), desc="ScratchPad"),
-
-    Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Change workspaces"),
-    Key([mod, "shift"], "x", lazy.spawn(f"{scripts['workspaces']} move"), desc="Move to workspaces"),
 
     ######### Mouse on the keyboard #########
 
