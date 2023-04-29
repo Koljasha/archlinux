@@ -139,7 +139,7 @@ keys = [
     Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
 
     # Brightness
-    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
+    Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
 
     # Clipboard
     Key([mod], "c", lazy.spawn("clipmenu"), desc="Show clipboard history"),
