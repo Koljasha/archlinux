@@ -32,25 +32,31 @@ case $last in
 esac
 ###
 
-if [[ $1 == 'change' ]]; then
-    declare -a options=(
-    "100\0icon\x1fvideo-display"
-    "90\0icon\x1fvideo-display"
-    "80\0icon\x1fvideo-display"
-    "70\0icon\x1fvideo-display"
-    "60\0icon\x1fvideo-display"
-    "50\0icon\x1fvideo-display"
-    "40\0icon\x1fvideo-display"
-    "30\0icon\x1fvideo-display"
-    "20\0icon\x1fvideo-display"
-    "10\0icon\x1fvideo-display"
-    )
-    brightness=`printf '%b\n' "${options[@]}" \
-                | rofi -dmenu -l 3 -select $brightness -p Brightness`
-                # | dmenu -b -i -p Brightness:`
-    if [[ $brightness == "" ]]; then
-        exit 0
-    fi
-    brightnessctl set "$brightness%"
+if [[ $1 != 'change' ]]; then
+    echo 'Error: Invalid arguments [ change ]'
+    exit 2
 fi
+
+# change brightness
+declare -a options=(
+"100\0icon\x1fvideo-display"
+"90\0icon\x1fvideo-display"
+"80\0icon\x1fvideo-display"
+"70\0icon\x1fvideo-display"
+"60\0icon\x1fvideo-display"
+"50\0icon\x1fvideo-display"
+"40\0icon\x1fvideo-display"
+"30\0icon\x1fvideo-display"
+"20\0icon\x1fvideo-display"
+"10\0icon\x1fvideo-display"
+)
+
+brightness=`printf '%b\n' "${options[@]}" \
+            | rofi -dmenu -l 3 -select $brightness -p Brightness`
+            # change to dmenu -> move up rofi
+            # | dmenu -b -i -p Brightness:`
+if [[ $brightness == "" ]]; then
+    exit 0
+fi
+brightnessctl set "$brightness%"
 

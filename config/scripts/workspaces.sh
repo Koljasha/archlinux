@@ -30,6 +30,8 @@ declare -a options=(
 if (( $# == 1 )) && [[ $1 == 'change' ]]; then
     workspaces=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $workspaces -p Workspaces 2>/dev/null`
+                # change to dmenu -> move up rofi
+                # | dmenu -b -i -p Workspaces:`
     if [[ $workspaces == '10' ]]; then
         workspaces='0'
     fi
@@ -38,6 +40,8 @@ if (( $# == 1 )) && [[ $1 == 'change' ]]; then
 elif (( $# == 1 )) && [[ $1 == 'move' ]]; then
     workspaces=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $workspaces -p "Move to Workspaces" 2>/dev/null`
+                # change to dmenu -> move up rofi
+                # | dmenu -b -i -p 'Move to Workspaces:'`
     if [[ $workspaces == '10' ]]; then
         workspaces='0'
     fi

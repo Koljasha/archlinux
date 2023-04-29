@@ -54,8 +54,10 @@ declare -a options=(
 "10\0icon\x1faudio-volume-low"
 "Mute\0icon\x1faudio-volume-off"
 )
+
 volume=`printf '%b\n' "${options[@]}" \
         | rofi -dmenu -l 6 -select $volume -i -p Volume`
+        # change to dmenu -> move up rofi
         # | dmenu -b -i -p Volume:`
 if [[ $volume == "" ]]; then
         exit 0
