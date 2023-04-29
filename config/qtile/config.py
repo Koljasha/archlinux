@@ -363,7 +363,7 @@ for i in groups[:-1]: # without ScratchPad
     keys.extend(
         [
             Key([mod], key, lazy.group[name].toscreen(), desc=f"Switch to group {name}"),
-            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=False), desc=f"Move focused window to group {name}"),
+            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=True), desc=f"Move focused window to group {name}"),
         ]
     )
 
