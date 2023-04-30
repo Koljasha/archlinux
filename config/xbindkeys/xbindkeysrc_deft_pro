@@ -5,7 +5,7 @@
 
 # hold mouse button 1
 "xdotool mousedown --clearmodifiers 1"
-  control+shift + BackSpace
+  Control+Shift + Return
 
 # volume control
 "~/.config/scripts/volume.sh"
