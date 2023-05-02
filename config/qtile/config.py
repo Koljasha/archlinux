@@ -317,7 +317,7 @@ keys = [
             Key([mod], "Home", lazy.ungrab_chord()), # for exit chord like Esc
             ],
             mode=True,
-            name="   ",
+            name="  ",
         ),
 ]
 
