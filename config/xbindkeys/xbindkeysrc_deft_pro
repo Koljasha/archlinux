@@ -8,11 +8,11 @@
   Control+Shift + Return
 
 # volume control
-"~/.config/scripts/volume.sh"
+"xdotool key --clearmodifiers super+z"
   b:10
 
-# workspaces
-"~/.config/scripts/workspaces.sh change"
+# workspaces change
+"xdotool key --clearmodifiers super+x"
   b:11
 
 # mouse sniper mode (Deft Pro)
