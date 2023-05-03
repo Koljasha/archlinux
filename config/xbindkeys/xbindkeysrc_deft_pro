@@ -11,6 +11,10 @@
 "~/.config/scripts/volume.sh"
   b:10
 
+# workspaces
+"~/.config/scripts/workspaces.sh change"
+  b:11
+
 # mouse sniper mode (Deft Pro)
 "~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
   b:12
