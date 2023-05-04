@@ -817,6 +817,26 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
+    # enable ufw firewall
+    while [[ $ufw != "1" ]] && [[ $ufw != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Enable Firewall by default "
+        echo "1) yes"
+        echo "2) no"
+        echo "####################"
+        read -n1 -p">" ufw
+    done
+    echo; echo
+
+    if [[ $ufw == "1" ]]; then
+        sudo ufw enable
+        sudo systemctl enable ufw.service
+    fi
+    echo "Ok"
+
+    ###############
+
     # enable bluetooth
     while [[ $blue != "1" ]] && [[ $blue != "2" ]]; do
         echo; echo
