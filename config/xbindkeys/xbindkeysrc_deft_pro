@@ -15,9 +15,13 @@
 "xdotool key --clearmodifiers super+x"
   b:11
 
-# mouse sniper mode (Deft Pro)
-"~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
+# application launcher
+"xdotool key --clearmodifiers super+a"
   b:12
+
+# mouse sniper mode (Deft Pro)
+# "~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
+  # b:12
 
 ##################################
 # End of xbindkeys configuration #
