@@ -377,7 +377,7 @@ layouts = [
                    border_normal_stack=[colors["dark_gray"], colors["dark_gray"]],
                    border_width=2,
                    margin=5),
-    layout.Max(),
+    layout.Max(margin=1),
 
     # layout.Floating(),
     # layout.Bsp(),
@@ -608,7 +608,7 @@ my_bar = bar.Bar(
     ],
     background=colors["dark_gray"],
     size=25,
-    margin=2,
+    margin=1,
     opacity=0.95,
 )
 
