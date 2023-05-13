@@ -404,9 +404,9 @@ floating_layout = layout.Floating(
             Match(wm_class="torbrowser-launcher"),
             Match(wm_class="isaac-ng.exe"),
         ],
-        border_focus=[colors["gray"], colors["light_gray"]],
+        border_focus=[colors["gray"], colors["gray"]],
         border_normal=[colors["dark_gray"], colors["dark_gray"]],
-        border_width=3
+        border_width=1
 )
 
 
