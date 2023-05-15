@@ -372,10 +372,10 @@ for i in groups[:-1]: # without ScratchPad
 
 layouts = [
     layout.Columns(border_focus=[colors["gray"], colors["gray"]],
-                   border_focus_stack=[colors["gray"], colors["light_gray"]],
+                   border_focus_stack=[colors["light_gray"], colors["light_gray"]],
                    border_normal=[colors["dark_gray"], colors["dark_gray"]],
                    border_normal_stack=[colors["dark_gray"], colors["dark_gray"]],
-                   border_width=2,
+                   border_width=1,
                    margin=5),
     layout.Max(margin=1),
 
