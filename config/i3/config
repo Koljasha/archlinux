@@ -26,12 +26,12 @@ set $red                 #bd2c40
 set $light_blue          #99d3ff
 
 # class                 border              background          text             indicator
-client.focused          $dark_gray          $gray               $dark_gray            $gray
+client.focused          $dark_gray          $gray               $dark_gray       $gray
 client.unfocused        $dark_gray          $dark_gray          $gray            $dark_gray
-client.urgent           $dark_gray          $light_gray         $dark_gray            $dark_gray
+client.urgent           $dark_gray          $light_gray         $dark_gray       $dark_gray
 
 # Borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 ###############################
 ######### Keybindings #########
