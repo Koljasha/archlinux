@@ -1,4 +1,4 @@
-# Arch Linux Installer
+# NafmanOs - Arch Linux Installer
 
 ## Only for Arch linux understanding users -> [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 
