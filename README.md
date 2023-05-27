@@ -51,6 +51,10 @@
     * to see changes after reboot: `cat /sys/module/nvme_core/parameters/default_ps_max_latency_us`
 ***
 
+#### Trackball configs
+* copy `files/xorg.conf.d/<file>.conf` -> `/etc/X11/xorg.conf.d`
+***
+
 #### `hooks/` - for devolopers
 
 * change **Ru localization** lines from `packages` in `README.md`
