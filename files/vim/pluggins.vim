@@ -43,8 +43,13 @@ Plug 'mengelbrecht/lightline-bufferline'
 " ---------------
 let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#enable_devicons = 1
+
 " clickable only for nvim
-let g:lightline#bufferline#clickable = 1
+" let g:lightline#bufferline#clickable = 1
+" add to g:Lightline
+" \ 'component_raw': {
+" \   'buffers': 1
+" \ },
 " ----------------------------------------
 
 " Lightline - строка статуса
@@ -62,9 +67,6 @@ let g:lightline = {
 	  \ },
 	  \ 'component_type': {
 	  \   'buffers': 'tabsel'
-	  \ },
-	  \ 'component_raw': {
-	  \   'buffers': 1
 	  \ },
 	  \ }
 " ----------------------------------------
