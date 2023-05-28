@@ -221,7 +221,7 @@ else
 fi
 
 
-packages="base base-devel $kernel linux-firmware $microcode $grub networkmanager nano curl"
+packages="archlinux-keyring base base-devel $kernel linux-firmware $microcode $grub networkmanager nano curl"
 pacstrap /mnt $packages
 
 # Generate /etc/fstab
