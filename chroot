@@ -66,7 +66,7 @@ efibootmgr=`pacman -Qe efibootmgr 2>/dev/null | grep -o "^efibootmgr"`
 if [[ $grub == "grub" ]]; then
     if [[ $efibootmgr == "efibootmgr" ]]; then
         grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-        sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix"/' /etc/default/grub
+        sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
         grub-mkconfig -o /boot/grub/grub.cfg
         echo; echo
         echo "####################"
@@ -78,7 +78,7 @@ if [[ $grub == "grub" ]]; then
         else
             grub-install --target=i386-pc /dev/sda
         fi
-        sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix"/' /etc/default/grub
+        sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
         grub-mkconfig -o /boot/grub/grub.cfg
         echo; echo
         echo "####################"
