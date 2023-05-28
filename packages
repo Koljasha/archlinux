@@ -934,19 +934,6 @@ fi
 # clean yay
 yay -Yc --noconfirm
 
-# rm installer folder
-echo; echo
-echo "####################"
-echo "Delete installer folder '~/archlinux' ?"
-echo "1) no"
-echo "other) yes"
-echo "####################"
-
-read -n1 -p">" rminstall; echo
-if [[ $rminstall != "1" ]]; then
-    rm -rf ~/archlinux
-fi
-
 ###############
 
 echo; echo
