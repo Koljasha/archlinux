@@ -275,6 +275,10 @@ fi
 # change|check folder
 cd ~/archlinux
 
+# Update mirrorlist
+sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
+sudo sed -i '7s/#Server/Server/' /etc/pacman.d/mirrorlist
+
 # Install packages from repo
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
@@ -781,9 +785,7 @@ done
 echo; echo
 
 if [[ $mlist == "1" ]]; then
-    sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
-    sudo sed -i '7,8s/#Server/Server/' /etc/pacman.d/mirrorlist
-    sudo pacman -Syu --needed --noconfirm pacman-mirrorlist
+    true
 else
     sudo systemctl enable reflector.timer
 fi
