@@ -169,9 +169,9 @@ done
 echo; echo
 if [[ $grub == "1" ]]; then
     if [[ $table == "UEFI" ]]; then
-        grub="grub os-prober efibootmgr"
+        grub="grub os-prober efibootmgr grub-theme-vimix"
     else
-        grub="grub os-prober"
+        grub="grub os-prober grub-theme-vimix"
     fi
 else
     grub=""
