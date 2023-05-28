@@ -41,6 +41,7 @@
     * **Pantheon**
     * **Kde Plasma**
     * **Deepin**
+* `./swapfile` - create swapfile in work system
 
 ***
 #### for SSD users

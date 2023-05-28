@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# create
+# sudo dd if=/dev/zero of=/swapfile bs=1M count=2k status=progress
+# sudo chmod 0600 /swapfile
+# sudo mkswap -U clear /swapfile
+# sudo swapon /swapfile
+
+# enable
+sudo echo '# swapfile' >> /etc/fstab
+sudo echo '/swapfile   none    swap    defaults    0 0' >> /etc/fstab
+sudo echo '' >> /etc/fstab
+
