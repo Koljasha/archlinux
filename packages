@@ -949,8 +949,10 @@ yay -Yc --noconfirm
 
 echo; echo
 echo "####################"
-echo "System installed"
-echo "will be reboot"
+echo "System installed. Will be reboot"
+echo
+echo "if need create swapfile:"
+echo "run ./swapfile after reboot"
 echo "####################"
 echo "now click any key"
 echo "####################"
