@@ -1,13 +1,22 @@
 #!/usr/bin/env bash
 
+# create swapfile; write to fstab
+
+if [[ $(whoami) != 'root' ]]; then
+    echo 'Need run form sudo'
+    exit 2
+fi
+
 # create
-# sudo dd if=/dev/zero of=/swapfile bs=1M count=2k status=progress
-# sudo chmod 0600 /swapfile
-# sudo mkswap -U clear /swapfile
-# sudo swapon /swapfile
+dd if=/dev/zero of=/swapfile bs=1M count=2k status=progress
+chmod 0600 /swapfile
+mkswap -U clear /swapfile
+swapon /swapfile
 
 # enable
-sudo echo '# swapfile' >> /etc/fstab
-sudo echo '/swapfile   none    swap    defaults    0 0' >> /etc/fstab
-sudo echo '' >> /etc/fstab
+echo '# swapfile' >> /etc/fstab
+echo '/swapfile   none    swap    defaults    0 0' >> /etc/fstab
+echo '' >> /etc/fstab
+
+cat /etc/fstab
 
