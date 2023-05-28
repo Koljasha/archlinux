@@ -283,6 +283,11 @@ sudo sed -i '7s/#Server/Server/' /etc/pacman.d/mirrorlist
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
 
+if [[ $(echo $?) != 0 ]]; then
+    echo "Error Installation"
+    exit 2
+fi
+
 # build yay
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin && makepkg -sirc --noconfirm
