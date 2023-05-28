@@ -251,7 +251,7 @@
     </keybind>
 
     <!-- Brightness -->
-    <keybind key="W-C-z">
+    <keybind key="W-S-z">
       <action name="Execute">
         <command>~/.config/scripts/brightness.sh change</command>
       </action>
