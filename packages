@@ -943,6 +943,11 @@ sudo mkinitcpio -P
 
 ###############
 
+# System clock synchronized
+sudo timedatectl set-ntp true
+
+###############
+
 # end update settings
 
 # clean yay
