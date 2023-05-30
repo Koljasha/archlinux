@@ -7,7 +7,7 @@ set fish_greeting
 # save current directory (for i3 terminal)
 prompt_command
 
-alias ll="ls -lah --group-directories-first"
+alias ll="ls -lahv --group-directories-first"
 alias grep="grep --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"
