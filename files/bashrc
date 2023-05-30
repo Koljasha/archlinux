@@ -9,7 +9,7 @@ PS1='[\u@\h \W]\$ '
 
 # linux command aliases
 alias ls='ls --color=auto'
-alias ll="ls -lah"
+alias ll="ls -lah --group-directories-first"
 alias grep='grep --color=auto'
 alias cp="cp -v"
 alias mv="mv -v"
