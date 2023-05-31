@@ -763,6 +763,20 @@ fi
 ###############
 
 # Enable services
+
+###############
+
+# system clock synchronized
+sudo timedatectl set-ntp true
+
+# out-of-memory killer
+sudo systemctl enable systemd-oomd.service
+
+# pkgfile database update
+sudo systemctl enable pkgfile-update.timer
+sudo systemctl start pkgfile-update.service
+
+# login manager
 if [[ $de == "koljasha_wm" ]] \
 || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
 || [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "deepin" ]]; then
@@ -776,9 +790,6 @@ elif [[ $de == "gnome" ]] || [[ $de == "budgie" ]] || [[ $de == "pantheon" ]]; t
 elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
 fi
-
-sudo systemctl enable pkgfile-update.timer
-sudo systemctl start pkgfile-update.service
 
 # pacman-mirrorlist settings
 while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
@@ -943,12 +954,9 @@ sudo mkinitcpio -P
 
 ###############
 
-# System clock synchronized
-sudo timedatectl set-ntp true
+# end update settings
 
 ###############
-
-# end update settings
 
 # clean yay
 yay -Yc --noconfirm
