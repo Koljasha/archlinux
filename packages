@@ -107,7 +107,7 @@ fzf fd ripgrep jq tree highlight bat git-delta ncdu
 neofetch htop lm_sensors cmatrix upower smartmontools dmidecode
 atool p7zip unrar unzip zip
 openssh freerdp rsync gufw
-openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf
+openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
 fish tmux feh ranger ueberzug ffmpegthumbnailer
