@@ -53,8 +53,10 @@
     * to see changes after reboot: `cat /sys/module/nvme_core/parameters/default_ps_max_latency_us`
 ***
 
-#### Trackball configs
-* copy `files/xorg.conf.d/<file>.conf` -> `/etc/X11/xorg.conf.d`
+#### Trackball, mouse configs
+* **Xorg** copy `files/xorg.conf.d/<file>.conf` -> `/etc/X11/xorg.conf.d`
+* **Xorg**, **Wayland** - [Input Remapper](https://github.com/sezanzeb/input-remapper/)
+* *other way*: [Arch Wiki](https://wiki.archlinux.org/title/Input_remap_utilities) or [libinput-config](https://gitlab.com/warningnonpotablewater/libinput-config/)
 ***
 
 #### `hooks/` - for devolopers
