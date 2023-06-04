@@ -1,0 +1,4 @@
+# Elecom Deft Pro remap <Forward> -> <Middle>
+evdev:name:ELECOM TrackBall Mouse DEFT Pro TrackBall:*
+ KEYBOARD_KEY_90005=btn_middle
+
