@@ -772,6 +772,9 @@ sudo timedatectl set-ntp true
 # out-of-memory killer
 sudo systemctl enable systemd-oomd.service
 
+# upowerd
+sudo systemctl enable upower.service
+
 # pkgfile database update
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
