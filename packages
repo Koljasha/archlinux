@@ -354,6 +354,9 @@ if [[ $de == "koljasha_wm" ]]; then
     sudo mkdir /etc/systemd/system/x11vnc.service.d
     sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 
+    # polkit rules for udisks2
+    sudo cp files/rules.d/55-arch.rules /etc/polkit-1/rules.d/55-arch.rules
+
     # copy desktop icons
     sudo cp files/badge/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
     sudo cp files/badge/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
