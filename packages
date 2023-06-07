@@ -256,6 +256,8 @@ fi
 
 # rustdesk-bin -remote desktop software
 
+# os-prober-btrfs - Grub find system on btrfs disks
+
 packages_aur="
 xkb-switch
 "
