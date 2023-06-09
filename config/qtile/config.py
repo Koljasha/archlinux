@@ -7,12 +7,13 @@ import subprocess
 from libqtile import hook, layout, bar, widget, qtile
 from libqtile.config import Key, KeyChord, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-from libqtile.dgroups import simple_key_binder
+# from libqtile.dgroups import simple_key_binder
 
-from libqtile.backend.wayland import InputConfig
-from wlroots import ffi, lib
+if qtile.core.name == "wayland":
+    from wlroots import ffi, lib
+    # from libqtile.backend.wayland import InputConfig
 
-from libqtile.log_utils import logger
+# from libqtile.log_utils import logger
 
 ######### Variables & functions #########
 
@@ -541,8 +542,8 @@ my_bar = bar.Bar(
                       execute=f"{scripts['keyboard']} change",
                       update_interval=1,
                       fmt="<span color='#bd2c40'></span> {}") \
-        if qtile.core.name == "x11" else \
-        MyKeyboardLayout(func=get_keyboard_layout,
+        if qtile.core.name == "x11" \
+        else MyKeyboardLayout(func=get_keyboard_layout,
                          execute=set_keyboard_layout(),
                          update_interval=0.5,
                          fmt="<span color='#bd2c40'></span> {}"),
@@ -602,8 +603,8 @@ my_bar = bar.Bar(
         widget.Sep(padding=5),
         # systray for X11 and Wayland
         widget.Systray() \
-        if qtile.core.name == "x11" else \
-        widget.StatusNotifier(),    # see qtile-extras
+        if qtile.core.name == "x11" \
+        else widget.StatusNotifier(),    # see qtile-extras
         widget.Spacer(length=5),
     ],
     background=colors["dark_gray"],
@@ -620,8 +621,8 @@ my_bar = bar.Bar(
 # xcffib.ConnectionException when reload_config()
 screens = [
     Screen(top=my_bar)
-    if qtile.core.name == "x11" else \
-    Screen(top=my_bar,
+    if qtile.core.name == "x11" \
+    else Screen(top=my_bar,
         wallpaper="/usr/share/backgrounds/archlinux/simple.png",
         wallpaper_mode="fill"
     )
