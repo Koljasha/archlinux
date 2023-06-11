@@ -26,6 +26,7 @@
 #### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
 ##### it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with minimal installation
     * set russian support: `setfont UniCyrExt_8x16`
+    * `archinstall`
 ##### the old version
     * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
         * `/dev/sda` - auto mount
