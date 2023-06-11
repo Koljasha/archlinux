@@ -47,7 +47,7 @@
 ***
 #### for SSD users
 * enabled by default [Periodic TRIM](https://wiki.archlinux.org/title/Solid_state_drive#Periodic_TRIM)
-    * `sudo systemctl status fstrim.timer`
+    * `systemctl status fstrim.timer`
 * if **NVME** freeze [Troubleshooting](https://wiki.archlinux.org/title/Solid_state_drive/NVMe#Troubleshooting)
     * in `/etc/default/grub` add to `GRUB_CMDLINE_LINUX_DEFAULT` following `nvme_core.default_ps_max_latency_us=5500`
     * to see changes after reboot: `cat /sys/module/nvme_core/parameters/default_ps_max_latency_us`
