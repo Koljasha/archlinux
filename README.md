@@ -23,7 +23,7 @@
 * `cd archlinux && ./installer`
 
 ***
-#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide) - it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with minimal installation now
+#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide) - it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with minimal installation
 * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
     * `/dev/sda` - auto mount
     * other      - manual mount
