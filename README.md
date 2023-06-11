@@ -12,7 +12,7 @@
 #### Ru localization is default; for change:
 * `./installer` lines : 11 - 12
 * `./chroot`    lines : 3 - 14
-* `./packages`  lines : 645 - 646
+* `./packages`  lines : 682 - 683
 
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * we are waiting for a few minutes until the repositories update (`cat /etc/pacman.d/mirrorlist` - reflector.service update)
@@ -23,12 +23,12 @@
 * `cd archlinux && ./installer`
 
 ***
-#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-
+#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide) - it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with minimal installation now
 * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
     * `/dev/sda` - auto mount
     * other      - manual mount
 * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
+#### NafmanOs - need [Git](https://wiki.archlinux.org/title/Git) installed
 * `./packages` - install desktops, packages and settings it *(Openbox, i3wm, Qtile - my settings; other - default settings)*
     * **Qtile**, **i3wm**, **Openbox**
     * **Xfce**

@@ -2,6 +2,43 @@
 
 echo; echo
 echo "####################"
+echo "Post config after archinstall"
+echo "####################"
+echo; echo
+
+# Localization
+echo "LANG=ru_RU.UTF-8" | sudo tee /etc/locale.conf
+echo "KEYMAP=ru" | sudo tee /etc/vconsole.conf
+echo "FONT=cyr-sun16" | sudo tee --append /etc/vconsole.conf
+
+# Network configuration
+echo "archlinux" | sudo tee /etc/hostname
+echo "127.0.0.1    localhost" | sudo tee --append /etc/hosts
+echo "::1          localhost" | sudo tee --append /etc/hosts
+echo "127.0.0.1    archlinux.localdomain  archlinux" | sudo tee --append /etc/hosts
+
+# Pacman settings
+sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+sudo sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+
+# Add sudo timeout
+line=`sudo grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
+sudo sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
+
+# Add microcode and curl for mirrors
+sudo pacman -S --needed --noconfirm intel-ucode amd-ucode curl git
+
+# Grub config
+if [[ `pacman -Qe grub 2>/dev/null` != '' ]]; then
+        sudo pacman -S --needed --noconfirm os-prober grub-theme-vimix
+        sudo sed -i '/^GRUB_TIMEOUT/s/=./=3/' /etc/default/grub
+        sudo sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
+        sudo sed -i 's/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
+        sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi
+
+echo; echo
+echo "####################"
 echo "Install packages"
 echo "####################"
 echo; echo

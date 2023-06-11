@@ -201,28 +201,10 @@ else
     kernel=""
 fi
 
-# microcode
-while [[ $microcode != "1" ]] && [[ $microcode != "2" ]] && [[ $microcode != "3" ]]; do
-    echo "####################"
-    echo "Install what microcode:"
-    echo "1) intel-ucode  - Microcode Intel"
-    echo "2) amd-ucode    - Microcode AMD"
-    echo "3) not install microcode"
-    echo "####################"
-    read -n1 -p">" microcode
-done
-echo; echo
-if [[ $microcode == "1" ]]; then
-    microcode="intel-ucode"
-elif [[ $microcode == "2" ]]; then
-    microcode="amd-ucode"
-else
-    microcode=""
-fi
 
-
-packages="archlinux-keyring base base-devel $kernel linux-firmware $microcode $grub networkmanager nano curl"
+packages="archlinux-keyring base base-devel $kernel linux-firmware $grub networkmanager nano curl"
 pacstrap /mnt $packages
+
 
 # Generate /etc/fstab
 genfstab -U /mnt >> /mnt/etc/fstab

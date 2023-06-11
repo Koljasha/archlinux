@@ -16,15 +16,16 @@ echo "FONT=cyr-sun16" >> /etc/vconsole.conf
 # Network configuration
 echo "archlinux" >> /etc/hostname
 
-echo "127.0.0.1    localhost" >> /etc/hosts
-echo "::1          localhost" >> /etc/hosts
-echo "127.0.0.1    archlinux.localdomain  archlinux" >> /etc/hosts
+# Move to `packages` 'Post config'
+# echo "127.0.0.1    localhost" >> /etc/hosts
+# echo "::1          localhost" >> /etc/hosts
+# echo "127.0.0.1    archlinux.localdomain  archlinux" >> /etc/hosts
 
 systemctl enable NetworkManager
 
-# Pacman settings
-sed -i 's/#Color/Color/' /etc/pacman.conf
-sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+# Pacman settings - Move to `packages` 'Post config'
+# sed -i 's/#Color/Color/' /etc/pacman.conf
+# sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # Add multilib repo
 line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
@@ -54,9 +55,10 @@ chown -R $username:$username /home/$username/archlinux
 
 # Add sudo
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-# Add sudo timeout
-line=`grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
-sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
+
+# Add sudo timeout - Move to `packages` 'Post config'
+# line=`grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
+# sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
 
 echo; echo
 # Install GRUB
