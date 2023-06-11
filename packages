@@ -827,6 +827,9 @@ sudo systemctl enable udisks2.service
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
 
+# fstrim for ssd
+sudo systemctl enable fstrim.timer
+
 # login manager
 if [[ $de == "koljasha_wm" ]] \
 || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
