@@ -104,7 +104,8 @@ dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
 git pass trash-cli numlockx wget curl
 fzf fd ripgrep jq tree highlight bat git-delta ncdu
-neofetch htop lm_sensors cmatrix upower udisks2 smartmontools dmidecode
+neofetch htop cmatrix lm_sensors lsof strace
+cryptsetup upower udisks2 smartmontools dmidecode
 atool p7zip unrar unzip zip
 openssh freerdp rsync gufw
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
