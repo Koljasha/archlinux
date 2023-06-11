@@ -13,6 +13,8 @@ echo "FONT=cyr-sun16" | sudo tee --append /etc/vconsole.conf
 
 # Network configuration
 echo "archlinux" | sudo tee /etc/hostname
+
+sudo sed -i '3,$d' /etc/hosts
 echo "127.0.0.1    localhost" | sudo tee --append /etc/hosts
 echo "::1          localhost" | sudo tee --append /etc/hosts
 echo "127.0.0.1    archlinux.localdomain  archlinux" | sudo tee --append /etc/hosts
@@ -783,25 +785,25 @@ fish -c 'fish_update_completions'
 
 ###############
 
-if [[ $de == "koljasha_wm" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]]; then
-    # picom settings
-    while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
-        echo; echo
-        echo "####################"
-        echo "Disable Vsync (this enable transparency for me in VirtualBox)"
-        echo "1) no"
-        echo "2) yes"
-        echo "####################"
-        read -n1 -p">" vvsync
-    done
-    echo; echo
+# # picom settings
+# if [[ $de == "koljasha_wm" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]]; then
+    # while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
+        # echo; echo
+        # echo "####################"
+        # echo "Disable Vsync (this enable transparency for me in VirtualBox)"
+        # echo "1) no"
+        # echo "2) yes"
+        # echo "####################"
+        # read -n1 -p">" vvsync
+    # done
+    # echo; echo
 
-    if [[ $vvsync == "2" ]]; then
-        sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
-        sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
-    fi
-    echo "Ok"
-fi
+    # if [[ $vvsync == "2" ]]; then
+        # sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
+        # sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
+    # fi
+    # echo "Ok"
+# fi
 
 ###############
 
@@ -966,31 +968,34 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # enable hibernate
-    while [[ $hbr != "1" ]] && [[ $hbr != "2" ]]; do
-        echo; echo
-        echo "####################"
-        echo "Enable Hibernate"
-        echo "1) yes"
-        echo "2) no"
-        echo
-        echo "Warning! Read https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate"
-        echo "  -  need a created swap partition or a swap file"
-        echo "  -  the script will automatically create a resume hook"
-        echo "  -  you must manually specify resume=swap_partition in GRUB_CMDLINE_LINUX_DEFAULT"
-        echo "####################"
-        read -n1 -p">" hbr
-    done
-    echo; echo
+    # # enable hibernate
+    # while [[ $hbr != "1" ]] && [[ $hbr != "2" ]]; do
+        # echo; echo
+        # echo "####################"
+        # echo "Enable Hibernate"
+        # echo "1) yes"
+        # echo "2) no"
+        # echo
+        # echo "Warning! Read https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate"
+        # echo "  -  need a created swap partition or a swap file"
+        # echo "  -  the script will automatically create a resume hook"
+        # echo "  -  you must manually specify resume=swap_partition in GRUB_CMDLINE_LINUX_DEFAULT"
+        # echo "####################"
+        # read -n1 -p">" hbr
+    # done
+    # echo; echo
 
-    if [[ $hbr == "1" ]]; then
-        sudo sed -i -e '/^HOOKS=/s/udev/udev resume/' /etc/mkinitcpio.conf
-        sudo mkinitcpio -P
-    else
-        sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
-        sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
-    fi
-    echo "Ok"
+    # if [[ $hbr == "1" ]]; then
+        # sudo sed -i -e '/^HOOKS=/s/udev/udev resume/' /etc/mkinitcpio.conf
+        # sudo mkinitcpio -P
+    # else
+        # sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
+        # sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
+    # fi
+    # echo "Ok"
+
+    sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
+    sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
 
     ###############
 fi
