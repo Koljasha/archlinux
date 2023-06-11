@@ -141,10 +141,10 @@ packages="
 $drivers $headers reflector pkgfile man-db man-pages arch-install-scripts
 dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
+cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs
 git pass trash-cli numlockx wget curl
 fzf fd ripgrep jq tree highlight bat git-delta ncdu
 neofetch htop cmatrix lm_sensors lsof strace
-cryptsetup upower udisks2 smartmontools dmidecode
 atool p7zip unrar unzip zip
 openssh freerdp rsync gufw
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
@@ -297,6 +297,12 @@ fi
 # rustdesk-bin -remote desktop software
 
 # os-prober-btrfs - Grub find system on btrfs disks
+# grub-btrfs - include btrfs snapshots in Grub menu
+
+# timeshift-bin - create snapshots utility
+
+# mintstick - write Iso to Usb
+# ventoy-bin - write multiple Iso to Usb
 
 packages_aur="
 xkb-switch
@@ -309,11 +315,6 @@ if [[ $de == "koljasha_wm" ]]; then
     mint-x-icons
     "
 fi
-
-# Other packages:
-# mintstick - write Iso to Usb
-# ventoy-bin - write Iso to Usb
-# bottles - manage wine prefix
 
 ###############
 
