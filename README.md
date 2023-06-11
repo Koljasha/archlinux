@@ -23,11 +23,14 @@
 * `cd archlinux && ./installer`
 
 ***
-#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide) - it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with minimal installation
-* `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-    * `/dev/sda` - auto mount
-    * other      - manual mount
-* `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
+#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
+##### it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with minimal installation
+    * set russian support: `setfont UniCyrExt_8x16`
+##### the old version
+    * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
+        * `/dev/sda` - auto mount
+        * other      - manual mount
+    * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 #### NafmanOs - need [Git](https://wiki.archlinux.org/title/Git) installed
 * `./packages` - install desktops, packages and settings it *(Openbox, i3wm, Qtile - my settings; other - default settings)*
     * **Qtile**, **i3wm**, **Openbox**
