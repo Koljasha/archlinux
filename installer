@@ -44,7 +44,7 @@ echo "Boot mode is $table"
 echo "####################"
 while [[ $am != "1" ]] && [[ $am != "2" ]]; do
     echo "Please, choose:"
-    echo "1) auto mount mode - only for /dev/sda"
+    echo "1) auto mount mode - only for /dev/vda"
     echo "2) manual mount mode"
     echo "####################"
     read -n1 -p">" am
@@ -58,9 +58,9 @@ if [[ $table == "UEFI" ]]; then
         echo "Important:"
         echo "Select label type: gpt"
         echo "Create the following new partions:"
-        echo "/dev/sda1 - for efi"
-        echo "/dev/sda2 - for swap"
-        echo "/dev/sda3 - for root"
+        echo "/dev/vda1 - for efi"
+        echo "/dev/vda2 - for swap"
+        echo "/dev/vda3 - for root"
         echo "####################"
         echo "Click any key; ctrl-c is abort"
         echo "####################"
@@ -74,14 +74,14 @@ if [[ $table == "UEFI" ]]; then
         echo "####################"
         read -n1 -p">"; echo
 
-        mkfs.fat -F32 /dev/sda1
-        mkswap /dev/sda2
-        mkfs.ext4 /dev/sda3
+        mkfs.fat -F32 /dev/vda1
+        mkswap /dev/vda2
+        mkfs.ext4 /dev/vda3
 
-        mount /dev/sda3 /mnt
-        swapon /dev/sda2
+        mount /dev/vda3 /mnt
+        swapon /dev/vda2
         mkdir -p /mnt/boot/efi
-        mount /dev/sda1 /mnt/boot/efi
+        mount /dev/vda1 /mnt/boot/efi
     else
         echo
         echo "####################"
@@ -109,8 +109,8 @@ else
         echo "Important:"
         echo "Select label type: dos"
         echo "Create the following new partions:"
-        echo "/dev/sda1 - for swap"
-        echo "/dev/sda2 - for root"
+        echo "/dev/vda1 - for swap"
+        echo "/dev/vda2 - for root"
         echo "####################"
         echo "Click any key; ctrl-c is abort"
         echo "####################"
@@ -124,11 +124,11 @@ else
         echo "####################"
         read -n1 -p">"; echo
 
-        mkswap /dev/sda1
-        mkfs.ext4 /dev/sda2
+        mkswap /dev/vda1
+        mkfs.ext4 /dev/vda2
 
-        mount /dev/sda2 /mnt
-        swapon /dev/sda1
+        mount /dev/vda2 /mnt
+        swapon /dev/vda1
     else
         echo
         echo "####################"
