@@ -330,7 +330,10 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
 
 if [[ $(echo $?) != 0 ]]; then
+    echo
     echo "Error Installation"
+    echo "Try to run the ./packages with the same parameters again now"
+    echo
     exit 2
 fi
 
