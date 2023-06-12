@@ -29,7 +29,7 @@
     * `archinstall`
 ##### the old version
     * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-        * `/dev/vda` - auto mount
+        * `/dev/vda` - auto mount (vda - default disk in Gnome Boxes)
         * other      - manual mount
     * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 #### NafmanOs - need [Git](https://wiki.archlinux.org/title/Git) installed
