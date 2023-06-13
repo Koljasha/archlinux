@@ -160,6 +160,7 @@ arc-gtk-theme adapta-gtk-theme breeze-gtk
 arc-icon-theme breeze-icons
 archlinux-wallpaper
 firefox
+flatpak
 "
 
 if [[ $de == "koljasha_wm" ]]; then
