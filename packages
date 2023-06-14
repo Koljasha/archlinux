@@ -150,8 +150,7 @@ openssh freerdp rsync gufw
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
-vim fish tmux feh ranger ueberzug ffmpegthumbnailer
-terminator alacritty
+vim fish tmux
 imagemagick ffmpeg
 python-pip python-setuptools
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
@@ -175,12 +174,14 @@ if [[ $de == "koljasha_wm" ]]; then
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman
     polkit-gnome lxappearance-gtk3 picom
-    gvim gsimplecal
+    terminator alacritty
+    feh ranger ueberzug ffmpegthumbnailer
     dmenu rofi jgmenu i3lock dunst clipmenu
-    qutebrowser python-requests python-beautifulsoup4
-    pcmanfm-gtk3
+    gvim gsimplecal
     neovim python-pynvim nodejs npm pyright bash-language-server
     maim grim slurp swappy
+    qutebrowser python-requests python-beautifulsoup4
+    pcmanfm-gtk3
     file-roller gnome-calculator gnome-terminal
     remmina samba x11vnc
     vlc
@@ -242,7 +243,7 @@ elif [[ $de == "cinnamon" ]]; then
     qt5ct qt6ct kvantum
 
     cinnamon cinnamon-translations x-apps
-    gnome-calculator gnome-screenshot file-roller gthumb celluloid
+    gnome-terminal gnome-calculator gnome-screenshot file-roller gthumb celluloid
     "
 elif [[ $de == "gnome" ]]; then
     packages="
@@ -423,6 +424,21 @@ if [[ $de == "koljasha_wm" ]]; then
     # terminator for plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 
+    # /usr/local/bin
+    sudo cp files/apps/terminator /usr/local/bin/terminator
+    sudo cp files/apps/feh /usr/local/bin/feh
+
+    # applications
+    cp files/apps/terminator.desktop ~/.local/share/applications/
+    cp files/apps/feh.desktop ~/.local/share/applications/
+    cp files/apps/ranger.desktop ~/.local/share/applications/
+
+    # mime cache
+    cp files/apps/mimeinfo.cache ~/.local/share/applications/
+
+    # ranger icons
+    git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+
     # tmux pluggins manager
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     ~/.config/tmux/plugins/tpm/bin/install_plugins
@@ -443,9 +459,6 @@ elif [[ $de == "xfce" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
@@ -461,9 +474,6 @@ elif [[ $de == "lxde" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     cp -r config/picom ~/.config/picom
 
@@ -490,9 +500,6 @@ elif [[ $de == "lxqt" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     cp -r config/picom ~/.config/picom
 
@@ -527,9 +534,6 @@ elif [[ $de == "efl" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
@@ -545,9 +549,6 @@ elif [[ $de == "mate" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     # config lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
@@ -563,9 +564,6 @@ elif [[ $de == "cinnamon" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     # copy desktop icons
     sudo cp files/badge/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
@@ -585,9 +583,6 @@ elif [[ $de == "gnome" ]]; then
     cp -r config/fish ~/.config/fish
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 elif [[ $de == "budgie" ]]; then
     rm ~/.profile
 
@@ -597,9 +592,6 @@ elif [[ $de == "budgie" ]]; then
     cp -r config/fish ~/.config/fish
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 elif [[ $de == "pantheon" ]]; then
     rm ~/.profile
 
@@ -609,9 +601,6 @@ elif [[ $de == "pantheon" ]]; then
     cp -r config/fish ~/.config/fish
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 elif [[ $de == "kde" ]]; then
     rm ~/.profile
 
@@ -621,9 +610,6 @@ elif [[ $de == "kde" ]]; then
     cp -r config/fish ~/.config/fish
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     # config sddm
     sudo mkdir /etc/sddm.conf.d
@@ -638,9 +624,6 @@ elif [[ $de == "deepin" ]]; then
     cp -r config/fish ~/.config/fish
 
     cp -r config/htop ~/.config/htop
-    cp -r config/ranger ~/.config/ranger
-    cp -r config/terminator ~/.config/terminator
-    cp -r config/alacritty ~/.config/alacritty
 
     # copy desktop icons
     sudo cp files/badge/deepin_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/deepin_badge-symbolic.svg
@@ -673,23 +656,8 @@ sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/system
 # systemd journal size
 sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=512M/' /etc/systemd/journald.conf
 
-# /usr/local/bin
-sudo cp files/apps/terminator /usr/local/bin/terminator
-sudo cp files/apps/feh /usr/local/bin/feh
-
-# applications
-cp files/apps/terminator.desktop ~/.local/share/applications/
-cp files/apps/feh.desktop ~/.local/share/applications/
-cp files/apps/ranger.desktop ~/.local/share/applications/
-
-# mime cache
-cp files/apps/mimeinfo.cache ~/.local/share/applications/
-
 # enable change locale
 sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
-
-# ranger icons
-git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
 ###############
 
