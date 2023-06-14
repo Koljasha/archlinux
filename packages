@@ -475,8 +475,6 @@ elif [[ $de == "lxde" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    cp -r config/picom ~/.config/picom
-
     # enable picom autostart
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
@@ -500,8 +498,6 @@ elif [[ $de == "lxqt" ]]; then
     cp -r config/qt6ct ~/.config/qt6ct
 
     cp -r config/htop ~/.config/htop
-
-    cp -r config/picom ~/.config/picom
 
     # QT Environment
     mkdir ~/.config/lxqt
@@ -759,28 +755,6 @@ fish -c 'fish_update_completions'
 
 ###############
 
-# # picom settings
-# if [[ $de == "koljasha_wm" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]]; then
-    # while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
-        # echo; echo
-        # echo "####################"
-        # echo "Disable Vsync (this enable transparency for me in VirtualBox)"
-        # echo "1) no"
-        # echo "2) yes"
-        # echo "####################"
-        # read -n1 -p">" vvsync
-    # done
-    # echo; echo
-
-    # if [[ $vvsync == "2" ]]; then
-        # sed -i 's/^# vsync = false/vsync = false/' ~/.config/picom/picom.conf
-        # sed -i 's/^vsync = true/# vsync = true/' ~/.config/picom/picom.conf
-    # fi
-    # echo "Ok"
-# fi
-
-###############
-
 # Enable services
 
 ###############
@@ -940,6 +914,27 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "Password Samba share for $username"
         sudo smbpasswd -a $username
         sudo systemctl enable smb.service
+    fi
+    echo "Ok"
+
+    ###############
+
+    # picom disable for Virtual machines
+    while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
+        echo; echo
+        echo "####################"
+        echo "Disable Picom (it is necessary to work on a virtual machine)"
+        echo "1) no"
+        echo "2) yes"
+        echo "####################"
+        read -n1 -p">" vvsync
+    done
+    echo; echo
+
+    if [[ $vvsync == "2" ]]; then
+        sed -i 's/picom/# picom/' ~/.config/qtile/autostart.sh
+        sed -i 's/picom/# picom/' ~/.config/i3/autostart.sh
+        sed -i 's/picom/# picom/' ~/.config/openbox/autostart.sh
     fi
     echo "Ok"
 
