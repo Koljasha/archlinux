@@ -14,7 +14,7 @@ alias mv="mv -v"
 alias rm="rm -v"
 
 alias cat="bat"
-alias cat_="bat -pp"
+alias ccat="bat -pp"
 alias less="bat --pager 'less -iR'"
 
 alias fd="fd --hidden --no-ignore"
