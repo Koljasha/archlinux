@@ -1,0 +1,17 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+
+# hold mouse button 1
+"xdotool mousedown --clearmodifiers 1"
+  Control+Shift + Return
+
+# volume control
+"xdotool key --clearmodifiers super+z"
+  b:9
+
+##################################
+# End of xbindkeys configuration #
+##################################
+
