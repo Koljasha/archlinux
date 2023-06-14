@@ -9,7 +9,7 @@
 
 # volume control
 "xdotool key --clearmodifiers super+z"
-  b:9
+  b:10
 
 ##################################
 # End of xbindkeys configuration #
