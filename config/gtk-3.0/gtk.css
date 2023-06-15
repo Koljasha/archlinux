@@ -14,3 +14,7 @@ scrollbar slider {
     min-height: 3px;
 }
 
+vte-terminal {
+    padding: 1px 5px;
+}
+
