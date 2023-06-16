@@ -1,4 +1,12 @@
-# Elecom Deft Pro remap <Forward> -> <Middle>
+# Kensington Orbit Fusion
+# remap <Forward> -> <Middle>
+# remap <Middle> -> <Right>
+evdev:name:Kensington Orbit Fusion Wireless Trackball:*
+ KEYBOARD_KEY_90005=BTN_MIDDLE
+ KEYBOARD_KEY_90003=BTN_RIGHT
+
+# Elecom Deft Pro
+# remap <Forward> -> <Middle>
 evdev:name:ELECOM TrackBall Mouse DEFT Pro TrackBall:*
  KEYBOARD_KEY_90005=btn_middle
 
