@@ -11,7 +11,7 @@ from libqtile.lazy import lazy
 
 if qtile.core.name == "wayland":
     from wlroots import ffi, lib
-    # from libqtile.backend.wayland import InputConfig
+    from libqtile.backend.wayland import InputConfig
 
 # from libqtile.log_utils import logger
 
@@ -90,6 +90,14 @@ if qtile.core.name == "x11":
             window.window.set_property("_NET_WM_STATE", list(new_state))
 
 if qtile.core.name == "wayland":
+    wl_input_rules = {
+        "1149:32891:Kensington Orbit Fusion Wireless Trackball": InputConfig(
+            pointer_accel=-0.45,
+            scroll_method='on_button_down',
+            scroll_button='Button9',
+        ),
+    }
+
     def get_keyboard_layout():
         for device in qtile.core.keyboards[:1]:
             keymap = device.wlr_device.keyboard._ptr.keymap
