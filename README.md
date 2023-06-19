@@ -62,14 +62,14 @@
     * `files/xorg.conf.d/70-trackball.conf` -> `/etc/X11/xorg.conf.d/`
     * list: `xinput list`
     * info: `xinput list-props <id>`
-2. **Xorg**, **Wayland**:
+2. **Xorg**, **Wayland**: [evsieve](https://github.com/KarsMulder/evsieve)
+3. **Xorg**, **Wayland**: [Input Remapper](https://github.com/sezanzeb/input-remapper/)
+4. **Xorg**, **Wayland** *hardcore way* :
     * `files/hwdb.d/70-mouse-remap.hwdb` -> `/etc/udev/hwdb.d/`
     * list: `sudo libinput list-devices`
     * info: `sudo udevadm info /dev/input/event<id>`
     * click buttons: `sudo evtest`
     * enable: `sudo systemd-hwdb update` and `sudo udevadm trigger`
-3. **Xorg**, **Wayland**: [Input Remapper](https://github.com/sezanzeb/input-remapper/)
-4. **Xorg**, **Wayland**: [libinput-config](https://gitlab.com/warningnonpotablewater/libinput-config/)
 5. *other way*: [Arch Wiki](https://wiki.archlinux.org/title/Input_remap_utilities)
 ***
 
