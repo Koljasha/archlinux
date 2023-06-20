@@ -64,7 +64,7 @@
     * info: `xinput list-props <id>`
 2. **Xorg**, **Wayland**: [evsieve](https://github.com/KarsMulder/evsieve)
 3. **Xorg**, **Wayland**: [Input Remapper](https://github.com/sezanzeb/input-remapper/)
-4. **Xorg**, **Wayland** *hardcore way* :
+4. **Xorg**, **Wayland** *(hardcore way)* :
     * `files/hwdb.d/70-mouse-remap.hwdb` -> `/etc/udev/hwdb.d/`
     * list: `sudo libinput list-devices`
     * info: `sudo udevadm info /dev/input/event<id>`
