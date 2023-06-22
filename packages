@@ -138,7 +138,7 @@ echo "Ok"
 # Packages
 
 packages="
-$drivers $headers reflector pkgfile man-db man-pages arch-install-scripts
+$drivers $headers reflector pkgfile man-db man-pages arch-install-scripts cmake
 dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs
