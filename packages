@@ -721,6 +721,8 @@ sed -i 's/✘/✘ $RETVAL'/ ~/.local/share/omf/themes/agnoster/functions/fish_pr
 sudo chsh -s /usr/bin/fish $username
 # fish editor
 fish -c 'set -U EDITOR vim'
+# vi mode
+fish -c 'fish_vi_key_bindings'
 # update fish
 fish -c 'fish_update_completions'
 
