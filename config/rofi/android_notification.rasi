@@ -107,9 +107,9 @@ element.alternate.active {
     text-color:       @alternate-active-foreground;
 }
 scrollbar {
-    width:        4px ;
+    width:        2px ;
     border:       0;
-    handle-width: 8px ;
+    handle-width: 2px ;
     padding:      0;
 }
 mode-switcher {
