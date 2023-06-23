@@ -1,0 +1,22 @@
+# mouse btn remap and mouse->kbd remap
+sudo evsieve --input /dev/input/by-id/usb-Kensington_Orbit_Fusion_Wireless_Trackball-event-mouse grab \
+         --input /dev/input/by-id/usb-SINO_WEALTH_Keyboard-event-kbd grab \
+         --map yield btn:middle btn:right \
+         --hook btn:right send-key=key:leftmeta send-key=key:z \
+         --output
+
+
+# mouse btn remap
+sudo evsieve --input /dev/input/by-id/usb-Kensington_Orbit_Fusion_Wireless_Trackball-event-mouse grab \
+         --map yield btn:middle btn:right \
+         --map yield btn:right btn:middle \
+         --output
+
+
+# run as systemd service
+sudo systemd-run --service-type=notify --unit=virtual-mouse.service evsieve \
+--input /dev/input/by-id/usb-Kensington_Orbit_Fusion_Wireless_Trackball-event-mouse grab \
+         --map yield btn:middle btn:right \
+         --map yield btn:right btn:middle \
+         --output
+
