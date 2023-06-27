@@ -91,8 +91,8 @@ if qtile.core.name == "x11":
 
 if qtile.core.name == "wayland":
     wl_input_rules = {
-        "1149:32891:Kensington Orbit Fusion Wireless Trackball": InputConfig(
-            pointer_accel=-0.45,
+        "type:pointer": InputConfig(
+            pointer_accel=-0.30,
             scroll_method='on_button_down',
             scroll_button='Button9',
         ),
