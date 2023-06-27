@@ -9,11 +9,11 @@
 
 # volume control
 "xdotool key --clearmodifiers super+z"
-  b:10
+  b:11
 
 # workspaces change
-"xdotool key --clearmodifiers super+x"
-  b:11
+# "xdotool key --clearmodifiers super+x"
+  # b:11
 
 # application launcher
 "xdotool key --clearmodifiers super+a"

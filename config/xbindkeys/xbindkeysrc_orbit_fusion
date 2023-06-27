@@ -8,8 +8,8 @@
   Control+Shift + Return
 
 # volume control
-"xdotool key --clearmodifiers super+z"
-  b:10
+# "xdotool key --clearmodifiers super+z"
+  # b:10
 
 ##################################
 # End of xbindkeys configuration #
