@@ -7,17 +7,17 @@
 "xdotool mousedown --clearmodifiers 1"
   Control+Shift + Return
 
-# volume control
-"xdotool key --clearmodifiers super+z"
-  b:11
-
 # workspaces change
-# "xdotool key --clearmodifiers super+x"
-  # b:11
+"xdotool key --clearmodifiers super+x"
+  b:11
 
 # application launcher
 "xdotool key --clearmodifiers super+a"
   b:12
+
+# volume control
+# "xdotool key --clearmodifiers super+z"
+  # b:11
 
 # mouse sniper mode (Deft Pro)
 # "~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
