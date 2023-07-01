@@ -275,8 +275,6 @@ elif [[ $de == "deepin" ]]; then
 fi
 
 # Other packages:
-# pulseaudio pulseaudio-alsa - previous sound server
-
 # xreader, atril - document viewer
 
 # wine|wine-staging winetricks - for windows applications
@@ -304,6 +302,12 @@ fi
 
 # mintstick - write Iso to Usb
 # ventoy-bin - write multiple Iso to Usb
+
+#
+# additionally I use:
+# yay -S android-tools gnome-boxes libreoffice-still libreoffice-still-ru \
+# wine-staging winetricks lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader lib32-pipewire
+#
 
 packages_aur="
 xkb-switch
