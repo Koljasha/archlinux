@@ -6,8 +6,8 @@
 set fish_greeting
 
 # Vi-style bindings that inherit emacs-style
-function fish_hybrid_key_bindings --description \
-"Vi-style bindings that inherit emacs-style"
+function fish_hybrid_key_bindings \
+    --description "Vi-style bindings that inherit emacs-style"
     for mode in default insert visual
         fish_default_key_bindings -M $mode
     end
@@ -15,8 +15,13 @@ function fish_hybrid_key_bindings --description \
 end
 set -g fish_key_bindings fish_hybrid_key_bindings
 
-# save current directory (for qtile, i3 terminal)
-prompt_command
+
+# save current directory (it is necessary for tiling managers like i3, qtile)
+function prompt_command \
+    --on-event fish_prompt \
+    --description 'save current directory'
+    pwd > /tmp/whereami
+end
 
 
 # aliases default
