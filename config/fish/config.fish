@@ -2,17 +2,32 @@
 # Fish settings
 #
 
+# not display a welcome message
 set fish_greeting
 
-# save current directory (for i3 terminal)
+# Vi-style bindings that inherit emacs-style
+function fish_hybrid_key_bindings --description \
+"Vi-style bindings that inherit emacs-style"
+    for mode in default insert visual
+        fish_default_key_bindings -M $mode
+    end
+    fish_vi_key_bindings --no-erase
+end
+set -g fish_key_bindings fish_hybrid_key_bindings
+
+# save current directory (for qtile, i3 terminal)
 prompt_command
 
+
+# aliases default
 alias ll="ls -lahv --group-directories-first"
 alias grep="grep --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="rm -v"
 
+
+# aliases additionally
 alias cat="bat"
 alias ccat="bat -pp"
 alias less="bat --pager 'less -iR'"
@@ -20,6 +35,8 @@ alias less="bat --pager 'less -iR'"
 alias fd="fd --hidden --no-ignore"
 alias rg="rg --hidden --no-ignore --ignore-case"
 
+
+# aliases WireGuard, Vpn
 # alias wg-up="sudo wg-quick up wg0"
 # alias wg-down="sudo wg-quick down wg0"
 # function wg-status --description 'show WireGuard status'
