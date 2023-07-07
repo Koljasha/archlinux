@@ -5,7 +5,7 @@
 # not display a welcome message
 set fish_greeting
 
-# Vi-style bindings that inherit emacs-style
+# vi-style bindings that inherit emacs-style
 function fish_hybrid_key_bindings \
     --description "Vi-style bindings that inherit emacs-style"
     for mode in default insert visual
@@ -15,7 +15,6 @@ function fish_hybrid_key_bindings \
 end
 set -g fish_key_bindings fish_hybrid_key_bindings
 
-
 # save current directory (it is necessary for tiling managers like i3, qtile)
 function prompt_command \
     --on-event fish_prompt \
@@ -24,15 +23,14 @@ function prompt_command \
 end
 
 
-# aliases default
+# aliases for default commands
 alias ll="ls -lahv --group-directories-first"
 alias grep="grep --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="rm -v"
 
-
-# aliases additionally
+# aliases for additional commands
 alias cat="bat"
 alias ccat="bat -pp"
 alias less="bat --pager 'less -iR'"
@@ -40,8 +38,7 @@ alias less="bat --pager 'less -iR'"
 alias fd="fd --hidden --no-ignore"
 alias rg="rg --hidden --no-ignore --ignore-case"
 
-
-# aliases WireGuard, Vpn
+# aliases for WireGuard
 # alias wg-up="sudo wg-quick up wg0"
 # alias wg-down="sudo wg-quick down wg0"
 # function wg-status --description 'show WireGuard status'
@@ -53,6 +50,7 @@ alias rg="rg --hidden --no-ignore --ignore-case"
     # end
 # end
 
+# aliases for Vpn
 # alias vpn-up="nmcli connection up OpenVpn"
 # alias vpn-down="nmcli connection down OpenVpn"
 # function vpn-status --description 'show OpenVpn status'
