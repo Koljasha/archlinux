@@ -175,7 +175,7 @@ if [[ $de == "koljasha_wm" ]]; then
     bluez blueman
     polkit-gnome lxappearance-gtk3 picom
     terminator alacritty
-    feh ranger ueberzug ffmpegthumbnailer
+    feh ranger ffmpegthumbnailer
     dmenu rofi jgmenu i3lock dunst clipmenu
     gvim gsimplecal
     neovim python-pynvim nodejs npm pyright bash-language-server
@@ -293,12 +293,12 @@ fi
 
 # libreoffice-still libreoffice-still-ru - office
 
-# rustdesk-bin -remote desktop software
-
 # os-prober-btrfs - Grub find system on btrfs disks
 # grub-btrfs - include btrfs snapshots in Grub menu
 
 # timeshift-bin - create snapshots utility
+
+# rustdesk-bin -remote desktop software
 
 # mintstick - write Iso to Usb
 # ventoy-bin - write multiple Iso to Usb
@@ -319,6 +319,7 @@ if [[ $de == "koljasha_wm" ]]; then
     $packages_aur
     arc-dark-osx-openbox-theme-git
     mint-x-icons
+    ueberzugpp
     "
 fi
 
