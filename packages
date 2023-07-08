@@ -281,8 +281,6 @@ fi
 # drivers & libs: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
 # for pipewire: lib32-pipewire
 #
-# pacman -S wine-staging winetricks lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader lib32-pipewire
-#
 # bottles - bottles for windows applications
 # lutris gamemode lib32-gamemode - frontend for windows games
 
@@ -298,7 +296,9 @@ fi
 
 # timeshift-bin - create snapshots utility
 
-# rustdesk-bin -remote desktop software
+# rustdesk-bin - remote desktop software
+
+# stretchly-bin - break time reminder app
 
 # mintstick - write Iso to Usb
 # ventoy-bin - write multiple Iso to Usb
@@ -307,7 +307,7 @@ fi
 # additionally I use (Koljasha apps):
 # yay -S android-tools gnome-boxes libreoffice-still libreoffice-still-ru \
 # wine-staging winetricks lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader lib32-pipewire
-# flatpak install flathub ru.yandex.Browser net.hovancik.Stretchly
+# flatpak install flathub ru.yandex.Browser
 #
 
 packages_aur="
