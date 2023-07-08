@@ -290,6 +290,7 @@ fi
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
 # libreoffice-still libreoffice-still-ru - office
+# onlyoffice-bin - office
 
 # os-prober-btrfs - Grub find system on btrfs disks
 # grub-btrfs - include btrfs snapshots in Grub menu
