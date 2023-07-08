@@ -139,7 +139,7 @@ echo "Ok"
 
 packages="
 $drivers $headers reflector pkgfile man-db man-pages arch-install-scripts cmake
-dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
+android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs
 git pass trash-cli numlockx wget curl
@@ -281,6 +281,8 @@ fi
 # drivers & libs: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
 # for pipewire: lib32-pipewire
 #
+# yay -S wine-staging winetricks lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader lib32-pipewire
+#
 # bottles - bottles for windows applications
 # lutris gamemode lib32-gamemode - frontend for windows games
 
@@ -305,9 +307,7 @@ fi
 # ventoy-bin - write multiple Iso to Usb
 
 #
-# additionally I use (Koljasha apps):
-# yay -S android-tools gnome-boxes libreoffice-still libreoffice-still-ru \
-# wine-staging winetricks lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader lib32-pipewire
+# additionally I use flatpak apps:
 # flatpak install flathub ru.yandex.Browser
 #
 
