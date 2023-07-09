@@ -47,6 +47,7 @@
     * **Kde Plasma**
     * **Deepin**
 * `./swapfile` - create swapfile in work system
+* `./links` - creating a working link system (for Koljasha disk's system)
 
 ***
 #### for SSD users
