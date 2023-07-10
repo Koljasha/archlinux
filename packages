@@ -308,7 +308,7 @@ fi
 
 #
 # additionally I use flatpak apps:
-# flatpak install flathub ru.yandex.Browser
+# flatpak install flathub com.github.tchx84.Flatseal ru.yandex.Browser
 #
 
 packages_aur="
