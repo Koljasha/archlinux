@@ -9,7 +9,7 @@
 #
 # sudo vim /etc/fstab:
 # /dev/sda4 LABAL=Storage
-# UUID=c6ab23b5-1b6d-4c3f-8488-6efee0144e54i    /run/mount/storage/     ext4    rw,relatime     0 2
+# UUID=c6ab23b5-1b6d-4c3f-8488-6efee0144e54	/run/mount/storage/	ext4	rw,relatime	0 2
 #
 
 # home dirs
