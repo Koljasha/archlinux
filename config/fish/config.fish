@@ -38,7 +38,7 @@ alias less="bat --pager 'less -iR'"
 alias fd="fd --hidden --no-ignore"
 alias rg="rg --hidden --no-ignore --ignore-case"
 
-# aliases for WireGuard
+# # aliases for WireGuard
 # alias wg-up="sudo wg-quick up wg0"
 # alias wg-down="sudo wg-quick down wg0"
 # function wg-status --description 'show WireGuard status'
@@ -50,7 +50,7 @@ alias rg="rg --hidden --no-ignore --ignore-case"
     # end
 # end
 
-# aliases for Vpn
+# # aliases for Vpn
 # alias vpn-up="nmcli connection up OpenVpn"
 # alias vpn-down="nmcli connection down OpenVpn"
 # function vpn-status --description 'show OpenVpn status'
