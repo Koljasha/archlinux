@@ -35,7 +35,7 @@ if [[ `pacman -Qe grub 2>/dev/null` != '' ]]; then
         sudo pacman -S --needed --noconfirm os-prober grub-theme-vimix
         sudo sed -i '/^GRUB_TIMEOUT/s/=./=3/' /etc/default/grub
         sudo sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
-        sudo sed -i 's/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
+        # sudo sed -i 's/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
         sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
