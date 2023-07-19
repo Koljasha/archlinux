@@ -28,7 +28,7 @@ line=`sudo grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
 sudo sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
 
 # Add microcode and curl for mirrors
-# sudo pacman -S --needed --noconfirm intel-ucode amd-ucode
+sudo pacman -S --needed --noconfirm intel-ucode amd-ucode
 sudo pacman -S --needed --noconfirm curl git
 
 # Grub config
@@ -160,7 +160,7 @@ arc-gtk-theme adapta-gtk-theme breeze-gtk
 arc-icon-theme breeze-icons
 archlinux-wallpaper
 firefox
-flatpak
+xdg-desktop-portal-gtk flatpak
 "
 
 if [[ $de == "koljasha_wm" ]]; then
