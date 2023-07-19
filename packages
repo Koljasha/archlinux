@@ -28,7 +28,8 @@ line=`sudo grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
 sudo sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
 
 # Add microcode and curl for mirrors
-sudo pacman -S --needed --noconfirm intel-ucode amd-ucode curl git
+# sudo pacman -S --needed --noconfirm intel-ucode amd-ucode
+sudo pacman -S --needed --noconfirm curl git
 
 # Grub config
 if [[ `pacman -Qe grub 2>/dev/null` != '' ]]; then
