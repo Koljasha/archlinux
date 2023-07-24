@@ -37,10 +37,12 @@ scripts = {
 
     "shell": os.path.expanduser("~/.config/scripts/shell.sh"),
 
+    "power": os.path.expanduser("~/.config/scripts/power.sh"),
+    "picom_restart": os.path.expanduser("~/.config/scripts/picom_restart.sh"),
+
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
     "password_generate": os.path.expanduser("~/.config/scripts/password_generate.sh"),
-    "power": os.path.expanduser("~/.config/scripts/power.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
     "workspaces": os.path.expanduser("~/.config/scripts/workspaces.sh"),
 
@@ -133,6 +135,8 @@ keys = [
     Key([mod, "shift"], "p", lazy.spawn(scripts["power"]), desc="Exit | Reboot | Poweroff"),
 
     Key([mod, "control"], "p", lazy.shutdown(), desc="Shutdown Qtile"),
+
+    Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
 
     Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
     Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
