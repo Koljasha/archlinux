@@ -355,7 +355,7 @@ groups = [
     Group("2: "),
     Group("3: "),
     Group("4: "),
-    Group("5: ", matches=[Match(wm_class=["firefox", "qutebrowser"])], layout="max"),
+    Group("5: ", matches=[Match(wm_class=["firefox"])], layout="max"),
     Group("6: ", layout="max"),
     Group("7: ", matches=[Match(wm_class=["vlc"])], layout="max"),
     Group("8: ", matches=[Match(wm_class=["transmission-gtk"])], layout="max"),
