@@ -184,7 +184,7 @@ if [[ $de == "koljasha_wm" ]]; then
     bluez blueman
     polkit-gnome lxappearance-gtk3 picom
     terminator alacritty
-    feh ranger ffmpegthumbnailer
+    feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
     gvim gsimplecal
     neovim python-pynvim nodejs npm pyright bash-language-server
@@ -330,7 +330,6 @@ if [[ $de == "koljasha_wm" ]]; then
     $packages_aur
     arc-dark-osx-openbox-theme-git
     mint-x-icons
-    ueberzugpp
     timeshift-bin
     "
 fi
