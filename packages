@@ -160,7 +160,7 @@ openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
 vim fish tmux
-imagemagick ffmpeg
+imagemagick ffmpeg ghostscript
 python-pip python-setuptools
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
