@@ -562,6 +562,7 @@ my_bar = bar.Bar(
 
         widget.Sep(padding=5),
         MyPulseVolume(update_interval=0.1,
+                      mouse_callbacks = { "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']}") },
                       fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
