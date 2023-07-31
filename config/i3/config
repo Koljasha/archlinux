@@ -54,8 +54,8 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/scripts/power.sh
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Control+p exec i3-msg exit
 
-# Polybar restart
-bindsym $mod+p exec --no-startup-id ~/.config/polybar/polybar.sh i3
+# Picom restart
+bindsym $mod+p exec --no-startup-id ~/.config/scripts/picom_restart.sh
 
 # Kill window
 bindsym --release $alt+Control+Delete exec --no-startup-id xkill

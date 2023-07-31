@@ -206,7 +206,7 @@
     </keybind>
     <keybind key="W-p">
       <action name="Execute">
-        <command>~/.config/polybar/polybar.sh openbox</command>
+        <command>~/.config/scripts/picom_restart.sh</command>
       </action>
     </keybind>
     <keybind key="C-A-Delete">
