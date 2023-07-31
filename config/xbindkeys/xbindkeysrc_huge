@@ -1,0 +1,25 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+
+# hold mouse button 1
+"xdotool mousedown --clearmodifiers 1"
+  Control+Shift + Return
+
+# application launcher
+"xdotool key --clearmodifiers super+a"
+  b:10
+
+# workspaces change
+"xdotool key --clearmodifiers super+x"
+  b:12
+
+# mouse sniper mode (Huge)
+# "~/.config/scripts/mouse_sniper.sh 'Huge'"
+  # b:10
+
+##################################
+# End of xbindkeys configuration #
+##################################
+
