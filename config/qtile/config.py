@@ -521,17 +521,19 @@ my_bar = bar.Bar(
     [
         # Left
         widget.Spacer(length=5),
-        widget.Image(filename="~/.config/qtile/qtile.svg",
+        widget.TextBox(fmt="<span color='#bd2c40'></span> {}",
                      mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("jgmenu_run")}),
 
-        widget.Spacer(length=5),
-        widget.CurrentLayoutIcon(scale=0.8),
+        widget.Sep(padding=5),
+        widget.CurrentLayoutIcon(scale=0.55),
 
-        widget.Spacer(length=5),
-        widget.Image(filename="~/.config/qtile/workspaces.svg",
+        widget.Sep(padding=5),
+        widget.Spacer(length=7),
+        widget.TextBox(fmt="<span color='#ffb52a'></span> {}",
                      mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} change"),
                                         "Button3": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} move")}),
 
+        widget.Sep(padding=5),
         widget.Spacer(length=5),
         widget.GroupBox(hide_unused=True,
                         disable_drag=True,
