@@ -524,17 +524,19 @@ my_bar = bar.Bar(
         widget.TextBox(fmt="<span color='#bd2c40'></span> {}",
                      mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("jgmenu_run")}),
 
-        widget.Sep(padding=5),
+        widget.Sep(padding=3),
         widget.CurrentLayoutIcon(scale=0.55),
 
-        widget.Sep(padding=5),
-        widget.Spacer(length=7),
+        widget.Sep(padding=3),
+        widget.Spacer(length=5),
+
         widget.TextBox(fmt="<span color='#ffb52a'></span> {}",
                      mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} change"),
                                         "Button3": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} move")}),
 
-        widget.Sep(padding=5),
+        widget.Sep(padding=1),
         widget.Spacer(length=5),
+
         widget.GroupBox(hide_unused=True,
                         disable_drag=True,
                         borderwidth=1,
@@ -584,6 +586,7 @@ my_bar = bar.Bar(
                   visible_on_warn=False,
                   warn_space=10,
                   update_interval=10,
+                  mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("terminator -x ncdu")},
                   fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
