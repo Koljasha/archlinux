@@ -9,7 +9,7 @@
 
 # application launcher
 "xdotool key --clearmodifiers super+a"
-  b:10
+  b:11
 
 # workspaces change
 "xdotool key --clearmodifiers super+x"
