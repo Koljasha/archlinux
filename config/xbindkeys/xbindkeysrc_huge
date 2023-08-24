@@ -15,6 +15,10 @@
 "xdotool key --clearmodifiers super+x"
   b:12
 
+# volume control
+"xdotool key --clearmodifiers super+z"
+  b:13
+
 # mouse sniper mode (Huge)
 # "~/.config/scripts/mouse_sniper.sh 'Huge'"
   # b:10

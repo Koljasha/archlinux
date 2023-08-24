@@ -16,8 +16,8 @@
   b:12
 
 # volume control
-# "xdotool key --clearmodifiers super+z"
-  # b:11
+"xdotool key --clearmodifiers super+z"
+  b:13
 
 # mouse sniper mode (Deft Pro)
 # "~/.config/scripts/mouse_sniper.sh 'Deft Pro'"
