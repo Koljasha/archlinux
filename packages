@@ -284,7 +284,6 @@ elif [[ $de == "deepin" ]]; then
 fi
 
 # Other packages:
-# xreader, atril - document viewer
 
 # wine|wine-staging winetricks - for windows applications
 # drivers & libs: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
@@ -300,13 +299,10 @@ fi
 # (choose virtualbox-host-modules-arch for linux kernel)
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
-# libreoffice-still libreoffice-still-ru - office
+# xreader, atril - document viewer
+
 # onlyoffice-bin - office
-
-# os-prober-btrfs - Grub find system on btrfs disks
-# grub-btrfs - include btrfs snapshots in Grub menu
-
-# timeshift-bin - create snapshots utility
+# libreoffice-still libreoffice-still-ru - office
 
 # rustdesk-bin - remote desktop software
 
@@ -315,10 +311,12 @@ fi
 # mintstick - write Iso to Usb
 # ventoy-bin - write multiple Iso to Usb
 
+# os-prober-btrfs - Grub find system on other btrfs disks
+
 #
 # additionally I use flatpak apps:
-# flatpak install flathub ru.yandex.Browser
 # flatpak install flathub com.github.tchx84.Flatseal
+# flatpak install flathub ru.yandex.Browser
 #
 
 packages_aur="
