@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 #
+# show updates in Bar
 # !!! -> need yay -Sy as timer or cron
 #
 

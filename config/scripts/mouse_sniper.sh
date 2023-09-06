@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# Sniper mouse mode - slowing Accel Speed
+# "sniper" mouse mode - slowing Accel Speed
 # $1 - device name
 #
 

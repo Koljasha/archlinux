@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Menu for show password from pass
+# menu for show password from pass
 
 name=`find ~/.password-store/ -iname "*.gpg" | awk -F "/" '{print $NF}' | awk '{print substr($0, 0, length($0)-4)}' | sort | rofi -dmenu -i -p PassName`
 if [[ "$name" == "" ]]; then
