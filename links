@@ -22,6 +22,10 @@ ln -s /run/mount/storage/home/Work ~/Work
 rm -rf ~/tmp
 ln -s /run/mount/storage/home/tmp ~/tmp
 
+# gitconfig
+rm -rf ~/.gitconfig
+ln -s /run/mount/storage/local/settings/gitconfig ~/.gitconfig
+
 # key dirs
 rm -rf ~/.gnupg
 ln -s /run/mount/storage/local/settings/gnupg ~/.gnupg
