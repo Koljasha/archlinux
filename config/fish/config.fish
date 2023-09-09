@@ -40,7 +40,7 @@ alias rg="rg --hidden --no-ignore --ignore-case"
 
 # alias for Debian apt
 if test -f /usr/bin/apt
-    alias apt.update="sudo apt update; sudo apt dist-upgrade; sudo apt --purge autoremove"
+    alias apt.update="sudo apt update; sudo apt full-upgrade; sudo apt autoremove"
 end
 
 # # aliases for WireGuard
