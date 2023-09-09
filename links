@@ -69,6 +69,62 @@ ln -s /run/mount/storage/local/config/fish ~/.config/fish
 rm -rf ~/.config/gsimplecal
 ln -s /run/mount/storage/local/config/gsimplecal ~/.config/gsimplecal
 
+# gtk-3.0
+rm -rf ~/.config/gtk-3.0
+ln -s /run/mount/storage/local/config/gtk-3.0 ~/.config/gtk-3.0
+
+# gtk-4.0
+rm -rf ~/.config/gtk-4.0
+ln -s /run/mount/storage/local/config/gtk-4.0 ~/.config/gtk-4.0
+
+# htop
+rm -rf ~/.config/htop
+ln -s /run/mount/storage/local/config/htop ~/.config/htop
+
+# i3
+rm -rf ~/.config/i3
+ln -s /run/mount/storage/local/config/i3 ~/.config/i3
+
+# jgmenu
+rm -rf ~/.config/jgmenu
+ln -s /run/mount/storage/local/config/jgmenu ~/.config/jgmenu
+
+# nvim
+rm -rf ~/.config/nvim
+ln -s /run/mount/storage/local/config/nvim ~/.config/nvim
+
+# openbox
+rm -rf ~/.config/openbox
+ln -s /run/mount/storage/local/config/openbox ~/.config/openbox
+
+# picom
+rm -rf ~/.config/picom
+ln -s /run/mount/storage/local/config/picom ~/.config/picom
+
+# polybar
+rm -rf ~/.config/polybar
+ln -s /run/mount/storage/local/config/polybar ~/.config/polybar
+
+# qt5ct
+rm -rf ~/.config/qt5ct
+ln -s /run/mount/storage/local/config/qt5ct ~/.config/qt5ct
+
+# qt6ct
+rm -rf ~/.config/qt6ct
+ln -s /run/mount/storage/local/config/qt6ct ~/.config/qt6ct
+
+# qtile
+rm -rf ~/.config/qtile
+ln -s /run/mount/storage/local/config/qtile ~/.config/qtile
+
+# qutebrowser
+rm -rf ~/.config/qutebrowser
+ln -s /run/mount/storage/local/config/qutebrowser ~/.config/qutebrowser
+
+# ranger
+rm -rf ~/.config/ranger
+ln -s /run/mount/storage/local/config/ranger ~/.config/ranger
+
 # remmina
 rm -rf ~/.config/remmina ~/.local/share/remmina
 ln -s /run/mount/storage/local/config/remmina ~/.config/remmina
@@ -81,6 +137,10 @@ ln -s /run/mount/storage/local/config/rofi ~/.config/rofi
 # scripts
 rm -rf ~/.config/scripts
 ln -s /run/mount/storage/local/config/scripts ~/.config/scripts
+
+# swappy
+rm -rf ~/.config/swappy
+ln -s /run/mount/storage/local/config/swappy ~/.config/swappy
 
 # terminator
 rm -rf ~/.config/terminator
