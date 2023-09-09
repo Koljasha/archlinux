@@ -38,6 +38,11 @@ alias less="bat --pager 'less -iR'"
 alias fd="fd --hidden --no-ignore"
 alias rg="rg --hidden --no-ignore --ignore-case"
 
+# alias for Debian apt
+if test -f /usr/bin/apt
+    alias apt.update="sudo apt update; sudo apt dist-upgrade; sudo apt --purge autoremove"
+end
+
 # # aliases for WireGuard
 # alias wg-up="sudo wg-quick up wg0"
 # alias wg-down="sudo wg-quick down wg0"
