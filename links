@@ -41,12 +41,56 @@ rm -rf ~/.mozilla/firefox
 mkdir -p ~/.mozilla
 ln -s /run/mount/storage/local/settings/firefox ~/.mozilla/firefox
 
-# remmina dirs
+# gnome-boxes dirs
+rm -rf ~/.local/share/gnome-boxes
+ln -s /run/mount/storage/local/gnome-boxes ~/.local/share/gnome-boxes
+
+#
+# ~/.config
+#
+
+# Kvantum
+rm -rf ~/.config/Kvantum
+ln -s /run/mount/storage/local/config/Kvantum ~/.config/Kvantum
+
+# alacritty
+rm -rf ~/.config/alacritty
+ln -s /run/mount/storage/local/config/alacritty ~/.config/alacritty
+
+# dunst
+rm -rf ~/.config/dunst
+ln -s /run/mount/storage/local/config/dunst ~/.config/dunst
+
+# fish
+rm -rf ~/.config/fish
+ln -s /run/mount/storage/local/config/fish ~/.config/fish
+
+# gsimplecal
+rm -rf ~/.config/gsimplecal
+ln -s /run/mount/storage/local/config/gsimplecal ~/.config/gsimplecal
+
+# remmina
 rm -rf ~/.config/remmina ~/.local/share/remmina
 ln -s /run/mount/storage/local/config/remmina ~/.config/remmina
 ln -s /run/mount/storage/local/settings/remmina_local ~/.local/share/remmina
 
-# gnome-boxes dirs
-rm -rf ~/.local/share/gnome-boxes
-ln -s /run/mount/storage/local/gnome-boxes ~/.local/share/gnome-boxes
+# rofi
+rm -rf ~/.config/rofi
+ln -s /run/mount/storage/local/config/rofi ~/.config/rofi
+
+# scripts
+rm -rf ~/.config/scripts
+ln -s /run/mount/storage/local/config/scripts ~/.config/scripts
+
+# terminator
+rm -rf ~/.config/terminator
+ln -s /run/mount/storage/local/config/terminator ~/.config/terminator
+
+# tmux
+rm -rf ~/.config/tmux
+ln -s /run/mount/storage/local/config/tmux ~/.config/tmux
+
+# xbindkeys
+rm -rf ~/.config/xbindkeys
+ln -s /run/mount/storage/local/config/xbindkeys ~/.config/xbindkeys
 
