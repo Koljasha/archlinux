@@ -43,8 +43,8 @@ ln -s /run/mount/storage/local/settings/firefox ~/.mozilla/firefox
 
 # remmina dirs
 rm -rf ~/.config/remmina ~/.local/share/remmina
-ln -s /run/mount/storage/local/settings/remmina/config ~/.config/remmina
-ln -s /run/mount/storage/local/settings/remmina/local ~/.local/share/remmina
+ln -s /run/mount/storage/local/config/remmina ~/.config/remmina
+ln -s /run/mount/storage/local/settings/remmina_local ~/.local/share/remmina
 
 # gnome-boxes dirs
 rm -rf ~/.local/share/gnome-boxes
