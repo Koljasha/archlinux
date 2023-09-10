@@ -391,11 +391,11 @@ cp files/ssh_config ~/.ssh/config
 mkdir ~/.gnupg
 cp files/gpg.conf ~/.gnupg/gpg.conf
 
+mkdir -p ~/.config
 mkdir -p ~/.local/share/applications
 
 if [[ $de == "koljasha_wm" ]]; then
     # ~/.config
-    mkdir -p ~/.config
     cp -r config/* ~/.config/
 
     # config lightdm
@@ -466,9 +466,8 @@ if [[ $de == "koljasha_wm" ]]; then
     ~/.config/openbox/menu_maker.sh
 elif [[ $de == "xfce" ]]; then
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -481,9 +480,8 @@ elif [[ $de == "xfce" ]]; then
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "lxde" ]]; then
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -505,9 +503,8 @@ elif [[ $de == "lxqt" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -537,9 +534,8 @@ elif [[ $de == "efl" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -552,9 +548,8 @@ elif [[ $de == "efl" ]]; then
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "mate" ]]; then
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -567,9 +562,8 @@ elif [[ $de == "mate" ]]; then
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "cinnamon" ]]; then
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/qt5ct ~/.config/qt5ct
     cp -r config/qt6ct ~/.config/qt6ct
@@ -589,36 +583,32 @@ elif [[ $de == "gnome" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/htop ~/.config/htop
 elif [[ $de == "budgie" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/htop ~/.config/htop
 elif [[ $de == "pantheon" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/htop ~/.config/htop
 elif [[ $de == "kde" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/htop ~/.config/htop
 
@@ -630,9 +620,8 @@ elif [[ $de == "deepin" ]]; then
     rm ~/.profile
 
     # ~/.config
-    mkdir -p ~/.config
-
     cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
 
     cp -r config/htop ~/.config/htop
 
@@ -673,9 +662,7 @@ sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
 ###############
 
 # Vim
-cp files/vimrc ~/.vimrc
-mkdir -p ~/.vim/init
-cp files/vim/* ~/.vim/init/
+ln -s ~/.config/vim/vimrc ~/.vimrc
 # install Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # install vim spell RU UTF-8
@@ -693,11 +680,10 @@ read -n1 -p">"; echo
 vim -c PlugInstall
 echo; echo
 # enable vim colorscheme
-sed -i 's/desert/PaperColor/' ~/.vim/init/colors.vim
+sed -i 's/desert/PaperColor/' ~/.config/vim/colors.vim
 
 # NeoVim
 if [[ $de == "koljasha_wm" ]]; then
-    cp -r config/nvim ~/.config
     # install Vim-plug
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     # install nvim plugins
@@ -706,7 +692,7 @@ fi
 
 # Gvim
 if [[ $de == "koljasha_wm" ]]; then
-    cp files/gvimrc ~/.gvimrc
+    ln -s ~/.config/vim/gvimrc ~/.gvimrc
 
     sudo cp /usr/share/applications/gvim.desktop /usr/share/applications/evim.desktop
     sudo sed -i "s/GVim/eVim/" /usr/share/applications/evim.desktop

@@ -3,7 +3,7 @@
 " ----------------------------------------
 
 " настройка цветовой схемы
-colorscheme desert
+colorscheme PaperColor
 " прозрачность
 highlight Normal guibg=NONE ctermbg=NONE
 

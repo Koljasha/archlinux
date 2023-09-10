@@ -152,8 +152,8 @@ ln -s /run/mount/storage/local/config/tmux ~/.config/tmux
 rm -rf ~/.config/vim
 ln -s /run/mount/storage/local/config/vim ~/.config/vim
 rm -rf ~/.vimrc ~/.gvimrc
-ln -s ~/.config/vim/vimrc .vimrc
-ln -s ~/.config/vim/gvimrc .gvimrc
+ln -s ~/.config/vim/vimrc ~/.vimrc
+ln -s ~/.config/vim/gvimrc ~/.gvimrc
 rm -rf ~/.vim
 ln -s /run/mount/storage/local/settings/vim ~/.vim
 
