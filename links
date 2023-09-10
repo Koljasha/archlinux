@@ -34,12 +34,6 @@ ln -s /run/mount/storage/local/settings/password-store ~/.password-store
 rm -rf ~/.ssh
 ln -s /run/mount/storage/local/settings/ssh ~/.ssh
 
-# vim dirs|files
-rm -rf ~/.vim ~/.vimrc ~/.gvimrc
-ln -s /run/mount/storage/local/settings/vim ~/.vim
-ln -s ~/.vim/vimrc ~/.vimrc
-ln -s ~/.vim/gvimrc ~/.gvimrc
-
 # firefox dirs
 rm -rf ~/.mozilla/firefox
 mkdir -p ~/.mozilla
@@ -153,6 +147,15 @@ ln -s /run/mount/storage/local/config/terminator ~/.config/terminator
 # tmux
 rm -rf ~/.config/tmux
 ln -s /run/mount/storage/local/config/tmux ~/.config/tmux
+
+# vim
+rm -rf ~/.config/vim
+ln -s /run/mount/storage/local/config/vim ~/.config/vim
+rm -rf ~/.vimrc ~/.gvimrc
+ln -s ~/.config/vim/vimrc .vimrc
+ln -s ~/.config/vim/gvimrc .gvimrc
+rm -rf ~/.vim
+ln -s /run/mount/storage/local/settings/vim ~/.vim
 
 # xbindkeys
 rm -rf ~/.config/xbindkeys

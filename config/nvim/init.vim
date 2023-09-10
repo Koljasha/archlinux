@@ -8,13 +8,13 @@
 " ----------------------------------------
 
 " Базовые настройки
-source ~/.vim/init/settings.vim
+source ~/.config/vim/settings.vim
 
 " Привязки клавиш
-source ~/.vim/init/mappings.vim
+source ~/.config/vim/mappings.vim
 
 " Терминал и Проводник
-source ~/.vim/init/explorers.vim
+source ~/.config/vim/explorers.vim
 
 " ----------------------------------------
 " ----------------------------------------
@@ -33,10 +33,10 @@ call plug#begin()
 " ----------------------------------------
 
 " Основные плагины
-source ~/.vim/init/pluggins.vim
+source ~/.config/vim/pluggins.vim
 
 " IDE плагины общие
-source ~/.vim/init/ide_main.vim
+source ~/.config/vim/ide_main.vim
 
 " IDE плагины NeoVim
 source ~/.config/nvim/ide.vim
@@ -50,7 +50,7 @@ call plug#end()
 " ----------------------------------------
 
 " Цветовая схема (через плагин)
-source ~/.vim/init/colors.vim
+source ~/.config/vim/colors.vim
 
 " ----------------------------------------
 
