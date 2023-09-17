@@ -314,7 +314,8 @@
     #default_icon = /path/to/icon
 
 [lan-display]
-    body = "Вы подключены к*Проводное соединение*"
+    summary = "Соединение установлено"
+    body = "Вы подключены к «Проводное подключение *»."
     skip_display = true
 
 [vpn-display]
