@@ -31,12 +31,16 @@ alias mv="mv -v"
 alias rm="rm -v"
 
 # aliases for additional commands
+alias fd="fd --hidden --no-ignore"
+alias rg="rg --hidden --no-ignore --ignore-case"
+
+# aliases for bat|bat-extras
 alias cat="bat"
 alias ccat="bat -pp"
 alias less="bat --pager 'less -iR'"
-
-alias fd="fd --hidden --no-ignore"
-alias rg="rg --hidden --no-ignore --ignore-case"
+alias grep="batgrep --ignore-case"
+alias man="batman"
+alias diff="batdiff --delta"
 
 # alias for Debian apt
 if test -f /usr/bin/apt
