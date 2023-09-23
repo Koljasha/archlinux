@@ -17,7 +17,10 @@
 #### Boot from [archlinux.iso](https://archlinux.org/download/), then:
 * we are waiting for a few minutes until the repositories update (`cat /etc/pacman.d/mirrorlist` - reflector.service update)
 * `pacman -Sy pacman` if error try:
-    * `pacman -Sy archlinux-keyring` or `pacman-key --populate`
+    * `pacman -Scc`
+    * `pacman-key --init`
+    * `pacman-key --populate`
+    * `pacman -Sy archlinux-keyring`
 * `pacman -Sy git`
 * `git clone https://github.com/koljasha/archlinux`
 * `cd archlinux && ./installer`
