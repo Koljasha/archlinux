@@ -135,7 +135,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
 " ---------------
-" смотреть команды ~/.vim/init/explorers.vim
+" смотреть команды ~/.config/vim/explorers.vim
 " ---------------
 " ----------------------------------------
 
