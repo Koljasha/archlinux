@@ -133,6 +133,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 " FZF - нечеткий поиск
 " ---------------
 " https://github.com/junegunn/fzf.vim
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " ---------------
 " смотреть команды ~/.config/vim/explorers.vim
