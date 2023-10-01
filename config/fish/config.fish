@@ -31,8 +31,8 @@ alias mv="mv -v"
 alias rm="rm -v"
 
 # aliases for additional commands
-alias fd="fd --hidden --no-ignore"
-alias rg="rg --hidden --no-ignore --ignore-case"
+alias fd="fd --hidden --follow --no-ignore"
+alias rg="rg --hidden --follow --no-ignore --ignore-case"
 
 # aliases for bat|bat-extras
 alias cat="bat"
