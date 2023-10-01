@@ -23,7 +23,7 @@ if test "$FZF_DISABLE_KEYBINDINGS" -ne 1
             bind -M insert \co '__fzf_open --editor'
         end
     else
-        bind \co '__fzf_find_file'
+        bind \ct '__fzf_find_file'
         bind \cr '__fzf_reverse_isearch'
         bind \ec '__fzf_cd'
         bind \eh '__fzf_cd --hidden'
@@ -38,7 +38,7 @@ if test "$FZF_DISABLE_KEYBINDINGS" -ne 1
         # bind \eo '__fzf_open --editor'
 
         if ! test "$fish_key_bindings" = fish_default_key_bindings
-            bind -M insert \co '__fzf_find_file'
+            bind -M insert \ct '__fzf_find_file'
             bind -M insert \cr '__fzf_reverse_isearch'
             bind -M insert \ec '__fzf_cd'
             bind -M insert \eh '__fzf_cd --hidden'
