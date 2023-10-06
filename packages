@@ -980,8 +980,8 @@ if [[ $de == "koljasha_wm" ]]; then
     # fi
     # echo "Ok"
 
-    sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
-    sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
+    # sed -i '/Hibernate/d' ~/.config/jgmenu/append.csv
+    # sed -i -e 's/l 5/l 4/' -e '/Hibernate/d' -e '/hibernate/,+1d' ~/.config/scripts/power.sh
 
     ###############
 fi

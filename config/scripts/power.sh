@@ -7,7 +7,6 @@
 declare -a options=(
 "Exit\0icon\x1fsystem-log-out"
 "Suspend\0icon\x1fsystem-suspend"
-"Hibernate\0icon\x1fsystem-hibernate"
 "Reboot\0icon\x1fsystem-reboot"
 "PowerOff\0icon\x1fsystem-shutdown"
 )
@@ -22,9 +21,6 @@ case $choice in
                 ;;
         Suspend)
                 systemctl -i suspend
-                ;;
-        Hibernate)
-                systemctl -i hibernate
                 ;;
         Reboot)
                 systemctl -i reboot
