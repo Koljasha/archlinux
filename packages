@@ -768,6 +768,7 @@ sudo timedatectl set-ntp true
 
 # out-of-memory killer
 sudo systemctl enable earlyoom.service
+# sudo systemctl enable systemd-oomd.service
 
 # upowerd
 sudo systemctl enable upower.service
