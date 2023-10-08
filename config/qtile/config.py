@@ -627,7 +627,7 @@ my_bar = bar.Bar(
     ],
     background=colors["dark_gray"],
     size=25,
-    margin=1,
+    margin=(1, 1, 1, 1),    # [N E S W]
     opacity=0.95,
 )
 
