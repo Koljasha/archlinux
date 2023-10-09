@@ -77,13 +77,6 @@
 5. *other way*: [Arch Wiki](https://wiki.archlinux.org/title/Input_remap_utilities)
 ***
 
-#### `hooks/` - for devolopers
-
-* change **Ru localization** lines from `packages` in `README.md`
-    * for automate - copy this hooks to `.git/hooks/`
-    * for manual - run in `hooks/`
-* update icons cache for new icons badge: `sudo gtk-update-icon-cache -f /usr/share/icons/hicolor/`
-
 #### Normal mirrors in Russia (global is slowly - operator cuts the speed) `sudo vim /etc/pacman.d/mirrorlist`
 ```
 Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
@@ -93,4 +86,14 @@ Server = https://mirror.surf/archlinux/$repo/os/$arch
 
 Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch
 ```
+***
+
+#### `hooks/` - for devolopers
+
+* change **Ru localization** lines from `packages` in `README.md`
+    * for automate - copy this hooks to `.git/hooks/`
+    * for manual - run in `hooks/`
+* update icons cache for new icons badge: `sudo gtk-update-icon-cache -f /usr/share/icons/hicolor/`
+***
+***
 
