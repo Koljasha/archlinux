@@ -299,7 +299,8 @@ fi
 # (choose virtualbox-host-modules-arch for linux kernel)
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
-# xreader, atril - document viewer
+# xreader, atril - simple document viewer
+# xournalpp - document viewer with notes
 
 # onlyoffice-bin - office
 # libreoffice-still libreoffice-still-ru - office
