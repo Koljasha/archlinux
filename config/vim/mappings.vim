@@ -84,10 +84,6 @@ nmap <F9> :set mouse= <CR>
 " Shift-F9 - включение мыши
 nmap <S-F9> :set mouse=a <CR>
 
-" F10 - подсветка csv
-nmap <F10> :set filetype=text <CR>
-nmap <S-F10> :set filetype=csv <CR>
-
 " F11 - проверка орфографии
 " map <F11> :setlocal spelllang=ru spell! <CR>
 " ]s - следующее слово с ошибкой
@@ -96,6 +92,10 @@ nmap <S-F10> :set filetype=csv <CR>
 " zg - добавить в словарь
 " zw - убрать из словаря
 " zG - игнорировать слово
+
+" F11 - подсветка csv
+nmap <F11> :set filetype=text <CR>
+nmap <S-F11> :set filetype=csv <CR>
 
 " F12 - режим сравнения (vimdiff)
 nmap <F12> :windo diffthis <CR>
