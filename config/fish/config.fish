@@ -38,7 +38,11 @@ alias rg="rg --hidden --follow --no-ignore --ignore-case"
 alias cat="bat"
 alias ccat="bat -pp"
 alias less="bat --pager 'less -iR'"
+
 alias grep="batgrep --ignore-case"
+alias ggrep="/usr/bin/grep --color=auto"
+alias rgrep="rg"
+
 alias man="batman"
 alias diff="batdiff --delta"
 
