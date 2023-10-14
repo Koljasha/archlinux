@@ -37,8 +37,8 @@
     * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
 #### NafmanOs - need [Git](https://wiki.archlinux.org/title/Git) installed
 * `./packages` - install desktops, packages and settings it
-    * Openbox, i3wm, Qtile - my settings *(Qtile some trable with pulseaudio now [qtile issue](https://github.com/qtile/qtile/issues/4495#issuecomment-1749329455))*
-    * other - default settings
+    * Openbox, i3wm, Qtile -> my settings
+    * other -> default settings
         * **Qtile**, **i3wm**, **Openbox**
         * **Xfce**
         * **Lxde**
