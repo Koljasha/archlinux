@@ -117,9 +117,9 @@ if qtile.core.name == "wayland":
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
             layout = ffi.string(name).decode()
             if layout == "Russian":
-                qtile.cmd_spawn("qtile cmd-obj -o core -f set_keymap -a us,ru grp:alt_shift_toggle")
+                qtile.spawn("qtile cmd-obj -o core -f set_keymap -a us,ru grp:alt_shift_toggle")
             else:
-                qtile.cmd_spawn("qtile cmd-obj -o core -f set_keymap -a ru,us grp:alt_shift_toggle")
+                qtile.spawn("qtile cmd-obj -o core -f set_keymap -a ru,us grp:alt_shift_toggle")
 
 ######### Keybindings #########
 
@@ -525,7 +525,7 @@ my_bar = bar.Bar(
         # Left
         widget.Spacer(length=5),
         widget.TextBox(fmt="<span color='#bd2c40'></span> {}",
-                     mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("jgmenu_run")}),
+                     mouse_callbacks = {"Button1": lambda: qtile.spawn("jgmenu_run")}),
 
         widget.Sep(padding=3),
         widget.CurrentLayoutIcon(scale=0.55),
@@ -534,8 +534,8 @@ my_bar = bar.Bar(
         widget.Spacer(length=5),
 
         widget.TextBox(fmt="<span color='#ffb52a'></span> {}",
-                     mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} change"),
-                                        "Button3": lambda: qtile.cmd_spawn(f"{scripts['workspaces']} move")}),
+                     mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{scripts['workspaces']} change"),
+                                        "Button3": lambda: qtile.spawn(f"{scripts['workspaces']} move")}),
 
         widget.Sep(padding=1),
         widget.Spacer(length=5),
@@ -571,14 +571,14 @@ my_bar = bar.Bar(
         widget.GenPollText(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
                       update_interval=0.1,
                       mouse_callbacks = {
-                                         "Button1": lambda: qtile.cmd_spawn("pactl set-sink-mute 0 toggle"),
-                                         "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']} change"),
-                                         "Button4": lambda: qtile.cmd_spawn("pactl set-sink-volume 0 +2%"),
-                                         "Button5": lambda: qtile.cmd_spawn("pactl set-sink-volume 0 -2%"),
+                                         "Button1": lambda: qtile.spawn("pactl set-sink-mute 0 toggle"),
+                                         "Button3": lambda: qtile.spawn(f"{scripts['volume']} change"),
+                                         "Button4": lambda: qtile.spawn("pactl set-sink-volume 0 +2%"),
+                                         "Button5": lambda: qtile.spawn("pactl set-sink-volume 0 -2%"),
                                          },
                       fmt="<span color='#ffb52a'></span> {}"),
         # MyPulseVolume(update_interval=0.1,
-                      # mouse_callbacks = { "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']} change") },
+                      # mouse_callbacks = { "Button3": lambda: qtile.spawn(f"{scripts['volume']} change") },
                       # fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
@@ -590,7 +590,7 @@ my_bar = bar.Bar(
         widget.Sep(padding=5),
         widget.Memory(format="{MemUsed: .2f}{mm} |{MemTotal: .2f}{mm}",
                       measure_mem="G",
-                      mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("terminator -x htop")},
+                      mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x htop")},
                       fmt="<span color='#ffb52a'></span>{}"),
 
         widget.Sep(padding=5),
@@ -598,7 +598,7 @@ my_bar = bar.Bar(
                   visible_on_warn=False,
                   warn_space=10,
                   update_interval=10,
-                  mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("terminator -x ncdu")},
+                  mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x ncdu")},
                   fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
@@ -627,7 +627,7 @@ my_bar = bar.Bar(
 
         widget.Sep(padding=5),
         widget.Clock(format="%A %Y-%m-%d %H:%M:%S",
-                     mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("gsimplecal")},
+                     mouse_callbacks = {"Button1": lambda: qtile.spawn("gsimplecal")},
                      fmt=" {}"),
 
         widget.Sep(padding=5),
