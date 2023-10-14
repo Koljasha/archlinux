@@ -162,7 +162,7 @@ keys = [
     Key([mod, "shift"], "s", lazy.spawn(scripts["password_generate"]), desc="Run menu for generate pass"),
 
     # Volume
-    Key([mod], "z", lazy.spawn(scripts["volume"]), desc="Change volume"),
+    Key([mod], "z", lazy.spawn(f"{scripts['volume']} change"), desc="Change volume"),
 
     # Workspaces
     Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Change workspaces"),
@@ -566,7 +566,7 @@ my_bar = bar.Bar(
 
         widget.Sep(padding=5),
         MyPulseVolume(update_interval=0.1,
-                      mouse_callbacks = { "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']}") },
+                      mouse_callbacks = { "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']} change") },
                       fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),

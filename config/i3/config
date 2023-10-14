@@ -86,7 +86,7 @@ bindsym $mod+s exec --no-startup-id ~/.config/scripts/password.sh
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/scripts/password_generate.sh
 
 # Volume
-bindsym $mod+z exec --no-startup-id ~/.config/scripts/volume.sh
+bindsym $mod+z exec --no-startup-id ~/.config/scripts/volume.sh change
 
 # Workspaces
 bindsym $mod+x exec --no-startup-id ~/.config/scripts/workspaces.sh change

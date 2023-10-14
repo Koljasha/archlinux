@@ -4,6 +4,23 @@
 # volume control with dmenu|rofi
 #
 
+# show Volume
+if (( $# == 0 )); then
+    mute=`pactl get-sink-mute 0 | cut -d' ' -f2`
+    if [[ "$mute" == "yes" ]]; then
+        echo "Muted"
+        exit 0
+    fi
+    volume=`pactl get-sink-volume 0 | grep -oE '[0-9]{1,3}%' | head -1`
+    echo "$volume"
+    exit 0
+fi
+
+if [[ $1 != 'change' ]]; then
+    echo 'Error: Invalid arguments [ change ]'
+    exit 2
+fi
+
 ###
 # round Volume for past in rofi -select
 #
