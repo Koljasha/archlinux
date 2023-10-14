@@ -435,14 +435,17 @@ extension_defaults = widget_defaults.copy()
 
 # Wrappers on widgets
 
-class MyPulseVolume(widget.PulseVolume):
-    """
-    widget.PulseVolume with gray word "Mute""
-    """
-    def _update_drawer(self):
-        super()._update_drawer()
-        if self.text == "M":
-            self.text = "<span color='#757575'>Mute</span>"
+# needed `python-pulsectl-asyncio` but it olded
+# https://github.com/qtile/qtile/issues/4495#issuecomment-1752460875
+
+# class MyPulseVolume(widget.PulseVolume):
+    # """
+    # widget.PulseVolume with gray word "Mute""
+    # """
+    # def _update_drawer(self):
+        # super()._update_drawer()
+        # if self.text == "M":
+            # self.text = "<span color='#757575'>Mute</span>"
 
 
 class MyGenPollText(widget.GenPollText):
@@ -565,9 +568,18 @@ my_bar = bar.Bar(
                          fmt="<span color='#bd2c40'></span> {}"),
 
         widget.Sep(padding=5),
-        MyPulseVolume(update_interval=0.1,
-                      mouse_callbacks = { "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']} change") },
+        widget.GenPollText(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
+                      update_interval=0.1,
+                      mouse_callbacks = {
+                                         "Button1": lambda: qtile.cmd_spawn("pactl set-sink-mute 0 toggle"),
+                                         "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']} change"),
+                                         "Button4": lambda: qtile.cmd_spawn("pactl set-sink-volume 0 +2%"),
+                                         "Button5": lambda: qtile.cmd_spawn("pactl set-sink-volume 0 -2%"),
+                                         },
                       fmt="<span color='#ffb52a'></span> {}"),
+        # MyPulseVolume(update_interval=0.1,
+                      # mouse_callbacks = { "Button3": lambda: qtile.cmd_spawn(f"{scripts['volume']} change") },
+                      # fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
