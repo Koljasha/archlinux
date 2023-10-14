@@ -433,19 +433,31 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+#
 # Wrappers on widgets
-
-# needed `python-pulsectl-asyncio` but it olded
-# https://github.com/qtile/qtile/issues/4495#issuecomment-1752460875
+#
 
 # class MyPulseVolume(widget.PulseVolume):
     # """
     # widget.PulseVolume with gray word "Mute""
+    #
+    # needed `python-pulsectl-asyncio` but it olded in AUR
+    # https://github.com/qtile/qtile/issues/4495#issuecomment-1752460875
     # """
     # def _update_drawer(self):
         # super()._update_drawer()
         # if self.text == "M":
             # self.text = "<span color='#757575'>Mute</span>"
+
+
+class MyVolume(widget.GenPollText):
+    # """
+    # widget.GenPollText for Volume control with gray word for Muted
+    # """
+    def update(self, text):
+        super().update(text)
+        if self.text == "Muted":
+            self.text = "<span color='#757575'>Mute</span>"
 
 
 class MyGenPollText(widget.GenPollText):
@@ -568,7 +580,7 @@ my_bar = bar.Bar(
                          fmt="<span color='#bd2c40'></span> {}"),
 
         widget.Sep(padding=5),
-        widget.GenPollText(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
+        MyVolume(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
                       update_interval=0.1,
                       mouse_callbacks = {
                                          "Button1": lambda: qtile.spawn("pactl set-sink-mute 0 toggle"),
