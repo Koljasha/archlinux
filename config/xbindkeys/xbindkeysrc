@@ -7,6 +7,10 @@
 "xdotool mousedown --clearmodifiers 1"
   Control+Shift + Return
 
+# volume control
+"xdotool key --clearmodifiers super+z"
+  b:9
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
