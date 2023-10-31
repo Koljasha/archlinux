@@ -150,7 +150,7 @@ packages="
 $drivers $headers reflector pkgfile man-db man-pages arch-install-scripts cmake
 android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
-cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom
+cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom timeshift
 git pass trash-cli numlockx wget curl
 fzf fd ripgrep jq tree highlight bat bat-extras git-delta ncdu
 neofetch htop cmatrix lm_sensors lsof strace
@@ -329,7 +329,6 @@ if [[ $de == "koljasha_wm" ]]; then
     $packages_aur
     arc-dark-osx-openbox-theme-git
     mint-x-icons
-    timeshift-bin
     "
 fi
 
