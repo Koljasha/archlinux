@@ -27,7 +27,7 @@ fi
 # substring - ${string:position:length}
 # length - ${#string}
 ###
-volume=`pactl list sinks | grep "Volume: front-" | cut -d'/' -f2 | cut -d'%' -f1 | sed 's/^[[:space:]]*//' \
+volume=`pactl get-sink-volume 0 | grep -oE '[0-9]{1,3}%' | head -1 | cut -d'%' -f1 \
         | awk '{ if ($1 < 10) print "10"; else if ($1 > 100) print "100"; else print $1 }'`
 
 last=${volume: -1:1}
