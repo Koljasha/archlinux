@@ -141,6 +141,8 @@ keys = [
     Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
     Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
 
+    Key([mod], "o", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+
     ######### Menu #########
 
     Key([mod], "d", lazy.spawn("dmenu_run -b -i"), desc="Run dmenu run"),
