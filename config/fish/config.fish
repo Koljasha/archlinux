@@ -48,7 +48,7 @@ alias diff="batdiff --delta"
 
 # alias for Debian apt
 if test -f /usr/bin/apt
-    alias apt.update="sudo apt update; sudo apt full-upgrade; sudo apt autoremove"
+    alias apt.update="sudo apt update; sudo apt full-upgrade -V; sudo apt autoremove -V"
 end
 
 # # aliases for WireGuard
