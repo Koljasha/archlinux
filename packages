@@ -314,6 +314,8 @@ fi
 
 # os-prober-btrfs - Grub find system on other btrfs disks
 
+# scrcpy - connect to remote Android device
+
 #
 # additionally I use flatpak apps:
 # flatpak install flathub com.github.tchx84.Flatseal
