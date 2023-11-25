@@ -46,10 +46,17 @@ alias rgrep="rg"
 alias man="batman"
 alias diff="batdiff --delta"
 
-# alias for Debian apt
+# alias for Debian apt|nala
 if test -f /usr/bin/apt
-    alias apt.update="sudo apt update; sudo apt full-upgrade -V; sudo apt autoremove -V"
+    if test -f /usr/bin/nala
+        alias apt.update="sudo nala upgrade && sudo nala autopurge"
+    else
+        alias apt.update="sudo apt update && sudo apt full-upgrade -V && sudo apt autoremove -V"
+    end
 end
+
+# alias for grub-update
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # # aliases for WireGuard
 # alias wg-up="sudo wg-quick up wg0"
