@@ -319,7 +319,6 @@ fi
 #
 # additionally I use flatpak apps:
 # flatpak install flathub com.github.tchx84.Flatseal
-# flatpak install flathub ru.yandex.Browser
 #
 
 packages_aur="
