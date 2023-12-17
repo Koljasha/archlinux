@@ -4,7 +4,6 @@
 # creating a working link system (for me: Koljasha disk's system)
 #
 
-
 # folder | fstab | mount
 
 sudo mkdir /run/mount/storage
