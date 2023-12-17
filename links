@@ -4,18 +4,34 @@
 # creating a working link system (for me: Koljasha disk's system)
 #
 
-# folder | fstab | mount
+# create fstab record
+while [[ $rec != "1" ]] && [[ $rec != "2" ]]; do
+    echo; echo
+    echo "####################"
+    echo "Create 'storage' folder and fstab record"
+    echo "1) yes"
+    echo "2) no"
+    echo "####################"
+    read -n1 -p">" rec
+done
+echo; echo
 
-sudo mkdir /run/mount/storage
-sudo chown koljasha:koljasha /run/mount/storage
+if [[ $rec == "1" ]]; then
+    # folder | fstab | mount
 
-echo | sudo tee --append /etc/fstab
-echo '# /dev/sda4 LABAL=Storage' | sudo tee --append /etc/fstab
-echo 'UUID=c6ab23b5-1b6d-4c3f-8488-6efee0144e54	/run/mount/storage/	ext4	rw,relatime	0 2' | sudo tee --append /etc/fstab
-echo | sudo tee --append /etc/fstab
+    sudo mkdir /run/mount/storage
+    sudo chown koljasha:koljasha /run/mount/storage
 
-sudo systemctl daemon-reload
-sudo mount --all
+    echo | sudo tee --append /etc/fstab
+    echo '# /dev/sda4 LABAL=Storage' | sudo tee --append /etc/fstab
+    echo 'UUID=c6ab23b5-1b6d-4c3f-8488-6efee0144e54	/run/mount/storage/	ext4	rw,relatime	0 2' | sudo tee --append /etc/fstab
+    echo | sudo tee --append /etc/fstab
+
+    sudo systemctl daemon-reload
+    sudo mount --all
+fi
+echo "Ok"
+
 
 # home dirs
 rm -rf ~/Downloads
@@ -163,6 +179,10 @@ ln -s ~/.config/vim/vimrc ~/.vimrc
 ln -s ~/.config/vim/gvimrc ~/.gvimrc
 rm -rf ~/.vim
 ln -s /run/mount/storage/local/settings/vim ~/.vim
+
+# vlc
+rm -rf ~/.config/vlc
+ln -s /run/mount/storage/local/config/vlc ~/.config/vlc
 
 # xbindkeys
 rm -rf ~/.config/xbindkeys
