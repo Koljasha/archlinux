@@ -58,28 +58,28 @@ end
 # alias for grub-update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-# # aliases for WireGuard
-# alias wg-up="sudo wg-quick up wg0"
-# alias wg-down="sudo wg-quick down wg0"
-# function wg-status --description 'show WireGuard status'
-    # if test -z (sudo wg | sed -n 1p)
-        # echo 'No WireGuard Connection'
-    # else
-        # echo -e 'WireGuard Connect\n'
-        # sudo wg
-    # end
-# end
+# aliases for WireGuard
+alias wg-up="sudo wg-quick up wg0"
+alias wg-down="sudo wg-quick down wg0"
+function wg-status --description 'show WireGuard status'
+    if test -z (sudo wg | sed -n 1p)
+        echo 'No WireGuard Connection'
+    else
+        echo -e 'WireGuard Connect\n'
+        sudo wg
+    end
+end
 
-# # aliases for Vpn
-# alias vpn-up="nmcli connection up OpenVpn"
-# alias vpn-down="nmcli connection down OpenVpn"
-# function vpn-status --description 'show OpenVpn status'
-    # set -l conn (nmcli connection show | grep vpn | awk '{print $4}')
-    # if test -z $conn; or test $conn = '--'
-        # echo 'No OpenVpn Connection'
-    # else
-        # echo -e 'OpenVpn Connect\n'
-        # nmcli connection show
-    # end
-# end
+# aliases for Vpn
+alias vpn-up="nmcli connection up OpenVpn"
+alias vpn-down="nmcli connection down OpenVpn"
+function vpn-status --description 'show OpenVpn status'
+    set -l conn (nmcli connection show | grep vpn | awk '{print $4}')
+    if test -z $conn; or test $conn = '--'
+        echo 'No OpenVpn Connection'
+    else
+        echo -e 'OpenVpn Connect\n'
+        nmcli connection show
+    end
+end
 
