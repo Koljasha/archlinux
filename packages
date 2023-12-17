@@ -338,9 +338,10 @@ fi
 # change|check folder
 cd ~/archlinux
 
-# Update mirrorlist
-sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
-sudo sed -i '7s/#Server/Server/' /etc/pacman.d/mirrorlist
+# Update mirrorlist (global is slowly)
+# sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
+# sudo sed -i '7s/#Server/Server/' /etc/pacman.d/mirrorlist
+sudo cp files/pacman/mirrorlist /etc/pacman.d/mirrorlist
 
 # Install packages from repo
 sudo pacman -Syu --noconfirm
@@ -799,24 +800,24 @@ elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
 fi
 
-# pacman-mirrorlist settings
-while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
-    echo; echo
-    echo "####################"
-    echo "What pacman-mirrorlist use"
-    echo "1) global pacman mirrorlist"
-    echo "2) reflector for update"
-    echo "####################"
-    read -n1 -p">" mlist
-done
-echo; echo
+# # pacman-mirrorlist settings
+# while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
+    # echo; echo
+    # echo "####################"
+    # echo "What pacman-mirrorlist use"
+    # echo "1) global pacman mirrorlist"
+    # echo "2) reflector for update"
+    # echo "####################"
+    # read -n1 -p">" mlist
+# done
+# echo; echo
 
-if [[ $mlist == "1" ]]; then
-    true
-else
-    sudo systemctl enable reflector.timer
-fi
-echo "Ok"
+# if [[ $mlist == "1" ]]; then
+    # true
+# else
+    # sudo systemctl enable reflector.timer
+# fi
+# echo "Ok"
 
 
 if [[ $de == "koljasha_wm" ]]; then

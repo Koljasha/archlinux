@@ -79,7 +79,7 @@
 5. *other way*: [Arch Wiki](https://wiki.archlinux.org/title/Input_remap_utilities)
 ***
 
-#### Normal mirrors in Russia (global is slowly - operator cuts the speed) 
+#### Normal mirrors in Russia (global is slowly - operator cuts the speed)
 `sudo vim /etc/pacman.d/mirrorlist`
 ```
 Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
