@@ -71,8 +71,8 @@ function wg-status --description 'show WireGuard status'
 end
 
 # aliases for Vpn
-alias vpn-up="nmcli connection up OpenVpn"
-alias vpn-down="nmcli connection down OpenVpn"
+alias vpn-up="nmcli connection up $argv[1]"
+alias vpn-down="nmcli connection down $argv[1]"
 function vpn-status --description 'show OpenVpn status'
     nmcli connection show | /usr/bin/grep vpn
 end
