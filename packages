@@ -730,6 +730,10 @@ fish -c 'fish_vi_key_bindings'
 # update fish
 fish -c 'fish_update_completions'
 
+# [Key bindings for command-line](https://github.com/junegunn/fzf?ysclid=lqj7hv2gh7236490784#key-bindings-for-command-line)
+# CTRL-T - Paste the selected files and directories onto the command-line
+# CTRL-R - Paste the selected command from history onto the command-line
+# ALT-C - cd into the selected directory
 ###############
 
 # # install miniconda
