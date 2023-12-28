@@ -1,0 +1,17 @@
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "0.98"
+
+[font]
+size = 10.0
+
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 0.97
+startup_mode = "Maximized"
+
+[window.padding]
+x = 3
+y = 3
