@@ -66,6 +66,10 @@ ln -s /run/mount/storage/local/settings/firefox ~/.mozilla/firefox
 rm -rf ~/.local/share/gnome-boxes
 ln -s /run/mount/storage/local/gnome-boxes ~/.local/share/gnome-boxes
 
+# distrobox, podman dirs
+rm -rf ~/.local/share/containers
+ln -s /run/mount/storage/local/containers ~/.local/share/containers
+
 #
 # ~/.config
 #

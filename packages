@@ -183,6 +183,7 @@ if [[ $de == "koljasha_wm" ]]; then
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman bluez-utils
     polkit-gnome lxappearance-gtk3 picom
+    distrobox podman
     terminator alacritty
     feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
@@ -463,6 +464,9 @@ if [[ $de == "koljasha_wm" ]]; then
     # clipmenu enable
     sudo sed -i 's/set -- -dmenu/set -- -dmenu -i -p Clipboard/' /usr/bin/clipmenu
     systemctl --user enable clipmenud.service
+
+    # distrobox Resolve Error
+    cp files/distroboxrc ~/.distroboxrc
 
     # menu_maker for Openbox
     ~/.config/openbox/menu_maker.sh
