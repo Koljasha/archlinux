@@ -66,7 +66,8 @@ ln -s /run/mount/storage/local/settings/firefox ~/.mozilla/firefox
 rm -rf ~/.local/share/gnome-boxes
 ln -s /run/mount/storage/local/gnome-boxes ~/.local/share/gnome-boxes
 
-# distrobox, podman dirs
+# distrobox, podman dirs; use:
+# --volume /run/mount/storage:/run/mount/storage:rw alpine_vol
 rm -rf ~/.local/share/containers
 ln -s /run/mount/storage/local/containers ~/.local/share/containers
 
