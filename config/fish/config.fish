@@ -77,3 +77,6 @@ function vpn-status --description 'show OpenVpn status'
     nmcli connection show | /usr/bin/grep vpn
 end
 
+# aliases for distrobox
+alias distrobox_create="distrobox create --volume /run/mount/storage:/run/mount/storage:rw"
+
