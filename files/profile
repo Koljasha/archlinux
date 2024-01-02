@@ -17,6 +17,9 @@ export GTK_THEME=Arc-Dark
 # environment for clipmenu
 export CM_LAUNCHER=rofi
 
+# environment for distrobox
+export TERMINAL=terminator
+
 # environment for Wayland
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
     # keyboard layout
