@@ -13,7 +13,7 @@ if qtile.core.name == "wayland":
     from wlroots import ffi, lib
     from libqtile.backend.wayland import InputConfig
 
-# from libqtile.log_utils import logger
+from libqtile.log_utils import logger
 
 ######### Variables & functions #########
 
@@ -102,7 +102,8 @@ if qtile.core.name == "wayland":
 
     def get_keyboard_layout():
         for device in qtile.core.keyboards[:1]:
-            keymap = device.wlr_device.keyboard._ptr.keymap
+            # keymap = device.wlr_device.keyboard._ptr.keymap
+            keymap = device.keyboard._ptr.keymap
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
             layout = ffi.string(name).decode()
             if layout == "Russian":
@@ -113,7 +114,8 @@ if qtile.core.name == "wayland":
     @lazy.function
     def set_keyboard_layout(qtile):
         for device in qtile.core.keyboards[:1]:
-            keymap = device.wlr_device.keyboard._ptr.keymap
+            # keymap = device.wlr_device.keyboard._ptr.keymap
+            keymap = device.keyboard._ptr.keymap
             name = lib.xkb_keymap_layout_get_name(keymap, 0)
             layout = ffi.string(name).decode()
             if layout == "Russian":
