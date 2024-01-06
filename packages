@@ -183,7 +183,7 @@ if [[ $de == "koljasha_wm" ]]; then
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman bluez-utils
     polkit-gnome lxappearance-gtk3 picom
-    distrobox podman
+    firejail distrobox podman
     terminator alacritty
     feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
