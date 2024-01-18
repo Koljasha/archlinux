@@ -148,7 +148,7 @@ echo "Ok"
 
 packages="
 $drivers $headers reflector pkgfile man-db man-pages arch-install-scripts cmake
-android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb usbutils
+android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom timeshift
 git pass trash-cli numlockx wget curl
