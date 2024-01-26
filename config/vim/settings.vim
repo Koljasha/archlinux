@@ -131,6 +131,8 @@ set cursorline
 
 " сворачивание на основании отступов в начале строк
 " set foldmethod=indent
+" сворачивание на основании синтакса
+" set foldmethod=syntax
 
 " для корректной работы Vim в Alacritty(ctrl+left|right)
 " if !has('nvim')
