@@ -82,6 +82,12 @@ def move_next_group(qtile):
     index = 0 if index == len(groups)-1 else index+1
     qtile.current_window.togroup(groups[index].name, switch_group=True)
 
+@lazy.function
+def toggle_minimize(qtile):
+    for window in qtile.current_group.windows:
+        if hasattr(window, "toggle_minimize"):
+            window.toggle_minimize()
+
 if qtile.core.name == "x11":
     @hook.subscribe.client_managed
     def make_urgent(window):
@@ -270,6 +276,8 @@ keys = [
     Key([mod], "space", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     Key([alt], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
+
+    Key([mod], "m", toggle_minimize(), desc="Toggle minimize windows"),
 
     ######### Layouts #########
 
