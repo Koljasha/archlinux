@@ -37,7 +37,9 @@ alias rg="rg --hidden --follow --no-ignore --ignore-case"
 # aliases for bat|bat-extras
 alias cat="bat"
 alias ccat="bat -pp"
+
 alias less="bat --pager 'less -iR'"
+alias lless="/usr/bin/less -i"
 
 alias grep="batgrep --ignore-case"
 alias ggrep="/usr/bin/grep --color=auto"
