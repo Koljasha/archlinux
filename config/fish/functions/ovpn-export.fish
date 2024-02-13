@@ -1,6 +1,11 @@
 # export openvpn keys
 #
+# put new ovpn file to folder where run command
+#
 function ovpn-export --description 'export openvpn keys'
+
+    # copy from zip source
+    #
 
     gpg --decrypt ovpn.tar.gz.gpg > ovpn.tar.gz
     if test $status -eq 0
@@ -14,6 +19,10 @@ function ovpn-export --description 'export openvpn keys'
         rm -rf *.ovpn
         echo "Export file has been created"
 
+        # copy to zip source
+        #
+
+        rm ovpn.tar.gz.gpg
     else
         echo "Invalid decryption"
     end

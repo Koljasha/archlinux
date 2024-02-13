@@ -8,6 +8,11 @@ function pass-export --description 'export pass passwords'
         gpg -r $(whoami) -e pass.tar.gz
         rm -rf pass.tar.gz passwords/
         echo "Export file has been created"
+
+        # copy to zip source
+        #
+
+        rm pass.tar.gz.gpg
     else
         echo "No pass store"
     end
