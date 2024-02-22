@@ -3,6 +3,7 @@
 
 import os
 import subprocess
+import psutil
 
 from libqtile import hook, layout, bar, widget, qtile
 from libqtile.config import Key, KeyChord, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
@@ -501,6 +502,32 @@ class MyGenPollText(widget.GenPollText):
             self.timer_setup()
 
 
+class MyMemory(widget.Memory):
+    """
+    widget.Memory with {UsedShared} - MemUsed+Shmem
+    """
+    def poll(self):
+        mem = psutil.virtual_memory()
+        swap = psutil.swap_memory()
+        val = {}
+        val["MemUsed"] = mem.used / self.calc_mem
+        val["MemTotal"] = mem.total / self.calc_mem
+        val["MemFree"] = mem.free / self.calc_mem
+        val["MemPercent"] = mem.percent
+        val["Buffers"] = mem.buffers / self.calc_mem
+        val["Active"] = mem.active / self.calc_mem
+        val["Inactive"] = mem.inactive / self.calc_mem
+        val["Shmem"] = mem.shared / self.calc_mem
+        val["SwapTotal"] = swap.total / self.calc_swap
+        val["SwapFree"] = swap.free / self.calc_swap
+        val["SwapUsed"] = swap.used / self.calc_swap
+        val["SwapPercent"] = swap.percent
+        val["mm"] = self.measure_mem
+        val["ms"] = self.measure_swap
+        val["UsedShared"] = val["MemUsed"] + val["Shmem"]
+        return self.format.format(**val)
+
+
 class MyDF(widget.DF):
     """
     widget.DF with {us} - user space
@@ -612,7 +639,7 @@ my_bar = bar.Bar(
                       fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
-        widget.Memory(format="{MemUsed: .2f}{mm} |{MemTotal: .2f}{mm}",
+        MyMemory(format="{UsedShared: .2f}{mm} |{MemTotal: .2f}{mm}",
                       measure_mem="G",
                       mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x htop")},
                       fmt="<span color='#ffb52a'></span>{}"),

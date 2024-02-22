@@ -14,7 +14,10 @@ function to_Gb {
 total_memory=`python -c 'import psutil; print(psutil.virtual_memory().total/1024/1024)'`
 total_memory=`to_Gb $total_memory`
 
-used_memory=`python -c 'import psutil; print(psutil.virtual_memory().used/1024/1024)' | cut -d'.' -f1`
+used_memory=`python -c 'import psutil;\
+             memory = psutil.virtual_memory();\
+             print(memory.used/1024/1024 + memory.shared/1024/1024)' | cut -d'.' -f1`
+
 if (( $used_memory > 1024 )); then
     used_memory=`to_Gb $used_memory`
 else
