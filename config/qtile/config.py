@@ -2,6 +2,7 @@
 # Please see http://docs.qtile.org/en/latest/
 
 import os
+import re
 import subprocess
 import psutil
 
@@ -368,12 +369,12 @@ groups = [
     Group("2: "),
     Group("3: "),
     Group("4: "),
-    Group("5: ", matches=[Match(wm_class=["firefox"])], layout="max"),
+    Group("5: ", matches=Match(wm_class=re.compile(r"^(firefox)$")), layout="max"),
     Group("6: ", layout="max"),
-    Group("7: ", matches=[Match(wm_class=["vlc"])], layout="max"),
-    Group("8: ", matches=[Match(wm_class=["transmission-gtk"])], layout="max"),
-    Group("9: ", matches=[Match(wm_class=["VirtualBox Manager", "VirtualBox Machine", "Gnome-boxes"])], layout="max"),
-    Group("10: ", matches=[Match(wm_class=["org.remmina.Remmina"])], layout="max"),
+    Group("7: ", matches=Match(wm_class=re.compile(r"^(vlc)$")), layout="max"),
+    Group("8: ", matches=Match(wm_class=re.compile(r"^(transmission\-gtk)$")), layout="max"),
+    Group("9: ", matches=Match(wm_class=re.compile(r"^(VirtualBox\ Manager|VirtualBox\ Machine|Gnome\-boxes)$")), layout="max"),
+    Group("10: ", matches=Match(wm_class=re.compile(r"^(org\.remmina\.Remmina)$")), layout="max"),
 
     ScratchPad("scratchpad", [
         DropDown("terminal", "alacritty", opacity=0.95, height=0.45),
@@ -423,12 +424,12 @@ floating_layout = layout.Floating(
         float_rules=[
             # Run the utility of `xprop` to see the wm class and name of an X client.
             *layout.Floating.default_float_rules,
-            Match(wm_class=["Terminator", "terminator"]),
-            Match(wm_class="Gvim"),
-            Match(wm_class=["gnome-calculator", "org.gnome.Calculator"]),
-            Match(wm_class="Gnome-screenshot"),
-            Match(wm_class="torbrowser-launcher"),
-            Match(wm_class="isaac-ng.exe"),
+            Match(wm_class=re.compile(r"^(Terminator|terminator)$")),
+            Match(wm_class=r"^(Gvim)$"),
+            Match(wm_class=re.compile(r"^(gnome\-calculator|org\.gnome\.Calculator)$")),
+            Match(wm_class=r"^(Gnome\-screenshot)$"),
+            Match(wm_class=r"^(torbrowser\-launcher)$"),
+            Match(wm_class=r"^(isaac\-ng\.exe)$"),
         ],
         border_focus=[colors["gray"], colors["gray"]],
         border_normal=[colors["dark_gray"], colors["dark_gray"]],
@@ -524,6 +525,7 @@ class MyMemory(widget.Memory):
         val["SwapPercent"] = swap.percent
         val["mm"] = self.measure_mem
         val["ms"] = self.measure_swap
+
         val["UsedShared"] = val["MemUsed"] + val["Shmem"]
         return self.format.format(**val)
 
