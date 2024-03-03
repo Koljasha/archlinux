@@ -99,8 +99,16 @@ if qtile.core.name == "x11":
             new_state = prev_state | atom
             window.window.set_property("_NET_WM_STATE", list(new_state))
 
+# https://docs.qtile.org/en/latest/manual/wayland.html
 if qtile.core.name == "wayland":
+    # show inputs: qtile cmd-obj -o core -f get_inputs
     wl_input_rules = {
+        "1149:4128:Kensington Expert Mouse": InputConfig(
+            pointer_accel=0.10,
+            scroll_method='on_button_down',
+            scroll_button='Button3',
+        ),
+        # other (example config for Elecom)
         "type:pointer": InputConfig(
             pointer_accel=-0.30,
             scroll_method='on_button_down',
