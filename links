@@ -200,6 +200,10 @@ ln -s /run/mount/storage/local/config/xbindkeys ~/.config/xbindkeys
 # copy trackball and other settings
 sudo cp files/xorg.conf.d/* /etc/X11/xorg.conf.d/
 
+# other way trackball
+sudo rm /etc/X11/xorg.conf.d/70-trackball.conf
+sudo ln -s /run/mount/storage/local/settings/xorg.conf.d/70-trackball.conf /etc/X11/xorg.conf.d/70-trackball.conf
+
 # vpn conf
 sudo cp /run/mount/storage/zip/Koljasha/vpn/wg0.conf /etc/wireguard/wg0.conf
 
