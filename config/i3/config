@@ -50,20 +50,19 @@ bindsym $mod+Control+r restart
 
 # Exit, Reboot, Poweroff
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/scripts/power.sh
-
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Control+p exec i3-msg exit
 
 # Picom restart
 bindsym $mod+p exec --no-startup-id ~/.config/scripts/picom_restart.sh
-
 # Kill window
 bindsym --release $alt+Control+Delete exec --no-startup-id xkill
 # Reboot system
 bindsym $mod+$alt+Control+Delete exec --no-startup-id systemctl -i reboot
-
 # Change background
 bindsym $mod+o exec --no-startup-id systemctl --user start setbg.service
+# Change mouse hand
+bindsym $mod+Control+m exec --no-startup-id ~/.config/scripts/mouse_rigth_left.sh
 
 ######### Menu #########
 

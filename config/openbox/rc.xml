@@ -224,6 +224,11 @@
         <command>systemctl --user start setbg.service</command>
       </action>
     </keybind>
+    <keybind key="W-C-m">
+      <action name="Execute">
+        <command>~/.config/scripts/mouse_rigth_left.sh</command>
+      </action>
+    </keybind>
 
     <!-- Menu -->
 

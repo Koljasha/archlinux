@@ -49,6 +49,7 @@ scripts = {
     "workspaces": os.path.expanduser("~/.config/scripts/workspaces.sh"),
 
     "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
+    "mouse_rigth_left": os.path.expanduser("~/.config/scripts/mouse_rigth_left.sh"),
     "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
     "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
 
@@ -145,21 +146,27 @@ keys = [
 
     ######### Main #########
 
+    # Kill window
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
 
+    # Reload | Restart Qtile
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config Qtile"),
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
 
+    # Exit menu
     Key([mod, "shift"], "p", lazy.spawn(scripts["power"]), desc="Exit | Reboot | Poweroff"),
-
     Key([mod, "control"], "p", lazy.shutdown(), desc="Shutdown Qtile"),
 
+    # Picom restart
     Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
-
+    # Kill window
     Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
+    # Reboot System
     Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
-
+    # Change background
     Key([mod], "o", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+    # Change mouse hand
+    Key([mod, "control"], "m", lazy.spawn(scripts["mouse_rigth_left"]), desc="Change mouse left|rigth hand"),
 
     ######### Menu #########
 
