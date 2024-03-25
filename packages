@@ -660,7 +660,7 @@ sudo sed -i 's/#MAKEFLAGS/MAKEFLAGS/' /etc/makepkg.conf
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
 
 # systemd journal size
-sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=512M/' /etc/systemd/journald.conf
+# sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=512M/' /etc/systemd/journald.conf
 
 # enable change locale
 sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
