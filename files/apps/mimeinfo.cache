@@ -1,4 +1,5 @@
 [MIME Cache]
+application/pdf=firefox.desktop;
 image/bmp=feh.desktop;
 image/gif=feh.desktop;
 image/jpeg=feh.desktop;
@@ -16,5 +17,4 @@ image/x-portable-graymap=feh.desktop;
 image/x-portable-pixmap=feh.desktop;
 image/x-tga=feh.desktop;
 image/x-xbitmap=feh.desktop;
-x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;firefox.desktop;
-x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;firefox.desktop;
+inode/directory=ranger.desktop;
