@@ -3,7 +3,12 @@
 " ----------------------------------------
 
 " настройка цветовой схемы
-colorscheme desert
+if has('nvim')
+    colorscheme dracula
+else
+    colorscheme PaperColor
+endif
+
 " прозрачность
 highlight Normal guibg=NONE ctermbg=NONE
 
