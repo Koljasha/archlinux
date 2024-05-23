@@ -29,6 +29,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 
 " add colorscheme
 Plug 'Mofiqul/dracula.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " ----------------------------------------
 " ----------------------------------------

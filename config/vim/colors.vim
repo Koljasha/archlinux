@@ -4,7 +4,7 @@
 
 " настройка цветовой схемы
 if has('nvim')
-    colorscheme dracula
+    colorscheme catppuccin-mocha
 else
     colorscheme PaperColor
 endif
