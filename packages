@@ -183,7 +183,6 @@ if [[ $de == "koljasha_wm" ]]; then
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman bluez-utils
     polkit-gnome lxappearance-gtk3 picom
-    firejail distrobox podman
     terminator alacritty
     feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
@@ -316,6 +315,9 @@ fi
 # os-prober-btrfs - Grub find system on other btrfs disks
 
 # scrcpy - connect to remote Android device
+
+# firejail - запуск приложения в песочнице
+# distrobox podman|docker - разные дистрибутивы через контейнеры
 
 #
 # additionally I use flatpak apps:
