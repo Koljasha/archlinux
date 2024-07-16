@@ -49,7 +49,8 @@ scripts = {
     "workspaces": os.path.expanduser("~/.config/scripts/workspaces.sh"),
 
     "keyboard": os.path.expanduser("~/.config/scripts/keyboard.sh"),
-    "mouse_rigth_left": os.path.expanduser("~/.config/scripts/mouse_rigth_left.sh"),
+    "mouse_right_left": os.path.expanduser("~/.config/scripts/mouse_right_left.sh"),
+    "mouse_scrolling_botton": os.path.expanduser("~/.config/scripts/mouse_scrolling_botton.sh"),
     "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
     "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
 
@@ -166,7 +167,9 @@ keys = [
     # Change background
     Key([mod], "o", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
     # Change mouse hand
-    Key([mod, "control"], "m", lazy.spawn(scripts["mouse_rigth_left"]), desc="Change mouse left|rigth hand"),
+    Key([mod, "control"], "m", lazy.spawn(scripts["mouse_right_left"]), desc="Change mouse left|right hand"),
+    # Change mouse scrolling button
+    Key([mod, "shift"], "m", lazy.spawn(scripts["mouse_scrolling_botton"]), desc="Change mouse scrolling button"),
 
     ######### Menu #########
 
