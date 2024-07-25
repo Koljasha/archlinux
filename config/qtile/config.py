@@ -445,6 +445,7 @@ floating_layout = layout.Floating(
             Match(wm_class=re.compile(r"^(Terminator|terminator)$")),
             Match(wm_class=r"^(Gvim)$"),
             Match(wm_class=re.compile(r"^(gnome\-calculator|org\.gnome\.Calculator)$")),
+            Match(wm_class=re.compile(r"^(pinentry\-gtk|Pinentry\-gtk)$")),
             Match(wm_class=r"^(Gnome\-screenshot)$"),
             Match(wm_class=r"^(torbrowser\-launcher)$"),
             Match(wm_class=r"^(isaac\-ng\.exe)$"),
