@@ -333,6 +333,7 @@ if [[ $de == "koljasha_wm" ]]; then
     $packages_aur
     arc-dark-osx-openbox-theme-git
     mint-x-icons
+    openvpn-update-systemd-resolved
     "
 fi
 
@@ -844,6 +845,10 @@ if [[ $de == "koljasha_wm" ]]; then
         sudo sed -i -E '/ExecStart/s/(btrfsd --syslog).*/\1 --timeshift-auto/' /etc/systemd/system/grub-btrfsd.service
         sudo systemctl enable grub-btrfsd
     fi
+
+    # service Dns resolve for OpenVpn
+    # https://wiki.archlinux.org/title/OpenVPN#The_update-systemd-resolved_custom_script
+    sudo systemctl enable systemd-resolved.service
 fi
 
 ###############
