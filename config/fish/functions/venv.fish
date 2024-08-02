@@ -5,6 +5,7 @@ function venv --description 'create/activate python virtual environment'
         source .venv/bin/activate.fish
     else
         python -m venv .venv; source .venv/bin/activate.fish
+        pip install --upgrade pip
     end
 end
 

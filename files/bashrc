@@ -24,6 +24,7 @@ venv() {
         source .venv/bin/activate
     else
         python -m venv .venv && source .venv/bin/activate
+        pip install --upgrade pip
     fi
 }
 
