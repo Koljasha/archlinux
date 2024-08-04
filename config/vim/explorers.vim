@@ -74,6 +74,8 @@ nmap <Leader>fr :Rg<CR>
 nmap <Leader>f/ :BLines<CR>
 " FZF Btags
 nmap <Leader>ft :BTags<CR>
+" FZF Changes
+nmap <Leader>fc :Changes<CR>
 " FZF Jumps
 nmap <Leader>fj :Jumps<CR>
 " FZF History
