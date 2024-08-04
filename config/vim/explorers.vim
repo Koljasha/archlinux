@@ -78,6 +78,8 @@ nmap <Leader>ft :BTags<CR>
 nmap <Leader>fc :Changes<CR>
 " FZF Jumps
 nmap <Leader>fj :Jumps<CR>
+" FZF Marks
+nmap <Leader>fm :Marks<CR>
 " FZF History
 nmap <Leader>fh :History<CR>
 " FZF GFiles? (git status)
