@@ -45,6 +45,8 @@ alias grep="batgrep --ignore-case"
 alias ggrep="/usr/bin/grep --color=auto"
 alias rgrep="rg"
 
+alias view="vim -R"
+
 alias man="batman"
 alias diff="batdiff --delta"
 
