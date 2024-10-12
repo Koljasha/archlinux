@@ -299,25 +299,26 @@ fi
 # (choose virtualbox-host-modules-arch for linux kernel)
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
-# xreader, atril - simple document viewer
-# xournalpp - document viewer with notes
+# sublime-text-4 - text editor
 
 # onlyoffice-bin - office
 # libreoffice-still libreoffice-still-ru - office
 
-# rustdesk-bin - remote desktop software
+# xreader, atril - simple document viewer
+# xournalpp - document viewer with notes
 
-# stretchly-bin - break time reminder app
+# rustdesk-bin - remote desktop software
+# scrcpy - connect to remote Android device
 
 # mintstick - write Iso to Usb
 # ventoy-bin - write multiple Iso to Usb
 
 # os-prober-btrfs - Grub find system on other btrfs disks
 
-# scrcpy - connect to remote Android device
+# spoofdpi-bin - anti-censorship tool
 
 # firejail - запуск приложения в песочнице
-# distrobox podman|docker - разные дистрибутивы через контейнеры
+# distrobox docker|podman - разные дистрибутивы через контейнеры
 
 #
 # additionally I use flatpak apps:
@@ -334,7 +335,6 @@ if [[ $de == "koljasha_wm" ]]; then
     arc-dark-osx-openbox-theme-git
     mint-x-icons
     openvpn-update-systemd-resolved
-    spoofdpi-bin
     "
 fi
 
