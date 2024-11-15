@@ -98,9 +98,7 @@ nmap <F11> :set filetype=text <CR>
 nmap <S-F11> :set filetype=csv <CR>
 
 " F12 - режим сравнения (vimdiff)
-nmap <F12> :windo diffthis <CR>
-" Shift-F12 - выйти из сравнения
-nmap <S-F12> :windo diffoff <CR>
+nmap <F12> :set diff! <CR>
 
 " ----------------------------------------
 " Help Some Keys
