@@ -341,3 +341,5 @@ for_window [ class="isaac-ng.exe" ] floating enable
 
 exec --no-startup-id ~/.config/i3/autostart.sh
 
+# vim:ft=i3config
+
