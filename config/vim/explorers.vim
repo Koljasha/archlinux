@@ -84,6 +84,8 @@ nmap <Leader>fm :Marks<CR>
 nmap <Leader>fh :History<CR>
 " FZF GFiles? (git status)
 nmap <Leader>fs :GFiles?<CR>
+" FZF Filetypes
+nmap <Leader>fy :Filetypes<CR>
 
 " ----------------------------------------
 " ----------------------------------------
