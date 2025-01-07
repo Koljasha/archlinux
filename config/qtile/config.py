@@ -392,7 +392,7 @@ groups = [
     Group("7: ", matches=Match(wm_class=re.compile(r"^(vlc)$")), layout="max"),
     Group("8: ", matches=Match(wm_class=re.compile(r"^(transmission\-gtk)$")), layout="max"),
     Group("9: ", matches=Match(wm_class=re.compile(r"^(VirtualBox\ Manager|VirtualBox\ Machine|Gnome\-boxes)$")), layout="max"),
-    Group("10: ", matches=Match(wm_class=re.compile(r"^(org\.remmina\.Remmina|xfreerdp)$")), layout="max"),
+    Group("10: ", matches=Match(wm_class=re.compile(r"^(org\.remmina\.Remmina|xfreerdp|Google\-chrome)$")), layout="max"),
 
     ScratchPad("scratchpad", [
         DropDown("terminal", "alacritty", opacity=0.95, height=0.45),
