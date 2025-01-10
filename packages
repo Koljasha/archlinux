@@ -324,6 +324,7 @@ fi
 
 #
 # additionally I use flatpak apps:
+# flatpak install flathub io.github.flattool.Warehouse
 # flatpak install flathub com.github.tchx84.Flatseal
 #
 
