@@ -74,13 +74,19 @@ function wg-status --description 'show WireGuard status'
     end
 end
 
-# aliases for Vpn
-alias vpn-up="nmcli connection up $argv[1]"
-alias vpn-down="nmcli connection down $argv[1]"
-function vpn-status --description 'show OpenVpn status'
-    nmcli connection show | /usr/bin/grep vpn
-end
+# aliases for OpenVpn NetworkManager
+alias vpn-up="openvpn3 session-start --config $argv[1]"
+alias vpn-down="openvpn3 session-manage --disconnect --config $argv[1]"
+alias vpn-status="openvpn3 sessions-list"
+
+# aliases for OpenVpn NetworkManager
+# alias vpn-up="nmcli connection up $argv[1]"
+# alias vpn-down="nmcli connection down $argv[1]"
+# function vpn-status --description 'show OpenVpn status'
+    # nmcli connection show | /usr/bin/grep vpn
+# end
+
 
 # aliases for distrobox
-alias distrobox_create="distrobox create --volume /run/mount/storage:/run/mount/storage:rw"
+# alias distrobox_create="distrobox create --volume /run/mount/storage:/run/mount/storage:rw"
 
