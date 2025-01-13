@@ -322,6 +322,8 @@ fi
 # firejail - запуск приложения в песочнице
 # distrobox docker|podman - разные дистрибутивы через контейнеры
 
+# openvpn3 - new version OpenVpn
+
 #
 # additionally I use flatpak apps:
 # flatpak install flathub io.github.flattool.Warehouse
