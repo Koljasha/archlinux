@@ -5,7 +5,29 @@
 # If not running interactively, don't do anuthing
 [[ $- != *i* ]] && return
 
-PS1='[\u@\h \W]\$ '
+# PS1='[\u@\h \W]\$ '
+
+
+# show git branch|status
+get_git_branch () {
+  if git status &>/dev/null && which git &>/dev/null; then
+    local gbranch=`git rev-parse --abbrev-ref HEAD`
+
+    local RED='\033[0;31m'
+    local GREEN='\033[0;32m'
+    local NC='\033[0m' # No Color
+
+    if [[ `git status --short` == '' ]]; then
+      local gstatus="$GREEN\u2714"
+    else
+      local gstatus="$RED\u2718"
+    fi
+
+    echo -e ": $gstatus $gbranch"
+  fi
+}
+PS1="[\[\033[01;35m\]\u\[\033[1;33m\]@\[\033[01;31m\]\h: \[\033[01;34m\]\w\[\033[0;36m\]\$(get_git_branch)\[\033[00m\]]\\$ "
+
 
 # linux command aliases
 alias ls='ls --color=auto'
