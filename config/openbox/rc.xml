@@ -404,9 +404,14 @@
         <command>pcmanfm</command>
       </action>
     </keybind>
+    <!-- <keybind key="XF86Search"> -->
+      <!-- <action name="Execute"> -->
+        <!-- <command>remmina</command> -->
+      <!-- </action> -->
+    <!-- </keybind> -->
     <keybind key="XF86Search">
       <action name="Execute">
-        <command>remmina</command>
+        <command>google-chrome-stable</command>
       </action>
     </keybind>
     <keybind key="XF86Calculator">
