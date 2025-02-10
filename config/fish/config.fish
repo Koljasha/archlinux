@@ -26,7 +26,7 @@ end
 # aliases for default commands
 alias ll="ls -lahv --group-directories-first"
 alias grep="grep --color=auto"
-alias cp="cp -v"
+alias cp="cp -av"
 alias mv="mv -v"
 alias rm="rm -v"
 
