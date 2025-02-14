@@ -31,6 +31,7 @@ alias mv="mv -v"
 alias rm="rm -v"
 
 # aliases for additional commands
+alias rsync="rsync -avP"
 alias fd="fd --hidden --follow --no-ignore"
 alias rg="rg --hidden --follow --no-ignore --ignore-case"
 
