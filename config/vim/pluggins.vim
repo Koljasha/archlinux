@@ -237,14 +237,16 @@ Plug 'tpope/vim-repeat'
 " ---------------
 " ----------------------------------------
 
-" Supertab - дополнение по <Tab>
-" ---------------
-" https://github.com/ervandew/supertab
-Plug 'ervandew/supertab'
-" ---------------
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-" ----------------------------------------
+if ! has('nvim')
+	" Supertab - дополнение по <Tab>
+	" ---------------
+	" https://github.com/ervandew/supertab
+	Plug 'ervandew/supertab'
+	" ---------------
+	let g:SuperTabDefaultCompletionType = "<c-n>"
+	let g:SuperTabContextDefaultCompletionType = "<c-n>"
+	" ----------------------------------------
+endif
 
 " Match-up - перемещение по тегам, скобкам...
 " клавиша %
