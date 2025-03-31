@@ -437,6 +437,10 @@ if [[ $de == "koljasha_wm" ]]; then
     sudo cp files/badge/qtile-wayland_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/qtile-wayland_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
+    # GTK theme and icon Wayland
+    gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark
+    gsettings set org.gnome.desktop.interface icon-theme Obsidian-Aqua
+
     # gnome-screenshot settings
     # gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
 

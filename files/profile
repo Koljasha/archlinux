@@ -11,7 +11,7 @@ export EDITOR=vim
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME="qt6ct"
 
-# environment for gtk-4
+# environment for GTK-4 Wayland
 export GTK_THEME=Arc-Dark
 
 # environment for clipmenu
