@@ -338,8 +338,8 @@ if [[ $de == "koljasha_wm" ]]; then
     packages_aur="
     $packages_aur
     arc-gtk-theme
-    arc-dark-osx-openbox-theme-git
     arc-icon-theme
+    arc-dark-osx-openbox-theme-git
     openvpn-update-systemd-resolved
     "
 fi
