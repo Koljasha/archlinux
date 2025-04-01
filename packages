@@ -179,7 +179,7 @@ if [[ $de == "koljasha_wm" ]]; then
     qt5ct qt6ct kvantum-qt5 kvantum qt5-wayland qt6-wayland
 
     qtile i3 openbox polybar plank
-    obconf menumaker
+    obconf-qt menumaker
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman bluez-utils
     polkit-gnome lxappearance-gtk3 picom
@@ -212,7 +212,7 @@ elif [[ $de == "lxde" ]]; then
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct qt6ct kvantum
 
-    lxde-gtk3 obconf picom
+    lxde-gtk3 obconf-qt picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
     "
 elif [[ $de == "lxqt" ]]; then
