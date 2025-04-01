@@ -165,7 +165,7 @@ python-pip python-setuptools
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 arc-gtk-theme adapta-gtk-theme breeze-gtk
-arc-icon-theme breeze-icons
+arc-icon-theme breeze-icons obsidian-icon-theme 
 archlinux-wallpaper
 firefox
 xdg-desktop-portal-gtk flatpak
@@ -182,7 +182,7 @@ if [[ $de == "koljasha_wm" ]]; then
     obconf menumaker
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman bluez-utils
-    polkit-gnome lxappearance-gtk3 obsidian-icon-theme picom
+    polkit-gnome lxappearance-gtk3 picom
     terminator alacritty
     feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
