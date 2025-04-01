@@ -164,8 +164,8 @@ imagemagick ffmpeg ghostscript
 python-pip python-setuptools
 gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
-arc-gtk-theme adapta-gtk-theme breeze-gtk
-arc-icon-theme breeze-icons obsidian-icon-theme 
+adapta-gtk-theme breeze-gtk
+breeze-icons obsidian-icon-theme 
 archlinux-wallpaper
 firefox
 xdg-desktop-portal-gtk flatpak
@@ -337,7 +337,9 @@ xkb-switch
 if [[ $de == "koljasha_wm" ]]; then
     packages_aur="
     $packages_aur
+    arc-gtk-theme
     arc-dark-osx-openbox-theme-git
+    arc-icon-theme
     openvpn-update-systemd-resolved
     "
 fi
