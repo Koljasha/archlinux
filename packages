@@ -479,8 +479,11 @@ if [[ $de == "koljasha_wm" ]]; then
     sudo sed -i 's/set -- -dmenu/set -- -dmenu -i -p Clipboard/' /usr/bin/clipmenu
     systemctl --user enable clipmenud.service
 
+    # screen link
+    ln -s ~/.config/screen/screenrc ~/.screenrc
+
     # distrobox Resolve Error
-    cp files/distroboxrc ~/.distroboxrc
+    # cp files/distroboxrc ~/.distroboxrc
 
     # menu_maker for Openbox
     ~/.config/openbox/menu_maker.sh
