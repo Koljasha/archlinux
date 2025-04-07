@@ -160,6 +160,10 @@ ln -s /run/mount/storage/local/settings/remmina_local ~/.local/share/remmina
 rm -rf ~/.config/rofi
 ln -s /run/mount/storage/local/config/rofi ~/.config/rofi
 
+# screen
+rm -rf ~/.config/screen
+ln -s /run/mount/storage/local/config/screen ~/.config/screen
+
 # scripts
 rm -rf ~/.config/scripts
 ln -s /run/mount/storage/local/config/scripts ~/.config/scripts
