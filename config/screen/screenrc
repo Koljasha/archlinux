@@ -24,8 +24,21 @@ termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
 
 # строка состояния
 hardstatus off
+
+#
 # Screen version 5
-hardstatus alwayslastline '%{#00ff00}[ %H ][%{#ffffff}%= %{7}%?%-Lw%?%{1;0}%{1}( %{15}%n%f %t%?(%u)%?%{1;0}%{1} )%{7}%?%+Lw%? %=%{#00ff00}][ %{#00a5ff}%{6}%Y-%m-%d %{#ffffff}%{7}%0c%{#00ff00} ]'
+#
+
+# Настройка времени с секундами
+backtick 1 1 1 date "+%H:%M:%S"
+
+# Настройка Load Average
+backtick 2 5 5 sh -c "cat /proc/loadavg | cut -d' ' -f1-3"
+
+hardstatus alwayslastline '%{#00ff00}[ %H ][ %{#ffffff}%= %{7}%?%-Lw%?%{1}%n%f %t%?%u%?%{7}%?%+Lw%? %=%{#00ff00} ][ %{#ffd700}Load: %2`%{#00ff00} ][ %{#00a5ff}%{6}%Y-%m-%d %{#ffffff}%{7}%1`%{#00ff00} ]'
+
+#
 # Screen version 4
+#
 # hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
 
