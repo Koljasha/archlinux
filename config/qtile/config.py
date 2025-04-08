@@ -185,6 +185,8 @@ keys = [
     Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
 
     # Clipboard
+    # редко затупливает, тогда:
+    # systemctl --user restart clipmenud.service
     Key([mod], "c", lazy.spawn("clipmenu"), desc="Show clipboard history"),
 
     # Password
