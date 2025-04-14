@@ -55,6 +55,7 @@ require('lazy').setup({
   plugged_plugins,
 
   -- vim-plug для установки плагинов Vim
+  -- :PlugInstall
   {
     'junegunn/vim-plug',
     config = function()
@@ -62,10 +63,7 @@ require('lazy').setup({
       if vim.fn.filereadable(plug_script) == 1 then
         vim.cmd('source ' .. plug_script)
         vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
-
         vim.cmd('source ~/.config/vim/pluggins.vim')
-        -- vim.cmd('source ~/.config/vim/ide.vim')
-
         vim.fn['plug#end']()
       else
         print('vim-plug script not found at ' .. plug_script .. '. Run :Lazy sync to install.')
