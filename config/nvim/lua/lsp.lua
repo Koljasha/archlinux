@@ -12,6 +12,7 @@ return {
   -- LSP
   {
     'neovim/nvim-lspconfig',
+
     config = function()
       -- Mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -87,6 +88,7 @@ return {
   -- Сниппеты
   {
     'L3MON4D3/LuaSnip',
+
     config = function()
       -- Neovim Snippets: ~/.config/nvim/lua/snippets.lua
       local ok, _ = pcall(require, "snippets")
@@ -98,6 +100,7 @@ return {
 
   {
     'saadparwaiz1/cmp_luasnip',
+
     config = function()
       local cmp = require 'cmp'
       cmp.setup {

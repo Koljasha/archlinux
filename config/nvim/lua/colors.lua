@@ -5,6 +5,7 @@ return {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000, -- Загружаем раньше для цветовых схем
+
     config = function()
       -- Настройка catppuccin
       require('catppuccin').setup({

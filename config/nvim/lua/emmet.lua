@@ -6,6 +6,7 @@ return {
   {
     "mattn/emmet-vim",
     ft = emmet_filetypes, -- Используем только для нужных файлов
+
     init = function()
       -- Базовые настройки Emmet
       vim.g.user_emmet_mode = "i" -- Режим вставки
