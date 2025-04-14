@@ -1,6 +1,6 @@
--- init.lua
+-- ~/.config/nvim/init.lua
 
--- Базовые настройки
+-- Базовые настройки (VimScript)
 vim.cmd('source ~/.config/vim/settings.vim')
 
 -- Привязки клавиш
@@ -9,29 +9,64 @@ vim.cmd('source ~/.config/vim/mappings.vim')
 -- Терминал и Проводник
 vim.cmd('source ~/.config/vim/explorers.vim')
 
--- Плагины (vim-plug)
--- https://github.com/junegunn/vim-plug
--- Reload .vimrc and :PlugInstall to install plugins
-local plug_path = vim.fn.stdpath('data') .. '/site/autoload/plug.vim'
+-- Установка lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Инициализация vim-plug
-vim.fn['plug#begin']()
+-- Динамическая регистрация плагинов Vim-Plug из plugged/
+local plugged_dir = vim.fn.stdpath('data') .. '/plugged'
+local plugged_plugins = {}
+if vim.fn.isdirectory(plugged_dir) == 1 then
+  for _, dir in ipairs(vim.fn.readdir(plugged_dir)) do
+    local plugin_path = plugged_dir .. '/' .. dir
+    if vim.fn.isdirectory(plugin_path) == 1 then
+      table.insert(plugged_plugins, {
+        dir = plugin_path,
+        name = dir,
+        lazy = false, -- Загружаем сразу
+      })
+    end
+  end
+end
 
--- Основные плагины
-vim.cmd('source ~/.config/vim/pluggins.vim')
+-- Настройка lazy.nvim
+require('lazy').setup({
+  -- Neovim colorscheme: ~/.config/nvim/lua/colors.lua
+  { import = 'colors' },
 
--- IDE плагины общие
-vim.cmd('source ~/.config/vim/ide_main.vim')
+  -- Neovim LSP: ~/.config/nvim/lua/lsp.lua
+  { import = 'lsp' },
 
--- IDE плагины NeoVim
-vim.cmd('source ~/.config/nvim/ide.vim')
+  -- Плагины Vim из plugged/
+  plugged_plugins,
 
--- Завершение инициализации vim-plug
-vim.fn['plug#end']()
+  -- vim-plug для установки плагинов Vim
+  {
+    'junegunn/vim-plug',
+    config = function()
+      local plug_script = vim.fn.stdpath('data') .. '/lazy/vim-plug/plug.vim'
+      if vim.fn.filereadable(plug_script) == 1 then
+        vim.cmd('source ' .. plug_script)
+        vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
 
--- Цветовая схема
-vim.cmd('source ~/.config/vim/colors.vim')
+        vim.cmd('source ~/.config/vim/pluggins.vim')
+        vim.cmd('source ~/.config/vim/ide.vim')
 
--- Neovim LSP Settings
-require('lsp')
+        vim.fn['plug#end']()
+      else
+        print('vim-plug script not found at ' .. plug_script .. '. Run :Lazy sync to install.')
+      end
+    end,
+  },
+})
 

@@ -710,8 +710,8 @@ sed -i 's/desert/PaperColor/' ~/.config/vim/colors.vim
 # NeoVim
 if [[ $de == "koljasha_wm" ]]; then
     # install Vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    # install nvim plugins
+    # curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # install nvim Vim-plug plugins
     nvim -c PlugInstall
 fi
 
