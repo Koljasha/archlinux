@@ -41,14 +41,14 @@ end
 
 -- Настройка lazy.nvim
 require('lazy').setup({
-  -- Neovim colorscheme: ~/.config/nvim/lua/colors.lua
-  { import = 'colors' },
+  -- Плагины Neovim: ~/.config/nvim/lua/plugins.lua
+  { import = 'plugins' },
 
   -- Neovim LSP: ~/.config/nvim/lua/lsp.lua
   { import = 'lsp' },
 
-  -- реализовано через LSP
   -- Emmet: ~/.config/nvim/lua/emmet.lua
+  -- реализовано через LSP
   -- { import = 'emmet' },
 
   -- Плагины Vim из plugged/
@@ -63,7 +63,7 @@ require('lazy').setup({
       if vim.fn.filereadable(plug_script) == 1 then
         vim.cmd('source ' .. plug_script)
         vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
-        vim.cmd('source ~/.config/vim/pluggins.vim')
+        vim.cmd('source ~/.config/vim/plugins.vim')
         vim.fn['plug#end']()
       else
         print('vim-plug script not found at ' .. plug_script .. '. Run :Lazy sync to install.')

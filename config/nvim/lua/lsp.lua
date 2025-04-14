@@ -5,7 +5,7 @@
 -- settings from https://github.com/neovim/nvim-lspconfig
 ---------------
 -- nvim-cmp
--- settings from: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+-- settings from https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 ---------------
 
 return {
