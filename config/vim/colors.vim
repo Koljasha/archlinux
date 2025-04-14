@@ -3,10 +3,10 @@
 " ----------------------------------------
 
 " настройка цветовой схемы
-if has('nvim')
-    colorscheme catppuccin-mocha
-else
+if ! has('nvim')
     colorscheme PaperColor
+else
+    colorscheme catppuccin-mocha
 endif
 
 " прозрачность
