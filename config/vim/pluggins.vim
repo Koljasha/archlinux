@@ -2,7 +2,9 @@
 " Основные плагины
 " ----------------------------------------
 
-" PaperColor - цветовая схема
+" PaperColor - цветовая схема | только Vim
+" Supertab - дополнение по <Tab> | только Vim
+
 " Lightline-Bufferline - отображение буферов в Lightline
 " Lightline - строка статуса
 " Vim-Devicons - иконки Nerd
@@ -20,7 +22,6 @@
 " EasyMotion - простые перемещения
 " Tagbar - окно-список тегов
 " Repeat - расширенный повтор по "."
-" Supertab - дополнение по <Tab>
 " Match-up - перемещение по тегам, скобкам...
 
 " Polyglot - коллекция языковых пакетов для Vim
@@ -29,12 +30,23 @@
 " ----------------------------------------
 " ----------------------------------------
 
-" PaperColor - цветовая схема
-" ---------------
-" https://github.com/NLKNguyen/papercolor-theme
-Plug 'nlknguyen/papercolor-theme'
-" ---------------
-" ----------------------------------------
+if ! has('nvim')
+	" PaperColor - цветовая схема
+	" ---------------
+	" https://github.com/NLKNguyen/papercolor-theme
+	Plug 'nlknguyen/papercolor-theme'
+	" ---------------
+	" ----------------------------------------
+
+	" Supertab - дополнение по <Tab>
+	" ---------------
+	" https://github.com/ervandew/supertab
+	Plug 'ervandew/supertab'
+	" ---------------
+	let g:SuperTabDefaultCompletionType = "<c-n>"
+	let g:SuperTabContextDefaultCompletionType = "<c-n>"
+	" ----------------------------------------
+endif
 
 " Lightline-Bufferline - отображение буферов в Lightline
 " ---------------
@@ -236,17 +248,6 @@ let g:tagbar_show_linenumbers = 2
 Plug 'tpope/vim-repeat'
 " ---------------
 " ----------------------------------------
-
-if ! has('nvim')
-	" Supertab - дополнение по <Tab>
-	" ---------------
-	" https://github.com/ervandew/supertab
-	Plug 'ervandew/supertab'
-	" ---------------
-	let g:SuperTabDefaultCompletionType = "<c-n>"
-	let g:SuperTabContextDefaultCompletionType = "<c-n>"
-	" ----------------------------------------
-endif
 
 " Match-up - перемещение по тегам, скобкам...
 " клавиша %
