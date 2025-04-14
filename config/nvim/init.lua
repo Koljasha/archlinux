@@ -47,6 +47,10 @@ require('lazy').setup({
   -- Neovim LSP: ~/.config/nvim/lua/lsp.lua
   { import = 'lsp' },
 
+  -- реализовано через LSP
+  -- Emmet: ~/.config/nvim/lua/emmet.lua
+  -- { import = 'emmet' },
+
   -- Плагины Vim из plugged/
   plugged_plugins,
 
@@ -60,7 +64,7 @@ require('lazy').setup({
         vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
 
         vim.cmd('source ~/.config/vim/pluggins.vim')
-        vim.cmd('source ~/.config/vim/ide.vim')
+        -- vim.cmd('source ~/.config/vim/ide.vim')
 
         vim.fn['plug#end']()
       else
