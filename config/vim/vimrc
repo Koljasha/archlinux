@@ -30,11 +30,11 @@ call plug#begin()
 " Основные плагины
 source ~/.config/vim/pluggins.vim
 
-" IDE плагины общие
-" source ~/.config/vim/ide_main.vim
+" Ide плагины (Emmet, Black)
+" source ~/.config/vim/ide.vim
 
-" IDE плагины Vim
-" source ~/.config/vim/ide_vim.vim
+" Lsp плагины Vim
+" source ~/.config/vim/lsp.vim
 
 " ----------------------------------------
 
