@@ -28,7 +28,7 @@ call plug#begin()
 " ----------------------------------------
 
 " Основные плагины
-source ~/.config/vim/pluggins.vim
+source ~/.config/vim/plugins.vim
 
 " Ide плагины (Emmet, Black)
 " source ~/.config/vim/ide.vim
