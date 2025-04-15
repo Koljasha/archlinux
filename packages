@@ -187,7 +187,7 @@ if [[ $de == "koljasha_wm" ]]; then
     feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
     gvim gsimplecal
-    neovim python-pynvim nodejs npm pyright bash-language-server
+    neovim python-pynvim nodejs npm
     maim grim slurp swappy
     qutebrowser python-requests python-beautifulsoup4
     pcmanfm-gtk3
