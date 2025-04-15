@@ -7,12 +7,26 @@
 -- nvim-cmp
 -- settings from https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 ---------------
+-- mason.nvim
+-- settings from https://github.com/williamboman/mason.nvim
+-- mason-lspconfig.nvim
+-- settings from https://github.com/williamboman/mason-lspconfig.nvim
+---------------
 
 return {
+  -- Mason для установки LSP-серверов
+  { 'williamboman/mason.nvim' },
+  -- Интеграция Mason с lspconfig
+  { 'williamboman/mason-lspconfig.nvim' },
+
   -- LSP
   {
     'neovim/nvim-lspconfig',
-
+    dependencies = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+    },
     config = function()
       local opts = { noremap = true, silent = true }
 
@@ -35,14 +49,17 @@ return {
       -- Настройка capabilities для nvim-cmp
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+      -- Настройка Mason
+      require('mason').setup()
+
+      -- Настройка Mason-lspconfig
+      -- Устанавливаем только эти серверы
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'pyright', 'bashls', 'emmet_ls' },
+      })
+
       -- Получаем доступ к конфигурациям nvim-lspconfig
       local lspconfig = require('lspconfig')
-
-      -- !!! Need install LSP Server
-      -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-      -- >sudo npm i -g pyright
-      -- >sudo npm i -g bash-language-server
-      -- >sudo npm i -g emmet-ls
 
       -- Список серверов и их конфигураций
       local servers = {
@@ -108,7 +125,6 @@ return {
   -- Сниппеты
   {
     'L3MON4D3/LuaSnip',
-
     config = function()
       -- Neovim Snippets: ~/.config/nvim/lua/snippets.lua
       local ok, _ = pcall(require, 'snippets')
@@ -120,7 +136,6 @@ return {
 
   {
     'saadparwaiz1/cmp_luasnip',
-
     config = function()
       local cmp = require('cmp')
       cmp.setup({
