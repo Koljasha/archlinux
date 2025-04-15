@@ -55,7 +55,8 @@ return {
       -- Настройка Mason-lspconfig
       -- Устанавливаем только эти серверы
       require('mason-lspconfig').setup({
-        ensure_installed = { 'pyright', 'bashls', 'emmet_ls' },
+        ensure_installed = { 'pyright', 'bashls', },
+        -- ensure_installed = { 'pyright', 'bashls', 'emmet_ls' },
       })
 
       -- Получаем доступ к конфигурациям nvim-lspconfig
