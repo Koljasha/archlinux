@@ -13,16 +13,16 @@ let &keywordprg=':help'
 " <Leader><space> - отключение подсветки поиска hlsearch
 nmap <Leader>/ :nohlsearch <CR>
 
-" <Leader>ss - сохранение файла
-nmap <Leader>ss :w! <CR>
+" <Leader>S - сохранение файла
+nmap <Leader>S :w! <CR>
 
-" <Leader>qq - закрытие буфера без сохранения
-nmap <Leader>qq :bp\|bd! #<CR>
+" <Leader>Q - закрытие буфера без сохранения
+nmap <Leader>Q :bp\|bd! #<CR>
 
-" <Leader>bb - следующий буфер
-nmap <Leader>bb :bn <CR>
-" <Leader>BB - предыдущий буфер
-nmap <Leader>BB :bp <CR>
+" <Leader>b - следующий буфер
+nmap <Leader>b :bn <CR>
+" <Leader>B - предыдущий буфер
+nmap <Leader>B :bp <CR>
 
 " копировать в системный буфер обмена: выделить, далее "+y
 vmap <C-c> "+y
@@ -31,12 +31,12 @@ vmap <C-c> "+y
 " список всех буферов|регистров: :registers
 
 " vsplit|split
-nmap <Leader>vv :vsplit
-nmap <Leader>vs :split
+nmap <Leader>v :vsplit
+" nmap <Leader>vs :split
 
 " vsplit|split по номеру буфера
-nmap <Leader>VV :vertical sb
-nmap <Leader>VS :sb
+nmap <Leader>V :vertical sb
+" nmap <Leader>VS :sb
 
 " сменить split
 nmap <C-Left> <C-W>h

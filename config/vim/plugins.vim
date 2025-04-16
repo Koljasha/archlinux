@@ -166,18 +166,15 @@ let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = {
     \ 'python': { 'left': '#'}
     \}
-" комментировать
-" [count]|<leader>|cc |NERDComComment|
-" раскомментировать
-" [count]|<Leader>|cu |NERDComUncommentLine|
-" комментировать/раскомментировать
-" [count]|<Leader>|c<space> |NERDComToggleComment|
-" блочный форматированный комментарий
-" [count]<leader>cs |NERDComSexyComment|
-" смена комментировано на раскомментировано и наоборот
-" [count]|<Leader>|ci |NERDComInvertComment|
-" комментарий в конец строки
-" |<Leader>|cA |NERDComAppendComment|
+
+" Отключаем создание всех дефолтных привязок NERDCommenter
+let g:NERDCreateDefaultMappings = 0
+
+" Общие привязки для нормального и визуального режимов
+noremap <leader>cc <Plug>NERDCommenterComment
+noremap <leader>cu <Plug>NERDCommenterUncomment
+noremap <leader>c<space> <Plug>NERDCommenterToggle
+
 " ----------------------------------------
 
 " ----------------------------------------
