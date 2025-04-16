@@ -40,26 +40,26 @@ return {
 
       -- Регистрация префиксов
       wk.add({
-        { "<leader>c", group = " NerdCommenter" },
-        { "<leader>f", group = " Fzf" },
+        { "<leader>b", desc = "Buffer Next", icon = "󰒭" },
+        { "<leader>B", desc = "Buffer Prev", icon = "󰒮" },
 
-        { "<leader>b", desc = "Buffer Next" },
-        { "<leader>B", desc = "Buffer Prev" },
+        { "<leader>o", desc = "Explorer Files", icon = "" },
+        { "<leader>O", desc = "Explorer Files Vsplit", icon = "󱉆" },
 
-        { "<leader>o", desc = "Explorer Files" },
-        { "<leader>O", desc = "Explorer Files Vsplit" },
+        { "<leader>Q", desc = "Delete Buffer", icon = "󱂦" },
+        { "<leader>S", desc = "Save Buffer", icon = "" },
 
-        { "<leader>Q", desc = "Delete Buffer" },
-        { "<leader>S", desc = "Save Buffer" },
+        { "<leader>t", desc = "Terminal Split", icon = "" },
+        { "<leader>T", desc = "Terminal Vsplit", icon = "" },
 
-        { "<leader>t", desc = "Terminal Split" },
-        { "<leader>T", desc = "Terminal Vsplit" },
+        { "<leader>v", desc = "Window Vsplit", icon = "" },
+        { "<leader>V", desc = "Window Buffer Vsplit", icon = "" },
 
-        { "<leader>v", desc = "Window Vsplit" },
-        { "<leader>V", desc = "Window Buffer Vsplit" },
+        { "<leader>/", desc = "NoHlSearch", icon = "" },
+        { "<leader><space>", desc = "EasyMotion", icon = "" },
 
-        { "<leader>/", desc = "NoHlSearch" },
-        { "<leader><space>", desc = "EasyMotion" },
+        { "<leader>c", group = " NerdCommenter", icon = "" },
+        { "<leader>f", group = " Fzf", icon = "󱎸" },
       })
     end,
   },
