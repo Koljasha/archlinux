@@ -19,10 +19,12 @@ nmap <Leader>S :w! <CR>
 " <Leader>Q - закрытие буфера без сохранения
 nmap <Leader>Q :bp\|bd! #<CR>
 
-" <Leader>b - следующий буфер
-nmap <Leader>b :bn <CR>
+" <Leader>b - toggle буфер
+nmap <Leader>b :b# <CR>
+" <Leader>B - следующий буфер
+nmap <Leader>B :bn <CR>
 " <Leader>B - предыдущий буфер
-nmap <Leader>B :bp <CR>
+" nmap <Leader>B :bp <CR>
 
 " копировать в системный буфер обмена: выделить, далее "+y
 vmap <C-c> "+y
