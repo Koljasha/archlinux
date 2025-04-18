@@ -63,7 +63,7 @@ noremap <Leader>O :Vex <CR>
 " ---------------
 
 " FZF Buffers
-nmap <Leader>f<Leader> :Buffers<CR>
+nmap <Leader>fb :Buffers<CR>
 " FZF Files
 nmap <Leader>ff :Files<CR>
 " FZF Windows
