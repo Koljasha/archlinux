@@ -40,8 +40,8 @@ return {
 
       -- Регистрация префиксов
       wk.add({
-        { "<leader>b", desc = "Buffer Next", icon = "󰒭" },
-        { "<leader>B", desc = "Buffer Prev", icon = "󰒮" },
+        { "<leader>b", desc = "Buffer Switch", icon = "" },
+        { "<leader>B", desc = "Buffer Next", icon = "󰒭" },
 
         { "<leader>o", desc = "Explorer Files", icon = "" },
         { "<leader>O", desc = "Explorer Files Vsplit", icon = "󱉆" },
