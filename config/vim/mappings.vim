@@ -33,12 +33,15 @@ vmap <C-c> "+y
 " список всех буферов|регистров: :registers
 
 " vsplit|split
-nmap <Leader>v :vsplit
+" nmap <Leader>v :vsplit
 " nmap <Leader>vs :split
-
 " vsplit|split по номеру буфера
-nmap <Leader>V :vertical sb
+" nmap <Leader>V :vertical sb
 " nmap <Leader>VS :sb
+
+" Vsplit and Tab
+nmap <Leader>v :vertical sb%
+nmap <Leader>V :tab sb%
 
 " сменить split
 nmap <C-Left> <C-W>h
@@ -140,8 +143,8 @@ nmap <F12> :set diff! <CR>
 " ctrl-w + s - открыть split
 " ctrl-w + v - открыть vsplit
 " ctrl-w + r - поменять окна(сплиты) местами
-" ctrl-w + H(L) - поменять split на verical
-" ctrl-w + K(J) - поменять verical на split
+" ctrl-w + H(L) - поменять split на vertical
+" ctrl-w + K(J) - поменять vertical на split
 " :[vertical] sb<num_buffer> - vsplit|split по номеру буфера
 " ----------------------------------------
 " ctrl-e и ctrl-y - экран вниз/вверх с сохранением курсора
