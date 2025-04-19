@@ -44,7 +44,7 @@ return {
         { "<leader>B", desc = "Buffer Next", icon = "󰒭" },
 
         { "<leader>o", desc = "Explorer Files", icon = "" },
-        { "<leader>O", desc = "Explorer Files Vsplit", icon = "󱉆" },
+        { "<leader>O", desc = "Explorer Files", icon = "󱉆" },
 
         { "<leader>Q", desc = "Delete Buffer", icon = "󱂦" },
         { "<leader>S", desc = "Save Buffer", icon = "" },
@@ -53,7 +53,10 @@ return {
         { "<leader>T", desc = "Terminal Vsplit", icon = "" },
 
         { "<leader>v", desc = "Window Vsplit", icon = "" },
-        { "<leader>V", desc = "Window Buffer Vsplit", icon = "" },
+        { "<leader>V", desc = "Tab Split", icon = "" },
+
+        { "<leader>W", desc = "Save Buffer", icon = "" },
+        { "<leader>X", desc = "Delete Buffer", icon = "󱂦" },
 
         { "<leader>/", desc = "NoHlSearch", icon = "" },
         { "<leader><space>", desc = "EasyMotion", icon = "" },
