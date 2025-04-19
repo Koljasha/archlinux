@@ -14,6 +14,9 @@ set lines=45 columns=150
 " убрать gui
 set guioptions=
 
+" шрифт
+set guifont=Monospace,10
+
 " убрать Toolbar
 " set guioptions-=T
 " убрать Menu
