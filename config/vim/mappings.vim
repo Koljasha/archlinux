@@ -13,11 +13,13 @@ let &keywordprg=':help'
 " <Leader><space> - отключение подсветки поиска hlsearch
 nmap <Leader>/ :nohlsearch <CR>
 
-" <Leader>S - сохранение файла
+" <Leader>W|S - сохранение файла
+nmap <Leader>W :w! <CR>
 nmap <Leader>S :w! <CR>
 
-" <Leader>Q - закрытие буфера без сохранения
+" <Leader>X|Q - закрытие буфера без сохранения
 nmap <Leader>Q :bp\|bd! #<CR>
+nmap <Leader>X :bp\|bd! #<CR>
 
 " <Leader>b - toggle буфер
 nmap <Leader>b :b# <CR>
