@@ -9,6 +9,7 @@
 " CSS Color - цвета css
 
 " FZF - нечеткий поиск
+" NERD Tree - файловый менеджер
 " EasyMotion - простые перемещения
 
 " Auto Pairs - парные скобки и ковычки
@@ -27,7 +28,6 @@
 " отключено
 " ----------------------------------------
 " Startify - стартовый экран
-" NERD Tree - файловый менеджер
 " MRU - последние открытые файлы
 " Buffer Explorer - переключение открытых буферов
 " Tagbar - окно-список тегов
@@ -88,6 +88,15 @@ Plug 'ap/vim-css-color'
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+" ---------------
+" смотреть команды ~/.config/vim/explorers.vim
+" ---------------
+" ----------------------------------------
+
+" NERD Tree - файловый менеджер
+" ---------------
+" https://github.com/scrooloose/nerdtree
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " ---------------
 " смотреть команды ~/.config/vim/explorers.vim
 " ---------------
@@ -224,25 +233,6 @@ endif
 " " https://github.com/mhinz/vim-startify
 " Plug 'mhinz/vim-startify'
 " " ---------------
-" " ----------------------------------------
-
-" " NERD Tree - файловый менеджер
-" " ---------------
-" " https://github.com/scrooloose/nerdtree
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" " ---------------
-" " автоматически обновлять буфер после переименовывания файла
-" let NERDTreeAutoDeleteBuffer = 1
-" " показать скрытые файлы
-" let NERDTreeShowHidden = 1
-" " нумерация строк
-" let NERDTreeShowLineNumbers = 1
-" " открывать с правой стороны
-" let g:NERDTreeWinPos = "left"
-" " закрыть после открытия файла
-" let NERDTreeQuitOnOpen = 1
-" " NERDTreeToggle - <Leader>op
-" map <Leader>op :NERDTreeToggle <CR>
 " " ----------------------------------------
 
 " " MRU - последние открытые файлы
