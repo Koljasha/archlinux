@@ -79,7 +79,7 @@ let g:NERDTreeWinPos = "left"
 let g:NERDTreeWinSize = 35
 " закрыть после открытия файла
 " let NERDTreeQuitOnOpen = 1
-" NERDTreeToggle - <Leader>op
+
 " переназначение клавиш для vsplit
 let g:NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeMapPreviewVSplit = 'gv'
