@@ -5,11 +5,12 @@
 "  Terminal
 " ---------------
 if ! has('nvim')
-	nmap <Leader>t :terminal <CR>
-	nmap <Leader>T :vertical terminal <CR>
+    nmap <Leader>t :vertical terminal<CR>
+    nmap <Leader>T :terminal<CR><C-\><C-n>:tab sb%<CR>:tabp<CR>:close<CR>:tabn<CR>i
 else
-	nmap <Leader>t :split term://fish <CR> :startinsert <CR>
-	nmap <Leader>T :vsplit term://fish <CR> :startinsert <CR>
+    nmap <Leader>t :vsplit term://fish<CR>:startinsert<CR>
+    nmap <Leader>T :split term://fish<CR>:tab sb%<CR>:tabp<CR>:close<CR>:tabn<CR>i
+    " nmap <Leader>T :term fish<CR>:startinsert<CR>
 endif
 
 " ctrl-\ + ctrl-n - выйти из terminal -> на Esc

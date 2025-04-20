@@ -50,7 +50,7 @@ return {
         { "<leader>S", desc = "Save Buffer", icon = "" },
 
         { "<leader>t", desc = "Terminal Split", icon = "" },
-        { "<leader>T", desc = "Terminal Vsplit", icon = "" },
+        { "<leader>T", desc = "Terminal Tab", icon = "" },
 
         { "<leader>v", desc = "Window Vsplit", icon = "" },
         { "<leader>V", desc = "Tab Split", icon = "" },
