@@ -10,6 +10,9 @@ set timeoutlen=5000 ttimeoutlen=0
 " help по слову при нажатии K
 let &keywordprg=':help'
 
+" Не закрывать последнее окно с Ctrl-w q
+nnoremap <C-w>q :if winnr('$') > 1 \| wincmd c \| elseif tabpagenr('$') > 1 \| tabclose \| else \| echo "Не закрываем последнее окно" \| endif<CR>
+
 " <Leader><space> - отключение подсветки поиска hlsearch
 nmap <Leader>/ :nohlsearch <CR>
 
