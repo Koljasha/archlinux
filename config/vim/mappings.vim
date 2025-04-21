@@ -53,8 +53,8 @@ vmap <C-c> "+y
 " nmap <Leader>VS :sb
 
 " Vsplit and Tab
-nmap <Leader>v :vertical sb%<CR>
-nmap <Leader>V :tab sb%<CR>:tabp<CR>:close<CR>:tabn<CR>
+nmap <Leader>v <C-w>v
+nmap <Leader>V <C-w>T
 
 " сменить split
 nmap <C-Left> <C-W>h

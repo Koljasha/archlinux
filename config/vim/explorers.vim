@@ -6,10 +6,10 @@
 " ---------------
 if ! has('nvim')
     nmap <Leader>t :vertical terminal<CR>
-    nmap <Leader>T :terminal<CR><C-\><C-n>:tab sb%<CR>:tabp<CR>:close<CR>:tabn<CR>i
+    nmap <Leader>T :terminal<CR><C-\><C-n><C-w>Ti
 else
     nmap <Leader>t :vsplit term://fish<CR>:startinsert<CR>
-    nmap <Leader>T :split term://fish<CR>:tab sb%<CR>:tabp<CR>:close<CR>:tabn<CR>i
+    nmap <Leader>T :split term://fish<CR><C-w>Ti
     " nmap <Leader>T :term fish<CR>:startinsert<CR>
 endif
 
