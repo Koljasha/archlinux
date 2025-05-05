@@ -324,7 +324,7 @@ fi
 # firejail - запуск приложения в песочнице
 # distrobox - разные дистрибутивы через контейнеры
 
-# openvpn3 - new version OpenVpn
+# openvpn3 - new version OpenVpn (2025-05-05 need gcc14)
 
 #
 # additionally I use flatpak apps:
