@@ -40,6 +40,7 @@ return {
         vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+        vim.keymap.set('n', 'E', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
         vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
