@@ -243,7 +243,8 @@ keys = [
     # Key([], "XF86Search", lazy.spawn("remmina"), desc="Remmina"),
     Key([], "XF86Search", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
     Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
-    Key([], "XF86Tools", lazy.spawn("evim"), desc="Editor"),
+    # Key([], "XF86Tools", lazy.spawn("evim"), desc="Editor"),
+    Key([], "XF86Tools", lazy.spawn("subl"), desc="Editor"),
 
     ######### Window #########
 

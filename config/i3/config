@@ -138,7 +138,8 @@ bindsym XF86Explorer exec --no-startup-id pcmanfm
 # bindsym XF86Search exec --no-startup-id remmina
 bindsym XF86Search exec --no-startup-id google-chrome-stable
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
-bindsym XF86Tools exec --no-startup-id evim
+# bindsym XF86Tools exec --no-startup-id evim
+bindsym XF86Tools exec --no-startup-id subl
 
 ######### Window #########
 

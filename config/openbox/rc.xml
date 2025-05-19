@@ -419,9 +419,14 @@
         <command>gnome-calculator</command>
       </action>
     </keybind>
+    <!-- <keybind key="XF86Tools"> -->
+      <!-- <action name="Execute"> -->
+        <!-- <command>evim</command> -->
+      <!-- </action> -->
+    <!-- </keybind> -->
     <keybind key="XF86Tools">
       <action name="Execute">
-        <command>evim</command>
+        <command>subl</command>
       </action>
     </keybind>
 
