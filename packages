@@ -152,7 +152,7 @@ android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gv
 wmctrl brightnessctl xclip xdotool xbindkeys bash-completion lesspipe ctags
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom timeshift
 git pass pwgen trash-cli numlockx wget curl httpie
-fzf fd ripgrep jq tree highlight bat bat-extras git-delta ncdu
+fzf fd ripgrep jq tree highlight eza bat bat-extras git-delta ncdu
 screenfetch htop inxi cmatrix lm_sensors lsof strace
 atool p7zip unrar unzip zip
 openssh freerdp freerdp2 rsync gufw

@@ -31,6 +31,7 @@ alias mv="mv -v"
 alias rm="rm -v"
 
 # aliases for additional commands
+alias ll="eza -lah --group-directories-first"
 alias rsync="rsync -avP"
 alias fd="fd --hidden --follow --no-ignore"
 alias rg="rg --hidden --follow --no-ignore --ignore-case"
@@ -75,12 +76,12 @@ function wg-status --description 'show WireGuard status'
     end
 end
 
-# aliases for OpenVpn NetworkManager
+# aliases for OpenVpn version 3
 alias vpn-up="openvpn3 session-start --config $argv[1]"
 alias vpn-down="openvpn3 session-manage --disconnect --config $argv[1]"
 alias vpn-status="openvpn3 sessions-list"
 
-# aliases for OpenVpn NetworkManager
+# aliases for OpenVpn version 2 from NetworkManager
 # alias vpn-up="nmcli connection up $argv[1]"
 # alias vpn-down="nmcli connection down $argv[1]"
 # function vpn-status --description 'show OpenVpn status'
