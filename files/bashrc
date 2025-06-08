@@ -37,9 +37,6 @@ alias cp="cp -av"
 alias mv="mv -v"
 alias rm="rm -v"
 
-# alias for conda
-# alias conda.update="conda update --all --yes"
-
 # alias for create/activate python virtual envorenment
 venv() {
     if test -e .venv; then

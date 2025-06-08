@@ -64,6 +64,10 @@ end
 # alias for grub-update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
+#
+# Vpn
+#
+
 # aliases for WireGuard
 alias wg-up="sudo wg-quick up wg0"
 alias wg-down="sudo wg-quick down wg0"
