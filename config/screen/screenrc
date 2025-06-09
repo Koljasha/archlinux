@@ -1,5 +1,26 @@
 # https://wiki.archlinux.org/title/GNU_Screen
 
+#
+# Quick Help
+#
+# `screen -ls` - список сессий
+# `screen -r` - подключиться к последней сессии
+#
+# `prefix + ?` - помощь
+# `prefix + d` - отсоединиться
+#
+# `prefix + c` - новое окно
+# `prefix + "` - список окон
+# `prefix + prefix` - предыдущее окно
+# `prefix + space n p` - переключение окон
+# `prefix + k` - удалить окно
+#
+# `prefix + | s` - разделение
+# `prefix + tab` - переключение разделений
+# `prefix + x` - удалить разделение
+#
+
+
 # замена префикса
 escape ^\\
 
