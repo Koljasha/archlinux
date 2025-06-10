@@ -3,6 +3,9 @@
 #
 # Quick Help
 #
+# ctrl-a - prefix default
+# ctrl-\ - prefix used
+#
 # `screen -ls` - список сессий
 # `screen -r` - подключиться к последней сессии
 #
@@ -63,6 +66,6 @@ hardstatus alwayslastline '%{#00ff00}[ %H ][ %{#ffffff}%= %{7}%?%-Lw%?%{1}%n%f %
 #
 
 # hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{B}%Y-%m-%d %{W}%c:%s %{g}]'
-# Load Average
+# Настройка Load Average
 # hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][ %{B}%Y-%m-%d %{W}%c:%s %{g}]'
 
