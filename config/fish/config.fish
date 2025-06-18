@@ -29,10 +29,13 @@ alias grep="grep --color=auto"
 alias cp="cp -av"
 alias mv="mv -v"
 alias rm="rm -v"
+alias view="vim -R"
 
 # aliases for additional commands
 alias ll="eza -lah --group-directories-first"
-alias rsync="rsync -avP"
+alias rm="trash -v"
+
+alias rsync="rsync -avzP"
 alias fd="fd --hidden --follow --no-ignore"
 alias rg="rg --hidden --follow --no-ignore --ignore-case"
 
@@ -46,8 +49,6 @@ alias lless="/usr/bin/less -i"
 alias grep="batgrep --ignore-case"
 alias ggrep="/usr/bin/grep --color=auto"
 alias rgrep="rg"
-
-alias view="vim -R"
 
 alias man="batman"
 alias diff="batdiff --delta"

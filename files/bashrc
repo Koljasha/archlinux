@@ -36,6 +36,7 @@ alias grep='grep --color=auto'
 alias cp="cp -av"
 alias mv="mv -v"
 alias rm="rm -v"
+alias view="vim -R"
 
 # alias for create/activate python virtual envorenment
 venv() {
