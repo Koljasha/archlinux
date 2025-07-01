@@ -33,6 +33,9 @@ else
     nm-applet  --indicator &
 fi
 
+# Change color temperature
+/usr/bin/redshift -P -O 5500
+
 # Change values for brightness, eth, wifi
 ~/.config/scripts/default_values.sh &
 
