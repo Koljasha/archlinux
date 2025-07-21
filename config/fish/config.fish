@@ -35,7 +35,7 @@ alias view="vim -R"
 alias ll="eza -lah --group-directories-first"
 alias rm="trash -v"
 
-alias rsync="rsync -avzP"
+alias rsync="rsync -avP"
 alias fd="fd --hidden --follow --no-ignore"
 alias rg="rg --hidden --follow --no-ignore --ignore-case"
 
