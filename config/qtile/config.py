@@ -707,11 +707,16 @@ my_bar = bar.Bar(
                      fmt=" {}"),
 
         widget.Sep(padding=5),
-        # systray for X11 and Wayland
-        widget.Systray() \
-        if qtile.core.name == "x11" \
-        else widget.StatusNotifier(),    # see qtile-extras
+        widget.Systray(),
         widget.Spacer(length=5),
+
+        # systray for X11 and StatusNotifier for Wayland
+        # https://qtile-extras.readthedocs.io/en/stable/manual/ref/widgets.html#statusnotifier
+        # yay -S qtile-extras python-dbus-fast
+
+        # widget.Systray() \
+        # if qtile.core.name == "x11" \
+        # else widget.StatusNotifier(),
     ],
     background=colors["dark_gray"],
     size=25,
