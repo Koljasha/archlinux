@@ -193,7 +193,7 @@ if [[ $de == "koljasha_wm" ]]; then
     pcmanfm-gtk3
     file-roller gnome-calculator gnome-terminal
     remmina samba x11vnc
-    vlc
+    vlc vlc-plugins-all
     "
 elif [[ $de == "xfce" ]]; then
     packages="
