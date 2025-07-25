@@ -1,6 +1,7 @@
 [global_config]
   enabled_plugins = ,
   suppress_multiple_term_dialog = True
+  copy_on_selection = True
 [keybindings]
   close_term = <Primary><Shift>q
   close_window = None
