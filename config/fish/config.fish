@@ -32,7 +32,7 @@ alias rm="rm -v"
 alias view="vim -R"
 
 # aliases for additional commands
-alias ll="eza -lah --group-directories-first"
+alias ll="eza -lahg --group-directories-first"
 alias rm="trash -v"
 
 alias rsync="rsync -avP"
