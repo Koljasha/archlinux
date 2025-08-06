@@ -604,7 +604,7 @@ my_bar = bar.Bar(
                      mouse_callbacks = {"Button1": lambda: qtile.spawn("jgmenu_run")}),
 
         widget.Sep(padding=3),
-        widget.CurrentLayoutIcon(scale=0.55),
+        widget.CurrentLayout(mode='icon', scale=0.55),
 
         widget.Sep(padding=3),
         widget.Spacer(length=5),
