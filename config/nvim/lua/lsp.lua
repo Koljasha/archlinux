@@ -59,7 +59,7 @@ return {
         ensure_installed = {
           'pyright',
           'bashls',
-          'dockerls',
+          -- 'dockerls',
           -- 'docker_compose_language_service',
           -- 'emmet_ls',
         },
