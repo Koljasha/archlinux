@@ -306,6 +306,8 @@ fi
 # onlyoffice-bin - office
 # libreoffice-still libreoffice-still-ru - office
 
+# thunderbird thunderbird-i18n-ru - email
+
 # xreader, atril - simple document viewer
 # xournalpp - document viewer with notes
 
