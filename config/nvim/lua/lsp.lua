@@ -2,29 +2,64 @@
 
 ---------------
 -- nvim-lspconfig
--- settings from https://github.com/neovim/nvim-lspconfig
+-- See: https://github.com/neovim/nvim-lspconfig
 ---------------
 -- nvim-cmp
+-- See: https://github.com/hrsh7th/nvim-cmp
 -- settings from https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 ---------------
 -- mason.nvim
--- settings from https://github.com/williamboman/mason.nvim
+-- See: https://github.com/mason-org/mason.nvim
 -- mason-lspconfig.nvim
--- settings from https://github.com/williamboman/mason-lspconfig.nvim
+-- See: https://github.com/mason-org/mason-lspconfig.nvim
 ---------------
 
 return {
   -- Mason для установки LSP-серверов
-  { 'williamboman/mason.nvim' },
+  -- See: https://github.com/mason-org/mason.nvim
+  {
+    'mason-org/mason.nvim',
+    -- Убедитесь, что setup вызывается до mason-lspconfig.nvim
+    config = function()
+      require("mason").setup()
+    end
+  },
+
   -- Интеграция Mason с lspconfig
-  { 'williamboman/mason-lspconfig.nvim' },
+  -- See: https://github.com/mason-org/mason-lspconfig.nvim
+  {
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = {
+      'mason-org/mason.nvim', -- Mason manager
+      'neovim/nvim-lspconfig', -- LSP configurations
+      'hrsh7th/cmp-nvim-lsp',  -- LSP capabilities for nvim-cmp
+    },
+    -- Using opts for configuration with lazy.nvim is recommended.
+    -- This setup automatically calls require('mason-lspconfig').setup()
+    opts = {
+      -- Automatically install listed servers if they are not already installed
+      ensure_installed = {
+        'pyright',
+        'bashls',
+        -- 'dockerls',
+        -- 'docker_compose_language_service',
+        -- 'emmet_ls',
+      },
+      -- Disable automatic enabling of servers installed via Mason.
+      -- We configure and enable them manually below using vim.lsp.config/enable.
+      -- This avoids potential conflicts with our custom setup.
+      automatic_enable = false,
+    },
+  },
 
   -- LSP
+  -- Provides default configurations for various LSP servers.
+  -- See: https://github.com/neovim/nvim-lspconfig
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      -- Mason packages are handled by mason-lspconfig.nvim above
+      'mason-org/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
@@ -37,6 +72,7 @@ return {
 
       -- Функция on_attach
       local on_attach = function(client, bufnr)
+        -- Set omnifunc for buffer
         vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -50,24 +86,6 @@ return {
       -- Настройка capabilities для nvim-cmp
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      -- Настройка Mason
-      require('mason').setup()
-
-      -- Настройка Mason-lspconfig
-      -- Устанавливаем только эти серверы
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'pyright',
-          'bashls',
-          -- 'dockerls',
-          -- 'docker_compose_language_service',
-          -- 'emmet_ls',
-        },
-      })
-
-      -- Получаем доступ к конфигурациям nvim-lspconfig
-      local lspconfig = require('lspconfig')
-
       -- Автокоманда для установки filetype для docker-compose файлов
       vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
         pattern = {"docker-compose.yml", "docker-compose.yaml"},
@@ -80,8 +98,6 @@ return {
       local servers = {
 
         pyright = {
-          cmd = lspconfig.pyright.cmd,
-          root_dir = lspconfig.pyright.root_dir,
           settings = {
             python = {
               analysis = {
@@ -94,13 +110,10 @@ return {
         },
 
         bashls = {
-          cmd = lspconfig.bashls.cmd,
-          root_dir = lspconfig.bashls.root_dir,
+          -- No specific overrides needed beyond defaults
         },
 
         dockerls = {
-          cmd = lspconfig.dockerls.cmd,
-          root_dir = lspconfig.dockerls.root_dir,
           filetypes = { 'dockerfile' },
           settings = {
             docker = {
@@ -114,8 +127,6 @@ return {
         },
 
         docker_compose_language_service = {
-          cmd = lspconfig.docker_compose_language_service.cmd,
-          root_dir = lspconfig.docker_compose_language_service.root_dir,
           filetypes = { 'yaml.docker-compose' },
           settings = {
             telemetry = {
@@ -125,8 +136,6 @@ return {
         },
 
         emmet_ls = {
-          cmd = lspconfig.emmet_ls.cmd,
-          root_dir = lspconfig.emmet_ls.root_dir,
           filetypes = { 'html', 'htmldjango', 'css' },
           init_options = {
             html = {
@@ -151,6 +160,7 @@ return {
       -- Настройка и запуск серверов
       for lsp, config in pairs(servers) do
         -- Регистрируем конфигурацию с on_attach и capabilities
+        -- The base configuration (cmd, root_dir, etc.) comes implicitly from nvim-lspconfig.
         vim.lsp.config(lsp, vim.tbl_extend('force', {
           on_attach = on_attach,
           capabilities = capabilities,
