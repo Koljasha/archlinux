@@ -182,7 +182,7 @@ if [[ $de == "koljasha_wm" ]]; then
     obconf-qt menumaker
     wlroots wl-clipboard python-pywlroots python-pyxdg python-dbus-next
     bluez blueman bluez-utils
-    polkit-gnome lxappearance-gtk3 picom
+    polkit-gnome lxappearance picom
     terminator alacritty
     feh ffmpegthumbnailer ranger ueberzug
     dmenu rofi jgmenu i3lock dunst clipmenu
@@ -380,10 +380,10 @@ yay -S --noconfirm $packages_aur
 
 ###############
 
-# now error when start lxappearance -> del this app
-if [[ $de == "lxde" ]]; then
-    sudo pacman -Rsn --noconfirm lxappearance-obconf-gtk3
-fi
+# # now error when start lxappearance -> del this app
+# if [[ $de == "lxde" ]]; then
+    # sudo pacman -Rsn --noconfirm lxappearance-obconf-gtk3
+# fi
 
 ###############
 echo
