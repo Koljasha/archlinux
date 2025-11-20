@@ -147,7 +147,7 @@ echo "Ok"
 # Packages
 
 packages="
-$drivers $headers reflector pkgfile man-db man-pages tldr arch-install-scripts cmake
+$drivers $headers reflector pacman-contrib pkgfile man-db man-pages tldr arch-install-scripts cmake
 android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl redshift xclip xdotool xbindkeys bash-completion lesspipe ctags
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom timeshift
