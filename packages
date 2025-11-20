@@ -1028,8 +1028,8 @@ fi
 ###############
 
 # fix Setfont: KDFONTOP: Function not implemented on startup
-sudo sed -i -e '/^BINARIES=/s/()/(setfont)/' /etc/mkinitcpio.conf
-sudo mkinitcpio -P
+# sudo sed -i -e '/^BINARIES=/s/()/(setfont)/' /etc/mkinitcpio.conf
+# sudo mkinitcpio -P
 
 ###############
 
