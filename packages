@@ -212,7 +212,7 @@ elif [[ $de == "lxde" ]]; then
     gparted pavucontrol network-manager-applet transmission-gtk
     qt5ct qt6ct kvantum
 
-    lxde-gtk3 obconf-qt picom
+    lxde obconf-qt picom
     l3afpad galculator gnome-screenshot xarchiver gpicview mpv
     "
 elif [[ $de == "lxqt" ]]; then
