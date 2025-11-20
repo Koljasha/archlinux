@@ -257,7 +257,7 @@ elif [[ $de == "cinnamon" ]]; then
 elif [[ $de == "gnome" ]]; then
     packages="
     $packages
-    gnome gnome-extra
+    gnome gnome-circle gnome-extra
     "
 elif [[ $de == "budgie" ]]; then
     packages="
