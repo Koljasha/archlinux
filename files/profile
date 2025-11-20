@@ -7,29 +7,34 @@ export LANG=ru_RU.UTF8
 # editor as vim
 export EDITOR=vim
 
-# environment for QT applications
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_QPA_PLATFORMTHEME="qt6ct"
+# environment for Koljasha DE
+if [[ "$XDG_SESSION_DESKTOP" =~ (qtile|i3|openbox) ]]; then
 
-# environment for GTK-4 Wayland
-export GTK_THEME=Arc-Dark
+    # environment for QT applications
+    export QT_AUTO_SCREEN_SCALE_FACTOR=0
+    export QT_QPA_PLATFORMTHEME="qt6ct"
 
-# environment for clipmenu
-export CM_LAUNCHER=rofi
+    # environment for GTK-4 Wayland
+    export GTK_THEME=Arc-Dark
 
-# environment for Wayland
-if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-    # keyboard layout
-    export XKB_DEFAULT_LAYOUT=us,ru
-    export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
+    # environment for clipmenu
+    export CM_LAUNCHER=rofi
 
-    # firefox
-    export MOZ_ENABLE_WAYLAND=1
+    # environment for Wayland
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        # keyboard layout
+        export XKB_DEFAULT_LAYOUT=us,ru
+        export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 
-    # qt apps
-    export QT_QPA_PLATFORM=wayland
+        # firefox
+        export MOZ_ENABLE_WAYLAND=1
+
+        # qt apps
+        export QT_QPA_PLATFORM=wayland
+    fi
+
+    # environment for distrobox
+    # export TERMINAL=terminator
+
 fi
-
-# environment for distrobox
-# export TERMINAL=terminator
 
