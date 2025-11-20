@@ -273,7 +273,7 @@ elif [[ $de == "pantheon" ]]; then
 elif [[ $de == "kde" ]]; then
     packages="
     $packages
-    plasma plasma-wayland-session kde-applications
+    plasma-meta kde-applications-meta plasma-x11-session
     "
 elif [[ $de == "deepin" ]]; then
     packages="
