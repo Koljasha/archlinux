@@ -262,7 +262,7 @@ elif [[ $de == "gnome" ]]; then
 elif [[ $de == "budgie" ]]; then
     packages="
     $packages
-    budgie-desktop budgie-desktop-view budgie-screensaver
+    budgie
     gnome network-manager-applet
     "
 elif [[ $de == "pantheon" ]]; then
@@ -279,7 +279,7 @@ elif [[ $de == "deepin" ]]; then
     packages="
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-    deepin deepin-extra
+    deepin deepin-kwin deepin-extra
     "
 fi
 
