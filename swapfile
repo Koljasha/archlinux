@@ -8,9 +8,14 @@ if [[ $(whoami) != 'root' ]]; then
 fi
 
 # create
-dd if=/dev/zero of=/swapfile bs=1M count=2k status=progress
-chmod 0600 /swapfile
-mkswap -U clear /swapfile
+# dd if=/dev/zero of=/swapfile bs=1M count=4k status=progress
+# or
+# fallocate -l 4G /swapfile
+
+# chmod 0600 /swapfile
+# mkswap -U clear /swapfile
+
+mkswap -U clear --size 4G --file /swapfile
 swapon /swapfile
 
 # enable
