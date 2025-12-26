@@ -155,7 +155,7 @@ git pass pwgen trash-cli numlockx wget curl httpie
 fzf fd ripgrep jq tree highlight eza bat bat-extras git-delta ncdu mc
 screenfetch htop inxi cmatrix lm_sensors lsof strace
 atool p7zip unrar unzip zip
-openssh freerdp freerdp2 gufw rsync rclone
+openssh freerdp gufw rsync rclone
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
 xorg xorg-xinit accountsservice
 pipewire wireplumber pipewire-alsa pipewire-pulse
