@@ -664,6 +664,16 @@ my_bar = bar.Bar(
                       fmt="<span color='#ffb52a'></span> {}"),
 
         widget.Sep(padding=5),
+        widget.ThermalSensor(foreground=colors["light_blue"],
+                            tag_sensor='Package id 0',
+                            # format='{tag}: {temp:.1f}{unit}',
+                            fmt="<span color='#ffb52a'></span> {}"),
+
+        # widget.Sep(padding=5),
+        # widget.CPU(format="{load_percent}%",
+                   # fmt="<span color='#ffb52a'></span> {}"),
+
+        widget.Sep(padding=5),
         MyMemory(format="{UsedShared: .2f}{mm} |{MemTotal: .2f}{mm}",
                       measure_mem="G",
                       mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x htop")},
@@ -677,16 +687,12 @@ my_bar = bar.Bar(
                   mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x ncdu")},
                   fmt="<span color='#ffb52a'></span> {}"),
 
-        widget.Sep(padding=5),
-        # widget.CPU(format="{load_percent}%",
-                   # fmt="<span color='#ffb52a'></span> {}"),
-        # widget.Sep(padding=5),
-        # widget.ThermalSensor(foreground=colors["light_blue"],
-                            # fmt="<span color='#ffb52a'></span> {}"),
         # widget.Sep(padding=5),
         # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
                       # execute=f"{scripts['openvpn']} change",
                       # update_interval=5),
+
+        widget.Sep(padding=5),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
                       execute=f"{scripts['wireguard']} change",
                       update_interval=5),
