@@ -607,7 +607,7 @@ my_bar = bar.Bar(
         widget.Sep(padding=3),
         widget.CurrentLayout(mode='icon',
                              scale=0.55,
-                             padding=1),
+                             padding=5),
 
         widget.Sep(padding=3),
         widget.Spacer(length=5),
@@ -734,7 +734,7 @@ my_bar = bar.Bar(
                      padding=1),
 
         widget.Sep(padding=5),
-        widget.Systray(padding=5),
+        widget.Systray(padding=1),
         widget.Spacer(length=5),
 
         # systray for X11 and StatusNotifier for Wayland
