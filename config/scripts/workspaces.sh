@@ -5,7 +5,8 @@
 #
 
 # current Workspaces
-if [[ -n $(pgrep -f '^/usr/bin/python /usr/bin/qtile') ]]; then
+# if [[ -n $(pgrep -f '^/usr/bin/python /usr/bin/qtile') ]]; then
+if [[ -n $(pgrep -x qtile) ]]; then
     workspaces=`qtile cmd-obj -o group -f info | grep 'label' | cut -d: -f2 | cut -d\' -f2`
 elif [[ -n $(pgrep -x i3) ]]; then
     workspaces=`i3-msg -t get_workspaces | jq '.[] | select(.focused==true).name' | cut -d"\"" -f2 | cut -d: -f1`
