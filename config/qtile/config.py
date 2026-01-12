@@ -601,17 +601,21 @@ my_bar = bar.Bar(
         # Left
         widget.Spacer(length=5),
         widget.TextBox(fmt="<span color='#bd2c40'></span> {}",
-                     mouse_callbacks = {"Button1": lambda: qtile.spawn("jgmenu_run")}),
+                     mouse_callbacks = {"Button1": lambda: qtile.spawn("jgmenu_run")},
+                     padding=1),
 
         widget.Sep(padding=3),
-        widget.CurrentLayout(mode='icon', scale=0.55),
+        widget.CurrentLayout(mode='icon',
+                             scale=0.55,
+                             padding=1),
 
         widget.Sep(padding=3),
         widget.Spacer(length=5),
 
         widget.TextBox(fmt="<span color='#ffb52a'></span> {}",
                      mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{scripts['workspaces']} change"),
-                                        "Button3": lambda: qtile.spawn(f"{scripts['workspaces']} move")}),
+                                        "Button3": lambda: qtile.spawn(f"{scripts['workspaces']} move")},
+                     padding=1),
 
         widget.Sep(padding=1),
         widget.Spacer(length=5),
@@ -619,7 +623,8 @@ my_bar = bar.Bar(
         widget.GroupBox(hide_unused=True,
                         disable_drag=True,
                         borderwidth=1,
-                        this_current_screen_border=colors['gray']),
+                        this_current_screen_border=colors['gray'],
+                        padding=1),
 
         widget.Sep(padding=5),
         widget.Spacer(length=3),
@@ -628,20 +633,25 @@ my_bar = bar.Bar(
         widget.TaskList(title_width_method="uniform",
                         foreground=colors["white"],
                         borderwidth=1,
-                        border=colors['gray']),
+                        border=colors['gray'],
+                        padding=3),
 
         # Right
         # keyboard chord and layout for X11 and Wayland
-        widget.Chord(foreground=colors["light_blue"], background=colors["red"]),
+        widget.Chord(foreground=colors["light_blue"],
+                     background=colors["red"],
+                     padding=1),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
                       execute=f"{scripts['keyboard']} change",
                       update_interval=1,
-                      fmt="<span color='#bd2c40'></span> {}") \
+                      fmt="<span color='#bd2c40'></span> {}",
+                      padding=1) \
         if qtile.core.name == "x11" \
         else MyKeyboardLayout(func=get_keyboard_layout,
                          execute=set_keyboard_layout(),
                          update_interval=0.5,
-                         fmt="<span color='#bd2c40'></span> {}"),
+                         fmt="<span color='#bd2c40'></span> {}",
+                         padding=1),
 
         widget.Sep(padding=5),
         MyVolume(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
@@ -652,32 +662,38 @@ my_bar = bar.Bar(
                                          "Button4": lambda: qtile.spawn("pactl set-sink-volume 0 +2%"),
                                          "Button5": lambda: qtile.spawn("pactl set-sink-volume 0 -2%"),
                                          },
-                      fmt="<span color='#ffb52a'></span> {}"),
+                      fmt="<span color='#ffb52a'></span> {}",
+                      padding=3),
         # MyPulseVolume(update_interval=0.1,
                       # mouse_callbacks = { "Button3": lambda: qtile.spawn(f"{scripts['volume']} change") },
-                      # fmt="<span color='#ffb52a'></span> {}"),
+                      # fmt="<span color='#ffb52a'></span> {}",
+                      # padding=3),
 
         widget.Sep(padding=5),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
                       execute=f"{scripts['brightness']} change",
                       update_interval=5,
-                      fmt="<span color='#ffb52a'></span> {}"),
+                      fmt="<span color='#ffb52a'></span> {}",
+                      padding=1),
 
         widget.Sep(padding=5),
         widget.ThermalSensor(foreground=colors["light_blue"],
                             tag_sensor='Package id 0',
                             # format='{tag}: {temp:.1f}{unit}',
-                            fmt="<span color='#ffb52a'></span> {}"),
+                            fmt="<span color='#ffb52a'></span> {}",
+                            padding=1),
 
         # widget.Sep(padding=5),
         # widget.CPU(format="{load_percent}%",
-                   # fmt="<span color='#ffb52a'></span> {}"),
+                   # fmt="<span color='#ffb52a'></span> {}",
+                   # padding=1),
 
         widget.Sep(padding=5),
         MyMemory(format="{UsedShared: .2f}{mm} |{MemTotal: .2f}{mm}",
                       measure_mem="G",
                       mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x htop")},
-                      fmt="<span color='#ffb52a'></span>{}"),
+                      fmt="<span color='#ffb52a'></span>{}",
+                      padding=1),
 
         widget.Sep(padding=5),
         MyDF(format="{us}{m} | {s}{m}",
@@ -685,17 +701,20 @@ my_bar = bar.Bar(
                   warn_space=10,
                   update_interval=10,
                   mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x ncdu")},
-                  fmt="<span color='#ffb52a'></span> {}"),
+                  fmt="<span color='#ffb52a'></span> {}",
+                  padding=1),
 
         # widget.Sep(padding=5),
         # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
                       # execute=f"{scripts['openvpn']} change",
-                      # update_interval=5),
+                      # update_interval=5,
+                      # padding=1),
 
         widget.Sep(padding=5),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
                       execute=f"{scripts['wireguard']} change",
-                      update_interval=5),
+                      update_interval=5,
+                      padding=1),
 
         widget.Sep(padding=5),
         widget.CheckUpdates(distro="Arch_yay",
@@ -705,15 +724,17 @@ my_bar = bar.Bar(
                             no_update_string="No Updates",
                             colour_have_updates=colors["yellow"],
                             colour_no_updates=colors["light_blue"],
-                            fmt=" {}"),
+                            fmt=" {}",
+                            padding=1),
 
         widget.Sep(padding=5),
         widget.Clock(format="%A %Y-%m-%d %H:%M:%S",
                      mouse_callbacks = {"Button1": lambda: qtile.spawn("gsimplecal")},
-                     fmt=" {}"),
+                     fmt=" {}",
+                     padding=1),
 
         widget.Sep(padding=5),
-        widget.Systray(),
+        widget.Systray(padding=5),
         widget.Spacer(length=5),
 
         # systray for X11 and StatusNotifier for Wayland
