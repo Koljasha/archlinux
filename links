@@ -57,11 +57,6 @@ ln -s /run/mount/storage/local/settings/password-store ~/.password-store
 rm -rf ~/.ssh
 ln -s /run/mount/storage/local/settings/ssh ~/.ssh
 
-# firefox dirs
-rm -rf ~/.mozilla/firefox
-mkdir -p ~/.mozilla
-ln -s /run/mount/storage/local/settings/firefox ~/.mozilla/firefox
-
 # gnome-boxes dirs
 rm -rf ~/.local/share/gnome-boxes
 ln -s /run/mount/storage/local/gnome-boxes ~/.local/share/gnome-boxes
@@ -83,6 +78,10 @@ ln -s /run/mount/storage/local/config/Kvantum ~/.config/Kvantum
 rm -rf ~/.config/alacritty
 ln -s /run/mount/storage/local/config/alacritty ~/.config/alacritty
 
+# chromium
+rm -rf ~/.config/chromium
+ln -s /run/mount/storage/local/config/chromium ~/.config/chromium
+
 # dunst
 rm -rf ~/.config/dunst
 ln -s /run/mount/storage/local/config/dunst ~/.config/dunst
@@ -90,6 +89,10 @@ ln -s /run/mount/storage/local/config/dunst ~/.config/dunst
 # fish
 rm -rf ~/.config/fish
 ln -s /run/mount/storage/local/config/fish ~/.config/fish
+
+# google-chrome
+rm -rf ~/.config/google-chrome
+ln -s /run/mount/storage/local/config/google-chrome ~/.config/google-chrome
 
 # gsimplecal
 rm -rf ~/.config/gsimplecal
@@ -114,6 +117,10 @@ ln -s /run/mount/storage/local/config/i3 ~/.config/i3
 # jgmenu
 rm -rf ~/.config/jgmenu
 ln -s /run/mount/storage/local/config/jgmenu ~/.config/jgmenu
+
+# mozilla
+rm -rf ~/.config/mozilla
+ln -s /run/mount/storage/local/config/mozilla ~/.config/mozilla
 
 # nvim
 rm -rf ~/.config/nvim
