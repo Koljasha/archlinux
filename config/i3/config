@@ -337,11 +337,12 @@ for_window [class="Google-chrome"] layout tabbed
 
 # Floating mode
 for_window [ class="Terminator" ] floating enable
-for_window [ class="Gvim" ] floating enable
-for_window [ class="gnome-calculator" ] floating enable
 for_window [ class="Gnome-screenshot" ] floating enable
-for_window [ class="torbrowser-launcher" ] floating enable
-for_window [ class="isaac-ng.exe" ] floating enable
+for_window [ class="gnome-calculator" ] floating enable
+
+# for_window [ class="Gvim" ] floating enable
+# for_window [ class="torbrowser-launcher" ] floating enable
+# for_window [ class="isaac-ng.exe" ] floating enable
 
 ######### Execute on start #########
 

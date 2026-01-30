@@ -447,12 +447,13 @@ floating_layout = layout.Floating(
             # Run the utility of `xprop` to see the wm class and name of an X client.
             *layout.Floating.default_float_rules,
             Match(wm_class=re.compile(r"^(Terminator|terminator)$")),
-            Match(wm_class=r"^(Gvim)$"),
+            Match(wm_class=r"^(Gnome\-screenshot)$"),
             Match(wm_class=re.compile(r"^(gnome\-calculator|org\.gnome\.Calculator)$")),
             Match(wm_class=re.compile(r"^(pinentry\-gtk|Pinentry\-gtk)$")),
-            Match(wm_class=r"^(Gnome\-screenshot)$"),
-            Match(wm_class=r"^(torbrowser\-launcher)$"),
-            Match(wm_class=r"^(isaac\-ng\.exe)$"),
+
+            # Match(wm_class=r"^(Gvim)$"),
+            # Match(wm_class=r"^(torbrowser\-launcher)$"),
+            # Match(wm_class=r"^(isaac\-ng\.exe)$"),
         ],
         border_focus=[colors["gray"], colors["gray"]],
         border_normal=[colors["dark_gray"], colors["dark_gray"]],
