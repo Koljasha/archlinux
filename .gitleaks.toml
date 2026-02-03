@@ -1,0 +1,8 @@
+title = "Игнорируем Gitleaks"
+
+[allowlist]
+description = "Исключения для мультимедиа клавиш"
+regexes = [
+  '''XF86[A-Za-z]+''',      # Все XF86* клавиши
+]
+
