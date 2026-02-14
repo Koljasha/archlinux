@@ -244,7 +244,8 @@ keys = [
     Key([], "XF86Search", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
     Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
     # Key([], "XF86Tools", lazy.spawn("evim"), desc="Editor"),
-    Key([], "XF86Tools", lazy.spawn("subl"), desc="Editor"),
+    # Key([], "XF86Tools", lazy.spawn("subl"), desc="Editor"),
+    Key([], "XF86Tools", lazy.spawn("Telegram"), desc="Telegram"),
 
     ######### Window #########
 
@@ -395,7 +396,7 @@ groups = [
     Group("6: ", layout="max"),
     Group("7: ", matches=Match(wm_class=re.compile(r"^(vlc)$")), layout="max"),
     Group("8: ", matches=Match(wm_class=re.compile(r"^(transmission\-gtk)$")), layout="max"),
-    Group("9: ", matches=Match(wm_class=re.compile(r"^(VirtualBox\ Manager|VirtualBox\ Machine|Gnome\-boxes)$")), layout="max"),
+    Group("9: ", matches=Match(wm_class=re.compile(r"^(VirtualBox\ Manager|VirtualBox\ Machine|Gnome\-boxes|TelegramDesktop)$")), layout="max"),
     Group("10: ", matches=Match(wm_class=re.compile(r"^(org\.remmina\.Remmina|xfreerdp|gvncviewer|Google\-chrome)$")), layout="max"),
 
     ScratchPad("scratchpad", [

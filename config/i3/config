@@ -139,7 +139,8 @@ bindsym XF86Explorer exec --no-startup-id pcmanfm
 bindsym XF86Search exec --no-startup-id google-chrome-stable
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
 # bindsym XF86Tools exec --no-startup-id evim
-bindsym XF86Tools exec --no-startup-id subl
+# bindsym XF86Tools exec --no-startup-id subl
+bindsym XF86Tools exec --no-startup-id Telegram
 
 ######### Window #########
 
@@ -323,8 +324,10 @@ for_window [class="transmission-gtk"] layout tabbed
 
 assign [class="VirtualBox"] $workspace9
 assign [class="Gnome-boxes"] $workspace9
+assign [class="TelegramDesktop"] $workspace9
 for_window [class="VirtualBox"] layout tabbed
 for_window [class="Gnome-boxes"] layout tabbed
+for_window [class="TelegramDesktop"] layout tabbed
 
 assign [class="remmina"] $workspace10
 assign [class="xfreerdp"] $workspace10

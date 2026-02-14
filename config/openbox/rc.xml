@@ -426,7 +426,7 @@
     <!-- </keybind> -->
     <keybind key="XF86Tools">
       <action name="Execute">
-        <command>subl</command>
+        <command>Telegram</command>
       </action>
     </keybind>
 
