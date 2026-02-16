@@ -26,6 +26,7 @@ if [[ -n $(pgrep -x polybar) ]]; then
 else
     # for Qtile
     terminator -x yay -Su --removemake --cleanafter
-    qtile cmd-obj -o cmd -f reload_config
+    qtile cmd-obj -o widget checkupdates -f force_update
+    # qtile cmd-obj -o cmd -f reload_config
 fi
 
