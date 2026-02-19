@@ -544,6 +544,7 @@ class MyMemory(widget.Memory):
         val["Active"] = mem.active / self.calc_mem
         val["Inactive"] = mem.inactive / self.calc_mem
         val["Shmem"] = mem.shared / self.calc_mem
+        val["Slab"] = mem.slab / self.calc_mem
         val["SwapTotal"] = swap.total / self.calc_swap
         val["SwapFree"] = swap.free / self.calc_swap
         val["SwapUsed"] = swap.used / self.calc_swap
@@ -691,7 +692,7 @@ my_bar = bar.Bar(
                    # padding=1),
 
         widget.Sep(padding=5),
-        MyMemory(format="{UsedShared: .2f}{mm} |{MemTotal: .2f}{mm}",
+        MyMemory(format="{MemUsed: .2f}{mm} |{MemTotal: .2f}{mm}",
                       measure_mem="G",
                       mouse_callbacks = {"Button1": lambda: qtile.spawn("terminator -x htop")},
                       fmt="<span color='#ffb52a'></span>{}",
