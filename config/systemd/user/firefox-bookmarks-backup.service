@@ -1,0 +1,14 @@
+[Unit]
+Description=Firefox Bookmarks Backup Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/systemd/user/firefox-bookmarks-backup.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
+

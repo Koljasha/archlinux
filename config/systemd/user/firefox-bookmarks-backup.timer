@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Firefox Bookmarks Backup every day
+Requires=firefox-bookmarks-backup.service
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1d
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target
+
