@@ -153,7 +153,7 @@ wmctrl brightnessctl redshift xclip xdotool xbindkeys bash-completion lesspipe c
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom timeshift
 git pass pwgen trash-cli numlockx wget curl httpie
 fzf fd ripgrep jq tree highlight eza bat bat-extras git-delta gitleaks git-filter-repo ncdu mc
-screenfetch htop inxi cmatrix lm_sensors lsof strace
+screenfetch htop btop inxi cmatrix lm_sensors lsof strace
 atool p7zip unrar unzip zip
 openssh freerdp gufw rsync rclone
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
