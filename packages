@@ -302,8 +302,8 @@ fi
 # (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
 
 # sublime-text-4 - text editor
-
 # telegram-desktop - Telegram messenger
+# handy-bin - речь в текст
 
 # onlyoffice-bin - office
 # libreoffice-still libreoffice-still-ru - office
@@ -322,8 +322,6 @@ fi
 
 # os-prober-btrfs - Grub find system on other btrfs disks
 
-# spoofdpi-bin - anti-censorship tool
-
 # docker docker-buildx docker-compose | podman - контейнеры
 # lazydocker-bin - tui для docker
 # firejail - запуск приложения в песочнице
@@ -332,7 +330,7 @@ fi
 # openvpn3 - new version OpenVpn (2025-05-05 need gcc14)
 
 #
-# additionally I use flatpak apps:
+# additionally Flatpak options apps:
 # flatpak install flathub io.github.flattool.Warehouse
 # flatpak install flathub com.github.tchx84.Flatseal
 #
