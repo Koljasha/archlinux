@@ -12,8 +12,10 @@ from libqtile.lazy import lazy
 # from libqtile.dgroups import simple_key_binder
 
 if qtile.core.name == "wayland":
-    from wlroots import ffi, lib
     from libqtile.backend.wayland import InputConfig
+
+    # библиотека python-pywlroots убрана
+    # from wlroots import ffi, lib
 
 from libqtile.log_utils import logger
 
@@ -105,6 +107,14 @@ if qtile.core.name == "x11":
 if qtile.core.name == "wayland":
     # show inputs: qtile cmd-obj -o core -f get_inputs
     wl_input_rules = {
+
+        # Keyboard
+        "type:keyboard": InputConfig(
+            kb_layout="us,ru",
+            kb_options="grp:alt_shift_toggle"  # переключение по Alt+Shift
+        ),
+
+        # Mouse
         "1149:4128:Kensington Expert Mouse": InputConfig(
             pointer_accel=0.10,
             scroll_method='on_button_down',
@@ -118,28 +128,30 @@ if qtile.core.name == "wayland":
         ),
     }
 
-    def get_keyboard_layout():
-        for device in qtile.core.keyboards[:1]:
-            # keymap = device.wlr_device.keyboard._ptr.keymap
-            keymap = device.keyboard._ptr.keymap
-            name = lib.xkb_keymap_layout_get_name(keymap, 0)
-            layout = ffi.string(name).decode()
-            if layout == "Russian":
-                return "ru"
-            else:
-                return "us"
+    # библиотека python-pywlroots убрана
 
-    @lazy.function
-    def set_keyboard_layout(qtile):
-        for device in qtile.core.keyboards[:1]:
-            # keymap = device.wlr_device.keyboard._ptr.keymap
-            keymap = device.keyboard._ptr.keymap
-            name = lib.xkb_keymap_layout_get_name(keymap, 0)
-            layout = ffi.string(name).decode()
-            if layout == "Russian":
-                qtile.spawn("qtile cmd-obj -o core -f set_keymap -a us,ru grp:alt_shift_toggle")
-            else:
-                qtile.spawn("qtile cmd-obj -o core -f set_keymap -a ru,us grp:alt_shift_toggle")
+    # def get_keyboard_layout():
+        # for device in qtile.core.keyboards[:1]:
+            # # keymap = device.wlr_device.keyboard._ptr.keymap
+            # keymap = device.keyboard._ptr.keymap
+            # name = lib.xkb_keymap_layout_get_name(keymap, 0)
+            # layout = ffi.string(name).decode()
+            # if layout == "Russian":
+                # return "ru"
+            # else:
+                # return "us"
+
+    # @lazy.function
+    # def set_keyboard_layout(qtile):
+        # for device in qtile.core.keyboards[:1]:
+            # # keymap = device.wlr_device.keyboard._ptr.keymap
+            # keymap = device.keyboard._ptr.keymap
+            # name = lib.xkb_keymap_layout_get_name(keymap, 0)
+            # layout = ffi.string(name).decode()
+            # if layout == "Russian":
+                # qtile.spawn("qtile cmd-obj -o core -f set_keymap -a us,ru grp:alt_shift_toggle")
+            # else:
+                # qtile.spawn("qtile cmd-obj -o core -f set_keymap -a ru,us grp:alt_shift_toggle")
 
 ######### Keybindings #########
 
@@ -369,14 +381,28 @@ keys = [
             mode=True,
             name="  ",
         ),
+
 ]
 
-if qtile.core.name == "wayland":
-    keys.extend(
-        [
-        Key([alt], "Shift_L", set_keyboard_layout(), desc="Change keyboard layout"),
-        ]
-    )
+######### Keyboard layout #########
+
+# если использовать widget,keyboardlayout
+# if qtile.core.name == "x11":
+    # keys.extend(
+        # [
+        # Key([alt], "Shift_L", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
+        # ]
+    # )
+
+# если использовать MyKeyboardLayout
+# if qtile.core.name == "wayland":
+    # keys.extend(
+        # [
+        # Key([alt], "Shift_L", set_keyboard_layout(), desc="Change keyboard layout"),
+        # ]
+    # )
+
+######### Mouse #########
 
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
@@ -640,21 +666,35 @@ my_bar = bar.Bar(
                         padding=3),
 
         # Right
-        # keyboard chord and layout for X11 and Wayland
+        # keyboard chord : Mouse on the keyboard
         widget.Chord(foreground=colors["light_blue"],
                      background=colors["red"],
                      padding=1),
+
+        # keyboard layout for X11 and Wayland
+
         MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
                       execute=f"{scripts['keyboard']} change",
                       update_interval=1,
                       fmt="<span color='#bd2c40'></span> {}",
-                      padding=1) \
-        if qtile.core.name == "x11" \
-        else MyKeyboardLayout(func=get_keyboard_layout,
-                         execute=set_keyboard_layout(),
-                         update_interval=0.5,
-                         fmt="<span color='#bd2c40'></span> {}",
-                         padding=1),
+                      padding=1),
+
+        # widget.KeyboardLayout(configured_keyboards=['us','ru'],
+                              # display_map={'us':'us', 'ru':'ru'},
+                              # fmt="<span color='#bd2c40'></span> {}",
+                              # padding=1),
+
+        # MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
+                      # execute=f"{scripts['keyboard']} change",
+                      # update_interval=1,
+                      # fmt="<span color='#bd2c40'></span> {}",
+                      # padding=1) \
+        # if qtile.core.name == "x11" \
+        # else MyKeyboardLayout(func=get_keyboard_layout,
+                         # execute=set_keyboard_layout(),
+                         # update_interval=0.5,
+                         # fmt="<span color='#bd2c40'></span> {}",
+                         # padding=1),
 
         widget.Sep(padding=5),
         MyVolume(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
