@@ -118,6 +118,10 @@ ln -s /run/mount/storage/local/config/i3 ~/.config/i3
 rm -rf ~/.config/jgmenu
 ln -s /run/mount/storage/local/config/jgmenu ~/.config/jgmenu
 
+# mc
+rm -rf ~/.config/mc
+ln -s /run/mount/storage/local/config/mc ~/.config/mc
+
 # mozilla
 rm -rf ~/.config/mozilla
 ln -s /run/mount/storage/local/config/mozilla ~/.config/mozilla
