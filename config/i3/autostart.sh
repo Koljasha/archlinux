@@ -33,7 +33,7 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     feh --bg-scale /usr/share/backgrounds/archlinux/simple.png &
 
     # Change color temperature
-    /usr/bin/redshift -P -O 5000
+    /usr/bin/redshift -P -O 4500
 else
     # NetworkManager applet
     nm-applet --indicator &
