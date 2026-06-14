@@ -14,7 +14,7 @@ if [[ "$XDG_SESSION_DESKTOP" =~ (qtile|i3|openbox) ]]; then
     export QT_AUTO_SCREEN_SCALE_FACTOR=0
     export QT_QPA_PLATFORMTHEME="qt6ct"
 
-    # environment for GTK-4 Wayland
+    # environment for Gnome apps
     export GTK_THEME=Arc-Dark
 
     # environment for clipmenu
