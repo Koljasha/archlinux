@@ -1,0 +1,21 @@
+[Unit]
+Description=Clipmenu daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/clipmenud
+Restart=always
+RestartSec=3
+
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+ProtectControlGroups=yes
+ProtectKernelTunables=yes
+RestrictAddressFamilies=
+RestrictRealtime=yes
+
+TimeoutStopSec=2
+
+[Install]
+WantedBy=graphical-session.target
