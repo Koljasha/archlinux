@@ -4,18 +4,14 @@ PartOf=graphical-session.target
 After=graphical-session.target
 
 [Service]
+Type=simple
+ExecStartPre=/bin/sleep 5
 ExecStart=/usr/bin/clipmenud
-Restart=always
-RestartSec=3
+Restart=on-failure
+RestartSec=5
 
-MemoryDenyWriteExecute=yes
-NoNewPrivileges=yes
-ProtectControlGroups=yes
-ProtectKernelTunables=yes
-RestrictAddressFamilies=
-RestrictRealtime=yes
-
-TimeoutStopSec=2
+Environment=DISPLAY=:0
+# Environment=WAYLAND_DISPLAY=wayland-0
 
 [Install]
 WantedBy=graphical-session.target
