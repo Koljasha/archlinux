@@ -31,6 +31,9 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
 
     # Change color temperature
     /usr/bin/redshift -P -O 4500
+
+    # Restart clipmenud (fix some bug)
+    systemctl --user restart clipmenud.service
 else
     # NetworkManager applet
     nm-applet --indicator &
