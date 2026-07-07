@@ -6,6 +6,7 @@
 Description=Set backgrounds service
 
 [Service]
+ExecCondition=/usr/bin/bash -c '[[ "$XDG_SESSION_DESKTOP" =~ (qtile|i3|openbox) ]]'
 ExecStart=/usr/bin/feh --randomize --bg-scale /usr/share/backgrounds/archlinux/
 
 [Install]

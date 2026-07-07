@@ -5,6 +5,7 @@ After=graphical-session.target
 
 [Service]
 Type=simple
+ExecCondition=/usr/bin/bash -c '[[ "$XDG_SESSION_DESKTOP" =~ (qtile|i3|openbox) ]]'
 ExecStart=/usr/bin/clipmenud
 Restart=on-failure
 RestartSec=5
