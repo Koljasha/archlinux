@@ -386,7 +386,7 @@ keys = [
 
 ######### Keyboard layout #########
 
-# если использовать widget,keyboardlayout
+# если использовать widget.keyboardlayout
 # if qtile.core.name == "x11":
     # keys.extend(
         # [
@@ -502,29 +502,6 @@ extension_defaults = widget_defaults.copy()
 # Wrappers on widgets
 #
 
-# class MyPulseVolume(widget.PulseVolume):
-    # """
-    # widget.PulseVolume with gray word "Mute""
-    #
-    # needed `python-pulsectl-asyncio` but it olded in AUR
-    # https://github.com/qtile/qtile/issues/4495#issuecomment-1752460875
-    # """
-    # def _update_drawer(self):
-        # super()._update_drawer()
-        # if self.text == "M":
-            # self.text = "<span color='#757575'>Mute</span>"
-
-
-class MyVolume(widget.GenPollText):
-    # """
-    # widget.GenPollText for Volume control with gray word for Muted
-    # """
-    def update(self, text):
-        super().update(text)
-        if self.text == "Muted":
-            self.text = "<span color='#757575'>Mute</span>"
-
-
 class MyGenPollText(widget.GenPollText):
     """
     widget.GenPollText with update after clicking execute
@@ -552,6 +529,16 @@ class MyGenPollText(widget.GenPollText):
             self.timeout_add(self.execute_polling_interval, self._refresh_count)
         else:
             self.timer_setup()
+
+
+class MyVolume(widget.GenPollText):
+    # """
+    # widget.GenPollText for Volume control with gray word for Muted
+    # """
+    def update(self, text):
+        super().update(text)
+        if self.text == "Muted":
+            self.text = "<span color='#757575'>Mute</span>"
 
 
 class MyMemory(widget.Memory):
@@ -608,21 +595,34 @@ class MyDF(widget.DF):
         return text
 
 
-class MyKeyboardLayout(widget.GenPollText):
-    """
-    widget.GenPollText for show and change keyboard layout
-    use for Qtile Wayland session
-    """
-    defaults = [
-        ("execute", None, "Command to execute on click"),
-    ]
+# class MyKeyboardLayout(widget.GenPollText):
+    # """
+    # widget.GenPollText for show and change keyboard layout
+    # use for Qtile Wayland session
+    # """
+    # defaults = [
+        # ("execute", None, "Command to execute on click"),
+    # ]
 
-    def __init__(self, **config):
-        super().__init__(**config)
-        self.add_defaults(MyKeyboardLayout.defaults)
-        self.add_callbacks(
-            { "Button1": self.execute, }
-        )
+    # def __init__(self, **config):
+        # super().__init__(**config)
+        # self.add_defaults(MyKeyboardLayout.defaults)
+        # self.add_callbacks(
+            # { "Button1": self.execute, }
+        # )
+
+
+# class MyPulseVolume(widget.PulseVolume):
+    # """
+    # widget.PulseVolume with gray word "Mute""
+    #
+    # needed `python-pulsectl-asyncio` but it olded in AUR
+    # https://github.com/qtile/qtile/issues/4495#issuecomment-1752460875
+    # """
+    # def _update_drawer(self):
+        # super()._update_drawer()
+        # if self.text == "M":
+            # self.text = "<span color='#757575'>Mute</span>"
 
 
 my_bar = bar.Bar(
