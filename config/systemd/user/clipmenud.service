@@ -1,17 +1,20 @@
+#
+# Service for Clipmenu
+#
+
 [Unit]
 Description=Clipmenu daemon
-PartOf=graphical-session.target
-After=graphical-session.target
+After=default.target
 
 [Service]
 Type=simple
-ExecCondition=/usr/bin/bash -c '[[ "$XDG_SESSION_DESKTOP" =~ (qtile|i3|openbox) ]]'
+ExecCondition=/usr/bin/bash -c 'pgrep -x "qtile|i3|openbox" > /dev/null'
 ExecStart=/usr/bin/clipmenud
 Restart=on-failure
 RestartSec=5
-
 Environment=DISPLAY=:0
 # Environment=WAYLAND_DISPLAY=wayland-0
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=default.target
+
