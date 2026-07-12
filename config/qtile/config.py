@@ -108,23 +108,23 @@ if qtile.core.name == "wayland":
     # show inputs: qtile cmd-obj -o core -f get_inputs
     wl_input_rules = {
 
-        # Keyboard
-        "type:keyboard": InputConfig(
-            kb_layout="us,ru",
-            kb_options="grp:alt_shift_toggle"  # переключение по Alt+Shift
-        ),
-
         # Mouse
         "1149:4128:Kensington Expert Mouse": InputConfig(
             pointer_accel=0.10,
             scroll_method='on_button_down',
-            scroll_button='Button3',
+            scroll_button=0x111,        # BTN_RIGHT = 273 в linux/input-event-codes.h
         ),
         # other (example config for Elecom)
         "type:pointer": InputConfig(
             pointer_accel=-0.30,
             scroll_method='on_button_down',
-            scroll_button='Button9',
+            scroll_button=0x117,
+        ),
+
+        # Keyboard
+        "type:keyboard": InputConfig(
+            kb_layout="us,ru",
+            kb_options="grp:alt_shift_toggle"  # переключение по Alt+Shift
         ),
     }
 
