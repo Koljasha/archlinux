@@ -157,7 +157,7 @@ screenfetch htop btop inxi cmatrix lm_sensors lsof strace
 atool p7zip unrar unzip zip
 openssh freerdp gufw rsync rclone
 openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
-xorg xorg-xinit accountsservice
+xorg xorg-xinit accountsservice libinput-tools
 pipewire wireplumber pipewire-alsa pipewire-pulse
 vim fish tmux screen
 imagemagick ffmpeg ghostscript
