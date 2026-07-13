@@ -41,6 +41,9 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     # Restart clipmenud (fix some bug)
     systemctl --user restart clipmenud.service
 else
+    # Change color temperature
+    /usr/bin/gammastep -O 4000 &
+
     # NetworkManager applet
     nm-applet --indicator &
 fi

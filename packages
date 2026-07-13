@@ -180,7 +180,8 @@ if [[ $de == "koljasha_wm" ]]; then
 
     qtile i3 openbox polybar plank
     obconf-qt menumaker
-    wl-clipboard python-pyxdg python-dbus-next
+    wl-clipboard gammastep
+    python-pyxdg python-dbus-next
     bluez blueman bluez-utils
     polkit-gnome lxappearance picom
     terminator alacritty
