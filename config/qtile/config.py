@@ -124,7 +124,8 @@ if qtile.core.name == "wayland":
         # Keyboard
         "type:keyboard": InputConfig(
             kb_layout="us,ru",
-            kb_options="grp:alt_shift_toggle"  # переключение по Alt+Shift
+            # переключение по Alt+Shift и лампа для получения раскладки в скрипте
+            kb_options="grp:alt_shift_toggle,grp_led:scroll", 
         ),
     }
 
