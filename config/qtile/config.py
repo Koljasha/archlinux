@@ -9,13 +9,9 @@ import psutil
 from libqtile import hook, layout, bar, widget, qtile
 from libqtile.config import Key, KeyChord, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-# from libqtile.dgroups import simple_key_binder
 
 if qtile.core.name == "wayland":
     from libqtile.backend.wayland import InputConfig
-
-    # библиотека python-pywlroots убрана
-    # from wlroots import ffi, lib
 
 from libqtile.log_utils import logger
 
@@ -128,31 +124,6 @@ if qtile.core.name == "wayland":
             kb_options="grp:alt_shift_toggle,grp_led:scroll", 
         ),
     }
-
-    # библиотека python-pywlroots убрана
-
-    # def get_keyboard_layout():
-        # for device in qtile.core.keyboards[:1]:
-            # # keymap = device.wlr_device.keyboard._ptr.keymap
-            # keymap = device.keyboard._ptr.keymap
-            # name = lib.xkb_keymap_layout_get_name(keymap, 0)
-            # layout = ffi.string(name).decode()
-            # if layout == "Russian":
-                # return "ru"
-            # else:
-                # return "us"
-
-    # @lazy.function
-    # def set_keyboard_layout(qtile):
-        # for device in qtile.core.keyboards[:1]:
-            # # keymap = device.wlr_device.keyboard._ptr.keymap
-            # keymap = device.keyboard._ptr.keymap
-            # name = lib.xkb_keymap_layout_get_name(keymap, 0)
-            # layout = ffi.string(name).decode()
-            # if layout == "Russian":
-                # qtile.spawn("qtile cmd-obj -o core -f set_keymap -a us,ru grp:alt_shift_toggle")
-            # else:
-                # qtile.spawn("qtile cmd-obj -o core -f set_keymap -a ru,us grp:alt_shift_toggle")
 
 ######### Keybindings #########
 
@@ -385,24 +356,6 @@ keys = [
 
 ]
 
-######### Keyboard layout #########
-
-# если использовать widget.keyboardlayout
-# if qtile.core.name == "x11":
-    # keys.extend(
-        # [
-        # Key([alt], "Shift_L", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
-        # ]
-    # )
-
-# если использовать MyKeyboardLayout
-# if qtile.core.name == "wayland":
-    # keys.extend(
-        # [
-        # Key([alt], "Shift_L", set_keyboard_layout(), desc="Change keyboard layout"),
-        # ]
-    # )
-
 ######### Mouse #########
 
 mouse = [
@@ -431,8 +384,6 @@ groups = [
     ])
 ]
 
-# dgroups_key_binder = simple_key_binder(mod)   # error change https://github.com/qtile/qtile/issues/4024
-
 for i in groups[:-1]: # without ScratchPad
     key = i.name.split(":")[0]
     key = key if len(key) == 1 else key[-1]
@@ -455,19 +406,6 @@ layouts = [
                    border_width=1,
                    margin=5),
     layout.Max(margin=1),
-
-    # layout.Floating(),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Slice(),
-    # layout.Stack(num_stacks=2),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 floating_layout = layout.Floating(
@@ -596,36 +534,6 @@ class MyDF(widget.DF):
         return text
 
 
-# class MyKeyboardLayout(widget.GenPollText):
-    # """
-    # widget.GenPollText for show and change keyboard layout
-    # use for Qtile Wayland session
-    # """
-    # defaults = [
-        # ("execute", None, "Command to execute on click"),
-    # ]
-
-    # def __init__(self, **config):
-        # super().__init__(**config)
-        # self.add_defaults(MyKeyboardLayout.defaults)
-        # self.add_callbacks(
-            # { "Button1": self.execute, }
-        # )
-
-
-# class MyPulseVolume(widget.PulseVolume):
-    # """
-    # widget.PulseVolume with gray word "Mute""
-    #
-    # needed `python-pulsectl-asyncio` but it olded in AUR
-    # https://github.com/qtile/qtile/issues/4495#issuecomment-1752460875
-    # """
-    # def _update_drawer(self):
-        # super()._update_drawer()
-        # if self.text == "M":
-            # self.text = "<span color='#757575'>Mute</span>"
-
-
 my_bar = bar.Bar(
     [
         # Left
@@ -672,30 +580,15 @@ my_bar = bar.Bar(
                      background=colors["red"],
                      padding=1),
 
-        # keyboard layout for X11 and Wayland
-
         MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
                       execute=f"{scripts['keyboard']} change",
                       update_interval=1,
                       fmt="<span color='#bd2c40'></span> {}",
                       padding=1),
-
         # widget.KeyboardLayout(configured_keyboards=['us','ru'],
                               # display_map={'us':'us', 'ru':'ru'},
                               # fmt="<span color='#bd2c40'></span> {}",
                               # padding=1),
-
-        # MyGenPollText(func=lambda: subprocess.check_output(scripts["keyboard"]).decode("utf-8").strip(),
-                      # execute=f"{scripts['keyboard']} change",
-                      # update_interval=1,
-                      # fmt="<span color='#bd2c40'></span> {}",
-                      # padding=1) \
-        # if qtile.core.name == "x11" \
-        # else MyKeyboardLayout(func=get_keyboard_layout,
-                         # execute=set_keyboard_layout(),
-                         # update_interval=0.5,
-                         # fmt="<span color='#bd2c40'></span> {}",
-                         # padding=1),
 
         widget.Sep(padding=5),
         MyVolume(func=lambda: subprocess.check_output(scripts["volume"]).decode("utf-8").strip(),
@@ -708,10 +601,6 @@ my_bar = bar.Bar(
                                          },
                       fmt="<span color='#ffb52a'></span> {}",
                       padding=3),
-        # MyPulseVolume(update_interval=0.1,
-                      # mouse_callbacks = { "Button3": lambda: qtile.spawn(f"{scripts['volume']} change") },
-                      # fmt="<span color='#ffb52a'></span> {}",
-                      # padding=3),
 
         widget.Sep(padding=5),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["brightness"]).decode("utf-8").strip(),
@@ -748,17 +637,15 @@ my_bar = bar.Bar(
                   fmt="<span color='#ffb52a'></span> {}",
                   padding=1),
 
-        # widget.Sep(padding=5),
-        # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
-                      # execute=f"{scripts['openvpn']} change",
-                      # update_interval=5,
-                      # padding=1),
-
         widget.Sep(padding=5),
         MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
                       execute=f"{scripts['wireguard']} change",
                       update_interval=5,
                       padding=1),
+        # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
+                      # execute=f"{scripts['openvpn']} change",
+                      # update_interval=5,
+                      # padding=1),
 
         widget.Sep(padding=5),
         widget.CheckUpdates(distro="Arch_yay",
