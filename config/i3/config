@@ -60,7 +60,7 @@ bindsym --release $alt+Control+Delete exec --no-startup-id xkill
 # Reboot system
 bindsym $mod+$alt+Control+Delete exec --no-startup-id systemctl -i reboot
 # Change background
-bindsym $mod+o exec --no-startup-id systemctl --user start setbg.service
+bindsym $mod+i exec --no-startup-id systemctl --user start setbg.service
 # Change mouse hand
 bindsym $mod+Control+m exec --no-startup-id ~/.config/scripts/mouse_right_left.sh
 # Change mouse scrolling button

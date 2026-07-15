@@ -149,7 +149,7 @@ keys = [
     # Reboot System
     Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
     # Change background
-    Key([mod], "o", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+    Key([mod], "i", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
     # Change mouse hand
     Key([mod, "control"], "m", lazy.spawn(scripts["mouse_right_left"]), desc="Change mouse left|right hand"),
     # Change mouse scrolling button

@@ -219,7 +219,7 @@
         <command>systemctl -i reboot</command>
       </action>
     </keybind>
-    <keybind key="W-o">
+    <keybind key="W-i">
       <action name="Execute">
         <command>systemctl --user start setbg.service</command>
       </action>
