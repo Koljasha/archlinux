@@ -204,11 +204,19 @@
         <command>openbox --exit</command>
       </action>
     </keybind>
+
     <keybind key="W-p">
       <action name="Execute">
         <command>~/.config/scripts/picom_restart.sh</command>
       </action>
     </keybind>
+
+    <keybind key="W-i">
+      <action name="Execute">
+        <command>systemctl --user start setbg.service</command>
+      </action>
+    </keybind>
+
     <keybind key="C-A-Delete">
       <action name="Execute">
         <command>xkill</command>
@@ -219,11 +227,7 @@
         <command>systemctl -i reboot</command>
       </action>
     </keybind>
-    <keybind key="W-i">
-      <action name="Execute">
-        <command>systemctl --user start setbg.service</command>
-      </action>
-    </keybind>
+
     <keybind key="W-C-m">
       <action name="Execute">
         <command>~/.config/scripts/mouse_rigth_left.sh</command>

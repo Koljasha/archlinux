@@ -131,7 +131,7 @@ keys = [
 
     ######### Main #########
 
-    # Kill window
+    # Kill focused window
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
 
     # Reload | Restart Qtile
@@ -144,12 +144,15 @@ keys = [
 
     # Picom restart
     Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
+
+    # Change background
+    Key([mod], "i", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+
     # Kill window
     Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
     # Reboot System
     Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
-    # Change background
-    Key([mod], "i", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+
     # Change mouse hand
     Key([mod, "control"], "m", lazy.spawn(scripts["mouse_right_left"]), desc="Change mouse left|right hand"),
     # Change mouse scrolling button
@@ -202,8 +205,8 @@ keys = [
     Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
 
     # Vpn
-    # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Start|Stop Vpn"),
     Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Start|Stop Vpn"),
+    # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Start|Stop Vpn"),
 
     # System updates
     Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
@@ -224,12 +227,12 @@ keys = [
 
     # Fn keys
     Key([], "XF86Explorer", lazy.spawn("pcmanfm"), desc="PcManFm"),
-    # Key([], "XF86Search", lazy.spawn("remmina"), desc="Remmina"),
     Key([], "XF86Search", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
     Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
+    Key([], "XF86Tools", lazy.spawn("Telegram"), desc="Telegram"),
+    # Key([], "XF86Search", lazy.spawn("remmina"), desc="Remmina"),
     # Key([], "XF86Tools", lazy.spawn("evim"), desc="Editor"),
     # Key([], "XF86Tools", lazy.spawn("subl"), desc="Editor"),
-    Key([], "XF86Tools", lazy.spawn("Telegram"), desc="Telegram"),
 
     ######### Window #########
 

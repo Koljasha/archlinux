@@ -40,7 +40,7 @@ for_window [class="^.*"] border pixel 0
 
 ######### Main #########
 
-# kill focused window
+# Kill focused window
 bindsym $mod+Shift+q kill
 
 # Reload the configuration file
@@ -55,12 +55,15 @@ bindsym $mod+Control+p exec i3-msg exit
 
 # Picom restart
 bindsym $mod+p exec --no-startup-id ~/.config/scripts/picom_restart.sh
+
+# Change background
+bindsym $mod+i exec --no-startup-id systemctl --user start setbg.service
+
 # Kill window
 bindsym --release $alt+Control+Delete exec --no-startup-id xkill
 # Reboot system
 bindsym $mod+$alt+Control+Delete exec --no-startup-id systemctl -i reboot
-# Change background
-bindsym $mod+i exec --no-startup-id systemctl --user start setbg.service
+
 # Change mouse hand
 bindsym $mod+Control+m exec --no-startup-id ~/.config/scripts/mouse_right_left.sh
 # Change mouse scrolling button
@@ -114,8 +117,8 @@ bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
 
 # Vpn
-# bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
+# bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
 
 # System updates
 bindsym $mod+Shift+u exec --no-startup-id ~/.config/scripts/updates.sh change
