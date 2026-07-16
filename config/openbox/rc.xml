@@ -270,6 +270,11 @@
         <command>~/.config/scripts/brightness.sh change</command>
       </action>
     </keybind>
+    <keybind key="W-C-z">
+      <action name="Execute">
+        <command>~/.config/scripts/brightness_temp.sh</command>
+      </action>
+    </keybind>
 
     <!-- Clipboard -->
     <keybind key="W-c">

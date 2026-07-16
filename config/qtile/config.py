@@ -41,6 +41,7 @@ scripts = {
     "picom_restart": os.path.expanduser("~/.config/scripts/picom_restart.sh"),
 
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
+    "brightness_temp": os.path.expanduser("~/.config/scripts/brightness_temp.sh"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
     "password_generate": os.path.expanduser("~/.config/scripts/password_generate.sh"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
@@ -172,6 +173,7 @@ keys = [
 
     # Brightness
     Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
+    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness_temp']}"), desc="Change brightness temp"),
 
     # Clipboard
     # редко затупливает, тогда:
