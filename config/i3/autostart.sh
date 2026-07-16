@@ -45,9 +45,6 @@ else
     nm-applet --indicator &
 fi
 
-# Change values for brightness, eth, wifi
-~/.config/scripts/default_values.sh &
-
 # Additionally bindings
 ~/.config/scripts/xbindkeys.sh &
 

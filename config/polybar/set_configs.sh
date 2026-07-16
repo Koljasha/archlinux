@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #
-# change config values for eth, wifi
+# Polybar : change config values for eth, wifi
 #
 
 # ethernet interface
