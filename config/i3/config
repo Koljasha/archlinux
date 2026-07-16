@@ -82,6 +82,8 @@ bindsym $mod+a exec --no-startup-id "rofi -show drun"
 bindsym $mod+Shift+a exec --no-startup-id "rofi -show run"
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
+######### Control Menu #########
+
 # Brightness
 bindsym $mod+Shift+z exec --no-startup-id ~/.config/scripts/brightness.sh change
 

@@ -168,6 +168,8 @@ keys = [
     Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Run rofi run"),
     Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
 
+    ######### Control Menu #########
+
     # Brightness
     Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
 
