@@ -45,10 +45,6 @@ fi
 # Additionally bindings
 ~/.config/scripts/xbindkeys.sh &
 
-# Set mouse params | show devices: `xinput list`
-# ~/.config/scripts/mouse.sh set "Logitech MX Ergo" &
-# ~/.config/scripts/mouse.sh set "BT4.0+2.4G Mouse" -0.90 &
-
 # Set screen resolution for Virtual Box
 # xrandr -s 1360x768 &
 
