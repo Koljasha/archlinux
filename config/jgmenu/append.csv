@@ -2,7 +2,7 @@
 Lock,/home/username/.config/scripts/lock.sh,system-lock-screen
 Exit,^checkout(exit),system-shutdown
 ^tag(exit)
-Exit,/home/username/.config/scripts/exit.sh,system-log-out
+Exit,/home/username/.config/scripts/power.sh exit,system-log-out
 Suspend,systemctl -i suspend,system-suspend
 Reboot,systemctl -i reboot,system-reboot
 Poweroff,systemctl -i poweroff,system-shutdown

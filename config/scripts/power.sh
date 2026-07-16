@@ -1,8 +1,28 @@
 #!/usr/bin/env bash
 
 #
-# power control with dmenu|rofi
+# Combined power control and window manager exit script
+# Usage: 
+#   ./power.sh        - shows power menu (full menu)
+#   ./power.sh exit   - just exits WM (for jgmenu)
 #
+
+# Function to exit window manager
+exit_wm() {
+    if [[ -n $(pgrep -x openbox) ]]; then
+        openbox --exit
+    elif [[ -n $(pgrep -x i3) ]]; then
+        i3-msg "exit"
+    elif [[ -n $(pgrep -x qtile) ]]; then
+        qtile cmd-obj -o cmd -f shutdown
+    fi
+}
+
+# If first argument is "exit" - just exit WM
+if [[ "$1" == "exit" ]]; then
+    exit_wm
+    exit 0
+fi
 
 declare -a options=(
 "Exit\0icon\x1fsystem-log-out"
@@ -17,7 +37,7 @@ choice=`printf '%b\n' "${options[@]}" \
 
 case $choice in
         Exit)
-                ~/.config/scripts/exit.sh
+                exit_wm
                 ;;
         Suspend)
                 systemctl -i suspend
