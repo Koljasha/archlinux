@@ -16,6 +16,8 @@ declare -a options=(
 "6500\0icon\x1fvideo-display"
 )
 
+brightness=`grep 'redshift' ~/.config/qtile/autostart.sh | awk '{print $NF}'`
+
 brightness=`printf '%b\n' "${options[@]}" \
             | rofi -dmenu -l 3 -select $brightness -p Temperature`
             # change to dmenu -> move up rofi
