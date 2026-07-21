@@ -272,7 +272,7 @@
     </keybind>
     <keybind key="W-C-z">
       <action name="Execute">
-        <command>~/.config/scripts/brightness_temp.sh</command>
+        <command>~/.config/scripts/brightness.sh temperature</command>
       </action>
     </keybind>
 

@@ -86,7 +86,7 @@ bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
 # Brightness
 bindsym $mod+Shift+z exec --no-startup-id ~/.config/scripts/brightness.sh change
-bindsym $mod+Control+z exec --no-startup-id ~/.config/scripts/brightness_temp.sh
+bindsym $mod+Control+z exec --no-startup-id ~/.config/scripts/brightness.sh temperature
 
 # Clipboard
 bindsym $mod+c exec --no-startup-id "clipmenu"

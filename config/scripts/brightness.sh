@@ -1,8 +1,47 @@
 #!/usr/bin/env bash
 
 #
-# show and set brightness
+# show and set brightness and temperature
 #
+
+
+#
+### temperature
+#
+
+
+if [[ $1 == 'temperature' ]]; then
+
+    declare -a options=(
+    "2500\0icon\x1fvideo-display"
+    "3000\0icon\x1fvideo-display"
+    "3500\0icon\x1fvideo-display"
+    "4000\0icon\x1fvideo-display"
+    "4500\0icon\x1fvideo-display"
+    "5000\0icon\x1fvideo-display"
+    "5500\0icon\x1fvideo-display"
+    "6000\0icon\x1fvideo-display"
+    "6500\0icon\x1fvideo-display"
+    )
+
+    brightness=`grep 'redshift' ~/.config/qtile/autostart.sh | awk '{print $NF}'`
+
+    brightness=`printf '%b\n' "${options[@]}" \
+                | rofi -dmenu -l 3 -select $brightness -p Temperature`
+                # change to dmenu -> move up rofi
+                # | dmenu -b -i -p Brightness:`
+    if [[ $brightness == "" ]]; then
+        exit 0
+    fi
+    /usr/bin/redshift -P -O $brightness
+
+fi
+
+
+#
+### brightness
+#
+
 
 brightness=`brightnessctl | grep Current | cut -d'(' -f2 | cut -d'%' -f1`
 if (( $# == 0 )); then
