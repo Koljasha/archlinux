@@ -35,6 +35,7 @@ if [[ $1 == 'temperature' ]]; then
     fi
     /usr/bin/redshift -P -O $brightness
 
+    exit 0
 fi
 
 

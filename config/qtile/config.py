@@ -43,7 +43,7 @@ scripts = {
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
     "brightness_temperature": os.path.expanduser("~/.config/scripts/brightness.sh temperature"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
-    "password_generate": os.path.expanduser("~/.config/scripts/password_generate.sh"),
+    "password_generate": os.path.expanduser("~/.config/scripts/password.sh generate"),
     "volume": os.path.expanduser("~/.config/scripts/volume.sh"),
     "workspaces": os.path.expanduser("~/.config/scripts/workspaces.sh"),
 

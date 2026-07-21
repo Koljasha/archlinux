@@ -291,7 +291,7 @@
     </keybind>
     <keybind key="W-S-s">
       <action name="Execute">
-        <command>~/.config/scripts/password_generate.sh</command>
+        <command>~/.config/scripts/password.sh generate</command>
       </action>
     </keybind>
 

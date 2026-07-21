@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
-# menu for show password from pass
+### generate new strong password
+
+if [[ $1 == 'generate' ]]; then
+
+    password=`openssl rand -base64 24`
+    printf "$password"| xsel --input --clipboard -z
+    text=`echo -e "Password copy to clipboard: $password"`
+    rofi -e "$text"
+
+    exit 0
+fi
+
+### menu for show password from pass
 
 name=`find ~/.password-store/ -iname "*.gpg" | awk -F "/" '{print $NF}' | awk '{print substr($0, 0, length($0)-4)}' | sort | rofi -dmenu -i -p PassName`
 if [[ "$name" == "" ]]; then
