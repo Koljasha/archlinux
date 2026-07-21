@@ -38,7 +38,7 @@ scripts = {
     "shell": os.path.expanduser("~/.config/scripts/shell.sh"),
 
     "power": os.path.expanduser("~/.config/scripts/power.sh"),
-    "picom_restart": os.path.expanduser("~/.config/scripts/picom_restart.sh"),
+    "picom_restart": os.path.expanduser("~/.config/scripts/utils.sh picom"),
 
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
     "brightness_temperature": os.path.expanduser("~/.config/scripts/brightness.sh temperature"),

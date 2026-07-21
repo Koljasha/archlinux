@@ -54,7 +54,7 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/scripts/power.sh
 bindsym $mod+Control+p exec i3-msg exit
 
 # Picom restart
-bindsym $mod+p exec --no-startup-id ~/.config/scripts/picom_restart.sh
+bindsym $mod+p exec --no-startup-id ~/.config/scripts/utils.sh picom
 
 # Change background
 bindsym $mod+i exec --no-startup-id systemctl --user start setbg.service
