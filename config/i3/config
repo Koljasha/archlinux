@@ -65,9 +65,9 @@ bindsym --release $alt+Control+Delete exec --no-startup-id xkill
 bindsym $mod+$alt+Control+Delete exec --no-startup-id systemctl -i reboot
 
 # Change mouse hand
-bindsym $mod+Control+m exec --no-startup-id ~/.config/scripts/mouse_right_left.sh
+bindsym $mod+Control+m exec --no-startup-id ~/.config/scripts/mouse_utils.sh left_right
 # Change mouse scrolling button
-bindsym $mod+Shift+m exec --no-startup-id ~/.config/scripts/mouse_scrolling_botton.sh
+bindsym $mod+Shift+m exec --no-startup-id ~/.config/scripts/mouse_utils.sh scroll_button
 
 ######### Menu #########
 
