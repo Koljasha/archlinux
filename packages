@@ -110,6 +110,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "10) Pantheon default settings"
     echo "11) Kde Plasma default settings"
     echo "12) Deepin default settings"
+    echo "13) Cosmic default settings"
     echo "####################"
     read -p">" de
 done
@@ -139,6 +140,8 @@ elif [[ $de == "11" ]]; then
     de="kde"
 elif [[ $de == "12" ]]; then
     de="deepin"
+elif [[ $de == "13" ]]; then
+    de="cosmic"
 fi
 echo "Ok"
 
@@ -281,6 +284,12 @@ elif [[ $de == "deepin" ]]; then
     $packages
     lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
     deepin deepin-kwin deepin-extra
+    "
+elif [[ $de == "cosmic" ]]; then
+    packages="
+    $packages
+    lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    cosmic
     "
 fi
 
@@ -669,6 +678,19 @@ elif [[ $de == "deepin" ]]; then
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
+elif [[ $de == "cosmic" ]]; then
+    rm ~/.profile
+
+    # ~/.config
+    cp -r config/fish ~/.config/fish
+    cp -r config/vim ~/.config/vim
+
+    cp -r config/htop ~/.config/htop
+
+    # config lightdm
+    sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # enable numlockx in lightdm
+    sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 fi
 
 ###############
@@ -825,7 +847,8 @@ sudo systemctl enable fstrim.timer
 # login manager
 if [[ $de == "koljasha_wm" ]] \
 || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
-|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] || [[ $de == "deepin" ]]; then
+|| [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] \
+|| [[ $de == "deepin" ]] || [[ $de == "cosmic" ]]; then
     sudo systemctl enable lightdm.service
 elif [[ $de == "efl" ]]; then
     sudo systemctl enable lightdm.service
