@@ -53,7 +53,7 @@ scripts = {
     "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
     "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
 
-    "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),
+    # "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),
     "wireguard": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh"),
 }
 
