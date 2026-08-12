@@ -431,6 +431,12 @@ if [[ $de == "koljasha_wm" ]]; then
     # enable numlockx in lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 
+    # Qtile session
+    sudo mv /usr/share/xsessions/qtile.desktop /usr/share/xsessions/qtile.desktop_
+    sudo cp files/sessions/qtile.desktop /usr/share/xsessions/qtile.desktop
+    sudo mv /usr/share/wayland-sessions/qtile.desktop /usr/share/wayland-sessions/qtile.desktop_
+    sudo cp files/sessions/qtile-wayland.desktop /usr/share/wayland-sessions/qtile-wayland.desktop
+
     # config services
     sudo cp files/sudo/sudo_openvpn /etc/sudoers.d/openvpn
     sudo cp files/sudo/sudo_pacman /etc/sudoers.d/pacman
