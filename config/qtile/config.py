@@ -40,6 +40,8 @@ scripts = {
     "power": os.path.expanduser("~/.config/scripts/power.sh"),
     "picom_restart": os.path.expanduser("~/.config/scripts/utils.sh picom"),
 
+    "voice_dictation": os.path.expanduser("~/.local/opt/gigaam/dictate toggle"),
+
     "brightness": os.path.expanduser("~/.config/scripts/brightness.sh"),
     "brightness_temperature": os.path.expanduser("~/.config/scripts/brightness.sh temperature"),
     "password": os.path.expanduser("~/.config/scripts/password.sh"),
@@ -147,7 +149,7 @@ keys = [
     Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
 
     # Voice dictation
-    Key([mod], "i", lazy.spawn("~/.local/opt/gigaam/dictate toggle"), desc="Voice dictation"),
+    Key([mod], "i", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
 
     # Change background
     Key([mod, "shift"], "i", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
