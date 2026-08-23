@@ -56,8 +56,11 @@ bindsym $mod+Control+p exec i3-msg exit
 # Picom restart
 bindsym $mod+p exec --no-startup-id ~/.config/scripts/utils.sh picom
 
+# Voice dictation
+bindsym $mod+i exec --no-startup-id ~/.local/opt/gigaam/dictate toggle
+
 # Change background
-bindsym $mod+i exec --no-startup-id systemctl --user start setbg.service
+bindsym $mod+Shift+i exec --no-startup-id systemctl --user start setbg.service
 
 # Kill window
 bindsym --release $alt+Control+Delete exec --no-startup-id xkill
