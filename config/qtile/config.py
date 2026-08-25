@@ -149,10 +149,10 @@ keys = [
     Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
 
     # Voice dictation
-    Key([mod], "i", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
+    Key([mod], "Insert", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
 
     # Change background
-    Key([mod, "shift"], "i", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+    Key([mod, "control"], "b", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
 
     # Kill window
     Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),

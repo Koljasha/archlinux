@@ -211,13 +211,13 @@
       </action>
     </keybind>
 
-    <keybind key="W-i">
+    <keybind key="W-Insert">
       <action name="Execute">
         <command>~/.local/opt/gigaam/dictate toggle</command>
       </action>
     </keybind>
 
-    <keybind key="W-S-i">
+    <keybind key="W-C-b">
       <action name="Execute">
         <command>systemctl --user start setbg.service</command>
       </action>
