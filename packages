@@ -502,6 +502,9 @@ if [[ $de == "koljasha_wm" ]]; then
     # редко затупливает, тогда:
     # systemctl --user restart clipmenud.service
 
+    # Clipboard to Primary mirror
+    systemctl --user enable clip-mirror.service
+
     # screen link
     ln -s ~/.config/screen/screenrc ~/.screenrc
 

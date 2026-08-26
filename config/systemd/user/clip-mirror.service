@@ -1,0 +1,14 @@
+# clip-mirror.service — зеркалирование CLIPBOARD -> PRIMARY
+
+[Unit]
+Description=Clipboard to Primary mirror (clip-mirror)
+
+[Service]
+ExecStart=%h/.config/scripts/clip-mirror.sh
+Restart=always
+RestartSec=3
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=%h/.Xauthority
+
+[Install]
+WantedBy=default.target
