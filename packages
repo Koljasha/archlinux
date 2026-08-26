@@ -165,7 +165,7 @@ pipewire wireplumber pipewire-alsa pipewire-pulse
 vim fish tmux screen
 imagemagick ffmpeg ghostscript
 python-pip python-setuptools uv
-gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols
+gsfonts ttf-droid ttf-dejavu ttf-liberation awesome-terminal-fonts ttf-nerd-fonts-symbols noto-fonts-emoji
 xcursor-vanilla-dmz xcursor-vanilla-dmz-aa
 adapta-gtk-theme breeze-gtk
 breeze-icons obsidian-icon-theme 
