@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.config/systemd/user/firefox-bookmarks-backup.sh
+ExecStart=%h/.config/scripts/firefox-bookmarks-backup.sh
 StandardOutput=journal
 StandardError=journal
 
