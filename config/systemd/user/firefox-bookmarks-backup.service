@@ -6,8 +6,6 @@ After=network-online.target
 [Service]
 Type=oneshot
 ExecStart=%h/.config/scripts/firefox-bookmarks-backup.sh
-StandardOutput=journal
-StandardError=journal
 
 [Install]
 WantedBy=default.target

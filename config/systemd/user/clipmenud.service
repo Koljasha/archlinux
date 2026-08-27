@@ -4,15 +4,14 @@
 
 [Unit]
 Description=Clipmenu daemon
-After=default.target
 
 [Service]
-Type=simple
 ExecCondition=/usr/bin/bash -c 'pgrep -x "qtile|i3|openbox" > /dev/null'
 ExecStart=/usr/bin/clipmenud
 Restart=on-failure
-RestartSec=5
+RestartSec=3
 Environment=DISPLAY=:0
+Environment=XAUTHORITY=%h/.Xauthority
 
 [Install]
 WantedBy=default.target

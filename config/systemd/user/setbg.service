@@ -4,7 +4,6 @@
 
 [Unit]
 Description=Set backgrounds service
-After=default.target
 
 [Service]
 Type=oneshot
