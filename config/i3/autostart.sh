@@ -37,6 +37,9 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
 
     # Restart clipmenud (fix some bug)
     systemctl --user restart clipmenud.service
+
+    # Restart clip-mirror (fix some bug)
+    systemctl --user restart clip-mirror.service
 else
     # Change color temperature
     /usr/bin/gammastep -O 4000 &
