@@ -1,33 +1,30 @@
 #!/usr/bin/env bash
-# clip-mirror.sh — зеркалит CLIPBOARD -> PRIMARY
-# После <leader>y в opencode текст вставляется и по Shift+Insert тоже.
+# clip-mirror.sh — зеркалит CLIPBOARD -> PRIMARY.
+# Событийный (push) режим через clipnotify: НЕТ busy-polling, нет вечных sleep в цикле.
+# Зависимости: clipnotify, xclip (X11).
 
-set -euo pipefail
+set -Eeuo pipefail
 
 LAST=""
-FAIL_COUNT=0
-MAX_FAIL=10  # после стольких ошибок подряд — переподключение
+
+# clipnotify — прямой потомок этого скрипта; при выходе убираем его, иначе зависнет сиротой.
+cleanup() { pkill -P "$$" clipnotify 2>/dev/null || true; }
+trap cleanup EXIT
+trap 'exit 0' INT TERM
 
 while true; do
-    # Проверяем доступность X11
-    if ! xclip -selection clipboard -o >/dev/null 2>&1; then
-        FAIL_COUNT=$((FAIL_COUNT + 1))
-        if (( FAIL_COUNT >= MAX_FAIL )); then
-            # X11 недоступен — ждём дольше, не спамим
-            sleep 5
-        else
-            sleep 1
-        fi
+    # Блокируется и печатает строку, только когда меняется CLIPBOARD -> событие,
+    # а не опрос каждую секунду. Ненулевой код = X-события недоступны (переждали).
+    if ! clipnotify >/dev/null 2>&1; then
+        sleep 2
         continue
     fi
 
-    # X11 работает — сбрасываем счётчик ошибок
-    FAIL_COUNT=0
-
-    cur=$(xclip -selection clipboard -o 2>/dev/null) || { sleep 1; continue; }
-    [[ "$cur" == "$LAST" ]] && { sleep 1; continue; }
+    cur="$(xclip -selection clipboard -o 2>/dev/null || true)"
+    [[ -z "$cur" || "$cur" == "$LAST" ]] && continue
     LAST="$cur"
 
-    printf '%s' "$cur" | xclip -selection primary -i 2>/dev/null || true
-    sleep 1
+    # xclip -i становится владельцем PRIMARY; прежний владелец получает SelectionClear
+    # и завершается сам — процессы не копятся.
+    printf '%s' "$cur" | xclip -selection primary >/dev/null 2>&1 || true
 done
