@@ -499,8 +499,6 @@ if [[ $de == "koljasha_wm" ]]; then
     # clipmenu enable
     sudo sed -i 's/set -- -dmenu/set -- -dmenu -i -p Clipboard/' /usr/bin/clipmenu
     systemctl --user enable clipmenud.service
-    # редко затупливает, тогда:
-    # systemctl --user restart clipmenud.service
 
     # Clipboard to Primary mirror
     systemctl --user enable clip-mirror.service
