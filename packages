@@ -154,7 +154,7 @@ $drivers $headers reflector pacman-contrib pkgfile man-db man-pages tldr arch-in
 android-tools dosfstools mtools net-tools xdg-user-dirs ntfs-3g gvfs gvfs-mtp gvfs-smb
 wmctrl brightnessctl redshift xclip xdotool xbindkeys bash-completion lesspipe ctags
 cryptsetup upower udisks2 smartmontools dmidecode btrfs-progs earlyoom timeshift
-git pass pwgen trash-cli numlockx wget curl httpie bind
+git pass pwgen trash-cli numlockx wget curl httpie bind knot
 fzf fd ripgrep jq tree highlight eza bat bat-extras git-delta gitleaks git-filter-repo ncdu mc
 screenfetch htop btop inxi cmatrix lm_sensors lsof strace
 atool p7zip unrar unzip zip
