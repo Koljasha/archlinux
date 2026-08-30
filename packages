@@ -339,6 +339,8 @@ fi
 
 # openvpn3 - new version OpenVpn (2025-05-05 need gcc14)
 
+# herdr-bin - like tmux for AI-agents
+
 #
 # additionally Flatpak options apps:
 # flatpak install flathub io.github.flattool.Warehouse
