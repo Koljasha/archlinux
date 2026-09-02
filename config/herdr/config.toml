@@ -2,4 +2,11 @@ onboarding = false
 
 [keys]
 prefix = 'ctrl+\'
+detach = "prefix+d"
 
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[ui]
+status_indicators = "symbols"
