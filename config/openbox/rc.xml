@@ -416,14 +416,9 @@
     <!-- Fn keys -->
     <keybind key="XF86Explorer">
       <action name="Execute">
-        <command>pcmanfm</command>
+        <command>obsidian</command>
       </action>
     </keybind>
-    <!-- <keybind key="XF86Search"> -->
-      <!-- <action name="Execute"> -->
-        <!-- <command>remmina</command> -->
-      <!-- </action> -->
-    <!-- </keybind> -->
     <keybind key="XF86Search">
       <action name="Execute">
         <command>google-chrome-stable</command>
@@ -434,11 +429,6 @@
         <command>gnome-calculator</command>
       </action>
     </keybind>
-    <!-- <keybind key="XF86Tools"> -->
-      <!-- <action name="Execute"> -->
-        <!-- <command>evim</command> -->
-      <!-- </action> -->
-    <!-- </keybind> -->
     <keybind key="XF86Tools">
       <action name="Execute">
         <command>Telegram</command>
