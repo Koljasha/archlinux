@@ -320,7 +320,10 @@ set $workspace10 "10:  "
 # Workspace for app:
 # $>xprop # show class name
 
+assign [class="Pcmanfm"] $workspace4
+assign [class="Obsidian"] $workspace4
 for_window [class="Pcmanfm"] layout tabbed
+for_window [class="Obsidian"] layout tabbed
 
 assign [class="firefox"] $workspace5
 for_window [class="firefox"] layout tabbed

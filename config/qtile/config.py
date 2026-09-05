@@ -383,7 +383,7 @@ groups = [
     Group("1: "),
     Group("2: "),
     Group("3: "),
-    Group("4: "),
+    Group("4: ", matches=Match(wm_class=re.compile(r"^(md\.obsidian\.Obsidian)$")), layout="max"),
     Group("5: ", matches=Match(wm_class=re.compile(r"^(firefox)$")), layout="max"),
     Group("6: ", layout="max"),
     Group("7: ", matches=Match(wm_class=re.compile(r"^(vlc)$")), layout="max"),
