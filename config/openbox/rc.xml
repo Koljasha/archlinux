@@ -217,6 +217,12 @@
       </action>
     </keybind>
 
+    <keybind key="W-Pause">
+      <action name="Execute">
+        <command>~/.config/scripts/kblock.py</command>
+      </action>
+    </keybind>
+
     <keybind key="W-C-b">
       <action name="Execute">
         <command>systemctl --user start setbg.service</command>

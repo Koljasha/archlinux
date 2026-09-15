@@ -59,6 +59,9 @@ bindsym $mod+p exec --no-startup-id ~/.config/scripts/utils.sh picom
 # Voice dictation
 bindsym $mod+Insert exec --no-startup-id ~/.local/opt/gigaam/dictate toggle
 
+# Keyboard lock
+bindsym $mod+Pause exec --no-startup-id ~/.config/scripts/kblock.py
+
 # Change background
 bindsym $mod+Control+b exec --no-startup-id systemctl --user start setbg.service
 
