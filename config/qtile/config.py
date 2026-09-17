@@ -151,6 +151,7 @@ keys = [
 
     # Voice dictation
     Key([mod], "Insert", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
+    Key([mod], "F1", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
 
     # Keyboard lock
     Key([mod], "Pause", lazy.spawn(scripts["kblock"]), desc="Keyboard lock"),

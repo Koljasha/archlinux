@@ -216,6 +216,11 @@
         <command>~/.local/opt/gigaam/dictate toggle</command>
       </action>
     </keybind>
+    <keybind key="W-F1">
+      <action name="Execute">
+        <command>~/.local/opt/gigaam/dictate toggle</command>
+      </action>
+    </keybind>
 
     <keybind key="W-Pause">
       <action name="Execute">

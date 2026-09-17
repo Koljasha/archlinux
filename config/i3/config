@@ -58,6 +58,7 @@ bindsym $mod+p exec --no-startup-id ~/.config/scripts/utils.sh picom
 
 # Voice dictation
 bindsym $mod+Insert exec --no-startup-id ~/.local/opt/gigaam/dictate toggle
+bindsym $mod+F1 exec --no-startup-id ~/.local/opt/gigaam/dictate toggle
 
 # Keyboard lock
 bindsym $mod+Pause exec --no-startup-id ~/.config/scripts/kblock.py
