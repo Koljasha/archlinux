@@ -219,6 +219,14 @@ ln -s "$STORAGE_MOUNT/local/config/vlc" ~/.config/vlc
 rm -rf ~/.config/xbindkeys
 ln -s "$STORAGE_MOUNT/local/config/xbindkeys" ~/.config/xbindkeys
 
+# конфиг shellcheck (файл ~/.config/shellcheck/shellcheckrc кладёт packages)
+rm -f ~/.shellcheckrc
+ln -s ~/.config/shellcheck/shellcheckrc ~/.shellcheckrc
+
+# конфиг shfmt / EditorConfig (файл ~/.config/shfmt/editorconfig кладёт packages)
+rm -f ~/.editorconfig
+ln -s ~/.config/shfmt/editorconfig ~/.editorconfig
+
 #
 # other actions
 #

@@ -84,6 +84,7 @@ editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=yadt256-defbg
+filepos_max_saved_entries=1024
 
 [Layout]
 output_lines=0
@@ -141,5 +142,5 @@ simple_swap=false
 [Panelize]
 Изменённые файлы под контролем git=git ls-files --modified
 Найти корректуры, отвергнутые командой patch=find . -name \\*.rej -print
-Найти оригиналы (*.orig) после команды patch=find . -name \\*.orig -print
 Найти программы с установленными битами SUID/SGID=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
+Найти оригиналы (*.orig) после команды patch=find . -name \\*.orig -print
