@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# run terminal in same working directory
+# запускаем терминал в том же рабочем каталоге
 #
 
 WHEREAMI=$(cat /tmp/whereami)

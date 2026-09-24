@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# show and start|stop Mullvad VPN
+# показываем и запускаем|останавливаем Mullvad VPN
 #
 
 status=`mullvad status | grep Disconnected`

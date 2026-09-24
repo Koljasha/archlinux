@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 #
-# change Workspaces | move to Workspaces
+# переключение рабочих столов | перемещение на рабочий стол
 #
 
-# current Workspaces
+# текущий рабочий стол
 # if [[ -n $(pgrep -f '^/usr/bin/python /usr/bin/qtile') ]]; then
 if [[ -n $(pgrep -x qtile) ]]; then
     workspaces=`qtile cmd-obj -o group -f info | grep 'label' | cut -d: -f2 | cut -d"\"" -f2`
@@ -27,21 +27,21 @@ declare -a options=(
 "10\0icon\x1fvideo-display"
 )
 
-# change Workspaces
+# переключаем рабочие столы
 if (( $# == 1 )) && [[ $1 == 'change' ]]; then
     workspaces=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $workspaces -p Workspaces 2>/dev/null`
-                # change to dmenu -> move up rofi
+                # смена на dmenu -> переместить выше rofi
                 # | dmenu -b -i -p Workspaces:`
     if [[ $workspaces == '10' ]]; then
         workspaces='0'
     fi
     xdotool key --clearmodifiers super+$workspaces
-# move to Workspaces
+# перемещаем на рабочий стол
 elif (( $# == 1 )) && [[ $1 == 'move' ]]; then
     workspaces=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $workspaces -p "Move to Workspaces" 2>/dev/null`
-                # change to dmenu -> move up rofi
+                # смена на dmenu -> переместить выше rofi
                 # | dmenu -b -i -p 'Move to Workspaces:'`
     if [[ $workspaces == '10' ]]; then
         workspaces='0'

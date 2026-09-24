@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# convert Firefox bookmarks.html file to qutebrowser quickmarks
+# конвертируем файл bookmarks.html Firefox в quickmarks qutebrowser
 
 
 if [[ ! -e ~/.config/qutebrowser/bookmarks/bookmarks.html ]]; then

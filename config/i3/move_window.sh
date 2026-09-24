@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# move current window to prev|next workspace
+# Перемещаем текущее окно на предыдущий|следующий рабочий стол
 
 motion=$1
 IFS=$'\n'
@@ -8,7 +8,7 @@ IFS=$'\n'
 workspaces=(`grep 'set $workspace' ~/.config/i3/config | cut -d"\"" -f2`)
 current=`i3-msg -t get_workspaces | jq '.[] | select(.focused==true).name' | cut -d"\"" -f2`
 
-# get index current workspace
+# Получаем индекс текущего рабочего стола
 for (( i=0; i <= ${#workspaces[@]}-1; i++ )); do
     if [[ "$current" == "${workspaces[$i]}" ]]; then
         index=$i
@@ -16,7 +16,7 @@ for (( i=0; i <= ${#workspaces[@]}-1; i++ )); do
     fi
 done
 
-# get index workspace to move
+# Получаем индекс рабочего стола для перемещения
 if [[ $motion == "left" ]]; then
     if (( $index == 0 )); then
         index=$((${#workspaces[@]}-1))

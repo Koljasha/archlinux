@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# show and change keyboard layout
+# показываем и меняем раскладку клавиатуры
 #
 
 if [[ $1 != "change" ]]; then

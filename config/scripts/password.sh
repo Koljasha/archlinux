@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-### generate new strong password
+### генерируем новый надёжный пароль
 
 if [[ $1 == 'generate' ]]; then
 
@@ -12,7 +12,7 @@ if [[ $1 == 'generate' ]]; then
     exit 0
 fi
 
-### menu for show password from pass
+### меню для показа пароля из pass
 
 name=`find ~/.password-store/ -iname "*.gpg" | awk -F "/" '{print $NF}' | awk '{print substr($0, 0, length($0)-4)}' | sort | rofi -dmenu -i -p PassName`
 if [[ "$name" == "" ]]; then

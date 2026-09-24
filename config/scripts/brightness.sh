@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 #
-# show and set brightness and temperature
+# показываем и задаём яркость и цветовую температуру
 #
 
 
 #
-### temperature
+### температура
 #
 
 
@@ -28,7 +28,7 @@ if [[ $1 == 'temperature' ]]; then
 
     brightness=`printf '%b\n' "${options[@]}" \
                 | rofi -dmenu -l 3 -select $brightness -p Temperature`
-                # change to dmenu -> move up rofi
+                # смена на dmenu -> переместить выше rofi
                 # | dmenu -b -i -p Brightness:`
     if [[ $brightness == "" ]]; then
         exit 0
@@ -40,7 +40,7 @@ fi
 
 
 #
-### brightness
+### яркость
 #
 
 
@@ -51,10 +51,10 @@ if (( $# == 0 )); then
 fi
 
 ###
-# round Brightness for past in rofi -select
+# округляем яркость для вставки в rofi -select
 #
-# substring - ${string:position:length}
-# length - ${#string}
+# подстрока - ${string:position:length}
+# длина - ${#string}
 ###
 last=${brightness: -1:1}
 prelast=${brightness: -2:1}
@@ -77,7 +77,7 @@ if [[ $1 != 'change' ]]; then
     exit 2
 fi
 
-# change brightness
+# меняем яркость
 declare -a options=(
 "100\0icon\x1fvideo-display"
 "90\0icon\x1fvideo-display"
@@ -93,7 +93,7 @@ declare -a options=(
 
 brightness=`printf '%b\n' "${options[@]}" \
             | rofi -dmenu -l 3 -select $brightness -p Brightness`
-            # change to dmenu -> move up rofi
+            # смена на dmenu -> переместить выше rofi
             # | dmenu -b -i -p Brightness:`
 if [[ $brightness == "" ]]; then
     exit 0

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 #
-# show and start|stop wireguard service
+# показываем и запускаем|останавливаем службу wireguard
 #
-# !!! Need wireguard config file: /etc/wireguard/wg0.conf !!!
+# !!! Нужен конфиг wireguard: /etc/wireguard/wg0.conf !!!
 #
 
 status=`sudo wg`

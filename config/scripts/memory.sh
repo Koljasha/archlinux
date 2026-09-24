@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# show memory like htop | btop
+# показываем память как htop | btop
 #
 
 function to_Gb {

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# xbindkeys for different devices
+# xbindkeys для разных устройств
 #
 
 deft_pro=`xinput list | grep 'pointer' | grep -i 'Deft Pro'`

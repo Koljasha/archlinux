@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 #
-# some utils
+# разные утилиты
 #
 
 if [[ $1 == 'desktop' ]]; then
 
-    # collapse|expand applications on the desktop (for Openbox)
+    # свернуть|развернуть приложения на рабочем столе (для Openbox)
 
     status=`wmctrl -m | grep "showing the desktop" | awk -F ": " '{ print $2 }'`
     if [[ $status == "OFF" ]]; then
@@ -20,7 +20,7 @@ fi
 
 if [[ $1 == 'lock' ]]; then
 
-    # display lock
+    # блокировка экрана
 
     terminator --geometry=1920x1080 --fullscreen --execute cmatrix -Lrb &
     sleep 1
@@ -32,7 +32,7 @@ fi
 
 if [[ $1 == 'picom' ]]; then
 
-    # restart Picom
+    # перезапускаем Picom
 
     killall picom 2>/dev/null
     sleep 0.5

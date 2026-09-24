@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 #
-# show and start|stop openvpn service
+# показываем и запускаем|останавливаем службу openvpn
 #
-# !!! Need openvpn config file: /etc/openvpn/client/openvpn.conf !!!
+# !!! Нужен конфиг openvpn: /etc/openvpn/client/openvpn.conf !!!
 #
 
 status=`pgrep -x openvpn`

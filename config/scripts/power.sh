@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 #
-# Combined power control and window manager exit script
-# Usage: 
-#   ./power.sh        - shows power menu (full menu)
-#   ./power.sh exit   - just exits WM (for jgmenu)
+# Комбинированный скрипт управления питанием и выхода из оконного менеджера
+# Использование: 
+#   ./power.sh        - показывает меню питания (полное меню)
+#   ./power.sh exit   - только выходит из WM (для jgmenu)
 #
 
-# Function to exit window manager
+# Функция выхода из оконного менеджера
 exit_wm() {
     if [[ -n $(pgrep -x openbox) ]]; then
         openbox --exit
@@ -18,7 +18,7 @@ exit_wm() {
     fi
 }
 
-# If first argument is "exit" - just exit WM
+# Если первый аргумент "exit" — просто выходим из WM
 if [[ "$1" == "exit" ]]; then
     exit_wm
     exit 0

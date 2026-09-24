@@ -7,10 +7,10 @@ if [[ $wm != "openbox" ]] && [[ $wm != "i3" ]]; then
     exit 1
 fi
 
-# Terminate already running bar instances
+# Завершаем уже запущенные экземпляры панели
 killall -q polybar
 
-# Launch bars
+# Запускаем панели
 echo "---" | tee -a /tmp/polybar.log
 polybar -c ~/.config/polybar/$wm.conf polybar >>/tmp/polybar.log 2>&1 &
 

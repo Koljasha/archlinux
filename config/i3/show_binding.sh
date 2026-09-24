@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Show all active i3wm binding
+# Показываем все активные привязки i3wm
 
 grep bindsym ~/.config/i3/config | grep -E -v "^#" | grep -E -v "^ "\
     | sed 's/bindsym //' | sed 's/--no-startup-id //' | sed 's/exec //' | sed 's/ / -> /'\

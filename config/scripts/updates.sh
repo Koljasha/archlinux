@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 #
-# show updates in Bar
-# !!! -> need yay -Sy as timer or cron
+# показываем обновления в панели
+# !!! -> нужно yay -Sy как таймер или cron
 #
 
 if [[ -n $(pgrep -x polybar) ]]; then
-    # for Polybar (Openbox, i3wm)
+    # для Polybar (Openbox, i3wm)
     if (( $# == 0 )); then
         yay=`yay -Qu | wc -l`
 
@@ -24,7 +24,7 @@ if [[ -n $(pgrep -x polybar) ]]; then
         polybar-msg cmd restart
     fi
 else
-    # for Qtile
+    # для Qtile
     terminator -x yay -Su --removemake --cleanafter
     qtile cmd-obj -o widget checkupdates -f force_update
     # qtile cmd-obj -o cmd -f reload_config

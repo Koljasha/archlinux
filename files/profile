@@ -1,39 +1,39 @@
 #
-# other configs
+# прочие конфиги
 #
 
 export LANG=ru_RU.UTF8
 
-# editor as vim
+# редактор — vim
 export EDITOR=vim
 
-# environment for Koljasha DE
+# окружение для Koljasha DE
 if [[ "$XDG_SESSION_DESKTOP" =~ (qtile|i3|openbox) ]]; then
 
-    # environment for QT applications
+    # окружение для приложений QT
     export QT_AUTO_SCREEN_SCALE_FACTOR=0
     export QT_QPA_PLATFORMTHEME="qt6ct"
 
-    # environment for Gnome apps
+    # окружение для приложений Gnome
     export GTK_THEME=Arc-Dark
 
-    # environment for clipmenu
+    # окружение для clipmenu
     export CM_LAUNCHER=rofi
 
-    # environment for Wayland
+    # окружение для Wayland
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-        # keyboard layout
+        # раскладка клавиатуры
         export XKB_DEFAULT_LAYOUT=us,ru
         export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 
         # firefox
         export MOZ_ENABLE_WAYLAND=1
 
-        # qt apps
+        # приложения qt
         export QT_QPA_PLATFORM=wayland
     fi
 
-    # environment for distrobox
+    # окружение для distrobox
     # export TERMINAL=terminator
 
 fi

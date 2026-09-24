@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# make screenshot with terminal command
+# делаем скриншот командой терминала
 #
 # yay -S maim grim slurp swappy wl-clipboard
 #
@@ -52,8 +52,8 @@ else
             fi
             swappy -f $screenshot &
 
-            # move swappy to center
-            # Bug, maybe because Swappy is Wayland app
+            # перемещаем swappy в центр
+            # Баг, возможно потому что Swappy — Wayland-приложение
             sleep 0.5
 
             display_dimensions=`xdpyinfo | grep -oP 'dimensions:\s+\K\S+'`

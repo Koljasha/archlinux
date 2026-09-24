@@ -2,13 +2,13 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anuthing
+# Если запущено неинтерактивно, ничего не делаем
 [[ $- != *i* ]] && return
 
 # PS1='[\u@\h \W]\$ '
 
 
-# show git branch|status
+# показываем ветку|статус git
 get_git_branch () {
   if git status &>/dev/null && which git &>/dev/null; then
     local gbranch=`git rev-parse --abbrev-ref HEAD`
@@ -29,7 +29,7 @@ get_git_branch () {
 PS1="[\[\033[01;33m\]\u\[\033[1;34m\]@\[\033[01;32m\]\h: \[\033[01;34m\]\w\[\033[0;36m\]\$(get_git_branch)\[\033[00m\]]\\$ "
 
 
-# linux command aliases
+# алиасы linux-команд
 alias ls='ls --color=auto'
 alias ll="ls -lahv --group-directories-first"
 alias grep='grep --color=auto'
@@ -38,7 +38,7 @@ alias mv="mv -v"
 alias rm="rm -v"
 alias view="vim -R"
 
-# alias for create/activate python virtual envorenment
+# алиас для создания/активации виртуального окружения python
 venv() {
     if test -e .venv; then
         source .venv/bin/activate
@@ -48,7 +48,7 @@ venv() {
     fi
 }
 
-# ranger auto cd
+# авто cd для ranger
 rcd() {
     temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"
@@ -58,6 +58,6 @@ rcd() {
     rm -f -- "$temp_file"
 }
 
-# save current directory (it is necessary for tiling managers like i3, qtile)
+# сохраняем текущий каталог (нужно для тайловых менеджеров вроде i3, qtile)
 export PROMPT_COMMAND="pwd > /tmp/whereami"
 

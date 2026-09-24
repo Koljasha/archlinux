@@ -3,7 +3,7 @@
 # mmaker
 mmaker -f -t GNOME-terminal OpenBox3
 
-# start file
+# начало файла
 sed -i '3a\ \t\t<item label="Terminator"> <action name="Execute">' ~/.config/openbox/menu.xml
 sed -i '4a\ \t\t\t<execute>terminator -m</execute>' ~/.config/openbox/menu.xml
 sed -i '5a\ \t\t</action> </item>' ~/.config/openbox/menu.xml
@@ -18,7 +18,7 @@ sed -i '11a\ \t\t</action> </item>' ~/.config/openbox/menu.xml
 
 sed -i '12a\ \t\t<separator />' ~/.config/openbox/menu.xml
 
-# end file
+# конец файла
 sed -i '/name="Reconfigure"/ a\ \t\t\t<item label="Restart"> <action name="Restart"/> </item>' ~/.config/openbox/menu.xml
 
 sed -i '/name="Exit"/ a\ \t\t\t</action> </item>' ~/.config/openbox/menu.xml

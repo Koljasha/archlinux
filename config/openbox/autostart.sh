@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 
-# Numlock on
+# Включаем NumLock
 numlockx on &
 
-# Disable Xorg screensaver
+# Отключаем скринсейвер Xorg
 xset -dpms &
 xset s off &
 
-# Disable beeper
+# Отключаем пищалку
 xset -b &
 
-# PolicyKit Authentication Agent - Gnome
+# Агент аутентификации PolicyKit — Gnome
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Notifications
+# Уведомления
 dunst &
 
-# Bluetooth applet
+# Апплет Bluetooth
 blueman-applet &
 
 if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
-    # Transparency
+    # Прозрачность
     picom &
 
-    # NetworkManager applet
+    # Апплет NetworkManager
     nm-applet &
 
     # Polybar
@@ -32,28 +32,28 @@ if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     # Plank
     plank &
 
-    # Backgroung image
+    # Фоновое изображение
     feh --bg-scale /usr/share/backgrounds/archlinux/simple.png &
 
-    # Change color temperature
+    # Меняем цветовую температуру
     /usr/bin/redshift -P -O 4000
 
-    # Restart clipmenud (fix some bug)
+    # Перезапускаем clipmenud (обход бага)
     systemctl --user restart clipmenud.service
 
-    # Restart clip-mirror (fix some bug)
+    # Перезапускаем clip-mirror (обход бага)
     systemctl --user restart clip-mirror.service
 else
-    # Change color temperature
+    # Меняем цветовую температуру
     /usr/bin/gammastep -O 4000 &
 
-    # NetworkManager applet
+    # Апплет NetworkManager
     nm-applet --indicator &
 fi
 
-# Additionally bindings
+# Дополнительные привязки
 ~/.config/scripts/xbindkeys.sh &
 
-# Set screen resolution for Virtual Box
+# Устанавливаем разрешение экрана для VirtualBox
 # xrandr -s 1360x768 &
 
