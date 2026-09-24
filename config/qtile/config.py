@@ -4,16 +4,16 @@
 import os
 import re
 import subprocess
-import psutil
 
-from libqtile import hook, layout, bar, widget, qtile
-from libqtile.config import Key, KeyChord, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
+import psutil
+from libqtile import bar, hook, layout, qtile, widget
+from libqtile.config import Click, Drag, DropDown, Group, Key, KeyChord, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
 
 if qtile.core.name == "wayland":
     from libqtile.backend.wayland import InputConfig
 
-from libqtile.log_utils import logger
+# from libqtile.log_utils import logger  # F401: импорт не используется (оставлен для отладки)
 
 ######### Переменные и функции #########
 
@@ -62,7 +62,7 @@ scripts = {
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.run([scripts["autostart"]])
+    subprocess.run([scripts["autostart"]], check=False)
 
 @lazy.function
 def increase_gaps(qtile):
@@ -71,7 +71,7 @@ def increase_gaps(qtile):
 
 @lazy.function
 def decrease_gaps(qtile):
-    qtile.current_layout.margin = qtile.current_layout.margin-5 if qtile.current_layout.margin-5 > 0 else 0
+    qtile.current_layout.margin = max(0, qtile.current_layout.margin - 5)
     qtile.current_group.layout_all()
 
 @lazy.function
@@ -98,7 +98,7 @@ if qtile.core.name == "x11":
     @hook.subscribe.client_managed
     def make_urgent(window):
         if qtile.current_window is None or qtile.current_window.wid != window.wid:
-            atom = set([qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]])
+            atom = {qtile.core.conn.atoms["_NET_WM_STATE_DEMANDS_ATTENTION"]}
             prev_state = set(window.window.get_property("_NET_WM_STATE", "ATOM", unpack=int))
             new_state = prev_state | atom
             window.window.set_property("_NET_WM_STATE", list(new_state))
@@ -445,12 +445,12 @@ floating_layout = layout.Floating(
 
 ######### Панели #########
 
-widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
-    foreground=colors["light_blue"],
-)
+widget_defaults = {
+    "font": "sans",
+    "fontsize": 12,
+    "padding": 3,
+    "foreground": colors["light_blue"],
+}
 extension_defaults = widget_defaults.copy()
 
 #

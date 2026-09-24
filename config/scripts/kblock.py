@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 kblock.py — блокировка клавиатуры в X11 с разблокировкой той же комбинацией.
 
@@ -73,10 +72,12 @@ kblock.py — блокировка клавиатуры в X11 с разблок
 """
 
 import os
+import select
 import sys
 import time
-import select
-from Xlib import X, display as xdisplay, XK
+
+from Xlib import XK, X
+from Xlib import display as xdisplay
 
 KEY_NAME = os.environ.get("KBLOCK_KEY", "Pause")  # keysym: Pause, p, F12...
 MOD_MASK = X.Mod4Mask  # клавиша Win / Super
