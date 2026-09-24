@@ -12,11 +12,10 @@ echo
 loadkeys ru
 
 # Проверка режима загрузки EFI
-table=`ls /sys/firmware/efi/efivars 2>&1 | grep -o "cannot access"`
-if [[ "$table" == "cannot access" ]]; then
-    table="BIOS"
-else
+if [[ -d /sys/firmware/efi/efivars ]]; then
     table="UEFI"
+else
+    table="BIOS"
 fi
 
 # Проверка сети

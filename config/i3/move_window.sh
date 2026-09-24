@@ -5,7 +5,8 @@
 motion=$1
 IFS=$'\n'
 
-workspaces=(`grep 'set $workspace' ~/.config/i3/config | cut -d"\"" -f2`)
+workspaces=()
+while IFS= read -r line; do workspaces+=("$line"); done < <(grep 'set $workspace' ~/.config/i3/config | cut -d'"' -f2)
 current=`i3-msg -t get_workspaces | jq '.[] | select(.focused==true).name' | cut -d"\"" -f2`
 
 # Получаем индекс текущего рабочего стола

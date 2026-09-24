@@ -366,7 +366,7 @@ fi
 ###############
 
 # переход|проверка каталога
-cd ~/archlinux
+cd ~/archlinux || exit 1
 
 # Обновление mirrorlist (глобальный медленный)
 # sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/

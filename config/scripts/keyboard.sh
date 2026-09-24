@@ -14,7 +14,7 @@ if [[ $1 != "change" ]]; then
             echo 'en'
         fi
     else
-        echo $(xkb-switch)
+        echo "$(xkb-switch)"
     fi
 else
     xkb-switch --next
