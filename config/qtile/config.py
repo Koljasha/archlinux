@@ -136,160 +136,160 @@ keys = [
     ######### Основное #########
 
     # Закрыть активное окно
-    Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "q", lazy.window.kill(), desc="Закрыть активное окно"),
 
     # Перезагрузить | Перезапустить Qtile
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config Qtile"),
-    Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Перезагрузить конфигурацию Qtile"),
+    Key([mod, "control"], "r", lazy.restart(), desc="Перезапустить Qtile"),
 
     # Меню выхода
-    Key([mod, "shift"], "p", lazy.spawn(scripts["power"]), desc="Exit | Reboot | Poweroff"),
-    Key([mod, "control"], "p", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "p", lazy.spawn(scripts["power"]), desc="Выход | Перезагрузка | Выключение"),
+    Key([mod, "control"], "p", lazy.shutdown(), desc="Завершить Qtile"),
 
     # Перезапуск Picom
-    Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
+    Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Перезапустить Picom"),
 
     # Голосовой ввод
-    Key([mod], "Insert", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
-    Key([mod], "F1", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
+    Key([mod], "Insert", lazy.spawn(scripts["voice_dictation"]), desc="Голосовой ввод"),
+    Key([mod], "F1", lazy.spawn(scripts["voice_dictation"]), desc="Голосовой ввод"),
 
     # Блокировка клавиатуры
-    Key([mod], "Pause", lazy.spawn(scripts["kblock"]), desc="Keyboard lock"),
+    Key([mod], "Pause", lazy.spawn(scripts["kblock"]), desc="Блокировка клавиатуры"),
 
     # Сменить обои
-    Key([mod, "control"], "b", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
+    Key([mod, "control"], "b", lazy.spawn("systemctl --user start setbg.service"), desc="Сменить обои"),
 
     # Убить окно
-    Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
+    Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Закрыть окно"),
     # Перезагрузка системы
-    Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
+    Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Перезагрузить систему"),
 
     # Сменить руку мыши
-    Key([mod, "control"], "m", lazy.spawn(scripts["mouse_right_left"]), desc="Change mouse left|right hand"),
+    Key([mod, "control"], "m", lazy.spawn(scripts["mouse_right_left"]), desc="Сменить руку мыши"),
     # Сменить кнопку прокрутки мыши
-    Key([mod, "shift"], "m", lazy.spawn(scripts["mouse_scrolling_button"]), desc="Change mouse scrolling button"),
+    Key([mod, "shift"], "m", lazy.spawn(scripts["mouse_scrolling_button"]), desc="Сменить кнопку прокрутки мыши"),
 
     ######### Меню #########
 
-    Key([mod], "d", lazy.spawn("dmenu_run -b -i"), desc="Run dmenu run"),
+    Key([mod], "d", lazy.spawn("dmenu_run -b -i"), desc="Запустить dmenu"),
 
-    Key([mod], "grave", lazy.spawn("jgmenu_run"), desc="Run jgmenu"),
+    Key([mod], "grave", lazy.spawn("jgmenu_run"), desc="Запустить jgmenu"),
 
-    Key([mod], "a", lazy.spawn("rofi -show drun"), desc="Run rofi drun"),
-    Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Run rofi run"),
-    Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
+    Key([mod], "a", lazy.spawn("rofi -show drun"), desc="Запустить rofi drun"),
+    Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Запустить rofi run"),
+    Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Запустить rofi window"),
 
     ######### Меню управления #########
 
     # Яркость
-    Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
-    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness_temperature']}"), desc="Change brightness temperature"),
+    Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Изменить яркость"),
+    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness_temperature']}"), desc="Изменить цветовую температуру"),
 
     # Буфер обмена
     # редко затупливает, тогда:
     # systemctl --user restart clipmenud.service
-    Key([mod], "c", lazy.spawn("clipmenu"), desc="Show clipboard history"),
+    Key([mod], "c", lazy.spawn("clipmenu"), desc="История буфера обмена"),
 
     # Пароли
-    Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
-    Key([mod, "shift"], "s", lazy.spawn(scripts["password_generate"]), desc="Run menu for generate pass"),
+    Key([mod], "s", lazy.spawn(scripts["password"]), desc="Меню паролей"),
+    Key([mod, "shift"], "s", lazy.spawn(scripts["password_generate"]), desc="Меню генерации пароля"),
 
     # Громкость
-    Key([mod], "z", lazy.spawn(f"{scripts['volume']} change"), desc="Change volume"),
+    Key([mod], "z", lazy.spawn(f"{scripts['volume']} change"), desc="Изменить громкость"),
 
     # Рабочие столы
-    Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Change workspaces"),
-    Key([mod, "shift"], "x", lazy.spawn(f"{scripts['workspaces']} move"), desc="Move to workspaces"),
+    Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Сменить рабочий стол"),
+    Key([mod, "shift"], "x", lazy.spawn(f"{scripts['workspaces']} move"), desc="Переместить на рабочий стол"),
 
     ######### Система #########
 
     # Управление громкостью
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc="Volume up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc="Volume down"),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc="Громкость выше"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc="Громкость ниже"),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Выключить звук"),
 
     # Скриншот
-    Key([], "Print", lazy.spawn(f"{scripts['screenshot']} full"), desc="Make a screenshot"),
-    Key([mod], "Print", lazy.spawn(f"{scripts['screenshot']} region"), desc="Make a screenshot"),
-    Key([mod, "shift"], "Print", lazy.spawn(f"{scripts['screenshot']} edit"), desc="Make a screenshot"),
-    # Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
+    Key([], "Print", lazy.spawn(f"{scripts['screenshot']} full"), desc="Сделать скриншот"),
+    Key([mod], "Print", lazy.spawn(f"{scripts['screenshot']} region"), desc="Сделать скриншот"),
+    Key([mod, "shift"], "Print", lazy.spawn(f"{scripts['screenshot']} edit"), desc="Сделать скриншот"),
+    # Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Сделать скриншот"),
 
     # Уведомления
-    Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
-    Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
+    Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Закрыть уведомления"),
+    Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="История уведомлений"),
 
     # VPN
-    Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Start|Stop Vpn"),
-    # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Start|Stop Vpn"),
+    Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Включить|Выключить VPN"),
+    # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Включить|Выключить VPN"),
 
     # Обновление системы
-    Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
+    Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="Обновление системы"),
 
     ######### Приложения #########
 
     # Терминал
-    Key([mod], "Return", lazy.spawn(f"{scripts['shell']} alacritty"), desc="Launch terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn(f"{scripts['shell']} terminator"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(f"{scripts['shell']} alacritty"), desc="Запустить терминал"),
+    Key([mod, "shift"], "Return", lazy.spawn(f"{scripts['shell']} terminator"), desc="Запустить терминал"),
 
-    Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
+    Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Запустить терминал"),
 
     # Браузер
-    Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
+    Key([mod], "b", lazy.spawn("firefox"), desc="Запустить браузер"),
 
     # Запустить htop
-    Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
+    Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Запустить htop"),
 
     # Fn-клавиши
     Key([], "XF86Explorer", lazy.spawn("pcmanfm"), desc="PcManFm"),
     Key([], "XF86HomePage", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
     Key([], "XF86Mail", lazy.spawn("obsidian"), desc="Obsidian"),
     Key([], "XF86Tools", lazy.spawn("Telegram"), desc="Telegram"),
-    Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
+    Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Калькулятор"),
     # Key([], "XF86Search", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
 
     ######### Окна #########
 
     # Переключение между окнами
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "Left", lazy.layout.left(), desc="Фокус влево"),
+    Key([mod], "h", lazy.layout.left(), desc="Фокус влево"),
+    Key([mod], "Down", lazy.layout.down(), desc="Фокус вниз"),
+    Key([mod], "j", lazy.layout.down(), desc="Фокус вниз"),
+    Key([mod], "Up", lazy.layout.up(), desc="Фокус вверх"),
+    Key([mod], "k", lazy.layout.up(), desc="Фокус вверх"),
+    Key([mod], "Right", lazy.layout.right(), desc="Фокус вправо"),
+    Key([mod], "l", lazy.layout.right(), desc="Фокус вправо"),
 
     # Перемещение окон между колонками или вверх/вниз в текущем стеке.
     # Перемещение за границу в раскладке Columns создаёт новую колонку.
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Переместить окно влево"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Переместить окно влево"),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Переместить окно вниз"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Переместить окно вниз"),
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Переместить окно вверх"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Переместить окно вверх"),
+    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Переместить окно вправо"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Переместить окно вправо"),
 
     # Изменение размера окон. Если окно у края экрана, а направление —
     # к краю, окно будет уменьшаться.
-    Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Расширить окно влево"),
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Расширить окно влево"),
+    Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Расширить окно вниз"),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Расширить окно вниз"),
+    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Расширить окно вверх"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Расширить окно вверх"),
+    Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Расширить окно вправо"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Расширить окно вправо"),
     # или
     KeyChord([mod, "shift"], "space", [
-            Key([], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
-            Key([], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-            Key([], "Down", lazy.layout.grow_down(), desc="Grow window down"),
-            Key([], "j", lazy.layout.grow_down(), desc="Grow window down"),
-            Key([], "Up", lazy.layout.grow_up(), desc="Grow window up"),
-            Key([], "k", lazy.layout.grow_up(), desc="Grow window up"),
-            Key([], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
-            Key([], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+            Key([], "Left", lazy.layout.grow_left(), desc="Расширить окно влево"),
+            Key([], "h", lazy.layout.grow_left(), desc="Расширить окно влево"),
+            Key([], "Down", lazy.layout.grow_down(), desc="Расширить окно вниз"),
+            Key([], "j", lazy.layout.grow_down(), desc="Расширить окно вниз"),
+            Key([], "Up", lazy.layout.grow_up(), desc="Расширить окно вверх"),
+            Key([], "k", lazy.layout.grow_up(), desc="Расширить окно вверх"),
+            Key([], "Right", lazy.layout.grow_right(), desc="Расширить окно вправо"),
+            Key([], "l", lazy.layout.grow_right(), desc="Расширить окно вправо"),
 
             Key([], "Return", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
             Key([mod, "shift"], "space", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
@@ -298,25 +298,25 @@ keys = [
             name="  " ,
         ),
 
-    Key([mod], "space", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod], "space", lazy.layout.normalize(), desc="Сбросить размеры всех окон"),
 
-    Key([alt], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([alt], "Tab", lazy.layout.next(), desc="Передать фокус другому окну"),
 
-    Key([mod], "m", toggle_minimize(), desc="Toggle minimize windows"),
+    Key([mod], "m", toggle_minimize(), desc="Свернуть/развернуть окно"),
 
     ######### Раскладки #########
 
-    Key([mod], "w", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "e", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+    Key([mod], "w", lazy.next_layout(), desc="Переключить раскладку"),
+    Key([mod], "e", lazy.layout.toggle_split(), desc="Переключить split/unsplit стека"),
 
-    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
-    Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Переключить плавающий режим"),
+    Key([mod, "control"], "f", lazy.window.toggle_fullscreen(), desc="Переключить полноэкранный режим"),
 
     KeyChord([mod, "control"], "space", [
-            Key([], "Down", increase_gaps(), desc="Increase Gaps"),
-            Key([], "Right", increase_gaps(), desc="Increase Gaps"),
-            Key([], "Up", decrease_gaps(), desc="Decrease Gaps"),
-            Key([], "Left", decrease_gaps(), desc="Decrease Gaps"),
+            Key([], "Down", increase_gaps(), desc="Увеличить отступы"),
+            Key([], "Right", increase_gaps(), desc="Увеличить отступы"),
+            Key([], "Up", decrease_gaps(), desc="Уменьшить отступы"),
+            Key([], "Left", decrease_gaps(), desc="Уменьшить отступы"),
 
             Key([], "Return", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
             Key([mod, "control"], "space", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
@@ -327,42 +327,42 @@ keys = [
 
     ######### Рабочие столы #########
 
-    Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
-    Key([alt, "control"], "h", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
-    Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
-    Key([alt, "control"], "l", lazy.screen.next_group(skip_empty=True), desc="Change groups"),
+    Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Сменить группу"),
+    Key([alt, "control"], "h", lazy.screen.prev_group(skip_empty=True), desc="Сменить группу"),
+    Key([alt, "control"], "Right", lazy.screen.next_group(skip_empty=True), desc="Сменить группу"),
+    Key([alt, "control"], "l", lazy.screen.next_group(skip_empty=True), desc="Сменить группу"),
 
-    Key([alt, "control"], "Down", move_prev_group(), desc="Move window to prev group"),
-    Key([alt, "control"], "j", move_prev_group(), desc="Move window to prev group"),
-    Key([alt, "control"], "Up", move_next_group(), desc="Move window to next group"),
-    Key([alt, "control"], "k", move_next_group(), desc="Move window to next group"),
+    Key([alt, "control"], "Down", move_prev_group(), desc="Переместить окно в предыдущую группу"),
+    Key([alt, "control"], "j", move_prev_group(), desc="Переместить окно в предыдущую группу"),
+    Key([alt, "control"], "Up", move_next_group(), desc="Переместить окно в следующую группу"),
+    Key([alt, "control"], "k", move_next_group(), desc="Переместить окно в следующую группу"),
 
-    Key([mod], "backspace", lazy.group["scratchpad"].dropdown_toggle("terminal"), desc="ScratchPad"),
+    Key([mod], "backspace", lazy.group["scratchpad"].dropdown_toggle("terminal"), desc="Скретчпад"),
 
     ######### Мышь на клавиатуре #########
 
     KeyChord([mod], "Home", [
-            Key([], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Mouse left"),
-            Key(["shift"], "Left", lazy.spawn("xdotool mousemove_relative -- -10 0"), desc="Mouse left"),
-            Key(["control"], "Left", lazy.spawn("xdotool mousemove_relative -- -250 0"), desc="Mouse left"),
+            Key([], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Мышь влево"),
+            Key(["shift"], "Left", lazy.spawn("xdotool mousemove_relative -- -10 0"), desc="Мышь влево"),
+            Key(["control"], "Left", lazy.spawn("xdotool mousemove_relative -- -250 0"), desc="Мышь влево"),
 
-            Key([], "Right", lazy.spawn("xdotool mousemove_relative -- 50 0"), desc="Mouse right"),
-            Key(["shift"], "Right", lazy.spawn("xdotool mousemove_relative -- 10 0"), desc="Mouse right"),
-            Key(["control"], "Right", lazy.spawn("xdotool mousemove_relative -- 250 0"), desc="Mouse right"),
+            Key([], "Right", lazy.spawn("xdotool mousemove_relative -- 50 0"), desc="Мышь вправо"),
+            Key(["shift"], "Right", lazy.spawn("xdotool mousemove_relative -- 10 0"), desc="Мышь вправо"),
+            Key(["control"], "Right", lazy.spawn("xdotool mousemove_relative -- 250 0"), desc="Мышь вправо"),
 
-            Key([], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -50"), desc="Mouse up"),
-            Key(["shift"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -10"), desc="Mouse up"),
-            Key(["control"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -250"), desc="Mouse up"),
+            Key([], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -50"), desc="Мышь вверх"),
+            Key(["shift"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -10"), desc="Мышь вверх"),
+            Key(["control"], "Up", lazy.spawn("xdotool mousemove_relative -- 0 -250"), desc="Мышь вверх"),
 
-            Key([], "Down", lazy.spawn("xdotool mousemove_relative -- 0 50"), desc="Mouse down"),
-            Key(["shift"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 10"), desc="Mouse down"),
-            Key(["control"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 250"), desc="Mouse down"),
+            Key([], "Down", lazy.spawn("xdotool mousemove_relative -- 0 50"), desc="Мышь вниз"),
+            Key(["shift"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 10"), desc="Мышь вниз"),
+            Key(["control"], "Down", lazy.spawn("xdotool mousemove_relative -- 0 250"), desc="Мышь вниз"),
 
-            Key([], "Return", lazy.spawn("xdotool click 1"), desc="Mouse left click"),
-            Key([], "Page_Up", lazy.spawn("xdotool click 4"), desc="Mouse wheel up"),
-            Key([], "Page_Down", lazy.spawn("xdotool click 5"), desc="Mouse wheel down"),
-            Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
-            Key([], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
+            Key([], "Return", lazy.spawn("xdotool click 1"), desc="Левый клик мыши"),
+            Key([], "Page_Up", lazy.spawn("xdotool click 4"), desc="Колесо мыши вверх"),
+            Key([], "Page_Down", lazy.spawn("xdotool click 5"), desc="Колесо мыши вниз"),
+            Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Дополнительная кнопка мыши"),
+            Key([], "Delete", lazy.spawn("xdotool click 8"), desc="Дополнительная кнопка мыши"),
 
             Key([mod], "Home", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
             ],
@@ -406,8 +406,8 @@ for i in groups[:-1]: # без ScratchPad
     name = i.name
     keys.extend(
         [
-            Key([mod], key, lazy.group[name].toscreen(), desc=f"Switch to group {name}"),
-            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=True), desc=f"Move focused window to group {name}"),
+            Key([mod], key, lazy.group[name].toscreen(), desc=f"Переключиться на группу {name}"),
+            Key([mod, "shift"], key, lazy.window.togroup(name, switch_group=True), desc=f"Переместить активное окно в группу {name}"),
         ]
     )
 
