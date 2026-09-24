@@ -8,10 +8,10 @@ echo "Check out the Arch Linux Installation Guide"
 echo "############################################"
 echo
 
-# Set the keyboard layout
+# Установка раскладки клавиатуры
 loadkeys ru
 
-# Check EFI boot mode
+# Проверка режима загрузки EFI
 table=`ls /sys/firmware/efi/efivars 2>&1 | grep -o "cannot access"`
 if [[ "$table" == "cannot access" ]]; then
     table="BIOS"
@@ -19,11 +19,11 @@ else
     table="UEFI"
 fi
 
-# Check network
+# Проверка сети
 ip link
 ping -c3 archlinux.org
 
-# Update the system clock
+# Обновление системных часов
 timedatectl set-ntp true
 sleep 3; echo
 timedatectl status
@@ -34,7 +34,7 @@ echo "Click any key; ctrl-c is abort"
 echo "####################"
 read -n1 -p">"; echo
 
-# Create disk table; format and mount it
+# Создание таблицы разделов; форматирование и монтирование
 
 lsblk; echo
 
@@ -155,7 +155,7 @@ echo "####################"
 read -n1 -p">"; echo
 
 
-# Install base packages
+# Установка базовых пакетов
 
 # grub
 while [[ $grub != "1" ]] && [[ $grub != "2" ]]; do
@@ -177,7 +177,7 @@ else
     grub=""
 fi
 
-# kernel
+# ядро
 while [[ $kernel != "1" ]] && [[ $kernel != "2" ]] && [[ $kernel != "3" ]] && [[ $kernel != "4" ]]; do
     echo "####################"
     echo "Install what kernel:"
@@ -206,7 +206,7 @@ packages="archlinux-keyring base base-devel $kernel linux-firmware $grub network
 pacstrap /mnt $packages
 
 
-# Generate /etc/fstab
+# Генерация /etc/fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 echo; echo
 cat /mnt/etc/fstab
@@ -217,7 +217,7 @@ echo "Click any key; ctrl-c is abort"
 echo "####################"
 read -n1 -p">"; echo
 
-# Copy script for chroot mode
+# Копирование скрипта для chroot-режима
 cp -r /root/archlinux /mnt/root
 
 echo
@@ -234,11 +234,11 @@ else
     echo "####################"
 fi
 
-# Run arch-chroot
+# Запуск arch-chroot
 
 arch-chroot /mnt
 
-# Clean
+# Очистка
 rm -rf /mnt/root/archlinux
 umount -R /mnt
 

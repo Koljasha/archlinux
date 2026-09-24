@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-# create swapfile; write to fstab
+# Создание swapfile; запись в fstab
 
 if [[ $(whoami) != 'root' ]]; then
     echo 'Need run form sudo'
     exit 2
 fi
 
-# create
+# Создание
 # dd if=/dev/zero of=/swapfile bs=1M count=4k status=progress
-# or
+# или
 # fallocate -l 4G /swapfile
 
 # chmod 0600 /swapfile
@@ -18,7 +18,7 @@ fi
 mkswap -U clear --size 4G --file /swapfile
 swapon /swapfile
 
-# enable
+# Включение
 echo '# swapfile' >> /etc/fstab
 echo '/swapfile   none    swap    defaults    0 0' >> /etc/fstab
 echo '' >> /etc/fstab
