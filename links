@@ -4,6 +4,17 @@
 # creating a working link system (for me: Koljasha disk's system)
 #
 
+# --- Настройки (измените под свою систему) ---
+
+# Точка монтирования диска с личными данными.
+STORAGE_MOUNT="${STORAGE_MOUNT:-/run/mount/storage}"
+# UUID раздела диска (посмотреть командой: lsblk -f).
+STORAGE_UUID="${STORAGE_UUID:-c6ab23b5-1b6d-4c3f-8488-6efee0144e54}"
+# Метка раздела (для комментария в fstab).
+STORAGE_LABEL="${STORAGE_LABEL:-Storage}"
+# Каталог с личным архивом (zip) на диске.
+ZIP_DIR="${ZIP_DIR:-Koljasha}"
+
 # create fstab record
 while [[ $rec != "1" ]] && [[ $rec != "2" ]]; do
     echo; echo
@@ -19,12 +30,12 @@ echo; echo
 if [[ $rec == "1" ]]; then
     # folder | fstab | mount
 
-    sudo mkdir /run/mount/storage
-    sudo chown koljasha:koljasha /run/mount/storage
+    sudo mkdir "$STORAGE_MOUNT"
+    sudo chown "$USER:$USER" "$STORAGE_MOUNT"
 
     echo | sudo tee --append /etc/fstab
-    echo '# /dev/sda4 LABAL=Storage' | sudo tee --append /etc/fstab
-    echo 'UUID=c6ab23b5-1b6d-4c3f-8488-6efee0144e54	/run/mount/storage/	ext4	rw,relatime	0 2' | sudo tee --append /etc/fstab
+    echo "# /dev/sda4 LABEL=$STORAGE_LABEL" | sudo tee --append /etc/fstab
+    echo "UUID=$STORAGE_UUID	$STORAGE_MOUNT/	ext4	rw,relatime	0 2" | sudo tee --append /etc/fstab
     echo | sudo tee --append /etc/fstab
 
     sudo systemctl daemon-reload
@@ -35,36 +46,36 @@ echo "Ok"
 
 # home dirs
 rm -rf ~/Downloads
-ln -s /run/mount/storage/home/Downloads ~/Downloads
+ln -s "$STORAGE_MOUNT/home/Downloads" ~/Downloads
 rm -rf ~/Share
-ln -s /run/mount/storage/home/Share ~/Share
+ln -s "$STORAGE_MOUNT/home/Share" ~/Share
 rm -rf ~/Video
-ln -s /run/mount/storage/home/Video ~/Video
+ln -s "$STORAGE_MOUNT/home/Video" ~/Video
 rm -rf ~/Work
-ln -s /run/mount/storage/home/Work ~/Work
+ln -s "$STORAGE_MOUNT/home/Work" ~/Work
 rm -rf ~/tmp
-ln -s /run/mount/storage/home/tmp ~/tmp
+ln -s "$STORAGE_MOUNT/home/tmp" ~/tmp
 
 # gitconfig
 rm -rf ~/.gitconfig
-ln -s /run/mount/storage/local/settings/gitconfig ~/.gitconfig
+ln -s "$STORAGE_MOUNT/local/settings/gitconfig" ~/.gitconfig
 
 # key dirs
 rm -rf ~/.gnupg
-ln -s /run/mount/storage/local/settings/gnupg ~/.gnupg
+ln -s "$STORAGE_MOUNT/local/settings/gnupg" ~/.gnupg
 rm -rf ~/.password-store
-ln -s /run/mount/storage/local/settings/password-store ~/.password-store
+ln -s "$STORAGE_MOUNT/local/settings/password-store" ~/.password-store
 rm -rf ~/.ssh
-ln -s /run/mount/storage/local/settings/ssh ~/.ssh
+ln -s "$STORAGE_MOUNT/local/settings/ssh" ~/.ssh
 
 # gnome-boxes dirs
 rm -rf ~/.local/share/gnome-boxes
-ln -s /run/mount/storage/local/gnome-boxes ~/.local/share/gnome-boxes
+ln -s "$STORAGE_MOUNT/local/gnome-boxes" ~/.local/share/gnome-boxes
 
 # distrobox, podman dirs; use in distrobox create:
-# --volume /run/mount/storage:/run/mount/storage:rw
+# --volume $STORAGE_MOUNT:$STORAGE_MOUNT:rw
 rm -rf ~/.local/share/containers
-ln -s /run/mount/storage/local/containers ~/.local/share/containers
+ln -s "$STORAGE_MOUNT/local/containers" ~/.local/share/containers
 
 #
 # ~/.config
@@ -72,141 +83,141 @@ ln -s /run/mount/storage/local/containers ~/.local/share/containers
 
 # Kvantum
 rm -rf ~/.config/Kvantum
-ln -s /run/mount/storage/local/config/Kvantum ~/.config/Kvantum
+ln -s "$STORAGE_MOUNT/local/config/Kvantum" ~/.config/Kvantum
 
 # alacritty
 rm -rf ~/.config/alacritty
-ln -s /run/mount/storage/local/config/alacritty ~/.config/alacritty
+ln -s "$STORAGE_MOUNT/local/config/alacritty" ~/.config/alacritty
 
 # chromium
 rm -rf ~/.config/chromium
-ln -s /run/mount/storage/local/config/chromium ~/.config/chromium
+ln -s "$STORAGE_MOUNT/local/config/chromium" ~/.config/chromium
 
 # dunst
 rm -rf ~/.config/dunst
-ln -s /run/mount/storage/local/config/dunst ~/.config/dunst
+ln -s "$STORAGE_MOUNT/local/config/dunst" ~/.config/dunst
 
 # fish
 rm -rf ~/.config/fish
-ln -s /run/mount/storage/local/config/fish ~/.config/fish
+ln -s "$STORAGE_MOUNT/local/config/fish" ~/.config/fish
 
 # google-chrome
 rm -rf ~/.config/google-chrome
-ln -s /run/mount/storage/local/config/google-chrome ~/.config/google-chrome
+ln -s "$STORAGE_MOUNT/local/config/google-chrome" ~/.config/google-chrome
 
 # gsimplecal
 rm -rf ~/.config/gsimplecal
-ln -s /run/mount/storage/local/config/gsimplecal ~/.config/gsimplecal
+ln -s "$STORAGE_MOUNT/local/config/gsimplecal" ~/.config/gsimplecal
 
 # gtk-3.0
 rm -rf ~/.config/gtk-3.0
-ln -s /run/mount/storage/local/config/gtk-3.0 ~/.config/gtk-3.0
+ln -s "$STORAGE_MOUNT/local/config/gtk-3.0" ~/.config/gtk-3.0
 
 # gtk-4.0
 rm -rf ~/.config/gtk-4.0
-ln -s /run/mount/storage/local/config/gtk-4.0 ~/.config/gtk-4.0
+ln -s "$STORAGE_MOUNT/local/config/gtk-4.0" ~/.config/gtk-4.0
 
 # htop
 rm -rf ~/.config/htop
-ln -s /run/mount/storage/local/config/htop ~/.config/htop
+ln -s "$STORAGE_MOUNT/local/config/htop" ~/.config/htop
 
 # i3
 rm -rf ~/.config/i3
-ln -s /run/mount/storage/local/config/i3 ~/.config/i3
+ln -s "$STORAGE_MOUNT/local/config/i3" ~/.config/i3
 
 # jgmenu
 rm -rf ~/.config/jgmenu
-ln -s /run/mount/storage/local/config/jgmenu ~/.config/jgmenu
+ln -s "$STORAGE_MOUNT/local/config/jgmenu" ~/.config/jgmenu
 
 # mc
 rm -rf ~/.config/mc
-ln -s /run/mount/storage/local/config/mc ~/.config/mc
+ln -s "$STORAGE_MOUNT/local/config/mc" ~/.config/mc
 
 # mozilla
 rm -rf ~/.config/mozilla
-ln -s /run/mount/storage/local/config/mozilla ~/.config/mozilla
+ln -s "$STORAGE_MOUNT/local/config/mozilla" ~/.config/mozilla
 
 # nvim
 rm -rf ~/.config/nvim
-ln -s /run/mount/storage/local/config/nvim ~/.config/nvim
+ln -s "$STORAGE_MOUNT/local/config/nvim" ~/.config/nvim
 
 # openbox
 rm -rf ~/.config/openbox
-ln -s /run/mount/storage/local/config/openbox ~/.config/openbox
+ln -s "$STORAGE_MOUNT/local/config/openbox" ~/.config/openbox
 
 # picom
 rm -rf ~/.config/picom
-ln -s /run/mount/storage/local/config/picom ~/.config/picom
+ln -s "$STORAGE_MOUNT/local/config/picom" ~/.config/picom
 
 # polybar
 rm -rf ~/.config/polybar
-ln -s /run/mount/storage/local/config/polybar ~/.config/polybar
+ln -s "$STORAGE_MOUNT/local/config/polybar" ~/.config/polybar
 
 # qt5ct
 rm -rf ~/.config/qt5ct
-ln -s /run/mount/storage/local/config/qt5ct ~/.config/qt5ct
+ln -s "$STORAGE_MOUNT/local/config/qt5ct" ~/.config/qt5ct
 
 # qt6ct
 rm -rf ~/.config/qt6ct
-ln -s /run/mount/storage/local/config/qt6ct ~/.config/qt6ct
+ln -s "$STORAGE_MOUNT/local/config/qt6ct" ~/.config/qt6ct
 
 # qtile
 rm -rf ~/.config/qtile
-ln -s /run/mount/storage/local/config/qtile ~/.config/qtile
+ln -s "$STORAGE_MOUNT/local/config/qtile" ~/.config/qtile
 
 # qutebrowser
 rm -rf ~/.config/qutebrowser
-ln -s /run/mount/storage/local/config/qutebrowser ~/.config/qutebrowser
+ln -s "$STORAGE_MOUNT/local/config/qutebrowser" ~/.config/qutebrowser
 
 # ranger
 rm -rf ~/.config/ranger
-ln -s /run/mount/storage/local/config/ranger ~/.config/ranger
+ln -s "$STORAGE_MOUNT/local/config/ranger" ~/.config/ranger
 
 # remmina
 # rm -rf ~/.config/remmina ~/.local/share/remmina
-# ln -s /run/mount/storage/local/config/remmina ~/.config/remmina
-# ln -s /run/mount/storage/local/settings/remmina_local ~/.local/share/remmina
+# ln -s $STORAGE_MOUNT/local/config/remmina ~/.config/remmina
+# ln -s $STORAGE_MOUNT/local/settings/remmina_local ~/.local/share/remmina
 
 # rofi
 rm -rf ~/.config/rofi
-ln -s /run/mount/storage/local/config/rofi ~/.config/rofi
+ln -s "$STORAGE_MOUNT/local/config/rofi" ~/.config/rofi
 
 # screen
 rm -rf ~/.config/screen
-ln -s /run/mount/storage/local/config/screen ~/.config/screen
+ln -s "$STORAGE_MOUNT/local/config/screen" ~/.config/screen
 
 # scripts
 rm -rf ~/.config/scripts
-ln -s /run/mount/storage/local/config/scripts ~/.config/scripts
+ln -s "$STORAGE_MOUNT/local/config/scripts" ~/.config/scripts
 
 # swappy
 rm -rf ~/.config/swappy
-ln -s /run/mount/storage/local/config/swappy ~/.config/swappy
+ln -s "$STORAGE_MOUNT/local/config/swappy" ~/.config/swappy
 
 # terminator
 rm -rf ~/.config/terminator
-ln -s /run/mount/storage/local/config/terminator ~/.config/terminator
+ln -s "$STORAGE_MOUNT/local/config/terminator" ~/.config/terminator
 
 # tmux
 rm -rf ~/.config/tmux
-ln -s /run/mount/storage/local/config/tmux ~/.config/tmux
+ln -s "$STORAGE_MOUNT/local/config/tmux" ~/.config/tmux
 
 # vim
 rm -rf ~/.config/vim
-ln -s /run/mount/storage/local/config/vim ~/.config/vim
+ln -s "$STORAGE_MOUNT/local/config/vim" ~/.config/vim
 rm -rf ~/.vimrc ~/.gvimrc
 ln -s ~/.config/vim/vimrc ~/.vimrc
 ln -s ~/.config/vim/gvimrc ~/.gvimrc
 rm -rf ~/.vim
-ln -s /run/mount/storage/local/settings/vim ~/.vim
+ln -s "$STORAGE_MOUNT/local/settings/vim" ~/.vim
 
 # vlc
 rm -rf ~/.config/vlc
-ln -s /run/mount/storage/local/config/vlc ~/.config/vlc
+ln -s "$STORAGE_MOUNT/local/config/vlc" ~/.config/vlc
 
 # xbindkeys
 rm -rf ~/.config/xbindkeys
-ln -s /run/mount/storage/local/config/xbindkeys ~/.config/xbindkeys
+ln -s "$STORAGE_MOUNT/local/config/xbindkeys" ~/.config/xbindkeys
 
 #
 # other actions
@@ -217,8 +228,8 @@ sudo cp files/xorg.conf.d/* /etc/X11/xorg.conf.d/
 
 # other way trackball
 sudo rm /etc/X11/xorg.conf.d/70-trackball.conf
-sudo ln -s /run/mount/storage/local/settings/xorg.conf.d/70-trackball.conf /etc/X11/xorg.conf.d/70-trackball.conf
+sudo ln -s "$STORAGE_MOUNT/local/settings/xorg.conf.d/70-trackball.conf" /etc/X11/xorg.conf.d/70-trackball.conf
 
 # vpn conf
-sudo cp /run/mount/storage/zip/Koljasha/vpn/wg0.conf /etc/wireguard/wg0.conf
+sudo cp "$STORAGE_MOUNT/zip/$ZIP_DIR/vpn/wg0.conf" /etc/wireguard/wg0.conf
 
