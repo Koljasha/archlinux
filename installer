@@ -221,7 +221,7 @@ read -n1 -p">"; echo
 cp -r /root/archlinux /mnt/root
 
 echo
-if [[ "$grub" == "grub os-prober" ]] && [[ $am == "2" ]]; then
+if [[ -n "$grub" ]] && [[ $table == "BIOS" ]] && [[ $am == "2" ]]; then
     echo "####################"
     echo "In chroot mode do:"
     echo ">/root/archlinux/chroot /dev/sdX"

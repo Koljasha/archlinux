@@ -10,6 +10,9 @@ set -euo pipefail
 FIREFOX_CONFIG_DIR="$HOME/.config/mozilla/firefox"
 PROFILES_INI="$FIREFOX_CONFIG_DIR/profiles.ini"
 REMOTE_HOST="koljasha"
+# Тильда раскрывается на удалённой стороне, поэтому кавычки нужны;
+# SC2088 — ложное срабатывание.
+# shellcheck disable=SC2088
 REMOTE_DIR="~/zip/bookmarks/"
 SSH_OPTS="-o BatchMode=yes -o ConnectTimeout=30"
 
@@ -60,13 +63,11 @@ main() {
     # -z сжимает данные при передаче
     log "Начало синхронизации с $REMOTE_HOST..."
 
-    # Важно: слэш в конце $BACKUP_SOURCE/ означает "содержимое папки"
-    rsync -avz --delete --timeout=30 -e "ssh $SSH_OPTS" "$BACKUP_SOURCE" "$REMOTE_HOST:$REMOTE_DIR"
-
-    if [[ $? -eq 0 ]]; then
+    # Важно: слэш в конце $BACKUP_SOURCE/ означает "содержимое папки".
+    if rsync -avz --delete --timeout=30 -e "ssh $SSH_OPTS" "$BACKUP_SOURCE" "$REMOTE_HOST:$REMOTE_DIR"; then
         log "SUCCESS: Синхронизация завершена успешно."
     else
-        log "ERROR: Ошибка rsync (код выхода: $?)"
+        log "ERROR: Ошибка rsync."
         exit 1
     fi
 }
