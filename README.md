@@ -1,22 +1,22 @@
-# NafmanOs - Arch Linux Installer
+# NafmanOs — установщик Arch Linux
 
-## Only for Arch linux understanding users -> [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
+## Только для тех, кто понимает Arch Linux → [Руководство по установке Arch Linux](https://wiki.archlinux.org/index.php/Installation_guide)
 
 ***
-#### Write Iso to Usb [Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_basic_command_line_utilities)
+#### Запись ISO на USB-флешку ([Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium#Using_basic_command_line_utilities))
 ```
 # sudo dd bs=4M if=path/to/archlinux-x86_64.iso of=/dev/sd_X_ conv=fsync oflag=direct status=progress
 ```
 
 ***
-#### Ru localization is default; for change:
-* `./installer` lines : 11 - 12
-* `./chroot`    lines : 3 - 14
-* `./packages`  lines : 671 - 672
+#### Русская локализация включена по умолчанию; для изменения:
+* `./installer` строки : 11 - 12
+* `./chroot`    строки : 3 - 14
+* `./packages`  строки : 726 - 727
 
-#### Boot from [archlinux.iso](https://archlinux.org/download/), then:
-* we are waiting for a few minutes until the repositories update (`cat /etc/pacman.d/mirrorlist` - reflector.service update)
-* `pacman -Sy pacman` if error try:
+#### Загрузитесь с [archlinux.iso](https://archlinux.org/download/), затем:
+* ждём несколько минут, пока обновятся репозитории (`cat /etc/pacman.d/mirrorlist` — обновление reflector.service)
+* `pacman -Sy pacman`; если ошибка, попробуйте:
     * `pacman -Scc`
     * `pacman-key --init`
     * `pacman-key --populate`
@@ -26,19 +26,19 @@
 * `cd archlinux && ./installer`
 
 ***
-#### [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-##### it is advisable to use [Archinstall](https://wiki.archlinux.org/title/Archinstall) with *minimal* installation
-    * set russian support: `setfont UniCyrExt_8x16`
+#### [Руководство по установке Arch Linux](https://wiki.archlinux.org/index.php/Installation_guide)
+##### рекомендуется использовать [Archinstall](https://wiki.archlinux.org/title/Archinstall) с установкой *minimal*
+    * включить поддержку русского: `setfont UniCyrExt_8x16`
     * `archinstall`
-##### the old version
-    * `./installer` - install system like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)
-        * `/dev/vda` - auto mount (vda - default disk in Gnome Boxes)
-        * other      - manual mount
-    * `./chroot` *(run from ./installer)* - install system in arch-root mode like [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
-#### NafmanOs - need [Git](https://wiki.archlinux.org/title/Git) installed
-* `./packages` - install desktops, packages and settings it
-    * Openbox, i3wm, Qtile -> my settings
-    * other -> default settings
+##### старый вариант
+    * `./installer` — установка системы как в [Руководстве по установке Arch Linux](https://wiki.archlinux.org/index.php/Installation_guide)
+        * `/dev/vda` — авто-монтирование (vda — диск по умолчанию в Gnome Boxes)
+        * другой      — ручное монтирование
+    * `./chroot` *(запускается из ./installer)* — установка системы в режиме arch-root, как в [Руководстве](https://wiki.archlinux.org/index.php/Installation_guide#Chroot)
+#### NafmanOs требует установленного [Git](https://wiki.archlinux.org/title/Git)
+* `./packages` — установка рабочих столов, пакетов и их настройка
+    * Openbox, i3wm, Qtile → мои настройки
+    * остальные → настройки по умолчанию
         * **Qtile**, **i3wm**, **Openbox**
         * **Xfce**
         * **Lxde**
@@ -51,35 +51,35 @@
         * **Pantheon**
         * **Kde Plasma**
         * **Deepin**
-* `./swapfile` - create swapfile in work system
-* `./links` - creating a working link system (for me: Koljasha disk's system)
+* `./swapfile` — создать swap-файл в рабочей системе
+* `./links` — создать систему симлинков (для меня: система на диске Koljasha)
 
 ***
-#### for SSD users
-* enabled by default [Periodic TRIM](https://wiki.archlinux.org/title/Solid_state_drive#Periodic_TRIM)
+#### для пользователей SSD
+* по умолчанию включён [Periodic TRIM](https://wiki.archlinux.org/title/Solid_state_drive#Periodic_TRIM)
     * `systemctl status fstrim.timer`
-* if **NVME** freeze [Troubleshooting](https://wiki.archlinux.org/title/Solid_state_drive/NVMe#Troubleshooting)
-    * in `/etc/default/grub` add to `GRUB_CMDLINE_LINUX_DEFAULT` following `nvme_core.default_ps_max_latency_us=5500`
-    * to see changes after reboot: `cat /sys/module/nvme_core/parameters/default_ps_max_latency_us`
+* если **NVME** зависает — [Troubleshooting](https://wiki.archlinux.org/title/Solid_state_drive/NVMe#Troubleshooting)
+    * в `/etc/default/grub` добавить в `GRUB_CMDLINE_LINUX_DEFAULT`: `nvme_core.default_ps_max_latency_us=5500`
+    * посмотреть изменения после перезагрузки: `cat /sys/module/nvme_core/parameters/default_ps_max_latency_us`
 ***
 
-#### Trackball mouse configuration options
+#### Настройка трекбола
 1. **Xorg**:
-    * `files/xorg.conf.d/70-trackball.conf` -> `/etc/X11/xorg.conf.d/`
-    * list: `xinput list`
-    * info: `xinput list-props <id>`
+    * `files/xorg.conf.d/70-trackball.conf` → `/etc/X11/xorg.conf.d/`
+    * список: `xinput list`
+    * информация: `xinput list-props <id>`
 2. **Xorg**, **Wayland**: [evsieve](https://github.com/KarsMulder/evsieve)
 3. **Xorg**, **Wayland**: [Input Remapper](https://github.com/sezanzeb/input-remapper/)
-4. **Xorg**, **Wayland** *(hardcore way)* :
-    * `files/hwdb.d/70-mouse-remap.hwdb` -> `/etc/udev/hwdb.d/`
-    * list: `sudo libinput list-devices`
-    * info: `sudo udevadm info /dev/input/event<id>`
-    * click buttons: `sudo evtest`
-    * enable: `sudo systemd-hwdb update` and `sudo udevadm trigger`
-5. *other way*: [Arch Wiki](https://wiki.archlinux.org/title/Input_remap_utilities)
+4. **Xorg**, **Wayland** *(сложный способ)*:
+    * `files/hwdb.d/70-mouse-remap.hwdb` → `/etc/udev/hwdb.d/`
+    * список: `sudo libinput list-devices`
+    * информация: `sudo udevadm info /dev/input/event<id>`
+    * нажатия кнопок: `sudo evtest`
+    * включить: `sudo systemd-hwdb update` и `sudo udevadm trigger`
+5. *другой способ*: [Arch Wiki](https://wiki.archlinux.org/title/Input_remap_utilities)
 ***
 
-#### Normal mirrors in Russia (global is slowly - operator cuts the speed)
+#### Нормальные зеркала в России (глобальные медленные — оператор режет скорость)
 `sudo vim /etc/pacman.d/mirrorlist`
 ```
 Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
@@ -91,12 +91,11 @@ Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch
 ```
 ***
 
-#### `hooks/` - for devolopers
+#### `hooks/` — для разработчиков
 
-* change **Ru localization** lines from `packages` in `README.md`
-    * for automate - copy this hooks to `.git/hooks/`
-    * for manual - run in `hooks/`
-* update icons cache for new icons badge: `sudo gtk-update-icon-cache -f /usr/share/icons/hicolor/`
+* изменение строк **русской локализации** из `packages` в `README.md`
+    * для автоматизации — скопируйте этот хук в `.git/hooks/`
+    * для ручного запуска — запустите его в каталоге `hooks/`
+* обновить кэш иконок для нового значка: `sudo gtk-update-icon-cache -f /usr/share/icons/hicolor/`
 ***
 ***
-

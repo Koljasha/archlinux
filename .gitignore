@@ -1,0 +1,22 @@
+# Игнорируемые файлы и каталоги
+
+# Кэши Python
+__pycache__/
+*.py[cod]
+
+# Кэши линтеров и проверки типов
+.ruff_cache/
+.mypy_cache/
+.ty_cache/
+.pytest_cache/
+
+# Резервные и временные файлы
+*.bak
+*.bak.*
+*~
+*.swp
+*.swo
+
+# Системный мусор
+.DS_Store
+Thumbs.db
