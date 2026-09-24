@@ -31,7 +31,7 @@ echo
 echo "####################"
 echo "Click any key; ctrl-c is abort"
 echo "####################"
-read -n1 -p">"; echo
+read -rn1 -p">"; echo
 
 # Создание таблицы разделов; форматирование и монтирование
 
@@ -46,7 +46,7 @@ while [[ $am != "1" ]] && [[ $am != "2" ]]; do
     echo "1) auto mount mode - only for /dev/vda"
     echo "2) manual mount mode"
     echo "####################"
-    read -n1 -p">" am
+    read -rn1 -p">" am
 done
 echo
 
@@ -63,7 +63,7 @@ if [[ $table == "UEFI" ]]; then
         echo "####################"
         echo "Click any key; ctrl-c is abort"
         echo "####################"
-        read -n1 -p">"; echo
+        read -rn1 -p">"; echo
 
         cfdisk
         lsblk
@@ -71,7 +71,7 @@ if [[ $table == "UEFI" ]]; then
         echo "####################"
         echo "Click any key; ctrl-c is abort"
         echo "####################"
-        read -n1 -p">"; echo
+        read -rn1 -p">"; echo
 
         mkfs.fat -F32 /dev/vda1
         mkswap /dev/vda2
@@ -113,7 +113,7 @@ else
         echo "####################"
         echo "Click any key; ctrl-c is abort"
         echo "####################"
-        read -n1 -p">"; echo
+        read -rn1 -p">"; echo
 
         cfdisk
         lsblk
@@ -121,7 +121,7 @@ else
         echo "####################"
         echo "Click any key; ctrl-c is abort"
         echo "####################"
-        read -n1 -p">"; echo
+        read -rn1 -p">"; echo
 
         mkswap /dev/vda1
         mkfs.ext4 /dev/vda2
@@ -151,7 +151,7 @@ echo
 echo "####################"
 echo "Click any key; ctrl-c is abort"
 echo "####################"
-read -n1 -p">"; echo
+read -rn1 -p">"; echo
 
 
 # Установка базовых пакетов
@@ -163,7 +163,7 @@ while [[ $grub != "1" ]] && [[ $grub != "2" ]]; do
     echo "1) yes"
     echo "2) no"
     echo "####################"
-    read -n1 -p">" grub
+    read -rn1 -p">" grub
 done
 echo; echo
 if [[ $grub == "1" ]]; then
@@ -185,7 +185,7 @@ while [[ $kernel != "1" ]] && [[ $kernel != "2" ]] && [[ $kernel != "3" ]] && [[
     echo "3) linux-zen       - Zen Linux kernel"
     echo "4) linux-hardened  - Security-focused Linux kernel"
     echo "####################"
-    read -n1 -p">" kernel
+    read -rn1 -p">" kernel
 done
 echo; echo
 if [[ $kernel == "1" ]]; then
@@ -202,6 +202,8 @@ fi
 
 
 packages="archlinux-keyring base base-devel $kernel linux-firmware $grub networkmanager nano curl"
+# $packages - намеренное разбиение на аргументы (список пакетов)
+# shellcheck disable=SC2086
 pacstrap /mnt $packages
 
 
@@ -214,7 +216,7 @@ echo
 echo "####################"
 echo "Click any key; ctrl-c is abort"
 echo "####################"
-read -n1 -p">"; echo
+read -rn1 -p">"; echo
 
 # Копирование скрипта для chroot-режима
 cp -r /root/archlinux /mnt/root

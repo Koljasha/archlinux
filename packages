@@ -24,7 +24,7 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # Таймаут sudo
-line=`sudo grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
+line=$(sudo grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1)
 sudo sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
 
 # Добавление микрокода и curl для зеркал
@@ -32,10 +32,10 @@ sudo pacman -S --needed --noconfirm intel-ucode amd-ucode
 sudo pacman -S --needed --noconfirm curl git
 
 # Определение типа файловой системы (btrfs|ext4)
-filesystem=`df -hT / | sed -n 2p | awk '{ print $2 }'`
+filesystem=$(df -hT / | sed -n 2p | awk '{ print $2 }')
 
 # Настройка GRUB
-if [[ `pacman -Qe grub 2>/dev/null` != '' ]]; then
+if [[ $(pacman -Qe grub 2>/dev/null) != '' ]]; then
         sudo pacman -S --needed --noconfirm os-prober grub-theme-vimix
         sudo sed -i '/^GRUB_TIMEOUT/s/=./=3/' /etc/default/grub
         sudo sed -i 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/usr\/share\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
@@ -64,7 +64,7 @@ echo "4) xf86-video-ati        -> for ATI"
 echo "other) xf86-video-fbdev  -> other driver"
 echo "####################"
 
-read -n1 -p">" drivers; echo
+read -rn1 -p">" drivers; echo
 if [[ $drivers == "1" ]]; then
     drivers="xf86-video-intel"
 elif [[ $drivers == "2" ]]; then
@@ -78,15 +78,15 @@ else
 fi
 
 # Проверка ядра для установки headers
-kernel=`pacman -Qe linux 2>/dev/null | grep -o "^linux"`
-kernel=`echo $kernel | sed -E 's/([a-z\-]+)/\1-headers/'`
-kernel_lts=`pacman -Qe linux-lts 2>/dev/null | grep -o "^linux-lts"`
-kernel_lts=`echo $kernel_lts | sed -E 's/([a-z\-]+)/\1-headers/'`
-kernel_zen=`pacman -Qe linux-zen 2>/dev/null | grep -o "^linux-zen"`
-kernel_zen=`echo $kernel_zen | sed -E 's/([a-z\-]+)/\1-headers/'`
-kernel_hardened=`pacman -Qe linux-hardened 2>/dev/null | grep -o "^linux-hardened"`
-kernel_hardened=`echo $kernel_hardened | sed -E 's/([a-z\-]+)/\1-headers/'`
-headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
+kernel=$(pacman -Qe linux 2>/dev/null | grep -o "^linux")
+kernel=$(echo "$kernel" | sed -E 's/([a-z\-]+)/\1-headers/')
+kernel_lts=$(pacman -Qe linux-lts 2>/dev/null | grep -o "^linux-lts")
+kernel_lts=$(echo "$kernel_lts" | sed -E 's/([a-z\-]+)/\1-headers/')
+kernel_zen=$(pacman -Qe linux-zen 2>/dev/null | grep -o "^linux-zen")
+kernel_zen=$(echo "$kernel_zen" | sed -E 's/([a-z\-]+)/\1-headers/')
+kernel_hardened=$(pacman -Qe linux-hardened 2>/dev/null | grep -o "^linux-hardened")
+kernel_hardened=$(echo "$kernel_hardened" | sed -E 's/([a-z\-]+)/\1-headers/')
+headers="$kernel $kernel_lts $kernel_zen $kernel_hardened"
 
 ###############
 
@@ -112,7 +112,7 @@ while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" 
     echo "12) Deepin default settings"
     echo "13) Cosmic default settings"
     echo "####################"
-    read -p">" de
+    read -rp">" de
 done
 echo; echo
 
@@ -375,9 +375,9 @@ sudo cp files/pacman/mirrorlist /etc/pacman.d/mirrorlist
 
 # Установка пакетов из репозитория
 sudo pacman -Syu --noconfirm
-sudo pacman -S --needed --noconfirm $packages
-
-if [[ $(echo $?) != 0 ]]; then
+# $packages - намеренное разбиение на аргументы (список пакетов)
+# shellcheck disable=SC2086
+if ! sudo pacman -S --needed --noconfirm $packages; then
     echo
     echo "Error Installation"
     echo "Try to run the ./packages with the same parameters again now"
@@ -391,6 +391,8 @@ cd yay-bin && makepkg -sirc --noconfirm
 cd .. && rm -rf yay-bin
 
 # Установка пакетов из AUR
+# $packages_aur - намеренное разбиение на аргументы (список пакетов)
+# shellcheck disable=SC2086
 yay -S --noconfirm $packages_aur
 
 ###############
@@ -405,10 +407,10 @@ echo
 echo "####################"
 echo "Click any key; ctrl-c is abort"
 echo "####################"
-read -n1 -p">"; echo
+read -rn1 -p">"; echo
 ###############
 
-username=`whoami`
+username=$(whoami)
 
 ###############
 
@@ -669,7 +671,7 @@ elif [[ $de == "kde" ]]; then
     # настройка sddm
     sudo mkdir /etc/sddm.conf.d
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
-    sudo cp files/images/username.png /var/lib/AccountsService/icons/${username}
+    sudo cp files/images/username.png /var/lib/AccountsService/icons/"${username}"
 elif [[ $de == "deepin" ]]; then
     rm ~/.profile
 
@@ -710,9 +712,9 @@ fi
 sudo cp files/images/archlinux.png /usr/share/backgrounds/archlinux.png
 
 # значок пользователя
-sudo cp files/images/username.png /var/lib/AccountsService/icons/${username}.png
-sudo cp files/username /var/lib/AccountsService/users/${username}
-sudo sed -i "s/username/${username}/" /var/lib/AccountsService/users/${username}
+sudo cp files/images/username.png /var/lib/AccountsService/icons/"${username}".png
+sudo cp files/username /var/lib/AccountsService/users/"${username}"
+sudo sed -i "s/username/${username}/" /var/lib/AccountsService/users/"${username}"
 
 # настройки makepkg
 sudo sed -i 's/#MAKEFLAGS/MAKEFLAGS/' /etc/makepkg.conf
@@ -742,7 +744,7 @@ echo "for exit Vim do :qa"
 echo "####################"
 echo "now click any key"
 echo "####################"
-read -n1 -p">"; echo
+read -rn1 -p">"; echo
 # установка плагинов vim
 vim -c PlugInstall
 echo; echo
@@ -787,7 +789,7 @@ rm -rf ~/archlinux/oh-my-fish
 # код возврата в теме fish agnoster
 sed -i 's/✘/✘ $RETVAL'/ ~/.local/share/omf/themes/agnoster/functions/fish_prompt.fish
 # fish — основная оболочка
-sudo chsh -s /usr/bin/fish $username
+sudo chsh -s /usr/bin/fish "$username"
 # редактор fish
 fish -c 'set -U EDITOR vim'
 # режим vi
@@ -879,7 +881,7 @@ while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
     echo "1) global file pacman mirrorlist"
     echo "2) reflector for update"
     echo "####################"
-    read -n1 -p">" mlist
+    read -rn1 -p">" mlist
 done
 echo; echo
 
@@ -921,7 +923,7 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "1) yes"
         echo "2) no"
         echo "####################"
-        read -n1 -p">" chbg
+        read -rn1 -p">" chbg
     done
     echo; echo
 
@@ -940,7 +942,7 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "1) yes"
         echo "2) no"
         echo "####################"
-        read -n1 -p">" ufw
+        read -rn1 -p">" ufw
     done
     echo; echo
 
@@ -960,7 +962,7 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "1) yes"
         echo "2) no"
         echo "####################"
-        read -n1 -p">" blue
+        read -rn1 -p">" blue
     done
     echo; echo
 
@@ -979,7 +981,7 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "1) yes"
         echo "2) no"
         echo "####################"
-        read -n1 -p">" vnc
+        read -rn1 -p">" vnc
     done
     echo; echo
 
@@ -998,13 +1000,13 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "1) yes"
         echo "2) no"
         echo "####################"
-        read -n1 -p">" smb
+        read -rn1 -p">" smb
     done
     echo; echo
 
     if [[ $smb == "1" ]]; then
         echo "Password Samba share for $username"
-        sudo smbpasswd -a $username
+        sudo smbpasswd -a "$username"
         sudo systemctl enable smb.service
     fi
     echo "Ok"
@@ -1019,7 +1021,7 @@ if [[ $de == "koljasha_wm" ]]; then
         echo "1) no"
         echo "2) yes"
         echo "####################"
-        read -n1 -p">" vvsync
+        read -rn1 -p">" vvsync
     done
     echo; echo
 
@@ -1090,7 +1092,7 @@ echo "run ./swapfile after reboot"
 echo "####################"
 echo "now click any key"
 echo "####################"
-read -n1 -p">"; echo
+read -rn1 -p">"; echo
 
 sudo systemctl -i reboot
 

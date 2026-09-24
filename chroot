@@ -28,7 +28,7 @@ systemctl enable NetworkManager
 # sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # Добавление репозитория multilib
-line=`grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1`
+line=$(grep -n "#\[multilib\]" /etc/pacman.conf | cut -d':' -f1)
 sed -i -e "${line}s/^#//" /etc/pacman.conf
 line=$((line+1))
 sed -i -e "${line}s/^#//" /etc/pacman.conf
@@ -45,13 +45,13 @@ echo "####################"
 echo "Add user"
 echo "####################"
 read  -p"Username >" username
-useradd -m -G wheel -s /bin/bash $username
-passwd $username
+useradd -m -G wheel -s /bin/bash "$username"
+passwd "$username"
 
 # Копирование скриптов
 # chmod -R 755 /home/$username
-cp -r /root/archlinux /home/$username
-chown -R $username:$username /home/$username/archlinux
+cp -r /root/archlinux "/home/$username"
+chown -R "$username:$username" "/home/$username/archlinux"
 
 # Настройка sudo
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
@@ -62,8 +62,8 @@ sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 echo; echo
 # Установка GRUB
-grub=`pacman -Qe grub 2>/dev/null | grep -o "^grub"`
-efibootmgr=`pacman -Qe efibootmgr 2>/dev/null | grep -o "^efibootmgr"`
+grub=$(pacman -Qe grub 2>/dev/null | grep -o "^grub")
+efibootmgr=$(pacman -Qe efibootmgr 2>/dev/null | grep -o "^efibootmgr")
 
 if [[ $grub == "grub" ]]; then
     if [[ $efibootmgr == "efibootmgr" ]]; then
@@ -77,7 +77,7 @@ if [[ $grub == "grub" ]]; then
         echo "####################"
     else
         if [[ $1 != "" ]]; then
-            grub-install --target=i386-pc $1
+            grub-install --target=i386-pc "$1"
         else
             grub-install --target=i386-pc /dev/vda
         fi
