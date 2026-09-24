@@ -1,0 +1,10 @@
+# Глобальный стандарт отступов (EditorConfig).
+# Подключён симлинком: ~/.editorconfig -> .config/shfmt/editorconfig
+root = true
+
+# Shell: 4 пробела — совпадает с проверкой shfmt -i 4 из AGENTS.md.
+# Пробелы именно здесь, потому что встроенный форматтер OpenCode
+# вызывает shfmt без -i, а shfmt читает .editorconfig.
+[*.{sh,bash}]
+indent_style = space
+indent_size = 4
