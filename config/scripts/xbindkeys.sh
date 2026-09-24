@@ -4,9 +4,9 @@
 # xbindkeys для разных устройств
 #
 
-deft_pro=`xinput list | grep 'pointer' | grep -i 'Deft Pro'`
-huge=`xinput list | grep 'pointer' | grep -i 'Huge'`
-orbit_fusion=`xinput list | grep 'pointer' | grep -i 'Orbit Fusion'`
+deft_pro=$(xinput list | grep 'pointer' | grep -i 'Deft Pro')
+huge=$(xinput list | grep 'pointer' | grep -i 'Huge')
+orbit_fusion=$(xinput list | grep 'pointer' | grep -i 'Orbit Fusion')
 
 killall xbindkeys 2>/dev/null
 

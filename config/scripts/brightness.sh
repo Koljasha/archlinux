@@ -24,16 +24,16 @@ if [[ $1 == 'temperature' ]]; then
     "6500\0icon\x1fvideo-display"
     )
 
-    brightness=`grep 'redshift' ~/.config/qtile/autostart.sh | awk '{print $NF}'`
+    brightness=$(grep 'redshift' ~/.config/qtile/autostart.sh | awk '{print $NF}')
 
-    brightness=`printf '%b\n' "${options[@]}" \
-                | rofi -dmenu -l 3 -select $brightness -p Temperature`
+    brightness=$(printf '%b\n' "${options[@]}" \
+                | rofi -dmenu -l 3 -select "$brightness" -p Temperature)
                 # смена на dmenu -> переместить выше rofi
                 # | dmenu -b -i -p Brightness:`
     if [[ $brightness == "" ]]; then
         exit 0
     fi
-    /usr/bin/redshift -P -O $brightness
+    /usr/bin/redshift -P -O "$brightness"
 
     exit 0
 fi
@@ -44,7 +44,7 @@ fi
 #
 
 
-brightness=`brightnessctl | grep Current | cut -d'(' -f2 | cut -d'%' -f1`
+brightness=$(brightnessctl | grep Current | cut -d'(' -f2 | cut -d'%' -f1)
 if (( $# == 0 )); then
     echo "$brightness%"
     exit 0
@@ -91,8 +91,8 @@ declare -a options=(
 "10\0icon\x1fvideo-display"
 )
 
-brightness=`printf '%b\n' "${options[@]}" \
-            | rofi -dmenu -l 3 -select $brightness -p Brightness`
+brightness=$(printf '%b\n' "${options[@]}" \
+            | rofi -dmenu -l 3 -select "$brightness" -p Brightness)
             # смена на dmenu -> переместить выше rofi
             # | dmenu -b -i -p Brightness:`
 if [[ $brightness == "" ]]; then

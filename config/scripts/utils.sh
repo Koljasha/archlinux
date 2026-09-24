@@ -8,7 +8,7 @@ if [[ $1 == 'desktop' ]]; then
 
     # свернуть|развернуть приложения на рабочем столе (для Openbox)
 
-    status=`wmctrl -m | grep "showing the desktop" | awk -F ": " '{ print $2 }'`
+    status=$(wmctrl -m | grep "showing the desktop" | awk -F ": " '{ print $2 }')
     if [[ $status == "OFF" ]]; then
         wmctrl -k on
     else

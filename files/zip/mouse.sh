@@ -9,7 +9,7 @@ if (( $# == 1 )) && [[ $1 == "list" ]]; then
     xinput list
 elif (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     mouse_name=$2
-    id=`xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/"`
+    id=$(xinput list | grep "$mouse_name" | head -n1 | sed -E "s/^.*id=([0-9]{1,2}).*/\1/")
 
     if [[ $id == "" ]]; then
         echo "No '$mouse_name' device"
@@ -19,25 +19,25 @@ elif (( ($# == 2) || ($# == 3) )) && [[ ($1 == "get") || ($1 == "set") ]]; then
     # получаем параметры мыши
 
     if [[ $1 == "get" ]]; then
-        xinput list-props $id
+        xinput list-props "$id"
         echo "Buttons Map:"
-        xinput get-button-map $id
+        xinput get-button-map "$id"
         exit 0
     fi
 
     # задаём параметры мыши
 
     # нажатие|клик (с фиксацией) средней кнопкой и движение мыши для прокрутки
-    xinput set-prop $id "libinput Button Scrolling Button" 2
-    xinput set-prop $id "libinput Scroll Method Enabled" 0, 0, 1
-    xinput set-prop $id "libinput Button Scrolling Button Lock Enabled" 1
+    xinput set-prop "$id" "libinput Button Scrolling Button" 2
+    xinput set-prop "$id" "libinput Scroll Method Enabled" 0, 0, 1
+    xinput set-prop "$id" "libinput Button Scrolling Button Lock Enabled" 1
 
     # делаем фиксацию левой кнопки на кнопке Forward
     # xinput set-prop $id "libinput Drag Lock Buttons" 9 1
 
     if [[ $3 != "" ]]; then
         # задаём скорость мыши: -1.0 <> 1.0
-        xinput set-prop $id "libinput Accel Speed" $3
+        xinput set-prop "$id" "libinput Accel Speed" "$3"
     fi
 
     echo "Parameters for '$mouse_name' are set"

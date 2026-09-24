@@ -8,9 +8,9 @@
 if [[ -n $(pgrep -x polybar) ]]; then
     # для Polybar (Openbox, i3wm)
     if (( $# == 0 )); then
-        yay=`yay -Qu | wc -l`
+        yay=$(yay -Qu | wc -l)
 
-        if (( $yay != 0 )); then
+        if (( yay != 0 )); then
             echo "%{F#ffb52a}%{u#ffb52a}%{+u}  $yay Updates%{u-}%{F-}"
         else
             echo "%{F#99d3ff}%{u#99d3ff}%{+u}  No Updates%{u-}%{F-}"

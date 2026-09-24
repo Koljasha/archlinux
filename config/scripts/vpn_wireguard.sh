@@ -6,7 +6,7 @@
 # !!! Нужен конфиг wireguard: /etc/wireguard/wg0.conf !!!
 #
 
-status=`sudo wg`
+status=$(sudo wg)
 
 if (( $# == 0 )); then
     if [[ $status == "" ]]; then

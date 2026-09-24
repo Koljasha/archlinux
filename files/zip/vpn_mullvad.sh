@@ -4,7 +4,7 @@
 # показываем и запускаем|останавливаем Mullvad VPN
 #
 
-status=`mullvad status | grep Disconnected`
+status=$(mullvad status | grep Disconnected)
 
 if (( $# == 0 )); then
     if [[ -n $status ]]; then

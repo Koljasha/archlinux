@@ -12,7 +12,7 @@ killall -q polybar
 
 # Запускаем панели
 echo "---" | tee -a /tmp/polybar.log
-polybar -c ~/.config/polybar/$wm.conf polybar >>/tmp/polybar.log 2>&1 &
+polybar -c ~/.config/polybar/"$wm".conf polybar >>/tmp/polybar.log 2>&1 &
 
 echo "Bars launched..."
 

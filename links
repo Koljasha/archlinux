@@ -23,7 +23,7 @@ while [[ $rec != "1" ]] && [[ $rec != "2" ]]; do
     echo "1) yes"
     echo "2) no"
     echo "####################"
-    read -n1 -p">" rec
+    read -rn1 -p">" rec
 done
 echo; echo
 

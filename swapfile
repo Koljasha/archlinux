@@ -19,9 +19,11 @@ mkswap -U clear --size 4G --file /swapfile
 swapon /swapfile
 
 # Включение
-echo '# swapfile' >> /etc/fstab
-echo '/swapfile   none    swap    defaults    0 0' >> /etc/fstab
-echo '' >> /etc/fstab
+{
+    echo '# swapfile'
+    echo '/swapfile   none    swap    defaults    0 0'
+    echo ''
+} >> /etc/fstab
 
 cat /etc/fstab
 

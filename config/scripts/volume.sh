@@ -6,12 +6,12 @@
 
 # показываем громкость
 if (( $# == 0 )); then
-    mute=`pactl get-sink-mute 0 | cut -d' ' -f2`
+    mute=$(pactl get-sink-mute 0 | cut -d' ' -f2)
     if [[ "$mute" == "yes" ]]; then
         echo "Muted"
         exit 0
     fi
-    volume=`pactl get-sink-volume 0 | grep -oE '[0-9]{1,3}%' | head -1`
+    volume=$(pactl get-sink-volume 0 | grep -oE '[0-9]{1,3}%' | head -1)
     echo "$volume"
     exit 0
 fi
@@ -27,8 +27,8 @@ fi
 # подстрока - ${string:position:length}
 # длина - ${#string}
 ###
-volume=`pactl get-sink-volume 0 | grep -oE '[0-9]{1,3}%' | head -1 | cut -d'%' -f1 \
-        | awk '{ if ($1 < 10) print "10"; else if ($1 > 100) print "100"; else print $1 }'`
+volume=$(pactl get-sink-volume 0 | grep -oE '[0-9]{1,3}%' | head -1 | cut -d'%' -f1 \
+        | awk '{ if ($1 < 10) print "10"; else if ($1 > 100) print "100"; else print $1 }')
 
 last=${volume: -1:1}
 prelast=${volume: -2:1}
@@ -72,8 +72,8 @@ declare -a options=(
 "Mute\0icon\x1faudio-volume-off"
 )
 
-volume=`printf '%b\n' "${options[@]}" \
-        | rofi -dmenu -l 6 -select $volume -i -p Volume`
+volume=$(printf '%b\n' "${options[@]}" \
+        | rofi -dmenu -l 6 -select "$volume" -i -p Volume)
         # смена на dmenu -> переместить выше rofi
         # | dmenu -b -i -p Volume:`
 if [[ $volume == "" ]]; then
@@ -86,7 +86,7 @@ case $volume in
                 ;;
         *)
                 pactl set-sink-mute 0 false
-                pactl set-sink-volume 0 $volume%
+                pactl set-sink-volume 0 "$volume%"
                 ;;
 esac
 

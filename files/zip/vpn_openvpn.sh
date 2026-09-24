@@ -6,7 +6,7 @@
 # !!! Нужен конфиг openvpn: /etc/openvpn/client/openvpn.conf !!!
 #
 
-status=`pgrep -x openvpn`
+status=$(pgrep -x openvpn)
 
 if (( $# == 0 )); then
     if [[ -z $status ]]; then

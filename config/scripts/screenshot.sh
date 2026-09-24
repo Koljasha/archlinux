@@ -17,19 +17,18 @@ screenshot="$(xdg-user-dir)/Downloads/screenshot-$(date +'%Y_%m_%d-%H_%M_%S').pn
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
     case $mode in
         full)
-            grim $screenshot
+            grim "$screenshot"
             rofi -e "Screenshot created: $screenshot"
             ;;
         region)
-            grim -g "$(slurp)" $screenshot
+            grim -g "$(slurp)" "$screenshot"
             rofi -e "Screenshot created: $screenshot"
             ;;
         edit)
-            grim -g "$(slurp)" $screenshot
-            if (( $? != 0 )); then
+            if ! grim -g "$(slurp)" "$screenshot"; then
                 exit 0
             fi
-            swappy -f $screenshot &
+            swappy -f "$screenshot" &
             ;;
         *)
             echo "Error! Invalid mode. Use ./screenshot/sh full|region|edit "
@@ -38,37 +37,36 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
 else
     case $mode in
         full)
-            maim $screenshot
+            maim "$screenshot"
             rofi -e "Screenshot created: $screenshot"
             ;;
         region)
-            maim --select $screenshot
+            maim --select "$screenshot"
             rofi -e "Screenshot created: $screenshot"
             ;;
         edit)
-            maim --select $screenshot
-            if (( $? != 0 )); then
+            if ! maim --select "$screenshot"; then
                 exit 0
             fi
-            swappy -f $screenshot &
+            swappy -f "$screenshot" &
 
             # перемещаем swappy в центр
             # Баг, возможно потому что Swappy — Wayland-приложение
             sleep 0.5
 
-            display_dimensions=`xdpyinfo | grep -oP 'dimensions:\s+\K\S+'`
-            display_width=`echo $display_dimensions | cut -d'x' -f1`
-            display_heigth=`echo $display_dimensions | cut -d'x' -f2`
+            display_dimensions=$(xdpyinfo | grep -oP 'dimensions:\s+\K\S+')
+            display_width=$(echo "$display_dimensions" | cut -d'x' -f1)
+            display_heigth=$(echo "$display_dimensions" | cut -d'x' -f2)
 
-            app_id=`xdotool search --onlyvisible --name swappy | tail -1`
-            app_dimensions_position=`xdotool getwindowgeometry --shell $app_id`
-            app_width=`echo "$app_dimensions_position" | grep 'WIDTH=' | cut -d'=' -f2`
-            app_heigth=`echo "$app_dimensions_position" | grep 'HEIGHT=' | cut -d'=' -f2`
+            app_id=$(xdotool search --onlyvisible --name swappy | tail -1)
+            app_dimensions_position=$(xdotool getwindowgeometry --shell "$app_id")
+            app_width=$(echo "$app_dimensions_position" | grep 'WIDTH=' | cut -d'=' -f2)
+            app_heigth=$(echo "$app_dimensions_position" | grep 'HEIGHT=' | cut -d'=' -f2)
 
-            position_x=`echo $display_width $app_width | awk '{ print ($1-$2)/2 }' | cut -d. -f1`
-            position_y=`echo $display_heigth $app_heigth | awk '{ print ($1-$2)/2 }' | cut -d. -f1`
+            position_x=$(echo "$display_width" "$app_width" | awk '{ print ($1-$2)/2 }' | cut -d. -f1)
+            position_y=$(echo "$display_heigth" "$app_heigth" | awk '{ print ($1-$2)/2 }' | cut -d. -f1)
 
-            xdotool windowmove $app_id $position_x $position_y
+            xdotool windowmove "$app_id" "$position_x" "$position_y"
             ;;
         *)
             echo "Error! Invalid mode. Use ./screenshot.sh full|region|edit "
