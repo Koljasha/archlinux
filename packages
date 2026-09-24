@@ -6,12 +6,12 @@ echo "Post config after archinstall"
 echo "####################"
 echo; echo
 
-# Localization
+# Локализация
 echo "LANG=ru_RU.UTF-8" | sudo tee /etc/locale.conf
 echo "KEYMAP=ru" | sudo tee /etc/vconsole.conf
 echo "FONT=cyr-sun16" | sudo tee --append /etc/vconsole.conf
 
-# Network configuration
+# Настройка сети
 echo "archlinux" | sudo tee /etc/hostname
 
 sudo sed -i '3,$d' /etc/hosts
@@ -19,22 +19,22 @@ echo "127.0.0.1    localhost" | sudo tee --append /etc/hosts
 echo "::1          localhost" | sudo tee --append /etc/hosts
 echo "127.0.0.1    archlinux.localdomain  archlinux" | sudo tee --append /etc/hosts
 
-# Pacman settings
+# Настройки pacman
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
-# Add sudo timeout
+# Таймаут sudo
 line=`sudo grep -n "Runas alias specification" /etc/sudoers | cut -d':' -f1`
 sudo sed -i "${line}aDefaults timestamp_timeout=30\n" /etc/sudoers
 
-# Add microcode and curl for mirrors
+# Добавление микрокода и curl для зеркал
 sudo pacman -S --needed --noconfirm intel-ucode amd-ucode
 sudo pacman -S --needed --noconfirm curl git
 
-# get filesystem type (btrfs|ext4)
+# Определение типа файловой системы (btrfs|ext4)
 filesystem=`df -hT / | sed -n 2p | awk '{ print $2 }'`
 
-# Grub config
+# Настройка GRUB
 if [[ `pacman -Qe grub 2>/dev/null` != '' ]]; then
         sudo pacman -S --needed --noconfirm os-prober grub-theme-vimix
         sudo sed -i '/^GRUB_TIMEOUT/s/=./=3/' /etc/default/grub
@@ -54,7 +54,7 @@ echo "Install packages"
 echo "####################"
 echo; echo
 
-# Select video drivers
+# Выбор видеодрайверов
 echo "####################"
 echo "What video drivers install?"
 echo "1) xf86-video-intel      -> for Intel"
@@ -77,7 +77,7 @@ else
     drivers="xf86-video-fbdev"
 fi
 
-# check kernel for install headers
+# Проверка ядра для установки headers
 kernel=`pacman -Qe linux 2>/dev/null | grep -o "^linux"`
 kernel=`echo $kernel | sed -E 's/([a-z\-]+)/\1-headers/'`
 kernel_lts=`pacman -Qe linux-lts 2>/dev/null | grep -o "^linux-lts"`
@@ -90,7 +90,7 @@ headers=`echo "$kernel $kernel_lts $kernel_zen $kernel_hardened"`
 
 ###############
 
-# Select Desktop Environment
+# Выбор окружения рабочего стола
 while [[ $de != "1" ]] && [[ $de != "2" ]] && [[ $de != "3" ]] && [[ $de != "4" ]]\
    && [[ $de != "5" ]] && [[ $de != "6" ]] && [[ $de != "7" ]] && [[ $de != "8" ]]\
    && [[ $de != "9" ]] && [[ $de != "10" ]] && [[ $de != "11" ]]\
@@ -147,7 +147,7 @@ echo "Ok"
 
 ###############
 
-# Packages
+# Пакеты
 
 packages="
 $drivers $headers reflector pacman-contrib pkgfile man-db man-pages tldr arch-install-scripts cmake
@@ -294,57 +294,57 @@ elif [[ $de == "cosmic" ]]; then
     "
 fi
 
-# Other packages:
+# Другие пакеты:
 
 # mint-x-icons - тема значков Linux Mint
 
-# wine|wine-staging winetricks - for windows applications
-# drivers & libs: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
-# for pipewire: lib32-pipewire
+# wine|wine-staging winetricks - для windows-приложений
+# драйверы и библиотеки: https://github.com/lutris/docs/blob/master/InstallingDrivers.md
+# для pipewire: lib32-pipewire
 #
 # yay -S wine-staging winetricks lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader lib32-pipewire
 #
-# bottles - bottles for windows applications
-# lutris gamemode lib32-gamemode - frontend for windows games
+# bottles - для windows-приложений
+# lutris gamemode lib32-gamemode - фронтенд для windows-игр
 
-# gnome-boxes - virtual machines
-# virtualbox - virtual machines
-# (choose virtualbox-host-modules-arch for linux kernel)
-# (choose virtualbox-host-dkms for linux-lts, linux-zen, linux-hardened kernel)
+# gnome-boxes - виртуальные машины
+# virtualbox - виртуальные машины
+# (выбрать virtualbox-host-modules-arch для ядра linux)
+# (выбрать virtualbox-host-dkms для ядер linux-lts, linux-zen, linux-hardened)
 
-# sublime-text-4 - text editor
-# telegram-desktop - Telegram messenger
+# sublime-text-4 - текстовый редактор
+# telegram-desktop - мессенджер Telegram
 # handy-bin - речь в текст
 
-# onlyoffice-bin - office
-# libreoffice-still libreoffice-still-ru - office
-# libreoffice-fresh libreoffice-fresh-ru - office
+# onlyoffice-bin - офис
+# libreoffice-still libreoffice-still-ru - офис
+# libreoffice-fresh libreoffice-fresh-ru - офис
 
-# thunderbird thunderbird-i18n-ru - email
+# thunderbird thunderbird-i18n-ru - почта
 
-# xreader, atril - simple document viewer
-# xournalpp - document viewer with notes
+# xreader, atril - простой просмотрщик документов
+# xournalpp - просмотрщик документов с заметками
 
-# rustdesk-bin - remote desktop software
-# scrcpy - connect to remote Android device
+# rustdesk-bin - удалённый доступ к рабочему столу
+# scrcpy - подключение к удалённому Android-устройству
 
-# mintstick - write Iso to Usb
-# ventoy-bin - write multiple Iso to Usb
+# mintstick - запись Iso на Usb
+# ventoy-bin - запись нескольких Iso на Usb
 
-# os-prober-btrfs - Grub find system on other btrfs disks
+# os-prober-btrfs - поиск Grub систем на других btrfs-дисках
 
 # docker docker-buildx docker-compose | podman - контейнеры
 # lazydocker-bin - tui для docker
 # firejail - запуск приложения в песочнице
 # distrobox - разные дистрибутивы через контейнеры
 
-# openvpn3 - new version OpenVpn (2025-05-05 need gcc14)
+# openvpn3 - новая версия OpenVpn (2025-05-05 требует gcc14)
 
-# zellij - like tmux
-# herdr-bin - like tmux for AI-agents
+# zellij - аналог tmux
+# herdr-bin - аналог tmux для AI-агентов
 
 #
-# additionally Flatpak options apps:
+# дополнительные приложения для Flatpak:
 # flatpak install flathub io.github.flattool.Warehouse
 # flatpak install flathub com.github.tchx84.Flatseal
 #
@@ -365,15 +365,15 @@ fi
 
 ###############
 
-# change|check folder
+# переход|проверка каталога
 cd ~/archlinux
 
-# Update mirrorlist (global is slowly)
+# Обновление mirrorlist (глобальный медленный)
 # sudo curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
 # sudo sed -i '7s/#Server/Server/' /etc/pacman.d/mirrorlist
 sudo cp files/pacman/mirrorlist /etc/pacman.d/mirrorlist
 
-# Install packages from repo
+# Установка пакетов из репозитория
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm $packages
 
@@ -385,12 +385,12 @@ if [[ $(echo $?) != 0 ]]; then
     exit 2
 fi
 
-# build yay
+# Сборка yay
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin && makepkg -sirc --noconfirm
 cd .. && rm -rf yay-bin
 
-# Install packages from aur
+# Установка пакетов из AUR
 yay -S --noconfirm $packages_aur
 
 ###############
@@ -412,7 +412,7 @@ username=`whoami`
 
 ###############
 
-# Copy configs
+# Копирование конфигов
 
 cp files/profile ~/.profile
 cp files/bashrc ~/.bashrc
@@ -430,18 +430,18 @@ if [[ $de == "koljasha_wm" ]]; then
     # ~/.config
     cp -r config/* ~/.config/
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 
-    # Qtile session
+    # сессия Qtile
     sudo mv /usr/share/xsessions/qtile.desktop /usr/share/xsessions/qtile.desktop_
     sudo cp files/sessions/qtile.desktop /usr/share/xsessions/qtile.desktop
     sudo mv /usr/share/wayland-sessions/qtile.desktop /usr/share/wayland-sessions/qtile.desktop_
     sudo cp files/sessions/qtile-wayland.desktop /usr/share/wayland-sessions/qtile-wayland.desktop
 
-    # config services
+    # настройка сервисов
     sudo cp files/sudo/sudo_openvpn /etc/sudoers.d/openvpn
     sudo cp files/sudo/sudo_pacman /etc/sudoers.d/pacman
     sudo cp files/sudo/sudo_wireguard /etc/sudoers.d/wireguard
@@ -454,69 +454,69 @@ if [[ $de == "koljasha_wm" ]]; then
     sudo mkdir /etc/systemd/system/x11vnc.service.d
     sudo cp files/x11vnc.conf /etc/systemd/system/x11vnc.service.d/override.conf
 
-    # polkit rules for udisks2
+    # правила polkit для udisks2
     sudo cp files/rules.d/55-arch.rules /etc/polkit-1/rules.d/55-arch.rules
 
-    # copy desktop icons
+    # копирование значков рабочего стола
     sudo cp files/badge/i3_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/i3_badge-symbolic.svg
     sudo cp files/badge/openbox_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/openbox_badge-symbolic.svg
     sudo cp files/badge/qtile_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/qtile_badge-symbolic.svg
     sudo cp files/badge/qtile-wayland_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/qtile-wayland_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
-    # GTK theme and icon Wayland
+    # тема GTK и значки Wayland
     gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark
     gsettings set org.gnome.desktop.interface icon-theme Obsidian-Aqua
 
-    # gnome-screenshot settings
+    # настройки gnome-screenshot
     # gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$username/Загрузки/"
 
-    # backgrounds
+    # обои
     sudo rm /usr/share/backgrounds/archlinux/archlinux.stw
     sudo rm /usr/share/backgrounds/archlinux/archbtw.png
 
-    # jgmenu Exit for user
+    # jgmenu «Выход» для пользователя
     sed -i "s/username/$username/" ~/.config/jgmenu/append.csv
 
-    # terminator for plank
+    # terminator для plank
     sed -i "s/username/$username/" ~/.config/plank/dock1/launchers/terminator.dockitem
 
     # /usr/local/bin
     sudo cp files/apps/terminator /usr/local/bin/terminator
     sudo cp files/apps/feh /usr/local/bin/feh
 
-    # applications
+    # приложения
     cp files/apps/terminator.desktop ~/.local/share/applications/
     cp files/apps/feh.desktop ~/.local/share/applications/
     cp files/apps/ranger.desktop ~/.local/share/applications/
 
-    # mime cache
+    # кэш mime
     cp files/apps/mimeinfo.cache ~/.local/share/applications/
 
-    # ranger icons
+    # значки ranger
     git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
 
-    # tmux pluggins manager
+    # менеджер плагинов tmux
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     ~/.config/tmux/plugins/tpm/bin/install_plugins
 
-    # clipmenu enable
+    # включение clipmenu
     sudo sed -i 's/set -- -dmenu/set -- -dmenu -i -p Clipboard/' /usr/bin/clipmenu
     systemctl --user enable clipmenud.service
 
-    # Clipboard to Primary mirror
+    # зеркалирование Clipboard в Primary
     systemctl --user enable clip-mirror.service
 
-    # screen link
+    # ссылка screen
     ln -s ~/.config/screen/screenrc ~/.screenrc
 
-    # distrobox Resolve Error
+    # исправление ошибки distrobox Resolve
     # cp files/distroboxrc ~/.distroboxrc
 
-    # menu_maker for Openbox
+    # menu_maker для Openbox
     ~/.config/openbox/menu_maker.sh
 
-    # set configs for Polybar
+    # настройка конфигов Polybar
     ~/.config/polybar/set_configs.sh
 elif [[ $de == "xfce" ]]; then
     # ~/.config
@@ -528,9 +528,9 @@ elif [[ $de == "xfce" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "lxde" ]]; then
     # ~/.config
@@ -542,16 +542,16 @@ elif [[ $de == "lxde" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # enable picom autostart
+    # включение автозапуска picom
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
-    # delete openbox session from display manager
+    # удаление сессии openbox из дисплей-менеджера
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "lxqt" ]]; then
     rm ~/.profile
@@ -565,24 +565,24 @@ elif [[ $de == "lxqt" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # QT Environment
+    # окружение QT
     mkdir ~/.config/lxqt
     cp files/lxqt_session.conf ~/.config/lxqt/session.conf
 
-    # enable picom autostart
+    # включение автозапуска picom
     sudo cp /usr/share/applications/picom.desktop /etc/xdg/autostart/picom.desktop
 
-    # copy desktop icons
+    # копирование значков рабочего стола
     sudo cp files/badge/lxqt_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/lxqt_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
-    # delete openbox session from display manager
+    # удаление сессии openbox из дисплей-менеджера
     sudo mv /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox.desktop.hide
     sudo mv /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/openbox-kde.desktop.hide
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "efl" ]]; then
     rm ~/.profile
@@ -596,9 +596,9 @@ elif [[ $de == "efl" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "mate" ]]; then
     # ~/.config
@@ -610,9 +610,9 @@ elif [[ $de == "mate" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "cinnamon" ]]; then
     # ~/.config
@@ -624,14 +624,14 @@ elif [[ $de == "cinnamon" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # copy desktop icons
+    # копирование значков рабочего стола
     sudo cp files/badge/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon_badge-symbolic.svg
     sudo cp files/badge/cinnamon_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/cinnamon2d_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "gnome" ]]; then
     rm ~/.profile
@@ -666,7 +666,7 @@ elif [[ $de == "kde" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # config sddm
+    # настройка sddm
     sudo mkdir /etc/sddm.conf.d
     sudo cp files/sddm_avatar.conf /etc/sddm.conf.d/avatar.conf
     sudo cp files/images/username.png /var/lib/AccountsService/icons/${username}
@@ -679,15 +679,15 @@ elif [[ $de == "deepin" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # copy desktop icons
+    # копирование значков рабочего стола
     sudo cp files/badge/deepin_badge-symbolic.svg /usr/share/icons/hicolor/scalable/places/deepin_badge-symbolic.svg
     sudo gtk-update-icon-cache /usr/share/icons/hicolor
 
-    # enable lightdm-gtk-greeter
+    # включение lightdm-gtk-greeter
     sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 elif [[ $de == "cosmic" ]]; then
     rm ~/.profile
@@ -698,41 +698,41 @@ elif [[ $de == "cosmic" ]]; then
 
     cp -r config/htop ~/.config/htop
 
-    # config lightdm
+    # настройка lightdm
     sudo cp files/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-    # enable numlockx in lightdm
+    # включение numlockx в lightdm
     sudo sed -i 's/#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx on/' /etc/lightdm/lightdm.conf
 fi
 
 ###############
 
-# copy image for lightdm & i3lock
+# копирование изображения для lightdm и i3lock
 sudo cp files/images/archlinux.png /usr/share/backgrounds/archlinux.png
 
-# icon for user
+# значок пользователя
 sudo cp files/images/username.png /var/lib/AccountsService/icons/${username}.png
 sudo cp files/username /var/lib/AccountsService/users/${username}
 sudo sed -i "s/username/${username}/" /var/lib/AccountsService/users/${username}
 
-# makepkg settings
+# настройки makepkg
 sudo sed -i 's/#MAKEFLAGS/MAKEFLAGS/' /etc/makepkg.conf
 
-# timeoutstop in systemd
+# timeoutstop в systemd
 sudo sed -i 's/#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
 
-# systemd journal size
+# размер журнала systemd
 # sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=512M/' /etc/systemd/journald.conf
 
-# enable change locale
+# включение смены локали
 sudo localectl --no-convert set-x11-keymap us,ru "" "" grp:alt_shift_toggle
 
 ###############
 
 # Vim
 ln -s ~/.config/vim/vimrc ~/.vimrc
-# install Vim-plug
+# установка Vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# install vim spell RU UTF-8
+# установка русской проверки орфографии vim UTF-8
 # curl -fLo ~/.vim/spell/ru.utf-8.sug --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
 # curl -fLo ~/.vim/spell/ru.utf-8.spl --create-dirs http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
 echo; echo
@@ -743,17 +743,17 @@ echo "####################"
 echo "now click any key"
 echo "####################"
 read -n1 -p">"; echo
-# install vim plugins
+# установка плагинов vim
 vim -c PlugInstall
 echo; echo
-# enable vim colorscheme
+# включение цветовой схемы vim
 sed -i 's/desert/PaperColor/' ~/.config/vim/colors.vim
 
 # NeoVim
 if [[ $de == "koljasha_wm" ]]; then
-    # install Vim-plug
+    # установка Vim-plug
     # curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    # install nvim Vim-plug plugins
+    # установка плагинов nvim Vim-plug
     nvim -c PlugInstall
 fi
 
@@ -766,39 +766,39 @@ if [[ $de == "koljasha_wm" ]]; then
     sudo sed -i "s/gvim -f/gvim -y -f/" /usr/share/applications/evim.desktop
 fi
 
-# vim for vi
+# vim как vi
 sudo ln -s /usr/bin/vim /usr/bin/vi
 
 ###############
 
-# install oh-my-fish
+# установка oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish
 oh-my-fish/bin/install --noninteractive --offline
-# install theme for fish
+# установка темы для fish
 fish -c 'omf install agnoster'
-# install fzf plugins
+# установка плагинов fzf
 fish -c 'omf install fzf'
 fish -c 'set -U FZF_LEGACY_KEYBINDINGS 0; set -U FZF_PREVIEW_DIR_CMD "ls -lah"; set -U FZF_PREVIEW_FILE_CMD "head -n 20"; set -U FZF_COMPLETE 2'
 cp files/fish/fzf.fish ~/.local/share/omf/pkg/fzf/conf.d/fzf.fish
 cp files/fish/fzf_complete.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete.fish
 cp files/fish/fzf_complete_preview.fish ~/.local/share/omf/pkg/fzf/functions/__fzf_complete_preview.fish
-# clean oh-my-fish
+# очистка oh-my-fish
 rm -rf ~/archlinux/oh-my-fish
-# exit status in fish agnoster theme
+# код возврата в теме fish agnoster
 sed -i 's/✘/✘ $RETVAL'/ ~/.local/share/omf/themes/agnoster/functions/fish_prompt.fish
-# fish is main shell
+# fish — основная оболочка
 sudo chsh -s /usr/bin/fish $username
-# fish editor
+# редактор fish
 fish -c 'set -U EDITOR vim'
-# vi mode
+# режим vi
 fish -c 'fish_vi_key_bindings'
-# update fish
+# обновление fish
 fish -c 'fish_update_completions'
 
-# [Key bindings for command-line](https://github.com/junegunn/fzf?ysclid=lqj7hv2gh7236490784#key-bindings-for-command-line)
-# CTRL-T - Paste the selected files and directories onto the command-line
-# CTRL-R - Paste the selected command from history onto the command-line
-# ALT-C - cd into the selected directory
+# [Привязки клавиш для командной строки](https://github.com/junegunn/fzf?ysclid=lqj7hv2gh7236490784#key-bindings-for-command-line)
+# CTRL-T — вставить выбранные файлы и каталоги в командную строку
+# CTRL-R — вставить выбранную команду из истории в командную строку
+# ALT-C — переход в выбранный каталог
 
 ###############
 
@@ -831,14 +831,14 @@ fish -c 'fish_update_completions'
 
 ###############
 
-# Enable services
+# Включение сервисов
 
 ###############
 
-# system clock synchronized
+# синхронизация системных часов
 sudo timedatectl set-ntp true
 
-# out-of-memory killer
+# убийца процессов при нехватке памяти (OOM)
 sudo systemctl enable earlyoom.service
 # sudo systemctl enable systemd-oomd.service
 
@@ -848,14 +848,14 @@ sudo systemctl enable upower.service
 # udisksd
 sudo systemctl enable udisks2.service
 
-# pkgfile database update
+# обновление базы pkgfile
 sudo systemctl enable pkgfile-update.timer
 sudo systemctl start pkgfile-update.service
 
-# fstrim for ssd
+# fstrim для ssd
 sudo systemctl enable fstrim.timer
 
-# login manager
+# менеджер входа
 if [[ $de == "koljasha_wm" ]] \
 || [[ $de == "xfce" ]] || [[ $de == "lxde" ]] || [[ $de == "lxqt" ]] \
 || [[ $de == "mate" ]] || [[ $de == "cinnamon" ]] \
@@ -871,7 +871,7 @@ elif [[ $de == "kde" ]]; then
     sudo systemctl enable sddm.service
 fi
 
-# pacman-mirrorlist settings
+# настройки pacman-mirrorlist
 while [[ $mlist != "1" ]] && [[ $mlist != "2" ]]; do
     echo; echo
     echo "####################"
@@ -892,20 +892,20 @@ echo "Ok"
 
 
 if [[ $de == "koljasha_wm" ]]; then
-    # Update Arch packages with yay
+    # обновление пакетов Arch с помощью yay
     systemctl --user enable yay_update.timer
 
-    # services for Timeshift - Cron
+    # сервисы для Timeshift — Cron
     sudo systemctl enable cronie.service
 
-    # services for Timeshift - Grub-Btrfs
+    # сервисы для Timeshift — Grub-Btrfs
     if [[ "$filesystem" == "btrfs" ]]; then
         sudo cp /usr/lib/systemd/system/grub-btrfsd.service /etc/systemd/system/grub-btrfsd.service
         sudo sed -i -E '/ExecStart/s/(btrfsd --syslog).*/\1 --timeshift-auto/' /etc/systemd/system/grub-btrfsd.service
         sudo systemctl enable grub-btrfsd
     fi
 
-    # service Dns resolve for OpenVpn
+    # сервис разрешения DNS для OpenVpn
     # https://wiki.archlinux.org/title/OpenVPN#The_update-systemd-resolved_custom_script
     sudo systemctl enable systemd-resolved.service
 fi
@@ -913,7 +913,7 @@ fi
 ###############
 
 if [[ $de == "koljasha_wm" ]]; then
-    # enable change backgrounds
+    # включение смены обоев
     while [[ $chbg != "1" ]] && [[ $chbg != "2" ]]; do
         echo; echo
         echo "####################"
@@ -932,7 +932,7 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # enable ufw firewall
+    # включение брандмауэра ufw
     while [[ $ufw != "1" ]] && [[ $ufw != "2" ]]; do
         echo; echo
         echo "####################"
@@ -952,7 +952,7 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # enable bluetooth
+    # включение bluetooth
     while [[ $blue != "1" ]] && [[ $blue != "2" ]]; do
         echo; echo
         echo "####################"
@@ -971,7 +971,7 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # enable x11vnc server
+    # включение сервера x11vnc
     while [[ $vnc != "1" ]] && [[ $vnc != "2" ]]; do
         echo; echo
         echo "####################"
@@ -990,7 +990,7 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # enable samba share for user
+    # включение samba-ресурса для пользователя
     while [[ $smb != "1" ]] && [[ $smb != "2" ]]; do
         echo; echo
         echo "####################"
@@ -1011,7 +1011,7 @@ if [[ $de == "koljasha_wm" ]]; then
 
     ###############
 
-    # picom disable for Virtual machines
+    # отключение picom для виртуальных машин
     while [[ $vvsync != "1" ]] && [[ $vvsync != "2" ]]; do
         echo; echo
         echo "####################"
@@ -1066,17 +1066,17 @@ fi
 
 ###############
 
-# fix Setfont: KDFONTOP: Function not implemented on startup
+# исправление Setfont: KDFONTOP: Function not implemented при запуске
 # sudo sed -i -e '/^BINARIES=/s/()/(setfont)/' /etc/mkinitcpio.conf
 # sudo mkinitcpio -P
 
 ###############
 
-# end update settings
+# конец обновления настроек
 
 ###############
 
-# clean yay
+# очистка yay
 yay -Yc --noconfirm
 
 ###############
