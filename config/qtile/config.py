@@ -1,5 +1,5 @@
-# Qtile config file
-# Please see http://docs.qtile.org/en/latest/
+# Конфигурация Qtile
+# Документация: http://docs.qtile.org/en/latest/
 
 import os
 import re
@@ -15,7 +15,7 @@ if qtile.core.name == "wayland":
 
 from libqtile.log_utils import logger
 
-######### Variables & functions #########
+######### Переменные и функции #########
 
 mod = "mod4"
 alt = "mod1"
@@ -76,14 +76,14 @@ def decrease_gaps(qtile):
 
 @lazy.function
 def move_prev_group(qtile):
-    groups = qtile.groups[:-1] # without ScratchPad
+    groups = qtile.groups[:-1] # без ScratchPad
     index =  groups.index(qtile.current_group)
     index = len(groups)-1 if index == 0 else index-1
     qtile.current_window.togroup(groups[index].name, switch_group=True)
 
 @lazy.function
 def move_next_group(qtile):
-    groups = qtile.groups[:-1] # without ScratchPad
+    groups = qtile.groups[:-1] # без ScratchPad
     index =  groups.index(qtile.current_group)
     index = 0 if index == len(groups)-1 else index+1
     qtile.current_window.togroup(groups[index].name, switch_group=True)
@@ -103,25 +103,25 @@ if qtile.core.name == "x11":
             new_state = prev_state | atom
             window.window.set_property("_NET_WM_STATE", list(new_state))
 
-# https://docs.qtile.org/en/latest/manual/wayland.html
+# Wayland: https://docs.qtile.org/en/latest/manual/wayland.html
 if qtile.core.name == "wayland":
-    # show inputs: qtile cmd-obj -o core -f get_inputs
+    # список устройств: qtile cmd-obj -o core -f get_inputs
     wl_input_rules = {
 
-        # Mouse
+        # Мышь
         "1149:4128:Kensington Expert Mouse": InputConfig(
             pointer_accel=0.10,
             scroll_method='on_button_down',
             scroll_button=0x111,        # BTN_RIGHT = 273 в linux/input-event-codes.h
         ),
-        # other (example config for Elecom)
+        # прочие (пример настройки для Elecom)
         "type:pointer": InputConfig(
             pointer_accel=-0.30,
             scroll_method='on_button_down',
             scroll_button=0x117,
         ),
 
-        # Keyboard
+        # Клавиатура
         "type:keyboard": InputConfig(
             kb_layout="us,ru",
             # переключение по Alt+Shift и лампа для получения раскладки в скрипте
@@ -129,47 +129,47 @@ if qtile.core.name == "wayland":
         ),
     }
 
-######### Keybindings #########
+######### Горячие клавиши #########
 
 keys = [
 
-    ######### Main #########
+    ######### Основное #########
 
-    # Kill focused window
+    # Закрыть активное окно
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
 
-    # Reload | Restart Qtile
+    # Перезагрузить | Перезапустить Qtile
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config Qtile"),
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
 
-    # Exit menu
+    # Меню выхода
     Key([mod, "shift"], "p", lazy.spawn(scripts["power"]), desc="Exit | Reboot | Poweroff"),
     Key([mod, "control"], "p", lazy.shutdown(), desc="Shutdown Qtile"),
 
-    # Picom restart
+    # Перезапуск Picom
     Key([mod], "p", lazy.spawn(scripts["picom_restart"]), desc="Restart Picom"),
 
-    # Voice dictation
+    # Голосовой ввод
     Key([mod], "Insert", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
     Key([mod], "F1", lazy.spawn(scripts["voice_dictation"]), desc="Voice dictation"),
 
-    # Keyboard lock
+    # Блокировка клавиатуры
     Key([mod], "Pause", lazy.spawn(scripts["kblock"]), desc="Keyboard lock"),
 
-    # Change background
+    # Сменить обои
     Key([mod, "control"], "b", lazy.spawn("systemctl --user start setbg.service"), desc="Change background"),
 
-    # Kill window
+    # Убить окно
     Key([alt, "control"], "Delete", lazy.spawn("xkill"), desc="Kill window"),
-    # Reboot System
+    # Перезагрузка системы
     Key([mod, alt, "control"], "Delete", lazy.spawn("systemctl -i reboot"), desc="Reboot System"),
 
-    # Change mouse hand
+    # Сменить руку мыши
     Key([mod, "control"], "m", lazy.spawn(scripts["mouse_right_left"]), desc="Change mouse left|right hand"),
-    # Change mouse scrolling button
+    # Сменить кнопку прокрутки мыши
     Key([mod, "shift"], "m", lazy.spawn(scripts["mouse_scrolling_button"]), desc="Change mouse scrolling button"),
 
-    ######### Menu #########
+    ######### Меню #########
 
     Key([mod], "d", lazy.spawn("dmenu_run -b -i"), desc="Run dmenu run"),
 
@@ -179,67 +179,67 @@ keys = [
     Key([mod, "shift"], "a", lazy.spawn("rofi -show run"), desc="Run rofi run"),
     Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Run rofi window"),
 
-    ######### Control Menu #########
+    ######### Меню управления #########
 
-    # Brightness
+    # Яркость
     Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Change brightness"),
     Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness_temperature']}"), desc="Change brightness temperature"),
 
-    # Clipboard
+    # Буфер обмена
     # редко затупливает, тогда:
     # systemctl --user restart clipmenud.service
     Key([mod], "c", lazy.spawn("clipmenu"), desc="Show clipboard history"),
 
-    # Password
+    # Пароли
     Key([mod], "s", lazy.spawn(scripts["password"]), desc="Run menu for pass"),
     Key([mod, "shift"], "s", lazy.spawn(scripts["password_generate"]), desc="Run menu for generate pass"),
 
-    # Volume
+    # Громкость
     Key([mod], "z", lazy.spawn(f"{scripts['volume']} change"), desc="Change volume"),
 
-    # Workspaces
+    # Рабочие столы
     Key([mod], "x", lazy.spawn(f"{scripts['workspaces']} change"), desc="Change workspaces"),
     Key([mod, "shift"], "x", lazy.spawn(f"{scripts['workspaces']} move"), desc="Move to workspaces"),
 
-    ######### System #########
+    ######### Система #########
 
-    # Volume control
+    # Управление громкостью
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc="Volume up"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc="Volume down"),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc="Volume mute"),
 
-    # Screenshot
+    # Скриншот
     Key([], "Print", lazy.spawn(f"{scripts['screenshot']} full"), desc="Make a screenshot"),
     Key([mod], "Print", lazy.spawn(f"{scripts['screenshot']} region"), desc="Make a screenshot"),
     Key([mod, "shift"], "Print", lazy.spawn(f"{scripts['screenshot']} edit"), desc="Make a screenshot"),
     # Key([], "Print", lazy.spawn("gnome-screenshot --interactive"), desc="Make a screenshot"),
 
-    # Notifications
+    # Уведомления
     Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), desc="Close notifications"),
     Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="Show notifications history"),
 
-    # Vpn
+    # VPN
     Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Start|Stop Vpn"),
     # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Start|Stop Vpn"),
 
-    # System updates
+    # Обновление системы
     Key([mod, "shift"], "u", lazy.spawn(scripts["updates"]), desc="System updates"),
 
-    ######### Apps #########
+    ######### Приложения #########
 
-    # Terminal
+    # Терминал
     Key([mod], "Return", lazy.spawn(f"{scripts['shell']} alacritty"), desc="Launch terminal"),
     Key([mod, "shift"], "Return", lazy.spawn(f"{scripts['shell']} terminator"), desc="Launch terminal"),
 
     Key([mod, "control"], "Return", lazy.spawn("alacritty --command ranger"), desc="Launch terminal"),
 
-    # Browser
+    # Браузер
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
 
-    # Run htop
+    # Запустить htop
     Key([mod], "t", lazy.spawn("terminator -x htop"), desc="Run htop"),
 
-    # Fn keys
+    # Fn-клавиши
     Key([], "XF86Explorer", lazy.spawn("pcmanfm"), desc="PcManFm"),
     Key([], "XF86HomePage", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
     Key([], "XF86Mail", lazy.spawn("obsidian"), desc="Obsidian"),
@@ -247,9 +247,9 @@ keys = [
     Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),
     # Key([], "XF86Search", lazy.spawn("google-chrome-stable"), desc="Google Chrome"),
 
-    ######### Window #########
+    ######### Окна #########
 
-    # Switch between windows
+    # Переключение между окнами
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
@@ -259,8 +259,8 @@ keys = [
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
 
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
+    # Перемещение окон между колонками или вверх/вниз в текущем стеке.
+    # Перемещение за границу в раскладке Columns создаёт новую колонку.
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
@@ -270,8 +270,8 @@ keys = [
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
 
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
+    # Изменение размера окон. Если окно у края экрана, а направление —
+    # к краю, окно будет уменьшаться.
     Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
@@ -280,7 +280,7 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    # or
+    # или
     KeyChord([mod, "shift"], "space", [
             Key([], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
             Key([], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
@@ -291,8 +291,8 @@ keys = [
             Key([], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
             Key([], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
 
-            Key([], "Return", lazy.ungrab_chord()), # for exit chord like Esc
-            Key([mod, "shift"], "space", lazy.ungrab_chord()), # for exit chord like Esc
+            Key([], "Return", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
+            Key([mod, "shift"], "space", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
             ],
             mode=True,
             name="  " ,
@@ -304,7 +304,7 @@ keys = [
 
     Key([mod], "m", toggle_minimize(), desc="Toggle minimize windows"),
 
-    ######### Layouts #########
+    ######### Раскладки #########
 
     Key([mod], "w", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "e", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
@@ -318,14 +318,14 @@ keys = [
             Key([], "Up", decrease_gaps(), desc="Decrease Gaps"),
             Key([], "Left", decrease_gaps(), desc="Decrease Gaps"),
 
-            Key([], "Return", lazy.ungrab_chord()), # for exit chord like Esc
-            Key([mod, "control"], "space", lazy.ungrab_chord()), # for exit chord like Esc
+            Key([], "Return", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
+            Key([mod, "control"], "space", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
             ],
             mode=True,
             name="  " ,
         ),
 
-    ######### Workspaces #########
+    ######### Рабочие столы #########
 
     Key([alt, "control"], "Left", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
     Key([alt, "control"], "h", lazy.screen.prev_group(skip_empty=True), desc="Change groups"),
@@ -339,7 +339,7 @@ keys = [
 
     Key([mod], "backspace", lazy.group["scratchpad"].dropdown_toggle("terminal"), desc="ScratchPad"),
 
-    ######### Mouse on the keyboard #########
+    ######### Мышь на клавиатуре #########
 
     KeyChord([mod], "Home", [
             Key([], "Left", lazy.spawn("xdotool mousemove_relative -- -50 0"), desc="Mouse left"),
@@ -364,7 +364,7 @@ keys = [
             Key([], "Insert", lazy.spawn("xdotool click 9"), desc="Mouse additional button"),
             Key([], "Delete", lazy.spawn("xdotool click 8"), desc="Mouse additional button"),
 
-            Key([mod], "Home", lazy.ungrab_chord()), # for exit chord like Esc
+            Key([mod], "Home", lazy.ungrab_chord()), # выход из режима аккорда (Esc)
             ],
             mode=True,
             name="  ",
@@ -372,7 +372,7 @@ keys = [
 
 ]
 
-######### Mouse #########
+######### Мышь #########
 
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
@@ -381,7 +381,7 @@ mouse = [
 ]
 
 
-######### Groups #########
+######### Группы #########
 
 groups = [
     Group("1: "),
@@ -400,7 +400,7 @@ groups = [
     ])
 ]
 
-for i in groups[:-1]: # without ScratchPad
+for i in groups[:-1]: # без ScratchPad
     key = i.name.split(":")[0]
     key = key if len(key) == 1 else key[-1]
     name = i.name
@@ -412,7 +412,7 @@ for i in groups[:-1]: # without ScratchPad
     )
 
 
-######### Layouts #########
+######### Раскладки #########
 
 layouts = [
     layout.Columns(border_focus=[colors["gray"], colors["gray"]],
@@ -426,7 +426,7 @@ layouts = [
 
 floating_layout = layout.Floating(
         float_rules=[
-            # Run the utility of `xprop` to see the wm class and name of an X client.
+            # Класс и имя X-клиента можно посмотреть через `xprop`.
             *layout.Floating.default_float_rules,
             Match(wm_class=re.compile(r"^(Terminator|terminator)$")),
             Match(wm_class=r"^(Gnome\-screenshot)$"),
@@ -443,7 +443,7 @@ floating_layout = layout.Floating(
 )
 
 
-######### Bars #########
+######### Панели #########
 
 widget_defaults = dict(
     font="sans",
@@ -454,12 +454,12 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 #
-# Wrappers on widgets
+# Обёртки над виджетами
 #
 
 class MyGenPollText(widget.GenPollText):
     """
-    widget.GenPollText with update after clicking execute
+    widget.GenPollText с обновлением после клика (execute)
     """
     defaults = [
         ("execute", None, "Command to execute on click"),
@@ -469,7 +469,7 @@ class MyGenPollText(widget.GenPollText):
         super().__init__(**config)
         self.add_defaults(MyGenPollText.defaults)
 
-        # Helpful to have this as a variable as we can shorten it for testing
+        # Удобно вынести в переменную — так проще подменять при тестах
         self.execute_polling_interval = 0.1
 
         if self.execute:
@@ -488,7 +488,7 @@ class MyGenPollText(widget.GenPollText):
 
 class MyVolume(widget.GenPollText):
     # """
-    # widget.GenPollText for Volume control with gray word for Muted
+    # widget.GenPollText для громкости; слово Muted выводится серым
     # """
     def update(self, text):
         super().update(text)
@@ -498,7 +498,7 @@ class MyVolume(widget.GenPollText):
 
 class MyMemory(widget.Memory):
     """
-    widget.Memory with {UsedShared} - MemUsed+Shmem
+    widget.Memory с {UsedShared} — это MemUsed + Shmem
     """
     def poll(self):
         mem = psutil.virtual_memory()
@@ -526,7 +526,7 @@ class MyMemory(widget.Memory):
 
 class MyDF(widget.DF):
     """
-    widget.DF with {us} - user space
+    widget.DF с {us} — место, занятое пользователем
     """
     def poll(self):
         statvfs = os.statvfs(self.partition)
@@ -552,7 +552,7 @@ class MyDF(widget.DF):
 
 my_bar = bar.Bar(
     [
-        # Left
+        # Слева
         widget.Spacer(length=5),
         widget.TextBox(fmt="<span color='#bd2c40'></span> {}",
                      mouse_callbacks = {"Button1": lambda: qtile.spawn("jgmenu_run")},
@@ -583,15 +583,15 @@ my_bar = bar.Bar(
         widget.Sep(padding=5),
         widget.Spacer(length=3),
 
-        # Center
+        # По центру
         widget.TaskList(title_width_method="uniform",
                         foreground=colors["white"],
                         borderwidth=1,
                         border=colors['gray'],
                         padding=3),
 
-        # Right
-        # keyboard chord : Mouse on the keyboard
+        # Справа
+        # клавиатурный аккорд: Мышь на клавиатуре
         widget.Chord(foreground=colors["light_blue"],
                      background=colors["red"],
                      padding=1),
@@ -684,7 +684,7 @@ my_bar = bar.Bar(
         widget.Systray(padding=1),
         widget.Spacer(length=5),
 
-        # systray for X11 and StatusNotifier for Wayland
+        # systray для X11 и StatusNotifier для Wayland
         # https://qtile-extras.readthedocs.io/en/stable/manual/ref/widgets.html#statusnotifier
         # yay -S qtile-extras python-dbus-fast
 
@@ -694,16 +694,16 @@ my_bar = bar.Bar(
     ],
     background=colors["dark_gray"],
     size=25,
-    margin=(1, 1, 1, 1),    # [N E S W]
+    margin=(1, 1, 1, 1),    # [С В Ю З]
     opacity=0.95,
 )
 
 
-######### Screens #########
+######### Экраны #########
 
-# Screen for X11 and Wayland
-# Bug when wallpaper in X11:
-# xcffib.ConnectionException when reload_config()
+# Экран для X11 и Wayland
+# Баг с обоями в X11:
+# xcffib.ConnectionException при reload_config()
 screens = [
     Screen(top=my_bar)
     if qtile.core.name == "x11" \
@@ -714,8 +714,8 @@ screens = [
 ]
 
 
-######### Configuration variables #########
-# http://docs.qtile.org/en/latest/manual/config/index.html#configuration-variables
+######### Переменные конфигурации #########
+# Документация: http://docs.qtile.org/en/latest/manual/config/index.html#configuration-variables
 
 auto_fullscreen = True
 bring_front_click = "floating_only"
