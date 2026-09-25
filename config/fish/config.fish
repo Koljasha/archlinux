@@ -72,21 +72,21 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 #
 
 # псевдонимы для Sing-Box
-function wg-up --description 'запустить sing-box, если не активен'
+function sb-up --description 'запустить sing-box, если не активен'
     if test (systemctl is-active sing-box.service) != "active"
         sudo systemctl start sing-box.service
     else
         echo "уже активен"
     end
 end
-function wg-down --description 'остановить sing-box, если активен'
+function sb-down --description 'остановить sing-box, если активен'
     if test (systemctl is-active sing-box.service) = "active"
         sudo systemctl stop sing-box.service
     else
         echo "уже неактивен"
     end
 end
-function wg-status --description 'показать статус sing-box'
+function sb-status --description 'показать статус sing-box'
     systemctl is-active sing-box.service
 end
 
