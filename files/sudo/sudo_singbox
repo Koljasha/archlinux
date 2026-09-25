@@ -1,0 +1,4 @@
+# sing-box service
+
+username ALL = NOPASSWD: /usr/bin/systemctl start sing-box.service, /usr/bin/systemctl stop sing-box.service, /usr/bin/systemctl is-active sing-box.service
+
