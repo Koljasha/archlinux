@@ -71,22 +71,41 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 # Vpn
 #
 
-# aliases for WireGuard
-alias wg-up="sudo wg-quick up wg0"
-alias wg-down="sudo wg-quick down wg0"
-function wg-status --description 'show WireGuard status'
-    if test -z (sudo wg | sed -n 1p)
-        echo 'No WireGuard Connection'
+# aliases for Sing-Box
+function wg-up --description 'start sing-box if inactive'
+    if test (sudo systemctl is-active sing-box.service) != "active"
+        sudo systemctl start sing-box.service
     else
-        echo -e 'WireGuard Connect\n'
-        sudo wg
+        echo "already active"
     end
+end
+function wg-down --description 'stop sing-box if active'
+    if test (sudo systemctl is-active sing-box.service) = "active"
+        sudo systemctl stop sing-box.service
+    else
+        echo "already inactive"
+    end
+end
+function wg-status --description 'show sing-box status'
+    sudo systemctl is-active sing-box.service
 end
 
 # aliases for OpenVpn version 3
 alias vpn-up="openvpn3 session-start --config $argv[1]"
 alias vpn-down="openvpn3 session-manage --disconnect --config $argv[1]"
 alias vpn-status="openvpn3 sessions-list"
+
+# aliases for WireGuard
+# alias wg-up="sudo wg-quick up wg0"
+# alias wg-down="sudo wg-quick down wg0"
+# function wg-status --description 'show WireGuard status'
+    # if test -z (sudo wg | sed -n 1p)
+        # echo 'No WireGuard Connection'
+    # else
+        # echo -e 'WireGuard Connect\n'
+        # sudo wg
+    # end
+# end
 
 # aliases for OpenVpn version 2 from NetworkManager
 # alias vpn-up="nmcli connection up $argv[1]"
