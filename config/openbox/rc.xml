@@ -378,9 +378,14 @@
         <!-- <command>~/.config/scripts/vpn_openvpn.sh change</command> -->
       <!-- </action> -->
     <!-- </keybind> -->
+    <!-- <keybind key="W-S-v"> -->
+      <!-- <action name="Execute"> -->
+        <!-- <command>~/.config/scripts/vpn_wireguard.sh change</command> -->
+      <!-- </action> -->
+    <!-- </keybind> -->
     <keybind key="W-S-v">
       <action name="Execute">
-        <command>~/.config/scripts/vpn_wireguard.sh change</command>
+        <command>~/.config/scripts/vpn_singbox.sh change</command>
       </action>
     </keybind>
 

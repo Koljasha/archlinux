@@ -56,8 +56,9 @@ scripts = {
     "screenshot": os.path.expanduser("~/.config/scripts/screenshot.sh"),
     "updates": os.path.expanduser("~/.config/scripts/updates.sh"),
 
+    "singbox": os.path.expanduser("~/.config/scripts/vpn_singbox.sh"),
+    # "wireguard": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh"),
     # "openvpn": os.path.expanduser("~/.config/scripts/vpn_openvpn.sh"),
-    "wireguard": os.path.expanduser("~/.config/scripts/vpn_wireguard.sh"),
 }
 
 @hook.subscribe.startup_once
@@ -219,7 +220,8 @@ keys = [
     Key([mod, "control"], "n", lazy.spawn("dunstctl history-pop"), desc="История уведомлений"),
 
     # VPN
-    Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Включить|Выключить VPN"),
+    Key([mod, "shift"], "v", lazy.spawn(f"{scripts['singbox']} change"), desc="Включить|Выключить VPN"),
+    # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['wireguard']} change"), desc="Включить|Выключить VPN"),
     # Key([mod, "shift"], "v", lazy.spawn(f"{scripts['openvpn']} change"), desc="Включить|Выключить VPN"),
 
     # Обновление системы
@@ -654,10 +656,14 @@ my_bar = bar.Bar(
                   padding=1),
 
         widget.Sep(padding=5),
-        MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
-                      execute=f"{scripts['wireguard']} change",
+        MyGenPollText(func=lambda: subprocess.check_output(scripts["singbox"]).decode("utf-8").strip(),
+                      execute=f"{scripts['singbox']} change",
                       update_interval=5,
                       padding=1),
+        # MyGenPollText(func=lambda: subprocess.check_output(scripts["wireguard"]).decode("utf-8").strip(),
+                      # execute=f"{scripts['wireguard']} change",
+                      # update_interval=5,
+                      # padding=1),
         # MyGenPollText(func=lambda: subprocess.check_output(scripts["openvpn"]).decode("utf-8").strip(),
                       # execute=f"{scripts['openvpn']} change",
                       # update_interval=5,

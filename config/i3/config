@@ -127,7 +127,8 @@ bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 bindsym $mod+Control+n exec --no-startup-id dunstctl history-pop
 
 # Vpn
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_singbox.sh change
+# bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_wireguard.sh change
 # bindsym $mod+Shift+v exec --no-startup-id ~/.config/scripts/vpn_openvpn.sh change
 
 # System updates
