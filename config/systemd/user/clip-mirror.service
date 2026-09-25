@@ -6,7 +6,7 @@ Description=Clipboard to Primary mirror (clip-mirror)
 [Service]
 ExecCondition=/usr/bin/bash -c 'pgrep -x "qtile|i3|openbox" > /dev/null'
 ExecStart=%h/.config/scripts/clip-mirror.sh
-Restart=on-failure
+Restart=always
 RestartSec=3
 Environment=DISPLAY=:0
 Environment=XAUTHORITY=%h/.Xauthority

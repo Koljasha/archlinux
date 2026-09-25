@@ -5,26 +5,52 @@
 
 set -Eeuo pipefail
 
-LAST=""
+TMP=""
 
 # clipnotify — прямой потомок этого скрипта; при выходе убираем его, иначе зависнет сиротой.
-cleanup() { pkill -P "$$" clipnotify 2>/dev/null || true; }
+cleanup() {
+	pkill -P "$$" clipnotify 2>/dev/null || true
+	[[ -n "${TMP:-}" ]] && rm -f "$TMP" 2>/dev/null || true
+}
 trap cleanup EXIT
 trap 'exit 0' INT TERM
 
 while true; do
-    # Блокируется и печатает строку, только когда меняется CLIPBOARD -> событие,
-    # а не опрос каждую секунду. Ненулевой код = X-события недоступны (переждали).
-    if ! clipnotify >/dev/null 2>&1; then
-        sleep 2
-        continue
-    fi
+	# Блокируется и печатает строку, только когда меняется CLIPBOARD -> событие,
+	# а не опрос каждую секунду. Ненулевой код = X-события недоступны (переждали).
+	if ! clipnotify -s clipboard >/dev/null 2>&1; then
+		sleep 2
+		continue
+	fi
 
-    cur="$(xclip -selection clipboard -o 2>/dev/null || true)"
-    [[ -z "$cur" || "$cur" == "$LAST" ]] && continue
-    LAST="$cur"
+	# Через файл, а не shell-переменную: сохраняются trailing \n и NUL-байты,
+	# плюс не упираемся в размер переменной на больших копипастах.
+	TMP="$(mktemp)"
+	if ! xclip -selection clipboard -o >"$TMP" 2>/dev/null; then
+		rm -f "$TMP"
+		TMP=""
+		continue
+	fi
 
-    # xclip -i становится владельцем PRIMARY; прежний владелец получает SelectionClear
-    # и завершается сам — процессы не копятся.
-    printf '%s' "$cur" | xclip -selection primary >/dev/null 2>&1 || true
+	# Пустой CLIPBOARD PRIMARY не затирает.
+	if [[ ! -s "$TMP" ]]; then
+		rm -f "$TMP"
+		TMP=""
+		continue
+	fi
+
+	# Сверка с живым PRIMARY, а не с кэшем LAST:
+	# выделение текста затирает PRIMARY, и повторный Ctrl+C того же
+	# содержимого обязан перезеркалить. Иначе Shift-Ins вставляет stale.
+	if xclip -selection primary -o 2>/dev/null | cmp -s -- "$TMP" -; then
+		rm -f "$TMP"
+		TMP=""
+		continue
+	fi
+
+	# xclip -i становится владельцем PRIMARY; прежний владелец получает SelectionClear
+	# и завершается сам — процессы не копятся.
+	xclip -selection primary <"$TMP" >/dev/null 2>&1 || true
+	rm -f "$TMP"
+	TMP=""
 done
