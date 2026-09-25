@@ -1,6 +1,6 @@
-# export ssh keys and configs
+# экспорт SSH-ключей и конфигов
 #
-function ssh-export --description 'export ssh keys and configs'
+function ssh-export --description 'экспорт SSH-ключей и конфигов'
     if test -d ~/.ssh
         mkdir ssh_keys
         cp -r ~/.ssh/. ssh_keys/
@@ -8,14 +8,14 @@ function ssh-export --description 'export ssh keys and configs'
         tar czvf ssh_keys.tar.gz ssh_keys/
         gpg -r $(whoami) -e ssh_keys.tar.gz
         rm -rf ssh_keys.tar.gz ssh_keys/
-        echo "Export file has been created"
+        echo "Файл экспорта создан"
 
-        # copy to zip source
+        # копирование в zip-источник
         #
 
         rm ssh_keys.tar.gz.gpg
     else
-        echo "No SSH folder"
+        echo "Нет каталога SSH"
     end
 end
 

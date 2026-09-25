@@ -1,13 +1,13 @@
 #
-# Fish settings
+# Настройки Fish
 #
 
-# not display a welcome message
+# не показывать приветственное сообщение
 set fish_greeting
 
-# vi-style bindings that inherit emacs-style
+# vi-подобные привязки, наследующие emacs-подобные
 function fish_hybrid_key_bindings \
-    --description "Vi-style bindings that inherit emacs-style"
+    --description "Vi-привязки, наследующие emacs-привязки"
     for mode in default insert visual
         fish_default_key_bindings -M $mode
     end
@@ -15,15 +15,15 @@ function fish_hybrid_key_bindings \
 end
 set -g fish_key_bindings fish_hybrid_key_bindings
 
-# save current directory (it is necessary for tiling managers like i3, qtile)
+# сохранить текущий каталог (нужно для тайловых менеджеров вроде i3, qtile)
 function prompt_command \
     --on-event fish_prompt \
-    --description 'save current directory'
+    --description 'сохранить текущий каталог'
     pwd > /tmp/whereami
 end
 
 
-# aliases for default commands
+# псевдонимы для стандартных команд
 alias ll="ls -lahv --group-directories-first"
 alias grep="grep --color=auto"
 alias cp="cp -av"
@@ -31,7 +31,7 @@ alias mv="mv -v"
 alias rm="rm -v"
 alias view="vim -R"
 
-# aliases for additional commands
+# псевдонимы для дополнительных команд
 alias ll="eza -lahg --group-directories-first"
 alias rm="trash -v"
 
@@ -39,7 +39,7 @@ alias rsync="rsync -avP"
 alias fd="fd --hidden --follow --no-ignore"
 alias rg="rg --hidden --follow --no-ignore --ignore-case"
 
-# aliases for bat|bat-extras
+# псевдонимы для bat|bat-extras
 alias cat="bat"
 alias ccat="bat -pp"
 
@@ -55,7 +55,7 @@ alias diff="batdiff --delta"
 
 alias pass-gen="pwgen -s 45 -N 5 -1 -y -r'{}()[]\\`|'"
 
-# alias for Debian apt|nala
+# псевдоним для Debian apt|nala
 if test -f /usr/bin/apt
     if test -f /usr/bin/nala
         alias apt.update="sudo nala upgrade && sudo nala autopurge"
@@ -64,57 +64,57 @@ if test -f /usr/bin/apt
     end
 end
 
-# alias for grub-update
+# псевдоним для grub-update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 #
-# Vpn
+# VPN
 #
 
-# aliases for Sing-Box
-function wg-up --description 'start sing-box if inactive'
-    if test (sudo systemctl is-active sing-box.service) != "active"
+# псевдонимы для Sing-Box
+function wg-up --description 'запустить sing-box, если не активен'
+    if test (systemctl is-active sing-box.service) != "active"
         sudo systemctl start sing-box.service
     else
-        echo "already active"
+        echo "уже активен"
     end
 end
-function wg-down --description 'stop sing-box if active'
-    if test (sudo systemctl is-active sing-box.service) = "active"
+function wg-down --description 'остановить sing-box, если активен'
+    if test (systemctl is-active sing-box.service) = "active"
         sudo systemctl stop sing-box.service
     else
-        echo "already inactive"
+        echo "уже неактивен"
     end
 end
-function wg-status --description 'show sing-box status'
-    sudo systemctl is-active sing-box.service
+function wg-status --description 'показать статус sing-box'
+    systemctl is-active sing-box.service
 end
 
-# aliases for OpenVpn version 3
+# псевдонимы для OpenVpn версии 3
 alias vpn-up="openvpn3 session-start --config $argv[1]"
 alias vpn-down="openvpn3 session-manage --disconnect --config $argv[1]"
 alias vpn-status="openvpn3 sessions-list"
 
-# aliases for WireGuard
+# псевдонимы для WireGuard
 # alias wg-up="sudo wg-quick up wg0"
 # alias wg-down="sudo wg-quick down wg0"
-# function wg-status --description 'show WireGuard status'
+# function wg-status --description 'показать статус WireGuard'
     # if test -z (sudo wg | sed -n 1p)
-        # echo 'No WireGuard Connection'
+        # echo 'Нет соединения WireGuard'
     # else
-        # echo -e 'WireGuard Connect\n'
+        # echo -e 'Подключение WireGuard\n'
         # sudo wg
     # end
 # end
 
-# aliases for OpenVpn version 2 from NetworkManager
+# псевдонимы для OpenVpn версии 2 из NetworkManager
 # alias vpn-up="nmcli connection up $argv[1]"
 # alias vpn-down="nmcli connection down $argv[1]"
-# function vpn-status --description 'show OpenVpn status'
+# function vpn-status --description 'показать статус OpenVpn'
     # nmcli connection show | /usr/bin/grep vpn
 # end
 
 
-# aliases for distrobox
+# псевдоним для distrobox
 # alias distrobox_create="distrobox create --volume /run/mount/storage:/run/mount/storage:rw"
 

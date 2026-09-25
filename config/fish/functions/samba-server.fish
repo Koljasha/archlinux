@@ -1,14 +1,18 @@
-# defined smb.service start|stop|status
+# запуск|остановка|статус smb.service
 #
-function samba-server --description 'smb.service start|stop|status'
-        if test \( (count $argv) -eq 1 \) -a \( "$argv[1]" = 'start' \)
-                sudo systemctl start smb.service
-        else if test \( (count $argv) -eq 1 \) -a \( "$argv[1]" = 'stop' \)
-                sudo systemctl stop smb.service
-        else if test \( (count $argv) -eq 1 \) -a \( "$argv[1]" = 'status' \)
+function samba-server --description 'запуск|остановка|статус smb.service'
+    if test (count $argv) -ne 1
+        echo "Использование: samba-server start|stop|status"
+        return
+    end
+    switch $argv[1]
+        case start
+            sudo systemctl start smb.service
+        case stop
+            sudo systemctl stop smb.service
+        case status
             systemctl status smb.service
-        else
-            echo "Use: samba-server start|stop|status"
-        end
+        case '*'
+            echo "Использование: samba-server start|stop|status"
+    end
 end
-

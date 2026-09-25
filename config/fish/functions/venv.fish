@@ -1,6 +1,6 @@
-# python virtualenv
+# виртуальное окружение Python (virtualenv)
 #
-function venv --description 'create/activate python virtual environment'
+function venv --description 'создать/активировать виртуальное окружение Python'
     if test -e .venv
         source .venv/bin/activate.fish
     else

@@ -1,6 +1,6 @@
-# reload network connection
+# перезагрузить сетевое соединение
 #
-function nm-reload --description 'reload network connection'
+function nm-reload --description 'перезагрузить сетевое соединение'
     nmcli networking connectivity
     nmcli networking off
     sleep 1
