@@ -8,6 +8,7 @@ ExecCondition=/usr/bin/bash -c 'pgrep -x "qtile|i3|openbox" > /dev/null'
 ExecStart=%h/.config/scripts/clip-mirror.sh
 Restart=always
 RestartSec=3
+RuntimeMaxSec=6h
 Environment=DISPLAY=:0
 Environment=XAUTHORITY=%h/.Xauthority
 

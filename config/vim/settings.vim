@@ -11,6 +11,11 @@ set t_Co=256
 " мышь во всех режимах
 set mouse=a
 
+" не публиковать выделение в PRIMARY (autoselect): vim перестаёт
+" претендовать на PRIMARY, не получает SelectionClear и не
+" переключает подсветку выделения на подчёркивание (VisualNOS)
+set clipboard-=autoselect
+
 " автоматически обновлять файл при его изменении
 set autoread
 
