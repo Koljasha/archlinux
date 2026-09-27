@@ -4,6 +4,8 @@
 [core]
     editor = vim
     pager = delta
+    preloadIndex = true
+    fscache = true
 
 [diff]
     colorMoved = default
@@ -19,4 +21,13 @@
     navigate = true
     line-numbers = true
     side-by-side = true
+
+[protocol]
+    version = 2
+[fetch]
+    parallel = 8
+[submodule]
+    fetchJobs = 8
+[pack]
+    threads = 0
 
