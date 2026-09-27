@@ -28,23 +28,32 @@ trap 'exit 0' INT TERM
 
 while true; do
 	# Блокируется до изменения CLIPBOARD; максимум T_WAIT секунд, дальше тик.
-	# Тик не ошибка — он гарантирует прогресс и самовосстановление.
-	timeout "$T_WAIT" clipnotify -s clipboard >/dev/null 2>&1 || true
+	# Тик нужен только чтобы цикл не залипал навечно (X-обрыв, зависший
+	# clipnotify): он НЕ зеркалит, иначе зеркало перезаписывает PRIMARY
+	# поверх свежих выделений пользователя и дёргает clipmenud каждые 30с.
+	# Зеркалит только реальное событие (rc=0).
+	timeout "$T_WAIT" clipnotify -s clipboard >/dev/null 2>&1
+	rc=$?
+	if ((rc != 0)); then
+		continue
+	fi
 
 	TMP="$(mktemp)"
 	PRIM="$(mktemp)"
 
 	# Через файл, а не shell-переменную: сохраняются trailing \n и NUL-байты,
 	# плюс не упираемся в размер переменной на больших копипастах.
-	# Владелец CLIPBOARD может быть жив, но не отвечать (зависшее приложение):
-	# timeout вместо вечного блока, при зависании — перезапуск сервиса.
+	# Любая неудача чтения (таймаут зависшего владельца или владельца нет)
+	# не фатальна: пропускаем итерацию, повтор на следующем тике. exit 1
+	# здесь запрещён: рестарт сервиса убивает fork-демона xclip, державшего
+	# PRIMARY, и следующий инстанс читает PRIMARY у умирающего владельца —
+	# получаем вечный цикл рестартов вместо зеркала.
 	if ! timeout "$T_XCLIP" xclip -selection clipboard -o >"$TMP" 2>/dev/null; then
-		log "xclip clipboard -o не ответил за ${T_XCLIP}s (владелец CLIPBOARD завис?) — перезапуск"
+		log "xclip clipboard -o не ответил за ${T_XCLIP}s — повтор на следующем тике"
 		rm -f "$TMP" "$PRIM"
 		TMP=""
 		PRIM=""
-		sleep 5
-		exit 1
+		continue
 	fi
 
 	# Пустой CLIPBOARD PRIMARY не затирает.
@@ -59,12 +68,11 @@ while true; do
 	# выделение текста затирает PRIMARY, и повторный Ctrl+C того же
 	# содержимого обязан перезеркалить. Иначе Shift-Ins вставляет stale.
 	if ! timeout "$T_XCLIP" xclip -selection primary -o >"$PRIM" 2>/dev/null; then
-		log "xclip primary -o не ответил за ${T_XCLIP}s (владелец PRIMARY завис?) — перезапуск"
+		log "xclip primary -o не ответил за ${T_XCLIP}s — повтор на следующем тике"
 		rm -f "$TMP" "$PRIM"
 		TMP=""
 		PRIM=""
-		sleep 5
-		exit 1
+		continue
 	fi
 
 	if cmp -s -- "$PRIM" "$TMP"; then

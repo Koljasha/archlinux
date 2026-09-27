@@ -10,6 +10,7 @@ ExecCondition=/usr/bin/bash -c 'pgrep -x "qtile|i3|openbox" > /dev/null'
 ExecStart=/usr/bin/clipmenud
 Restart=on-failure
 RestartSec=3
+Environment=CM_SELECTIONS=clipboard
 Environment=DISPLAY=:0
 Environment=XAUTHORITY=%h/.Xauthority
 
