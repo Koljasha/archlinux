@@ -184,7 +184,7 @@ keys = [
 
     # Яркость
     Key([mod, "shift"], "z", lazy.spawn(f"{scripts['brightness']} change"), desc="Изменить яркость"),
-    Key([mod, "control"], "z", lazy.spawn(f"{scripts['brightness_temperature']}"), desc="Изменить цветовую температуру"),
+    Key([mod, "control"], "t", lazy.spawn(f"{scripts['brightness_temperature']}"), desc="Изменить цветовую температуру"),
 
     # Буфер обмена
     # редко затупливает, тогда:
