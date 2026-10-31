@@ -5,12 +5,12 @@
 "  Terminal
 " ---------------
 if ! has('nvim')
-    nmap <Leader>t :vertical terminal<CR>
-    nmap <Leader>T :terminal<CR><C-\><C-n><C-w>Ti
+    nnoremap <Leader>t :vertical terminal<CR>
+    nnoremap <Leader>T :terminal<CR><C-\><C-n><C-w>Ti
 else
-    nmap <Leader>t :vsplit term://fish<CR>:startinsert<CR>
-    nmap <Leader>T :split term://fish<CR><C-w>Ti
-    " nmap <Leader>T :term fish<CR>:startinsert<CR>
+    nnoremap <Leader>t :vsplit term://fish<CR>:startinsert<CR>
+    nnoremap <Leader>T :split term://fish<CR><C-w>Ti
+    " nnoremap <Leader>T :term fish<CR>:startinsert<CR>
 endif
 
 " ctrl-\ + ctrl-n - выйти из terminal -> на Esc
@@ -61,7 +61,7 @@ noremap <Leader>O :call ToggleExplorer() <CR>
 
 " NERD Tree
 " ---------------
-" <Leader>p - закрыть|открыть
+" <Leader>o - закрыть|открыть
 
 " t - открыть tab
 " v - открыть vsplit
@@ -74,7 +74,7 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden = 1
 " нумерация строк
 let NERDTreeShowLineNumbers = 1
-" открывать с правой стороны
+" открывать с левой стороны
 let g:NERDTreeWinPos = "left"
 " ширина окна
 let g:NERDTreeWinSize = 35
@@ -85,7 +85,7 @@ let g:NERDTreeWinSize = 35
 let g:NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeMapPreviewVSplit = 'gv'
 
-map <Leader>o :NERDTreeToggle <CR>
+nnoremap <Leader>o :NERDTreeToggle <CR>
 
 " ----------------------------------------
 " ----------------------------------------
@@ -101,42 +101,42 @@ map <Leader>o :NERDTreeToggle <CR>
 " ---------------
 
 " FZF Buffers
-nmap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fb :Buffers<CR>
 " FZF Files
-nmap <Leader>ff :Files<CR>
+nnoremap <Leader>ff :Files<CR>
 " FZF Windows
-nmap <Leader>fw :Windows<CR>
+nnoremap <Leader>fw :Windows<CR>
 
 " FZF Blines
-nmap <Leader>f/ :BLines<CR>
+nnoremap <Leader>f/ :BLines<CR>
 " FZF Rg
-nmap <Leader>fr :Rg<CR>
+nnoremap <Leader>fr :Rg<CR>
 " FZF Btags
-nmap <Leader>ft :BTags<CR>
+nnoremap <Leader>ft :BTags<CR>
 
 " FZF Jumps
-nmap <Leader>fj :Jumps<CR>
+nnoremap <Leader>fj :Jumps<CR>
 " FZF Changes
-nmap <Leader>fc :Changes<CR>
+nnoremap <Leader>fc :Changes<CR>
 " FZF Marks
-nmap <Leader>fm :Marks<CR>
+nnoremap <Leader>fm :Marks<CR>
 " FZF History
-nmap <Leader>fh :History<CR>
+nnoremap <Leader>fh :History<CR>
 
 " FZF GFiles? (git status)
-nmap <Leader>fg :GFiles?<CR>
+nnoremap <Leader>fg :GFiles?<CR>
 
 " f? - help
 " FZF Helptags
-nmap <Leader>f?h :Helptags<CR>
+nnoremap <Leader>f?h :Helptags<CR>
 " FZF Normal mode mappings
-nmap <Leader>f?m :Maps<CR>
+nnoremap <Leader>f?m :Maps<CR>
 
 " fs - settings
 " FZF Color schemes
-nmap <Leader>fsc :Colors<CR>
+nnoremap <Leader>fsc :Colors<CR>
 " FZF Filetypes
-nmap <Leader>fsf :Filetypes<CR>
+nnoremap <Leader>fsf :Filetypes<CR>
 
 " ----------------------------------------
 " ----------------------------------------

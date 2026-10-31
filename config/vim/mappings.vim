@@ -21,89 +21,89 @@ nnoremap <C-w>q :if winnr('$') > 1 \
             \| echo "Не закрываем последнее окно" \
             \| endif<CR>
 
-" <Leader><space> - отключение подсветки поиска hlsearch
-nmap <Leader>/ :nohlsearch <CR>
+" <Leader>/ - отключение подсветки поиска hlsearch
+nnoremap <Leader>/ :nohlsearch <CR>
 
 " <Leader>W|S - сохранение файла
-nmap <Leader>W :w! <CR>
-nmap <Leader>S :w! <CR>
+nnoremap <Leader>W :w! <CR>
+nnoremap <Leader>S :w! <CR>
 
 " <Leader>X|Q - закрытие буфера без сохранения
-nmap <Leader>Q :bp\|bd! #<CR>
-nmap <Leader>X :bp\|bd! #<CR>
+nnoremap <Leader>Q :bp\|bd! #<CR>
+nnoremap <Leader>X :bp\|bd! #<CR>
 
 " <Leader>b - toggle буфер
-nmap <Leader>b :b# <CR>
+nnoremap <Leader>b :b# <CR>
 " <Leader>B - следующий буфер
-nmap <Leader>B :bn <CR>
-" <Leader>B - предыдущий буфер
-" nmap <Leader>B :bp <CR>
+nnoremap <Leader>B :bn <CR>
+" откл: <Leader>B - предыдущий буфер
+" nnoremap <Leader>B :bp <CR>
 
 " копировать в системный буфер обмена: выделить, далее "+y
-vmap <C-c> "+y
+vnoremap <C-c> "+y
 " вставить из системного буфера обмена: Ctrl-Shift-v
 " вставить из буфера vim в режиме вставки: Ctrl-r + "
 " список всех буферов|регистров: :registers
 
 " vsplit|split
-" nmap <Leader>v :vsplit
-" nmap <Leader>vs :split
+" nnoremap <Leader>v :vsplit
+" nnoremap <Leader>vs :split
 " vsplit|split по номеру буфера
-" nmap <Leader>V :vertical sb
-" nmap <Leader>VS :sb
+" nnoremap <Leader>V :vertical sb
+" nnoremap <Leader>VS :sb
 
 " Vsplit and Tab
-nmap <Leader>v <C-w>v
-nmap <Leader>V <C-w>T
+nnoremap <Leader>v <C-w>v
+nnoremap <Leader>V <C-w>T
 
 " сменить split
-nmap <C-Left> <C-W>h
-nmap <C-Down> <C-W>j
-nmap <C-Up> <C-W>k
-nmap <C-Right> <C-W>l
+nnoremap <C-Left> <C-W>h
+nnoremap <C-Down> <C-W>j
+nnoremap <C-Up> <C-W>k
+nnoremap <C-Right> <C-W>l
 
 " изменить размера split
-nmap <C-S-Left> <C-W><
-nmap <C-S-Down> <C-W>-
-nmap <C-S-Up> <C-W>+
-nmap <C-S-Right> <C-W>>
+nnoremap <C-S-Left> <C-W><
+nnoremap <C-S-Down> <C-W>-
+nnoremap <C-S-Up> <C-W>+
+nnoremap <C-S-Right> <C-W>>
 
 " перемещение стрелками в командном режиме
 cnoremap <Down> <C-n>
 cnoremap <Up> <C-p>
 
-" F4 - ражим вставки (Paste)
-nmap <F4> :set paste! <CR>
-imap <F4> <Esc> :set paste! <CR>
+" F4 - режим вставки (Paste; из insert выход в normal)
+nnoremap <F4> :set paste! <CR>
+inoremap <F4> <Esc> :set paste! <CR>
 
-" F5 - сохранение файла
-nmap <F5> :w! <CR>
-imap <F5> <Esc> :w! <CR>
+" F5 - сохранение файла (из insert выход в normal)
+nnoremap <F5> :w! <CR>
+inoremap <F5> <Esc> :w! <CR>
 " Shift-F5 - сохранить с sudo
-nmap <S-F5> :execute ':silent w !sudo tee % > /dev/null' <bar> :edit! <CR>
+nnoremap <S-F5> :execute ':silent w !sudo tee % > /dev/null' <bar> :edit! <CR>
 
 " F6 - сохранить свертки
-" nmap <F6> :mkview <CR>
+" nnoremap <F6> :mkview <CR>
 " Shift-F6 - загрузить свертки
-" nmap <S-F6> :loadview <CR>
+" nnoremap <S-F6> :loadview <CR>
 
 " F7 - показать пробелы и табы
-nmap <F7> :set list! <CR>
+nnoremap <F7> :set list! <CR>
 " Shift-F7 - использовать табы вместо пробелов
-nmap <S-F7> :set noet! <CR>
+nnoremap <S-F7> :set noet! <CR>
 
 " F8 - отключение нумерации
-nmap <F8> :set number! relativenumber! <CR>
+nnoremap <F8> :set number! relativenumber! <CR>
 " Shift-F8 - относительная нумерация
-nmap <S-F8> :set relativenumber! <CR>
+nnoremap <S-F8> :set relativenumber! <CR>
 
 " F9 - отключение мыши
-nmap <F9> :set mouse= <CR>
+nnoremap <F9> :set mouse= <CR>
 " Shift-F9 - включение мыши
-nmap <S-F9> :set mouse=a <CR>
+nnoremap <S-F9> :set mouse=a <CR>
 
-" F11 - проверка орфографии
-" map <F11> :setlocal spelllang=ru spell! <CR>
+" F11 (откл) - проверка орфографии
+" nnoremap <F11> :setlocal spelllang=ru spell! <CR>
 " ]s - следующее слово с ошибкой
 " [s - предыдущее слово с ошибкой
 " z= - замена из списка
@@ -112,11 +112,11 @@ nmap <S-F9> :set mouse=a <CR>
 " zG - игнорировать слово
 
 " F11 - подсветка csv
-nmap <F11> :set filetype=text <CR>
-nmap <S-F11> :set filetype=csv <CR>
+nnoremap <F11> :set filetype=text <CR>
+nnoremap <S-F11> :set filetype=csv <CR>
 
 " F12 - режим сравнения (vimdiff)
-nmap <F12> :set diff! <CR>
+nnoremap <F12> :set diff! <CR>
 
 " ----------------------------------------
 " Help Some Keys

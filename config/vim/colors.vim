@@ -4,7 +4,7 @@
 
 " настройка цветовой схемы
 if ! has('nvim')
-    colorscheme PaperColor
+    colorscheme desert
 else
     colorscheme catppuccin-mocha
 endif

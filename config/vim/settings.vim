@@ -8,6 +8,11 @@ set nocompatible
 " 256 цветов
 set t_Co=256
 
+" truecolor для Alacritty и PaperColor (иначе цвета блёклые)
+if has('termguicolors')
+  set termguicolors
+endif
+
 " мышь во всех режимах
 set mouse=a
 
@@ -24,6 +29,13 @@ set nobackup
 
 " отключение swap-файлы
 set noswapfile
+
+" вечная история правок (файлы лежат в ~/.vim/undo, рядом с файлами мусора нет)
+if !isdirectory($HOME . '/.vim/undo')
+  call mkdir($HOME . '/.vim/undo', 'p')
+endif
+set undofile
+set undodir=~/.vim/undo
 
 " не выгружать буфер, когда переключаемся на другой файл
 set hidden
@@ -95,6 +107,8 @@ set incsearch
 
 " игнорировать регистр букв при поиске
 set ignorecase
+" если в запросе есть заглавная — искать строго по регистру
+set smartcase
 
 " кодировка по умолчанию
 set encoding=utf-8
@@ -107,16 +121,16 @@ set splitright
 " :split открывает окна снизу
 set splitbelow
 
-" .vimrc из каталога запуска
-" set exrc
-" set secure
+" подсветка текущей строки
+set cursorline
+" set cursorcolumn
 
 " линия по колонке
 " set colorcolumn=120
 
-" подсветка текущей строки|колонки
-set cursorline
-" set cursorcolumn
+" .vimrc из каталога запуска
+" set exrc
+" set secure
 
 " описание строки статуса
 " set statusline=%<%r%m\ %f:%y\ %=\ %-15(%l,%c:%v\ %p%%%)

@@ -17,7 +17,6 @@
 " Match-up - перемещение по тегам, скобкам...
 " NERD Commenter - комментирование для различных языков
 
-" Polyglot - коллекция языковых пакетов для Vim
 " Xkbswitch - смена на En при переходе в командный режим
 " ----------------------------------------
 " только для Vim
@@ -27,6 +26,7 @@
 " ----------------------------------------
 " отключено
 " ----------------------------------------
+" Polyglot - коллекция языковых пакетов для Vim
 " Startify - стартовый экран
 " MRU - последние открытые файлы
 " Buffer Explorer - переключение открытых буферов
@@ -95,8 +95,8 @@ Plug 'junegunn/fzf.vim'
 
 " NERD Tree - файловый менеджер
 " ---------------
-" https://github.com/scrooloose/nerdtree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" https://github.com/preservim/nerdtree
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 " ---------------
 " смотреть команды ~/.config/vim/explorers.vim
 " ---------------
@@ -111,7 +111,7 @@ Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
 " Включаем умный регистр
 let g:EasyMotion_smartcase = 1
-" Каustomный маппинг: <Leader><Leader> вызывает двусторонний поиск
+" Кастомный маппинг: <Leader><Leader> вызывает двусторонний поиск
 nnoremap <Space><Space> <Plug>(easymotion-s)
 " ----------------------------------------
 
@@ -147,8 +147,8 @@ Plug 'andymass/vim-matchup'
 
 " NERD Commenter - комментирование для различных языков
 " ---------------
-" https://github.com/scrooloose/nerdcommenter
-Plug 'scrooloose/nerdcommenter'
+" https://github.com/preservim/nerdcommenter
+Plug 'preservim/nerdcommenter'
 " ---------------
 " отменить двойной комментарий
 " let g:NERDDefaultNesting = 0
@@ -171,13 +171,6 @@ noremap <leader>c<space> <Plug>NERDCommenterToggle
 " ----------------------------------------
 
 " ----------------------------------------
-" ----------------------------------------
-
-" Polyglot - коллекция языковых пакетов для Vim
-" ---------------
-" https://github.com/sheerun/vim-polyglot
-Plug 'sheerun/vim-polyglot'
-" ---------------
 " ----------------------------------------
 
 " Xkbswitch - смена на En при переходе в командный режим
@@ -226,6 +219,13 @@ if ! has('nvim')
 endif
 
 " ----------------------------------------
+" ----------------------------------------
+
+" Polyglot - коллекция языковых пакетов для Vim
+" ---------------
+" https://github.com/sheerun/vim-polyglot
+" Plug 'sheerun/vim-polyglot'
+" ---------------
 " ----------------------------------------
 
 " " Startify - стартовый экран
