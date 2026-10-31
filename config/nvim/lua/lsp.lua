@@ -173,14 +173,16 @@ return {
     end,
   },
 
-  -- Плагины для автодополнения
-  { 'hrsh7th/nvim-cmp' },
+  -- Плагины для автодополнения: грузим при первом входе в insert,
+  -- к моменту ввода всё уже на месте, старт быстрее
+  { 'hrsh7th/nvim-cmp', event = 'InsertEnter' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-buffer' },
 
-  -- Сниппеты
+  -- Сниппеты: тоже только к первому insert
   {
     'L3MON4D3/LuaSnip',
+    event = 'InsertEnter',
     config = function()
       -- Neovim Snippets: ~/.config/nvim/lua/snippets.lua
       local ok, _ = pcall(require, 'snippets')
@@ -192,6 +194,7 @@ return {
 
   {
     'saadparwaiz1/cmp_luasnip',
+    event = 'InsertEnter',
     config = function()
       local cmp = require('cmp')
       cmp.setup({
