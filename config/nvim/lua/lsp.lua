@@ -67,8 +67,8 @@ return {
 
       -- Диагностические маппинги
       vim.keymap.set('n', '[ ', vim.diagnostic.setloclist, opts)
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_next, opts)
-      vim.keymap.set('n', '[D', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = 1 }) end, opts)
+      vim.keymap.set('n', '[D', function() vim.diagnostic.jump({ count = -1 }) end, opts)
 
       -- Функция on_attach
       local on_attach = function(client, bufnr)
@@ -76,7 +76,7 @@ return {
         vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-        vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', 'ge', vim.diagnostic.open_float, bufopts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
         vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)

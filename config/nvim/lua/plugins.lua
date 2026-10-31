@@ -43,8 +43,8 @@ return {
         { "<leader>b", desc = "Buffer Switch", icon = "" },
         { "<leader>B", desc = "Buffer Next", icon = "󰒭" },
 
-        { "<leader>o", desc = "Explorer Files", icon = "" },
-        { "<leader>O", desc = "Explorer Files", icon = "󱉆" },
+        { "<leader>o", desc = "Explorer NERDTree", icon = "" },
+        { "<leader>O", desc = "Explorer netrw", icon = "󱉆" },
 
         { "<leader>Q", desc = "Delete Buffer", icon = "󱂦" },
         { "<leader>S", desc = "Save Buffer", icon = "" },

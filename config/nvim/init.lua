@@ -34,14 +34,21 @@ vim.opt.rtp:prepend(lazypath)
 -- в nvim появляется уже после фазы загрузки плагинов — без скана
 -- пути есть, а команды и маппинги мертвы
 local plugged_dir = vim.fn.expand('~/.vim/plugged')
--- Плагины с отложенной загрузкой в plugins.vim ('on:'): их тянет сам
--- vim-plug по первой команде, в общий скан не включаем
-local on_demand = { nerdtree = true } -- 'on': 'NERDTreeToggle'
+-- В общий скан не включаем:
+-- nerdtree — отложенная загрузка из plugins.vim ('on':),
+--   его тянет сам vim-plug по первой команде
+-- supertab, papercolor-theme — только для vim (guard has('nvim') в plugins.vim),
+--   в nvim supertab перехватывал бы <Tab> у nvim-cmp
+local skip_scan = {
+  nerdtree = true, -- 'on': 'NERDTreeToggle'
+  supertab = true, -- только vim
+  ['papercolor-theme'] = true, -- только vim
+}
 local plugged_plugins = {}
 if vim.fn.isdirectory(plugged_dir) == 1 then
   for _, dir in ipairs(vim.fn.readdir(plugged_dir)) do
     local plugin_path = plugged_dir .. '/' .. dir
-    if vim.fn.isdirectory(plugin_path) == 1 and not on_demand[dir] then
+    if vim.fn.isdirectory(plugin_path) == 1 and not skip_scan[dir] then
       table.insert(plugged_plugins, {
         dir = plugin_path,
         name = dir,
