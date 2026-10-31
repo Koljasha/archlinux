@@ -2,21 +2,21 @@
 
 ---------------
 -- nvim-lspconfig
--- See: https://github.com/neovim/nvim-lspconfig
+-- См: https://github.com/neovim/nvim-lspconfig
 ---------------
 -- nvim-cmp
--- See: https://github.com/hrsh7th/nvim-cmp
--- settings from https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+-- См: https://github.com/hrsh7th/nvim-cmp
+-- настройки из https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 ---------------
 -- mason.nvim
--- See: https://github.com/mason-org/mason.nvim
+-- См: https://github.com/mason-org/mason.nvim
 -- mason-lspconfig.nvim
--- See: https://github.com/mason-org/mason-lspconfig.nvim
+-- См: https://github.com/mason-org/mason-lspconfig.nvim
 ---------------
 
 return {
   -- Mason для установки LSP-серверов
-  -- See: https://github.com/mason-org/mason.nvim
+  -- См: https://github.com/mason-org/mason.nvim
   {
     'mason-org/mason.nvim',
     -- Убедитесь, что setup вызывается до mason-lspconfig.nvim
@@ -26,18 +26,18 @@ return {
   },
 
   -- Интеграция Mason с lspconfig
-  -- See: https://github.com/mason-org/mason-lspconfig.nvim
+  -- См: https://github.com/mason-org/mason-lspconfig.nvim
   {
     'mason-org/mason-lspconfig.nvim',
     dependencies = {
-      'mason-org/mason.nvim', -- Mason manager
-      'neovim/nvim-lspconfig', -- LSP configurations
-      'hrsh7th/cmp-nvim-lsp',  -- LSP capabilities for nvim-cmp
+      'mason-org/mason.nvim', -- менеджер Mason
+      'neovim/nvim-lspconfig', -- конфиги LSP
+      'hrsh7th/cmp-nvim-lsp',  -- возможности LSP для nvim-cmp
     },
-    -- Using opts for configuration with lazy.nvim is recommended.
-    -- This setup automatically calls require('mason-lspconfig').setup()
+    -- Настройку через opts рекомендует lazy.nvim.
+    -- require('mason-lspconfig').setup() вызовется сам
     opts = {
-      -- Automatically install listed servers if they are not already installed
+      -- Автоматом ставить перечисленные серверы, если их нет
       ensure_installed = {
         'pyright',
         'bashls',
@@ -45,20 +45,20 @@ return {
         -- 'docker_compose_language_service',
         -- 'emmet_ls',
       },
-      -- Disable automatic enabling of servers installed via Mason.
-      -- We configure and enable them manually below using vim.lsp.config/enable.
-      -- This avoids potential conflicts with our custom setup.
+      -- Выключаем автовключение серверов из Mason.
+      -- Настраиваем и включаем вручную ниже через vim.lsp.config/enable.
+      -- Так избегаем конфликтов с нашей настройкой.
       automatic_enable = false,
     },
   },
 
   -- LSP
-  -- Provides default configurations for various LSP servers.
-  -- See: https://github.com/neovim/nvim-lspconfig
+  -- Дефолтные конфиги LSP-серверов.
+  -- См: https://github.com/neovim/nvim-lspconfig
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Mason packages are handled by mason-lspconfig.nvim above
+      -- Пакеты Mason обрабатывает mason-lspconfig.nvim выше
       'mason-org/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -72,11 +72,11 @@ return {
 
       -- Функция on_attach
       local on_attach = function(client, bufnr)
-        -- Set omnifunc for buffer
+        -- Омнидополнение для буфера
         vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-        vim.keymap.set('n', 'E', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
         vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
@@ -110,57 +110,58 @@ return {
         },
 
         bashls = {
-          -- No specific overrides needed beyond defaults
+          -- Без переопределений, хватает дефолтов
         },
 
-        dockerls = {
-          filetypes = { 'dockerfile' },
-          settings = {
-            docker = {
-              languages = {
-                dockerfile = {
-                  enable = true,
-                },
-              },
-            },
-          },
-        },
-
-        docker_compose_language_service = {
-          filetypes = { 'yaml.docker-compose' },
-          settings = {
-            telemetry = {
-              enable = false, -- Отключаем телеметрию, если не нужна
-            },
-          },
-        },
-
-        emmet_ls = {
-          filetypes = { 'html', 'htmldjango', 'css' },
-          init_options = {
-            html = {
-              options = {
-                ['bem.enabled'] = false,
-                ['output.selfClosingStyle'] = 'xhtml',
-              },
-            },
-          },
-          settings = {
-            emmet = {
-              showSuggestionsAsSnippets = true,
-              includeLanguages = {
-                htmldjango = 'html',
-              },
-            },
-          },
-        },
+        -- Не пригодились (оставляю для памяти):
+        -- dockerls = {
+        --   filetypes = { 'dockerfile' },
+        --   settings = {
+        --     docker = {
+        --       languages = {
+        --         dockerfile = {
+        --           enable = true,
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
+        --
+        -- docker_compose_language_service = {
+        --   filetypes = { 'yaml.docker-compose' },
+        --   settings = {
+        --     telemetry = {
+        --       enable = false, -- Отключаем телеметрию, если не нужна
+        --     },
+        --   },
+        -- },
+        --
+        -- emmet_ls = {
+        --   filetypes = { 'html', 'htmldjango', 'css' },
+        --   init_options = {
+        --     html = {
+        --       options = {
+        --         ['bem.enabled'] = false,
+        --         ['output.selfClosingStyle'] = 'xhtml',
+        --       },
+        --     },
+        --   },
+        --   settings = {
+        --     emmet = {
+        --       showSuggestionsAsSnippets = true,
+        --       includeLanguages = {
+        --         htmldjango = 'html',
+        --       },
+        --     },
+        --   },
+        -- },
 
       }
 
       -- Настройка и запуск серверов
       for lsp, config in pairs(servers) do
         -- Регистрируем конфигурацию с on_attach и capabilities
-        -- The base configuration (cmd, root_dir, etc.) comes implicitly from nvim-lspconfig.
+        -- Базовый конфиг (cmd, root_dir и т.д.) подтягивается из nvim-lspconfig.
         vim.lsp.config(lsp, vim.tbl_extend('force', {
           on_attach = on_attach,
           capabilities = capabilities,
@@ -184,7 +185,7 @@ return {
       -- Neovim Snippets: ~/.config/nvim/lua/snippets.lua
       local ok, _ = pcall(require, 'snippets')
       if not ok then
-        print('Failed to load snippets.lua')
+        print('Не загрузился snippets.lua')
       end
     end,
   },

@@ -9,6 +9,12 @@ vim.cmd('source ~/.config/vim/mappings.vim')
 -- Терминал и Проводник
 vim.cmd('source ~/.config/vim/explorers.vim')
 
+-- Только Nvim (в vim такого нет):
+-- колонка знаков всегда видима, текст не прыгает
+vim.opt.signcolumn = 'yes'
+-- отзывчивость CursorHold и диагностики (дефолт 4000)
+vim.opt.updatetime = 300
+
 -- Установка lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -23,13 +29,19 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Динамическая регистрация плагинов Vim-Plug из plugged/
-local plugged_dir = vim.fn.stdpath('data') .. '/plugged'
+-- Подхватываем vim-плагины из общего каталога (~/.vim/plugged).
+-- Скан обязателен: lazy сам source'ит plugin/*.vim, а rtp от vim-plug
+-- в nvim появляется уже после фазы загрузки плагинов — без скана
+-- пути есть, а команды и маппинги мертвы
+local plugged_dir = vim.fn.expand('~/.vim/plugged')
+-- Плагины с отложенной загрузкой в plugins.vim ('on:'): их тянет сам
+-- vim-plug по первой команде, в общий скан не включаем
+local on_demand = { nerdtree = true } -- 'on': 'NERDTreeToggle'
 local plugged_plugins = {}
 if vim.fn.isdirectory(plugged_dir) == 1 then
   for _, dir in ipairs(vim.fn.readdir(plugged_dir)) do
     local plugin_path = plugged_dir .. '/' .. dir
-    if vim.fn.isdirectory(plugin_path) == 1 then
+    if vim.fn.isdirectory(plugin_path) == 1 and not on_demand[dir] then
       table.insert(plugged_plugins, {
         dir = plugin_path,
         name = dir,
@@ -51,7 +63,7 @@ require('lazy').setup({
   -- реализовано через LSP
   -- { import = 'emmet' },
 
-  -- Плагины Vim из plugged/
+  -- Vim-плагины из общего каталога (загрузка через lazy)
   plugged_plugins,
 
   -- vim-plug для установки плагинов Vim
@@ -62,7 +74,10 @@ require('lazy').setup({
       local plug_script = vim.fn.stdpath('data') .. '/lazy/vim-plug/plug.vim'
       if vim.fn.filereadable(plug_script) == 1 then
         vim.cmd('source ' .. plug_script)
-        vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
+        -- Общий каталог с vim (~/.vim/plugged): ставить/обновлять можно
+        -- с любой стороны, чистить (:PlugClean) только из vim —
+        -- в nvim papercolor/supertab не декларированы и попадут под удаление
+        vim.fn['plug#begin'](vim.fn.expand('~/.vim/plugged'))
         vim.cmd('source ~/.config/vim/plugins.vim')
         vim.fn['plug#end']()
       else

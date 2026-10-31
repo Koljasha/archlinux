@@ -2,7 +2,7 @@
 
 return {
   {
-    -- Catppuccin colorscheme for (Neo)vim : https://github.com/catppuccin/nvim
+    -- Цветовая схема Catppuccin для (Neo)vim : https://github.com/catppuccin/nvim
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000, -- Загружаем раньше для цветовых схем
@@ -62,7 +62,28 @@ return {
         { "<leader><space>", desc = "EasyMotion", icon = "" },
 
         { "<leader>c", group = " NerdCommenter", icon = "" },
+        { "<leader>c<space>", desc = "Toggle comment" },
+        { "<leader>cc", desc = "Comment" },
+        { "<leader>cu", desc = "Uncomment" },
+
         { "<leader>f", group = " Fzf", icon = "󱎸" },
+        { "<leader>fb", desc = "FZF Buffers" },
+        { "<leader>ff", desc = "FZF Files" },
+        { "<leader>fw", desc = "FZF Windows" },
+        { "<leader>f/", desc = "FZF Blines" },
+        { "<leader>fr", desc = "FZF Rg" },
+        { "<leader>ft", desc = "FZF Btags" },
+        { "<leader>fj", desc = "FZF Jumps" },
+        { "<leader>fc", desc = "FZF Changes" },
+        { "<leader>fm", desc = "FZF Marks" },
+        { "<leader>fh", desc = "FZF History" },
+        { "<leader>fg", desc = "FZF Git status" },
+        { "<leader>f?h", desc = "FZF Helptags" },
+        { "<leader>f?m", desc = "FZF Maps" },
+        { "<leader>fsc", desc = "FZF Colors" },
+        { "<leader>fsf", desc = "FZF Filetypes" },
+
+        { "ge", desc = "Diagnostic float" },
       })
     end,
   },
