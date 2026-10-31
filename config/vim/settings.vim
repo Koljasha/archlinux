@@ -40,8 +40,9 @@ set undodir=~/.vim/undo
 " не выгружать буфер, когда переключаемся на другой файл
 set hidden
 
-" определение типа файла
-filetype plugin indent on
+" определение типа файла — дубль: в vim делают /etc/vimrc и plug#end,
+" в nvim включён дефолтом, поэтому выключено
+" filetype plugin indent on
 
 " подсветка синтаксиса
 syntax on
