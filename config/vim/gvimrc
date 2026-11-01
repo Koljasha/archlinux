@@ -6,6 +6,9 @@
 " eVim - перейти в normal mode: ctrl-l
 " ----------------------------------------
 
+" настройка цветовой схемы
+colorscheme PaperColor
+
 " размер окна
 set lines=45 columns=150
 
