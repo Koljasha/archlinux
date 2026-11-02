@@ -1,10 +1,10 @@
 # https://wiki.archlinux.org/title/GNU_Screen
 
 #
-# Quick Help
+# Краткая помощь
 #
-# ctrl-a - prefix default
-# ctrl-\ - prefix used
+# ctrl-a - префикс по умолчанию
+# ctrl-\ - используемый префикс
 #
 # `screen -ls` - список сессий
 # `screen -r` - подключиться к последней сессии
@@ -37,35 +37,36 @@ startup_message off
 # выключаем визуальный звонок
 vbell off
 
-# корректная работа редакторов
+# корректная работа редакторов, чтобы не висели на экране
 altscreen on
+
+# прокрутка в терминале
+termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
+
+# размер буфера прокрутки
+defscrollback 10000
 
 # нормальный вывод в списке окон
 windowlist string "%4n %h%=%f"
 
-# прокрутка
-termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
-
-# строка состояния
-hardstatus off
-
 #
-# Screen version 5
+# Screen версия 5
 #
 
-# Настройка времени с секундами
-backtick 1 1 1 date "+%H:%M:%S"
+# Настройка времени, обновление раз в 10 секунд
+# с секундами (дергает статус, только локально): backtick 1 1 1 date "+%H:%M:%S"
+backtick 1 10 10 date "+%H:%M"
 hardstatus alwayslastline '%{#00ff00}[ %H ][ %{#ffffff}%= %{7}%?%-Lw%?%{1}%n%f %t%?%u%?%{7}%?%+Lw%? %=%{#00ff00} ][ %{#00a5ff}%{6}%Y-%m-%d %{#ffffff}%{7}%1`%{#00ff00} ]'
 
-# Настройка Load Average
+# Настройка средней загрузки (Load Average)
 # backtick 2 5 5 sh -c "cat /proc/loadavg | cut -d' ' -f1-3"
 # hardstatus alwayslastline '%{#00ff00}[ %H ][ %{#ffffff}%= %{7}%?%-Lw%?%{1}%n%f %t%?%u%?%{7}%?%+Lw%? %=%{#00ff00} ][ %{#ffd700}Load: %2`%{#00ff00} ][ %{#00a5ff}%{6}%Y-%m-%d %{#ffffff}%{7}%1`%{#00ff00} ]'
 
 #
-# Screen version 4
+# Screen версия 4
 #
 
 # hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{B}%Y-%m-%d %{W}%c:%s %{g}]'
-# Настройка Load Average
+# Настройка средней загрузки (Load Average)
 # hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][ %{B}%Y-%m-%d %{W}%c:%s %{g}]'
 
