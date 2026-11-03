@@ -159,8 +159,7 @@ fzf fd ripgrep jq tree highlight eza bat bat-extras git-delta gitleaks git-filte
 screenfetch htop btop inxi cmatrix lm_sensors lsof strace
 atool p7zip unrar unzip zip
 openssh freerdp gufw rsync rclone
-openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle
-sing-box sing-geoip-rule-set sing-geosite-rule-set
+openvpn networkmanager-openvpn wireguard-tools systemd-resolvconf sshuttle sing-box
 xorg xorg-xinit accountsservice libinput-tools
 pipewire wireplumber pipewire-alsa pipewire-pulse
 vim fish tmux screen
